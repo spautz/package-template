@@ -46,7 +46,7 @@ run_command "rm -rf
 ##################################################################################################
 # Remove generated files
 
-for DIRECTORY in '.' 'demos/*' 'examples/*' 'packages/*' ; do
+for DIRECTORY in '.' 'demos/*' 'examples/*' ; do
   run_command "rm -rf
     $DIRECTORY/.yarn
     $DIRECTORY/build/
