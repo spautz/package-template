@@ -75,7 +75,25 @@
     "types": "tsc --noEmit --p tsconfig.json"
   },
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/jest": "26.0.24",
+    "@typescript-eslint/eslint-plugin": "4.28.2",
+    "@typescript-eslint/parser": "4.28.2",
+    "downlevel-dts": "0.7.0",
+    "eslint": "7.30.0",
+    "eslint-config-prettier": "8.3.0",
+    "husky": "7.0.1",
+    "jest": "27.0.6",
+    "lint-staged": "11.0.0",
+    "microbundle": "0.13.3",
+    "prettier": "2.3.2",
+    "rimraf": "3.0.2",
+    "standard-version": "9.3.0",
+    "ts-jest": "27.0.3",
+    "tslib": "2.3.0",
+    "typescript": "4.3.5",
+    "yarn-or-npm": "3.0.1"
+  },
   "peerDependencies": {},
   "lint-staged": {
     "**/*.{css,html,js,jsx,json,less,md,scss,ts,tsx}": [

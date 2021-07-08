@@ -6,7 +6,6 @@
 
 build/
 coverage/
-coverage-package/
 dist/
 legacy-types/
 lib-dist/

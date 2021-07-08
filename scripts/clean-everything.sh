@@ -51,16 +51,12 @@ for DIRECTORY in '.' 'demos/*' 'examples/*' 'packages/*' ; do
     $DIRECTORY/.yarn
     $DIRECTORY/build/
     $DIRECTORY/coverage/
-    $DIRECTORY/coverage-package/
     $DIRECTORY/dist/
     $DIRECTORY/legacy-types/
     $DIRECTORY/lib-dist/
     $DIRECTORY/node_modules/
     $DIRECTORY/storybook-static/
-    $DIRECTORY/lerna-debug.log*
-    $DIRECTORY/npm-debug.log*
-    $DIRECTORY/yarn-debug.log*
-    $DIRECTORY/yarn-error.log*
+    $DIRECTORY/*.log*
     "
 done
 
