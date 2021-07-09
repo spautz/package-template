@@ -3,10 +3,13 @@
 module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react'],
   extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
 
-  rules: {},
+  rules: {
+    'react/jsx-uses-react': 'error',
+    'react/jsx-uses-vars': 'error',
+  },
   overrides: [
     {
       files: ['**/*.test.*', '**/tests/*.*'],
@@ -17,6 +20,7 @@ module.exports = {
   ],
 
   ignorePatterns: [
+    '!.storybook/',
     'build/',
     'coverage/',
     'dist/',
