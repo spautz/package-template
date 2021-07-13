@@ -2,7 +2,7 @@
 
 module.exports = {
   preset: 'ts-jest',
-  roots: ['<rootDir>/src/'],
+  roots: ['<rootDir>/src/', '<rootDir>/demos/demo-template/src'],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: ['/__tests__/_.*', '/node_modules/'],
 
