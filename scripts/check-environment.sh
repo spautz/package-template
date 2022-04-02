@@ -4,7 +4,8 @@
 set -e
 
 # This script runs from the project root
-cd "$(dirname "$0")/.."
+THIS_SCRIPT_DIR=$(dirname "$BASH_SOURCE[0]" || dirname "$0")
+cd "${THIS_SCRIPT_DIR}/.."
 
 source ./scripts/helpers/helpers.sh
 
@@ -29,6 +30,8 @@ if [ ! $HAS_ENGINES ] || [ ! $HAS_ENGINES_NODE ]; then
     exit 1
   fi
 fi
+
+yarn check --integrity
 
 ###################################################################################################
 

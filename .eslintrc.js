@@ -12,7 +12,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['**/*.test.*', '**/tests/*.*'],
+      files: ['**/*.test.*', '**/__tests__/*.*'],
       env: {
         jest: true,
       },
@@ -23,6 +23,7 @@ module.exports = {
     '!.storybook/',
     'build/',
     'coverage/',
+    'coverage-local/',
     'dist/',
     'legacy-types/',
     'lib-dist/',
