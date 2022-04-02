@@ -31,7 +31,9 @@ if [ ! $HAS_ENGINES ] || [ ! $HAS_ENGINES_NODE ]; then
   fi
 fi
 
-yarn check --integrity
+if [ -d "./node_modules/" ]; then
+  yarn check --integrity
+fi
 
 ###################################################################################################
 

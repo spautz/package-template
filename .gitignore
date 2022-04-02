@@ -12,12 +12,12 @@
 /lib-dist/
 /storybook-static/
 
-/demos/build/
-/demos/coverage/
-/demos/dist/
-/demos/legacy-types/
-/demos/lib-dist/
-/demos/storybook-static/
+/demos/*/build/
+/demos/*/coverage/
+/demos/*/dist/
+/demos/*/legacy-types/
+/demos/*/lib-dist/
+/demos/*/storybook-static/
 
 # misc
 .idea/

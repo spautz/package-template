@@ -7,6 +7,8 @@ set -e
 THIS_SCRIPT_DIR=$(dirname "$BASH_SOURCE[0]" || dirname "$0")
 cd "${THIS_SCRIPT_DIR}/.."
 
+ALL_DIRECTORIES=$(ls -d . demos/*)
+
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
@@ -23,8 +25,16 @@ fi
 ##################################################################################################
 # Clear caches
 
+for DIRECTORY in $ALL_DIRECTORIES ; do
+  pushd $DIRECTORY
+    if [ -d "./node_modules/" ]; then
+      run_command yarn clean
+    fi
+  popd
+done
+
+
 if [ -d "./node_modules/" ]; then
-  run_command yarn clean
   run_npm_command jest --clearCache
 else
   run_npm_command jest --clearCache --config={}
@@ -47,7 +57,7 @@ run_command "rm -rf
 ##################################################################################################
 # Remove generated files
 
-for DIRECTORY in '.' 'demos/*' 'examples/*' ; do
+for DIRECTORY in $ALL_DIRECTORIES ; do
   run_command "rm -rf
     $DIRECTORY/.yarn
     $DIRECTORY/build/
