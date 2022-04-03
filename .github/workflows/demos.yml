@@ -36,5 +36,5 @@ jobs:
       - name: Run CI checks for package
         run: |
           cd demos/${{ matrix.demo-path }}
-          yarn yarn install --prefer-offline
+          yarn install --prefer-offline
           yarn run all:readonly
