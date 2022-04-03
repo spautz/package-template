@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        demo-path: [ demo-template-react-16, demo-template-react-17, demo-template-react-18 ]
+        demo-path: [ demo-template-react16, demo-template-react17, demo-template-react18 ]
 
     steps:
       - uses: actions/checkout@v2
