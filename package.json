@@ -37,23 +37,22 @@
   "types": "dist/index.d.ts",
   "sideEffects": false,
   "engines": {
-    "node": "^12 || ^14 || ^16 || ^17",
-    "yarn": "1.*"
+    "node": "^14 || ^16 || ^18",
+    "pnpm": "1.*"
   },
   "scripts": {
-    "____ LIFECYCLE HOOKS _______________________________________________": "",
-    "prepare": "yon run build && husky install",
-    "prerelease": "yon run build:clean",
-    "prepublishOnly": "yarn run dev:readonly && yarn run build",
+    "____ HOOKS _________________________________________________________": "",
+    "prepare": "husky install && yon run build",
+    "prepack": "pnpm run clean && pnpm run dev:readonly",
+    "husky:precommit": "yarn run lint-staged",
+    "husky:prepush": "yon run format:verify && yon run types && yon run lint",
+    "____ MAIN __________________________________________________________": "",
+    "build": "yon run build:clean && yon run build:main && yon run build:types",
+    "test": "yon run test:coverage",
     "____ INTEGRATION ___________________________________________________": "",
     "all": "yon run clean && yon run format && yon run types && yon run lint && yon run test:coverage && yon run build",
     "all:readonly": "yon run format:verify && yon run types && yon run lint && yon run test:coverage",
     "clean": "yon run build:clean && yon run test:clean && rimraf ./node_modules/.cache/ *.log",
-    "husky:precommit": "yarn run lint-staged",
-    "husky:prepush": "yon run format:verify && yon run types && yon run lint",
-    "____ MAIN WORKFLOW _________________________________________________": "",
-    "build": "yon run build:clean && yon run build:main && yon run build:types",
-    "test": "yon run test:coverage",
     "____ INDIVIDUAL COMMANDS ___________________________________________": "",
     "build:clean": "rimraf ./dist ./legacy-types",
     "build:main": "microbundle build --jsx React.createElement",
@@ -101,7 +100,7 @@
     "yarn-or-npm": "3.0.1"
   },
   "peerDependencies": {
-    "react": "^16.8.3 || ^17"
+    "react": "^16.8.3 || ^17 || ^18"
   },
   "lint-staged": {
     "**/*.{css,html,js,jsx,json,less,md,scss,ts,tsx}": [

@@ -4,45 +4,65 @@ on:
   push
 
 jobs:
-  build:
-    name: Build & test
+  package-ci:
+    name: Package CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 14.x, 16.x, 17.x ]
+        node-version: [ 14.x, 16.x, 18.x ]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
 
-      - name: Get Yarn cache directory
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Use Yarn cache
-        uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      - uses: pnpm/action-setup@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ matrix.node-version }}-${{ hashFiles('**/yarn.lock') }}
+          version: 7
 
       - name: Install dependencies
-        run: yarn install --ignore-scripts --prefer-offline
+        run: pnpm install --frozen-lockfile
 
       - name: Clear local caches
-        run: yarn clean
+        run: pnpm run clean
 
       - name: Run CI checks
-        run: yarn all:readonly
-
-      - name: Build package
-        run: yarn build
+        run: pnpm run all:readonly
 
       - name: Report test coverage to coveralls.io
         uses: coverallsapp/github-action@v1.1.2
         with:
           github-token: ${{ github.token }}
+
+
+  demos-ci:
+    name: Demos CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        demo-path: [ demo-template-react16, demo-template-react17, demo-template-react18 ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run CI checks for demo
+        run: |
+          cd demos/${{ matrix.demo-path }}
+          pnpm run all:readonly
