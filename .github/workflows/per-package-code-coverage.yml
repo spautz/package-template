@@ -1,0 +1,57 @@
+name: Per-Package Code Coverage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  package-test-coverage:
+    name: Package code coverage
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package-name: [ node-library, react-library ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - run: corepack enable
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run package tests
+        run: |
+          cd packages/${{ matrix.package-name }}
+          pnpm run test:coverage
+
+      - name: Report package test coverage to coveralls.io
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ github.token }}
+          path-to-lcov: packages/${{ matrix.package-name }}/coverage/lcov.info
+          base-path: packages/${{ matrix.package-name }}
+          git-branch: x-cov-${{ matrix.package-name }}

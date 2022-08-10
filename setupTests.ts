@@ -1,1 +1,1 @@
-import 'packages/package-template/setupTests';
+import 'packages/react-library-template/setupTests';

@@ -50,12 +50,55 @@ jobs:
           github-token: ${{ github.token }}
 
 
+  package-ci:
+    name: Package CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        package-name: [ node-library, react-library ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - run: corepack enable
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run CI checks for package
+        run: |
+          cd packages/${{ matrix.package-name }}
+          pnpm run all:ci
+
+
   demos-ci:
     name: Demos CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        demo-name: [ react16, react17, react18 ]
+        demo-name: [ demo-template-react16, demo-template-react17, demo-template-react18 ]
 
     steps:
       - uses: actions/checkout@v3
@@ -91,46 +134,3 @@ jobs:
         run: |
           cd demos/${{ matrix.demo-name }}
           pnpm run all:ci
-
-
-#  package-ci:
-#    name: Package CI
-#    runs-on: ubuntu-latest
-#    strategy:
-#      matrix:
-#        package-name: [ core, with-reselect ]
-#
-#    steps:
-#      - uses: actions/checkout@v3
-#
-#      - name: Node.js
-#        uses: actions/setup-node@v3
-#        with:
-#          node-version: 16
-#
-#      - uses: pnpm/action-setup@v2
-#        with:
-#          version: 7
-#
-#      - run: corepack enable
-#
-#      - name: Get pnpm store directory
-#        id: pnpm-cache
-#        run: |
-#          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-#
-#      - uses: actions/cache@v3
-#        name: Setup pnpm cache
-#        with:
-#          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-#          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-#          restore-keys: |
-#            ${{ runner.os }}-pnpm-store-
-#
-#      - name: Install dependencies
-#        run: pnpm install --frozen-lockfile
-#
-#      - name: Run CI checks for package
-#        run: |
-#          cd packages/${{ matrix.package-name }}
-#          pnpm run all:ci
