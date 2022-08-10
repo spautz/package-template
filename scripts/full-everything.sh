@@ -4,16 +4,15 @@
 set -e
 
 # This script runs from the project root
-THIS_SCRIPT_DIR=$(dirname "$BASH_SOURCE[0]" || dirname "$0")
-cd "${THIS_SCRIPT_DIR}/.."
+cd "$(dirname "$0")/.."
 
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
 
 echo "Going to doing everything: this will take a while..."
-source ./scripts/setup-environment.sh
 ./scripts/clean-everything.sh
+./scripts/setup-environment.sh
 ./scripts/full-ci.sh
 ./scripts/build-everything.sh
 

@@ -1,17 +1,18 @@
 import React from 'react';
+import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import { TODO, TodoComponent } from '..';
+import { TODO, TodoRoot } from '../index';
 
 describe('TODO', () => {
-  it('exists', () => {
+  test('exists', () => {
     expect(TODO).toEqual('TODO');
   });
 });
 
-describe('TodoComponent', () => {
-  it('Renders without error', () => {
-    render(<TodoComponent>Stuff</TodoComponent>);
+describe('TodoRoot', () => {
+  test('Renders without error', () => {
+    render(<TodoRoot>Stuff</TodoRoot>);
 
     expect(screen.getByText('TODO! Stuff')).toBeVisible();
   });

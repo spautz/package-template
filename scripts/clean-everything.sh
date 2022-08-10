@@ -4,10 +4,7 @@
 set -e
 
 # This script runs from the project root
-THIS_SCRIPT_DIR=$(dirname "$BASH_SOURCE[0]" || dirname "$0")
-cd "${THIS_SCRIPT_DIR}/.."
-
-ALL_DIRECTORIES=$(ls -d . demos/*)
+cd "$(dirname "$0")/.."
 
 source ./scripts/helpers/helpers.sh
 
@@ -25,30 +22,24 @@ fi
 ##################################################################################################
 # Clear caches
 
-for DIRECTORY in $ALL_DIRECTORIES ; do
-  pushd $DIRECTORY
-    if [ -d "./node_modules/" ]; then
-      run_command yarn clean
-    fi
-  popd
-done
-
-
 if [ -d "./node_modules/" ]; then
+  run_command pnpm run clean
+fi
+
+if command_exists jest; then
   run_npm_command jest --clearCache
-else
-  run_npm_command jest --clearCache --config={}
 fi
 
-if command_exists yarn; then
-  run_command yarn cache clean
+if command_exists pnpm; then
+  run_command "pnpm store prune" || true
+  run_command "rm -rf $(pnpm store path)"
 fi
-
-run_command npm cache clean --force
 
 if command_exists watchman; then
   run_command watchman watch-del-all
 fi
+
+run_command npm cache clean --force
 
 run_command "rm -rf
   $TMPDIR/react-*
@@ -57,16 +48,18 @@ run_command "rm -rf
 ##################################################################################################
 # Remove generated files
 
-for DIRECTORY in $ALL_DIRECTORIES ; do
+for DIRECTORY in '.' 'packages/*' ; do
   run_command "rm -rf
     $DIRECTORY/.yarn
     $DIRECTORY/build/
     $DIRECTORY/coverage/
+    $DIRECTORY/coverage-local/
     $DIRECTORY/dist/
     $DIRECTORY/legacy-types/
     $DIRECTORY/lib-dist/
     $DIRECTORY/node_modules/
     $DIRECTORY/storybook-static/
+    $directory/.pnpm-debug.log*
     $DIRECTORY/lerna-debug.log*
     $DIRECTORY/npm-debug.log*
     $DIRECTORY/yarn-debug.log*

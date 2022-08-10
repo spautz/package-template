@@ -4,8 +4,7 @@
 set -e
 
 # This script runs from the project root
-THIS_SCRIPT_DIR=$(dirname "$BASH_SOURCE[0]" || dirname "$0")
-cd "${THIS_SCRIPT_DIR}/.."
+cd "$(dirname "$0")/.."
 
 source ./scripts/helpers/helpers.sh
 
@@ -19,6 +18,7 @@ if ! command_exists nvm; then
     source $NVM_INIT
   else
     echo "Could not find nvm!"
+    exit 1
   fi
 fi
 
@@ -26,13 +26,17 @@ fi
 run_command "nvm install $(cat .nvmrc)"
 run_command "nvm use $(cat .nvmrc)"
 
-if ! command_exists yarn; then
-  echo "Could not find yarn!"
+run_command "corepack enable"
+
+if ! command_exists pnpm; then
+  echo "Could not find pnpm!"
+  exit 1
 fi
 
 run_command "./scripts/check-environment.sh"
-run_command "yarn install --frozen-lockfile --prefer-offline --network-timeout=60000"
-run_command "yarn clean"
+run_command "pnpm install --frozen-lockfile --ignore-scripts"
+run_command "pnpm clean"
+run_command "pnpm install --frozen-lockfile --offline"
 
 ###################################################################################################
 

@@ -4,8 +4,7 @@
 set -e
 
 # This script runs from the project root
-THIS_SCRIPT_DIR=$(dirname "$BASH_SOURCE[0]" || dirname "$0")
-cd "${THIS_SCRIPT_DIR}/.."
+cd "$(dirname "$0")/.."
 
 source ./scripts/helpers/helpers.sh
 
@@ -25,12 +24,13 @@ if [[ $* == *--local* ]]; then
 
 else
   # This is a manually-synced copy of what's in .github/worksflows/ci.yml
-
+  run_command "corepack enable"
   run_command "./scripts/check-environment.sh"
-  run_command "yarn install --ignore-scripts --prefer-offline"
-  run_command "yarn clean"
-  run_command "yarn all:readonly"
-  run_command "yarn build"
+  run_command "pnpm install --frozen-lockfile --ignore-scripts"
+  run_command "pnpm clean"
+  run_command "pnpm install --frozen-lockfile --offline"
+  run_command "pnpm run all:ci"
+  run_command "pnpm run packages:all:ci"
 
 fi
 
