@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package-name: [ node-library, react-library ]
+        package-name: [ node-library-template, react-library-template ]
 
     steps:
       - uses: actions/checkout@v3

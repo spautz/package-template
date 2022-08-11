@@ -1,5 +1,5 @@
 {
-  "name": "@package-template/demo-react18-vite",
+  "name": "@package-template/demo-react16-cra",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -17,15 +17,15 @@
     "all:quick": "pnpm run format           && pnpm run types && pnpm run lint:fix",
     "all:ci": "pnpm run format:verify       && pnpm run types && pnpm run lint     && pnpm run test:ci && pnpm run build",
     "____ INDIVIDUAL COMMANDS ___________________________________________": "",
-    "build:clean": "rimraf ./dist",
-    "build:main": "vite build",
-    "build:watch": "vite build --watch",
+    "build:clean": "rimraf ./build",
+    "build:main": "react-scripts build",
+    "build:watch": "react-scripts watch",
     "format": "prettier --write .",
     "format:verify": "prettier --list-different .",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
-    "server:dev": "vite dev",
-    "server:prod": "vite preview",
+    "server:dev": "react-scripts start",
+    "server:prod": "pnpm run build && serve -s build",
     "test:clean": "rimraf ./coverage",
     "test:ci": "pnpm run test:clean            && vitest run --coverage",
     "test:coverage": "pnpm run test:clean      && vitest run --coverage",
@@ -37,16 +37,29 @@
   "dependencies": {
     "@package-template/node-library-template": "workspace:^",
     "@package-template/react-library-template": "workspace:^",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.3.0",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "@vitejs/plugin-react": "^2.0.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^12.1.5",
+    "@types/react": "^16.9.56",
+    "@types/react-dom": "^16.9.9",
+    "react-scripts": "^5.0.1",
+    "serve": "^14.0.1",
     "typescript": "^4.7.4",
-    "vite": "^3.0.5"
+    "web-vitals": "^2.1.4"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

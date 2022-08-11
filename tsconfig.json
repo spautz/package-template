@@ -38,8 +38,8 @@
   "include": [
     "./packages/node-library-template/src",
     "./packages/react-library-template/src",
-    "./demos/demo-react16-cra4/src",
-    "./demos/demo-react17-cra5/src",
+    "./demos/demo-react16-cra/src",
+    "./demos/demo-react17-cra/src",
     "./demos/demo-react18-vite/src"
   ],
   "exclude": ["node_modules"]

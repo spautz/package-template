@@ -43,7 +43,7 @@
     "all": "pnpm run format                 && pnpm run types && pnpm run lint:fix && pnpm run test:coverage && pnpm run packages:build",
     "all:readonly": "pnpm run format:verify && pnpm run types && pnpm run lint     && pnpm run test:quick",
     "all:quick": "pnpm run format           && pnpm run types && pnpm run lint:fix",
-    "all:ci": "pnpm run format:verify       && pnpm run types && pnpm run lint     && pnpm run test:ci       && pnpm run packages:build && pnpm run changelog status",
+    "all:ci": "pnpm run format:verify       && pnpm run types && pnpm run lint     && pnpm run test:ci       && pnpm run packages:build && (pnpm run changelog status; true)",
     "____ INDIVIDUAL COMMANDS ___________________________________________": "",
     "changelog": "changeset",
     "format": "prettier --write .",
@@ -60,24 +60,24 @@
     "types": "tsc -p ./tsconfig.json --noEmit"
   },
   "devDependencies": {
-    "@changesets/cli": "2.24.2",
-    "@changesets/types": "5.1.0",
-    "@tsconfig/recommended": "1.0.1",
-    "@types/testing-library__jest-dom": "5.14.5",
-    "@typescript-eslint/eslint-plugin": "5.32.0",
-    "@typescript-eslint/parser": "5.32.0",
-    "c8": "7.12.0",
-    "downlevel-dts": "0.10.0",
-    "eslint": "8.21.0",
-    "eslint-config-prettier": "8.5.0",
-    "gitlog": "4.0.4",
-    "husky": "8.0.1",
-    "lint-staged": "13.0.3",
-    "prettier": "2.7.1",
-    "rimraf": "3.0.2",
-    "tsup": "6.2.1",
-    "typescript": "4.7.4",
-    "vitest": "0.21.1"
+    "@changesets/cli": "^2.24.2",
+    "@changesets/types": "^5.1.0",
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@typescript-eslint/eslint-plugin": "^5.32.0",
+    "@typescript-eslint/parser": "^5.32.0",
+    "c8": "^7.12.0",
+    "downlevel-dts": "^0.10.0",
+    "eslint": "^8.21.0",
+    "eslint-config-prettier": "^8.5.0",
+    "gitlog": "^4.0.4",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
+    "rimraf": "^3.0.2",
+    "tsup": "^6.2.1",
+    "typescript": "^4.7.4",
+    "vitest": "^0.21.1"
   },
   "lint-staged": {
     "*.{css,html,js,jsx,json,less,md,scss,ts,tsx,yaml}": [
@@ -86,5 +86,29 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings 0"
     ]
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "^18.0.17",
+      "@types/react-dom": "^18.0.6"
+    },
+    "packageExtensions": {
+      "@testing-library/react": {
+        "peerDependencies": {
+          "react": "*",
+          "react-dom": "*"
+        }
+      },
+      "eslint-plugin-flowtype": {
+        "peerDependenciesMeta": {
+          "@babel/plugin-syntax-flow": {
+            "optional": true
+          },
+          "@babel/plugin-transform-react-jsx": {
+            "optional": true
+          }
+        }
+      }
+    }
   }
 }
