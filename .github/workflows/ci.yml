@@ -39,7 +39,9 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
+#       In a normal app (not package-template), this would be:
+#        run: pnpm install --frozen-lockfile
 
       - name: Run CI checks
         run: pnpm run all:ci
@@ -85,7 +87,9 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
+#       In a normal app (not package-template), this would be:
+#        run: pnpm install --frozen-lockfile
 
       - name: Run CI checks for package
         run: |
@@ -128,7 +132,10 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
+#       In a normal app (not package-template), this would be:
+#        run: pnpm install --frozen-lockfile
+
 
       - name: Run CI checks for package
         run: |
