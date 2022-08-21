@@ -26,12 +26,6 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
       },
     },
-    {
-      files: ['**/*.test.*', '**/__tests__/*.*'],
-      env: {
-        jest: true,
-      },
-    },
      /* {
         files: ['**\/*.jsx', '**\/*.tsx'],
        plugins: ['@typescript-eslint', 'react'],

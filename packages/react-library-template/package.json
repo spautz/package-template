@@ -44,7 +44,7 @@
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
     "prepare": "pnpm run build",
-    "prepack": "pnpm run clean && pnpm run dev:readonly",
+    "prepack": "pnpm run all:readonly",
     "____ MAIN __________________________________________________________": "",
     "build": "pnpm run build:clean && pnpm run build:main && pnpm run build:types",
     "test": "pnpm run test:coverage",
@@ -66,7 +66,6 @@
     "format:verify": "prettier --list-different .",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
-    "release:changelog": "standard-version --skip.commit --skip.tag --release-as ",
     "test:clean": "rimraf ./coverage",
     "test:ci": "pnpm run test:clean            && vitest run --coverage",
     "test:coverage": "pnpm run test:clean      && vitest run --coverage",
@@ -75,6 +74,7 @@
     "test:watchcoverage": "pnpm run test:clean && vitest watch --coverage",
     "types": "tsc -p ./tsconfig.json --noEmit"
   },
+  "dependencies": {},
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -88,7 +88,7 @@
   "peerDependencies": {
     "react": "^16.9.0 || ^17 || ^18"
   },
-  "typesVersions123": {
+  "typesVersions": {
     "<4.0": {
       "*": [
         "legacy-types/ts3.5/index.d.ts"

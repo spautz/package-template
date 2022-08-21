@@ -66,18 +66,19 @@
     "@types/testing-library__jest-dom": "^5.14.5",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
-    "c8": "^7.12.0",
+    "@vitest/coverage-c8": "^0.22.1",
     "downlevel-dts": "^0.10.0",
     "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
     "gitlog": "^4.0.4",
     "husky": "^8.0.1",
+    "jsdom": "^20.0.0",
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "tsup": "^6.2.1",
     "typescript": "^4.7.4",
-    "vitest": "^0.21.1"
+    "vitest": "^0.22.1"
   },
   "lint-staged": {
     "*.{css,html,js,jsx,json,less,md,scss,ts,tsx,yaml}": [

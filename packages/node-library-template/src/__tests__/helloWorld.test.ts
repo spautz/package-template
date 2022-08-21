@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest';
 import { helloWorld } from '../index';
 
 describe('helloWorld', () => {
-  test('exists', () => {
+  test('is exported', () => {
     expect(helloWorld).toEqual('Hello World!');
   });
 });
