@@ -1,3 +1,3 @@
 # package-template
 
-My opinionated template for a single-package repo
+My opinionated template for a npm library repo

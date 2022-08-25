@@ -7,7 +7,6 @@
     "____ MAIN __________________________________________________________": "",
     "build": "pnpm run build:clean && pnpm run build:main",
     "dev": "pnpm run server:dev",
-    "preview": "pnpm run server:prod",
     "start": "pnpm run server:prod",
     "test": "pnpm run test:coverage",
     "____ INTEGRATION ___________________________________________________": "",
