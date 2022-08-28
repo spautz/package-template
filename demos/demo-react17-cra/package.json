@@ -1,7 +1,6 @@
 {
   "name": "@package-template/demo-react17-cra",
   "private": true,
-  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "____ MAIN __________________________________________________________": "",

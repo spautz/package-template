@@ -90,22 +90,22 @@
   "typesVersions": {
     "<4.0": {
       "*": [
-        "legacy-types/ts3.5/index.d.ts"
+        "./legacy-types/ts3.5/index.d.ts"
       ]
     },
     "<4.5": {
       "*": [
-        "legacy-types/ts4.0/index.d.ts"
+        "./legacy-types/ts4.0/index.d.ts"
       ]
     },
     "<4.7": {
       "*": [
-        "legacy-types/ts4.5/index.d.ts"
+        "./legacy-types/ts4.5/index.d.ts"
       ]
     },
     "*": {
       "*": [
-        "dist/index.d.ts"
+        "./dist/index.d.ts"
       ]
     }
   }
