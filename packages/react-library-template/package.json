@@ -1,5 +1,5 @@
 {
-  "name": "@package-template/react-library-template",
+  "name": "@spautz/react-library-template",
   "version": "0.0.1",
   "description": "My opinionated template for a React package",
   "keywords": [],
@@ -90,7 +90,7 @@
   },
   "size-limit": [
     {
-      "path": "dist/index.js",
+      "path": "dist/index.cjs",
       "limit": "1 kB"
     }
   ],

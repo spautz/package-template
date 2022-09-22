@@ -2,8 +2,8 @@
 // @ts-ignore
 import React from 'react';
 
-import { helloWorld } from '@package-template/node-library-template';
-import { TodoProvider } from '@package-template/react-library-template';
+import { helloWorld } from '@spautz/node-library-template';
+import { TodoProvider } from '@spautz/react-library-template';
 
 function App() {
   return <TodoProvider>{helloWorld}</TodoProvider>;

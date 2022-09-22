@@ -1,5 +1,5 @@
 {
-  "name": "@package-template/demo-react16-cra",
+  "name": "@spautz/demo-react16-cra",
   "private": true,
   "type": "module",
   "scripts": {
@@ -33,8 +33,8 @@
     "types": "tsc -p ./tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@package-template/node-library-template": "workspace:^",
-    "@package-template/react-library-template": "workspace:^",
+    "@spautz/node-library-template": "workspace:^",
+    "@spautz/react-library-template": "workspace:^",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   },

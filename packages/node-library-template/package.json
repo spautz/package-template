@@ -1,5 +1,5 @@
 {
-  "name": "@package-template/node-library-template",
+  "name": "@spautz/node-library-template",
   "version": "0.0.1",
   "description": "My opinionated template for a NodeJS library",
   "keywords": [],
@@ -79,7 +79,7 @@
   "peerDependencies": {},
   "size-limit": [
     {
-      "path": "dist/index.js",
+      "path": "dist/index.cjs",
       "limit": "1 kB"
     }
   ],
