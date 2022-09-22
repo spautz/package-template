@@ -52,18 +52,19 @@
     "all:quick": "pnpm run format           && pnpm run types && pnpm run lint:fix",
     "all:ci": "pnpm run format:verify       && pnpm run types && pnpm run lint     && pnpm run test:ci && pnpm run build",
     "____ INDIVIDUAL COMMANDS ___________________________________________": "",
-    "build": "pnpm run build:main && pnpm run build:legacytypes",
+    "build": "pnpm run build:main && pnpm run sizecheck && pnpm run build:legacytypes",
     "build:clean": "rimraf ./dist ./legacy-types",
-    "build:main": "pnpm run build:clean && tsup src/index.ts --format esm,cjs && tsc -p ./tsconfig.build.json --declaration --emitDeclarationOnly",
+    "build:main": "pnpm run build:clean && tsup src/index.ts --format cjs && tsc -p ./tsconfig.build.json",
     "build:legacytypes": "pnpm run build:legacytypes:3.5 && pnpm run build:legacytypes:4.0 && pnpm run build:legacytypes:4.5",
     "build:legacytypes:3.5": "downlevel-dts ./dist ./legacy-types/ts3.5 --to=3.5",
     "build:legacytypes:4.0": "downlevel-dts ./dist ./legacy-types/ts4.0 --to=4.0",
     "build:legacytypes:4.5": "downlevel-dts ./dist ./legacy-types/ts4.5 --to=4.5",
-    "build:watch": "pnpm run build:clean && tsup src/index.ts --format esm,cjs --watch",
+    "build:watch": "pnpm run build:clean && tsup src/index.ts --format esm,cjs --dts --watch",
     "format": "prettier --write .",
     "format:verify": "prettier --list-different .",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
+    "sizecheck": "size-limit",
     "test": "pnpm run test:coverage",
     "test:clean": "rimraf ./coverage",
     "test:ci": "pnpm run test:clean            && vitest run --coverage",
@@ -87,6 +88,12 @@
   "peerDependencies": {
     "react": "^16.9.0 || ^17 || ^18"
   },
+  "size-limit": [
+    {
+      "path": "dist/index.js",
+      "limit": "1 kB"
+    }
+  ],
   "typesVersions": {
     "<4.0": {
       "*": [
