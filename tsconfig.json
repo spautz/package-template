@@ -1,46 +1,7 @@
 {
-  "extends": "@tsconfig/recommended/tsconfig.json",
+  "extends": "./tsconfig-base.typecheck.json",
 
-  "compilerOptions": {
-    /* Basic Options */
-    "target": "ES2020",
-    "module": "ES2020",
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
-    "allowJs": true,
-    "declaration": true,
-    "jsx": "react",
-    "noEmit": true,
-    "sourceMap": true,
-    "removeComments": false,
-    /* Strict Type-Checking Options */
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictBindCallApply": true,
-    "strictPropertyInitialization": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    /* Additional Checks */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
-    /* Module Resolution Options */
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    /* Advanced Options */
-    "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": false
-  },
-  // The "include" for the root is for typechecking the entire project (it includes directories like "tests" which
-  // the package-level tsconfigs don't include)
-  "include": [
-    "./packages/node-library-template/src",
-    "./packages/react-library-template/src",
-    "./demos/demo-react16-cra/src",
-    "./demos/demo-react17-cra/src",
-    "./demos/demo-react18-vite/src"
-  ],
+  // Check the full project for each package, plus their consumption in the demos
+  "include": ["packages", "demos/*/src"],
   "exclude": ["node_modules"]
 }
