@@ -12,8 +12,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  publish-npm:
-    name: Publish to NPM
+  prepare-release-pr:
+    name: Prepare PR for release
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -56,12 +56,21 @@ jobs:
       - name: Prepare release
         run: pnpm run release:prep
 
+      # @TODO
+      #      - name: Import GPG key
+      #        uses: crazy-max/ghaction-import-gpg@v5
+      #        with:
+      #          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+      #          passphrase: ${{ secrets.PASSPHRASE }}
+
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5
         with:
           branch: prepare-release
           commit-message: Prepare release (automated)
           delete-branch: true
+          # @TODO
+          # token: ${{ secrets.PAT }}
 
       - name: Check outputs
         if: ${{ steps.cpr.outputs.pull-request-number }}

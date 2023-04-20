@@ -1,7 +1,11 @@
 name: CI
 
 on:
-  push
+  - push
+  - workflow_run:
+    workflows: [Prepare release]
+    types:
+      - completed
 
 permissions:
   contents: read
