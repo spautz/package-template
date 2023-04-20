@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  - push
-  - workflow_run:
+  push:
+  workflow_run:
     workflows: [Prepare release]
     types:
       - completed
