@@ -1,3 +1,6 @@
+# In a normal repo (not package-template), this line should be removed:
+/.pnpm-lock.yaml
+
 # dependencies
 /.pnp
 /node_modules
