@@ -50,18 +50,19 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        # In a normal app (not package-template), this would be:
+        # In a normal repo (not package-template), this would be:
         #   run: pnpm install --frozen-lockfile
 
       - name: Prepare release
         run: pnpm run release:prep
 
-      # @TODO
-      #      - name: Import GPG key
-      #        uses: crazy-max/ghaction-import-gpg@v5
-      #        with:
-      #          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
-      #          passphrase: ${{ secrets.PASSPHRASE }}
+      - name: Import GPG key
+        uses: crazy-max/ghaction-import-gpg@v5
+        with:
+          gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.PASSPHRASE }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v5
@@ -69,8 +70,7 @@ jobs:
           branch: prepare-release
           commit-message: Prepare release (automated)
           delete-branch: true
-          # @TODO
-          # token: ${{ secrets.PAT }}
+          token: ${{ secrets.PAT }}
 
       - name: Check outputs
         if: ${{ steps.cpr.outputs.pull-request-number }}

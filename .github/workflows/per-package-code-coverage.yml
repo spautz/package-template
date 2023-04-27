@@ -51,7 +51,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        # In a normal app (not package-template), this would be:
+        # In a normal repo (not package-template), this would be:
         #   run: pnpm install --frozen-lockfile
 
       - name: Run package tests

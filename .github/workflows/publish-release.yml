@@ -50,12 +50,12 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        # In a normal app (not package-template), this would be:
+        # In a normal repo (not package-template), this would be:
         #   run: pnpm install --frozen-lockfile
 
       - name: Publish to NPM
         run: |
           cd packages/${{ matrix.package-name }}
-          npm publish --provenance --tag next
+          pnpm publish --provenance --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
