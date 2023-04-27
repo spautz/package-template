@@ -1,5 +1,5 @@
 # In a normal repo (not package-template), this line should be removed:
-/.pnpm-lock.yaml
+/pnpm-lock.yaml
 
 # dependencies
 /.pnp

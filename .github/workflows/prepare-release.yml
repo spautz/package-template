@@ -71,6 +71,7 @@ jobs:
           commit-message: Prepare release (automated)
           delete-branch: true
           token: ${{ secrets.PAT }}
+          committer: Steven Pautz (Github Actions) <spautz@gmail.com>
 
       - name: Check outputs
         if: ${{ steps.cpr.outputs.pull-request-number }}
