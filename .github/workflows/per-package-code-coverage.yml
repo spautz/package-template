@@ -16,8 +16,7 @@ jobs:
   package-test-coverage:
     name: Package code coverage
     runs-on: ubuntu-latest
-    # Check if the event is not triggered by a fork
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: "! github.event.push.head.repo.fork "
     strategy:
       matrix:
         package-name: [ node-library-template, react-library-template ]
