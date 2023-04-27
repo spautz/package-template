@@ -1,6 +1,6 @@
 # NodeJS Library Template
 
-Description here.
+Example package for a NodeJS library. Used to test the publishing workflow and per-package code coverage.
 
 [![npm version](https://img.shields.io/npm/v/@spautz/node-library-template.svg)](https://www.npmjs.com/package/@spautz/node-library-template)
 [![build status](https://github.com/spautz/package-template/workflows/CI/badge.svg)](https://github.com/spautz/package-template/actions)

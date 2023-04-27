@@ -1,6 +1,6 @@
 # React Library Template
 
-Description here.
+Example package for a React library. Used to test the publishing workflow and per-package code coverage.
 
 [![npm version](https://img.shields.io/npm/v/@spautz/react-library-template.svg)](https://www.npmjs.com/package/@spautz/react-library-template)
 [![build status](https://github.com/spautz/package-template/workflows/CI/badge.svg)](https://github.com/spautz/package-template/actions)
