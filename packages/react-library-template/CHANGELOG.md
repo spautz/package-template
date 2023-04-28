@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0
+
+### Minor Changes
+
+- Improvements for signed commits and npm provenance ([b6cd9ab](https://github.com/spautz/package-template/commit/b6cd9abf5e0247aba020e15597d55f76b28a36e0))
+
 ## 0.1.0
 
 ### Minor Changes
