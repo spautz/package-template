@@ -48,7 +48,7 @@ jobs:
         #   run: pnpm install --frozen-lockfile
 
       - name: Check for a changelog entry
-        if: github.ref != "prepare-release"
+        if: github.ref != 'prepare-release'
         run: pnpm run changelog:status:ci
 
       - name: Run CI checks
