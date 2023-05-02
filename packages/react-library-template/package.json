@@ -17,7 +17,8 @@
   },
   "publishConfig": {
     "access": "public",
-    "provenance": true
+    "provenance": true,
+    "tag": "next"
   },
   "files": [
     "dist/",
@@ -75,7 +76,9 @@
     "test:watchcoverage": "pnpm run test:clean && vitest watch --coverage",
     "typecheck": "tsc -p ./tsconfig.json --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@spautz/node-library-template": "workspace:^"
+  },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
@@ -90,6 +93,11 @@
     "react": "^16.9.0 || ^17 || ^18"
   },
   "size-limit": [
+    {
+      "path": "dist/index.js",
+      "import": "{}",
+      "limit": "20 B"
+    },
     {
       "path": "dist/index.js",
       "limit": "1 kB"

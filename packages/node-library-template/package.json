@@ -17,7 +17,8 @@
   },
   "publishConfig": {
     "access": "public",
-    "provenance": true
+    "provenance": true,
+    "tag": "next"
   },
   "files": [
     "dist/",
@@ -79,6 +80,11 @@
   "devDependencies": {},
   "peerDependencies": {},
   "size-limit": [
+    {
+      "path": "dist/index.js",
+      "import": "{}",
+      "limit": "20 B"
+    },
     {
       "path": "dist/index.js",
       "limit": "1 kB"
