@@ -4,7 +4,7 @@
   "description": "My opinionated template for a NodeJS library",
   "keywords": [],
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/packages/node-library-template#readme",
+  "homepage": "https://github.com/spautz/package-template/tree/main/packages/node-library-template#readme",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
