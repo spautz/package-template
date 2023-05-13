@@ -47,5 +47,7 @@ module.exports = {
     'lib-dist/',
     'node_modules/',
     'storybook-static/',
+    // Each demo app has its own eslint config, following the conventions of its build system
+    'demos/'
   ],
 };
