@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 
 import { helloWorld } from '@spautz/node-library-template';
 import { TodoProvider } from '@spautz/react-library-template';
