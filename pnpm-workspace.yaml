@@ -1,3 +1,4 @@
 packages:
-  - 'demos/demo-react18-vite4'
   - 'packages/*'
+  - 'demo-apps/*'
+  - 'test-apps/*'

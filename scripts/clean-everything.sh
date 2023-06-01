@@ -37,7 +37,7 @@ run_command "rm -rf
 ##################################################################################################
 # Remove generated files
 
-for DIRECTORY in '.' 'demos/*' 'packages/*' ; do
+for DIRECTORY in '.' 'demo-apps/*' 'test-apps/*' 'packages/*' ; do
   run_command "rm -rf
     $DIRECTORY/.yarn
     $DIRECTORY/build/
@@ -48,11 +48,10 @@ for DIRECTORY in '.' 'demos/*' 'packages/*' ; do
     $DIRECTORY/lib-dist/
     $DIRECTORY/node_modules/
     $DIRECTORY/storybook-static/
-    $directory/.pnpm-debug.log*
-    $DIRECTORY/lerna-debug.log*
-    $DIRECTORY/npm-debug.log*
-    $DIRECTORY/yarn-debug.log*
-    $DIRECTORY/yarn-error.log*
+    $DIRECTORY/*-debug.log*
+    $DIRECTORY/.*-debug.log*
+    $DIRECTORY/*-error.log*
+    $DIRECTORY/.*-error.log*
     "
 done
 

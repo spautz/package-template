@@ -4,7 +4,8 @@
 # dependencies
 /.pnp
 /node_modules
-/demos/*/node_modules
+/demo-apps/*/node_modules
+/test-apps/*/node_modules
 /packages/*/node_modules
 .pnp.js
 
@@ -16,13 +17,20 @@
 /legacy-types
 /lib-dist
 /storybook-static
-/demos/*/build
-/demos/*/coverage
-/demos/*/coverage-local
-/demos/*/dist
-/demos/*/legacy-types
-/demos/*/lib-dist
-/demos/*/storybook-static
+/demo-apps/*/build
+/demo-apps/*/coverage
+/demo-apps/*/coverage-local
+/demo-apps/*/dist
+/demo-apps/*/legacy-types
+/demo-apps/*/lib-dist
+/demo-apps/*/storybook-static
+/test-apps/*/build
+/test-apps/*/coverage
+/test-apps/*/coverage-local
+/test-apps/*/dist
+/test-apps/*/legacy-types
+/test-apps/*/lib-dist
+/test-apps/*/storybook-static
 /packages/*/build
 /packages/*/coverage
 /packages/*/coverage-local
