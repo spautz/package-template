@@ -112,7 +112,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        demo-name: [ demo-react16-cra, demo-react17-cra, demo-react18-vite ]
+        demo-name: [ demo-react16-cra, test-react17-cra, demo-react18-vite ]
 
     steps:
       - uses: actions/checkout@v3
