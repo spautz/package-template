@@ -1,1 +1,1 @@
-export * from './TodoProvider.js';
+export * from './TodoComponent.js';

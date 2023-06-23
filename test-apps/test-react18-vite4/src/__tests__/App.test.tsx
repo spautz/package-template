@@ -8,6 +8,6 @@ describe('App', () => {
   test('Renders without error', () => {
     render(<App />);
 
-    expect(screen.getByText('TodoProvider: Hello World!')).toBeVisible();
+    expect(screen.getByText('TodoComponent: Hello World!')).toBeVisible();
   });
 });

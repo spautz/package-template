@@ -2,12 +2,12 @@ import React from 'react';
 import { describe, expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
 
-import { TodoProvider } from '../index.js';
+import { TodoComponent } from '../index.js';
 
 describe('TodoProvider', () => {
   test('Renders without error', () => {
-    render(<TodoProvider>Stuff</TodoProvider>);
+    render(<TodoComponent>Stuff</TodoComponent>);
 
-    expect(screen.getByText('TodoProvider: Stuff')).toBeVisible();
+    expect(screen.getByText('TodoComponent: Stuff')).toBeVisible();
   });
 });

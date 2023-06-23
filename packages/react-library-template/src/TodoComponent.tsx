@@ -1,12 +1,12 @@
 import React, { ReactNode } from 'react';
 
-export interface TodoProviderProps {
+export interface TodoComponentProps {
   children: ReactNode;
 }
 
-const TodoProvider: React.FC<TodoProviderProps> = (props) => {
+const TodoComponent: React.FC<TodoComponentProps> = (props) => {
   const { children } = props;
   return <React.Fragment>TodoProvider: {children}</React.Fragment>;
 };
 
-export { TodoProvider };
+export { TodoComponent };
