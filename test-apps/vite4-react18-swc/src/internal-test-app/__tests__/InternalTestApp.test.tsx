@@ -6,6 +6,6 @@ import { InternalTestApp } from '../InternalTestApp';
 
 test('renders InternalTestApp', () => {
   render(<InternalTestApp />);
-  const internalTestAppElement = screen.getByText('TodoProvider: Hello World!');
+  const internalTestAppElement = screen.getByText('TodoComponent: Hello World!');
   expect(internalTestAppElement).toBeInTheDocument();
 });

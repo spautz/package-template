@@ -4,10 +4,10 @@ import { render, screen } from '@testing-library/react';
 
 import { TodoComponent } from '../index.js';
 
-describe('TodoProvider', () => {
+describe('TodoComponent', () => {
   test('Renders without error', () => {
     render(<TodoComponent>My Content</TodoComponent>);
 
-    expect(screen.getByText('TodoProvider: My Content')).toBeVisible();
+    expect(screen.getByText('TodoComponent: My Content')).toBeVisible();
   });
 });

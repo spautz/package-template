@@ -1,0 +1,56 @@
+{
+  "name": "@spautz/demo-app--hello-world",
+  "private": "true",
+  "description": "Basic, minimal demo of package-template libraries",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/demo-apps/hello-world/README.md",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "source": "./src/main.tsx",
+  "type": "module",
+  "scripts": {
+    "____ INTEGRATION ___________________________________________________": "",
+    "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache *.log",
+    "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
+    "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
+    "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
+    "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build",
+    "____ INDIVIDUAL COMMANDS ___________________________________________": "",
+    "build": "pnpm run build:clean && pnpm run build:main",
+    "build:clean": "rimraf ./dist",
+    "build:main": "vite build",
+    "build:watch": "pnpm run build:clean && tsup src/index.ts --format esm,cjs --dts --watch",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --max-warnings 0 --fix",
+    "start": "pnpm run start:dev",
+    "start:dev": "vite",
+    "start:staging": "vite preview",
+    "start:prod": "vite preview",
+    "test": "pnpm run test:coverage",
+    "test:clean": "rimraf ./coverage",
+    "test:ci": "pnpm run test:clean            && vitest run --coverage",
+    "test:coverage": "pnpm run test:clean      && vitest run --coverage",
+    "test:quick": "pnpm run test:clean         && vitest run --coverage=false",
+    "test:watch": "pnpm run test:clean         && vitest watch --coverage=false",
+    "test:watchcoverage": "pnpm run test:clean && vitest watch --coverage",
+    "typecheck": "tsc -p ./tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@spautz/node-library-template": "workspace:^",
+    "@spautz/react-library-template": "workspace:^"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "@types/testing-library__jest-dom": "^5.14.6",
+    "jsdom": "^22.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "vite": "^4.3.9"
+  }
+}

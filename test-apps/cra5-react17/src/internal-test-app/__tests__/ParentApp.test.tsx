@@ -5,6 +5,6 @@ import ParentApp from '../../App';
 
 test('renders InternalTestApp', () => {
   render(<ParentApp />);
-  const internalTestAppElement = screen.getByText('TodoProvider: Hello World!');
+  const internalTestAppElement = screen.getByText('TodoComponent: Hello World!');
   expect(internalTestAppElement).toBeInTheDocument();
 });

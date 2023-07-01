@@ -6,7 +6,7 @@ export interface TodoComponentProps {
 
 const TodoComponent: React.FC<TodoComponentProps> = (props) => {
   const { children } = props;
-  return <React.Fragment>TodoProvider: {children}</React.Fragment>;
+  return <React.Fragment>TodoComponent: {children}</React.Fragment>;
 };
 
 export { TodoComponent };

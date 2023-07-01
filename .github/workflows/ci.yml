@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [ push ]
 
 permissions:
   contents: read
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x, 18.x, 19.x, 20.x]
+        node-version: [ 16.x, 18.x, 19.x, 20.x ]
 
     steps:
       - uses: actions/checkout@v3
@@ -64,7 +64,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        package-name: [node-library-template, react-library-template]
+        package-name: [ node-library-template, react-library-template ]
 
     steps:
       - uses: actions/checkout@v3
@@ -105,56 +105,12 @@ jobs:
           cd packages/${{ matrix.package-name }}
           pnpm run all:ci
 
-  #  demo-apps-ci:
-  #    name: Demo-Apps CI
-  #    runs-on: ubuntu-latest
-  #    strategy:
-  #      matrix:
-  #        demo-name: [  ]
-  #
-  #    steps:
-  #      - uses: actions/checkout@v3
-  #
-  #      - name: Node.js
-  #        uses: actions/setup-node@v3
-  #        with:
-  #          node-version: 20
-  #
-  #      - uses: pnpm/action-setup@v2
-  #        with:
-  #          version: 8
-  #
-  #      - run: corepack enable
-  #
-  #      - name: Get pnpm store directory
-  #        id: pnpm-cache
-  #        run: |
-  #          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-  #
-  #      - uses: actions/cache@v3
-  #        name: Setup pnpm cache
-  #        with:
-  #          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-  #          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-  #          restore-keys: |
-  #            ${{ runner.os }}-pnpm-store-
-  #
-  #      - name: Install dependencies
-  #        run: pnpm install
-  #        # In a normal repo (not package-template), this would be:
-  #        #   run: pnpm install --frozen-lockfile
-  #
-  #      - name: Run CI checks for demo-app
-  #        run: |
-  #          cd demo-apps/${{ matrix.demo-app-name }}
-  #          pnpm run all:ci
-
-  test-apps-ci:
-    name: Test-Apps CI
+  demo-apps-ci:
+    name: Demo-Apps CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        test-app-name: [cra5-react17, vite4-react18-swc]
+        demo-name: [ hello-world ]
 
     steps:
       - uses: actions/checkout@v3
@@ -185,7 +141,55 @@ jobs:
 
       - name: Install dependencies without lockfile
         run: |
-          rm pnpm-lock.yaml
+          # In a normal repo (not package-template), this would be:
+          #   rm pnpm-lock.yaml
+          rm -f pnpm-lock.yaml
+          pnpm install
+
+      - name: Run CI checks for demo-app
+        run: |
+          cd demo-apps/${{ matrix.demo-app-name }}
+          pnpm run all:ci
+
+  test-apps-ci:
+    name: Test-Apps CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        test-app-name: [ cra5-react17, vite4-react18-swc ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - run: corepack enable
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies without lockfile
+        run: |
+          # In a normal repo (not package-template), this would be:
+          #   rm pnpm-lock.yaml
+          rm -f pnpm-lock.yaml
           pnpm install
 
       - name: Run CI checks for test-app
