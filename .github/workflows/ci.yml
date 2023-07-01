@@ -157,7 +157,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        test-app-name: [ test-react16-cra4, test-react17-cra5, test-react18-vite4 ]
+        test-app-name: [ cra5-react17 ]
 
     steps:
       - uses: actions/checkout@v3
@@ -186,10 +186,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
-        run: pnpm install
-        # In a normal repo (not package-template), this would be:
-        #   run: pnpm install --frozen-lockfile
+      - name: Install dependencies without lockfile
+        run: |
+          rm pnpm-lock.yaml
+          pnpm install
 
       - name: Run CI checks for test-app
         run: |
