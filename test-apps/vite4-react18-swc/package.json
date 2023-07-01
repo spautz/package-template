@@ -1,15 +1,29 @@
 {
-  "name": "vite4-react-swc-ts",
+  "name": "@spautz/test-app--vite4-react18-swc",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "____ FROM VITE _____________________________________________________": "",
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "____ WORKSPACE INTEGRATION _________________________________________": "",
+    "clean": "rimraf ./build",
+    "_build": "(implemented above)",
+    "_lint": "(implemented above)",
+    "lint:fix": "pnpm run lint --fix",
+    "test": "vitest run --coverage",
+    "test:coverage": "vitest run --coverage",
+    "test:quick": "vitest run --coverage=false",
+    "all": "pnpm run lint          && pnpm run test:coverage && pnpm run build",
+    "all:readonly": "pnpm run lint && pnpm run test:quick",
+    "all:quick": "pnpm run lint    && pnpm run test:quick",
+    "all:ci": "pnpm run lint       && pnpm run test:coverage && pnpm run build"
   },
   "dependencies": {
+    "@spautz/node-library-template": "workspace:^",
+    "@spautz/react-library-template": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

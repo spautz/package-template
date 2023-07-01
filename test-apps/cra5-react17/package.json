@@ -1,6 +1,5 @@
 {
   "name": "@spautz/test-app--cra5-react17",
-  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@spautz/node-library-template": "workspace:^",
