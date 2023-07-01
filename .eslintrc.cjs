@@ -4,8 +4,11 @@ module.exports = {
   root: true,
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
-  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', /* 'react-app', */ 'prettier'],
-
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    /* 'react-app', */ 'prettier',
+  ],
 
   rules: {
     '@typescript-eslint/no-unused-vars': [
@@ -26,7 +29,7 @@ module.exports = {
         '@typescript-eslint/no-var-requires': 'off',
       },
     },
-     /* {
+    /* {
         files: ['**\/*.jsx', '**\/*.tsx'],
        plugins: ['@typescript-eslint', 'react'],
        extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'react-app', 'prettier'],
@@ -48,6 +51,6 @@ module.exports = {
     'node_modules/',
     'storybook-static/',
     // Each test-app has its own eslint config, following the conventions of its build system
-    'test-apps/'
+    'test-apps/',
   ],
 };

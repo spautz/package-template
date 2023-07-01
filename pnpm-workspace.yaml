@@ -1,5 +1,4 @@
 packages:
   - 'packages/*'
   - 'demo-apps/*'
-  - 'test-apps/cra5-react17'
-  - 'test-apps/vite4-react18-swc'
+  - 'test-apps/*'

@@ -12,9 +12,5 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": [
-    "@spautz/demo-react16-cra",
-    "@spautz/demo-react17-cra",
-    "@spautz/demo-react18-vite"
-  ]
+  "ignore": ["@spautz/demo-app-*", "@spautz/test-app-*"]
 }

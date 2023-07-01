@@ -23,7 +23,7 @@ jobs:
         && github.ref_protected == true
     strategy:
       matrix:
-        package-name: [ node-library-template, react-library-template ]
+        package-name: [node-library-template, react-library-template]
 
     steps:
       - uses: actions/checkout@v3
