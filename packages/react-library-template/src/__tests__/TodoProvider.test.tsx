@@ -6,8 +6,8 @@ import { TodoComponent } from '../index.js';
 
 describe('TodoProvider', () => {
   test('Renders without error', () => {
-    render(<TodoComponent>Stuff</TodoComponent>);
+    render(<TodoComponent>My Content</TodoComponent>);
 
-    expect(screen.getByText('TodoComponent: Stuff')).toBeVisible();
+    expect(screen.getByText('TodoProvider: My Content')).toBeVisible();
   });
 });
