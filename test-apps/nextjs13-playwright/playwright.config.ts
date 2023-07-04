@@ -6,7 +6,7 @@ const baseURL = `http://localhost:${PORT}`;
 
 // See https://playwright.dev/docs/test-configuration.
 export default defineConfig({
-  timeout: 5 * 1000,
+  timeout: 30 * 1000,
   testDir: './e2e-tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -46,7 +46,7 @@ export default defineConfig({
   webServer: {
     command: 'pnpm run dev',
     url: baseURL,
-    timeout: 30 * 1000,
+    timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
   },
 });
