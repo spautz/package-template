@@ -110,7 +110,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app-path: [demo-apps/hello-world, test-apps/cra5-react17, test-apps/vite4-react18-swc]
+        app-path:
+          [
+            demo-apps/hello-world,
+            test-apps/cra5-react17,
+            test-apps/nextjs13-playwright,
+            test-apps/vite4-react18-swc,
+          ]
 
     steps:
       - uses: actions/checkout@v3

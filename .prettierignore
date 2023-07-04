@@ -19,19 +19,23 @@
 /legacy-types
 /lib-dist
 /storybook-static
+/demo-apps/*/.next/
 /demo-apps/*/build
 /demo-apps/*/coverage
 /demo-apps/*/coverage-local
 /demo-apps/*/dist
 /demo-apps/*/legacy-types
 /demo-apps/*/lib-dist
+/demo-apps/*/out/
 /demo-apps/*/storybook-static
+/test-apps/*/.next/
 /test-apps/*/build
 /test-apps/*/coverage
 /test-apps/*/coverage-local
 /test-apps/*/dist
 /test-apps/*/legacy-types
 /test-apps/*/lib-dist
+/test-apps/*/out/
 /test-apps/*/storybook-static
 /packages/*/build
 /packages/*/coverage
@@ -47,9 +51,11 @@
 
 .DS_Store
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env*.local
+.vercel
+*.pem
+*.tsbuildinfo
+next-env.d.ts
 
 .pnpm-debug.log*
 lerna-debug.log*

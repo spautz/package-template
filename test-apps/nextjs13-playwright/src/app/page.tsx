@@ -1,4 +1,6 @@
-import Image from 'next/image'
+import Image from 'next/image';
+
+import { InternalTestApp } from '@/app/internal-test-app';
 
 export default function Home() {
   return (
@@ -108,6 +110,7 @@ export default function Home() {
           </p>
         </a>
       </div>
+      <InternalTestApp content="page" />
     </main>
-  )
+  );
 }
