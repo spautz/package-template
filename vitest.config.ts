@@ -12,7 +12,7 @@ export default defineConfig({
     exclude: [...configDefaults.exclude, 'test-apps/**'],
 
     coverage: {
-      provider: 'c8',
+      provider: 'v8',
       exclude: [
         ...configDefaults.exclude,
         ...(configDefaults.coverage.exclude || []),

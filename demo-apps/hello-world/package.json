@@ -22,7 +22,7 @@
     "build": "pnpm run build:clean && pnpm run build:main",
     "build:clean": "rimraf ./dist",
     "build:main": "vite build",
-    "build:watch": "pnpm run build:clean && tsup src/index.ts --format esm,cjs --dts --watch",
+    "build:watch": "pnpm run build:clean && vite build --watch",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
     "start": "pnpm run start:dev",
