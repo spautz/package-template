@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1
+
+### Patch Changes
+
+- Upgraded build tools and devDependencies ([7f52b81](https://github.com/spautz/package-template/commit/7f52b81a7a588ffbd31721a37c2e9f01c6d76dbc))
+- Updated dependencies ([7f52b81](https://github.com/spautz/package-template/commit/7f52b81a7a588ffbd31721a37c2e9f01c6d76dbc))
+  - @spautz/node-library-template@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes
