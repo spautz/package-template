@@ -1,10 +1,15 @@
 {
   "name": "@spautz/demo-app--hello-world",
-  "private": "true",
-  "description": "Basic, minimal demo of package-template libraries",
+  "private": true,
+  "description": "Basic demo of package-template libraries",
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/demo-apps/hello-world/README.md",
+  "homepage": "https://github.com/spautz/package-template/blob/main/demo-apps/hello-world",
   "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "packages/hello-world"
+  },
   "author": {
     "name": "Steven Pautz",
     "url": "https://github.com/spautz/"

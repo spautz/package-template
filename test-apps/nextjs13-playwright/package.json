@@ -1,6 +1,19 @@
 {
   "name": "@spautz/test-app--nextjs13-playwright",
   "private": true,
+  "description": "Test app for package-template packages in a NextJS 13 app with React 18 and Playwright",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/test-apps/nextjs13-playwright",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "packages/nextjs13-playwright"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
   "scripts": {
     "____ FROM NEXTJS ___________________________________________________": "",
     "dev": "next dev",

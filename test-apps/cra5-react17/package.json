@@ -1,21 +1,18 @@
 {
   "name": "@spautz/test-app--cra5-react17",
   "private": true,
-  "dependencies": {
-    "@spautz/node-library-template": "workspace:^",
-    "@spautz/react-library-template": "workspace:^",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^12.1.5",
-    "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.38",
-    "@types/react": "^17.0.62",
-    "@types/react-dom": "^17.0.20",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "^5.0.1",
-    "typescript": "^4.9.5",
-    "web-vitals": "^2.1.4"
+  "description": "Test app for package-template packages in a React-Scripts-built app with React 17",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/test-apps/cra5-react17",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "packages/cra5-react17"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
   },
   "scripts": {
     "____ FROM CREATE-REACT-APP _________________________________________": "",
@@ -36,12 +33,23 @@
     "all:quick": "pnpm run lint    && pnpm run test:quick",
     "all:ci": "pnpm run lint       && pnpm run test:coverage && pnpm run build"
   },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@spautz/node-library-template": "workspace:^",
+    "@spautz/react-library-template": "workspace:^"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.38",
+    "@types/react": "^17.0.62",
+    "@types/react-dom": "^17.0.20",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
   },
   "browserslist": {
     "production": [
@@ -53,6 +61,13 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "react-app",
+      "react-app/jest"
     ]
   }
 }
