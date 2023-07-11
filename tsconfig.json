@@ -2,6 +2,6 @@
   "extends": "./tsconfig-base.typecheck.json",
 
   // Check each package and demo-app, plus all config files
-  // Each test-app has its own tsconfig, following the conventions of its build system, so they're not included
+  // Each test-app has its own tsconfig, following the conventions of its framework, so they're not included
   "include": ["*.ts", "demo-apps/*/*.ts", "demo-apps/*/src", "packages/*/*.ts", "packages/*/src"]
 }

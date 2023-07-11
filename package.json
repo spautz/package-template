@@ -43,6 +43,7 @@
     "all:readonly": "pnpm run format:verify && pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
     "all:quick": "pnpm run format           && pnpm run typecheck && pnpm run lint:fix",
     "all:ci": "pnpm run format:verify       && pnpm run typecheck && pnpm run lint     && pnpm run test:ci && pnpm run packages:build",
+    "all:all": "pnpm run all && pnpm run packages:all",
     "____ INDIVIDUAL COMMANDS ___________________________________________": "",
     "changelog": "changeset",
     "changelog:status": "changeset status --verbose",
@@ -98,11 +99,5 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --max-warnings 0"
     ]
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "^18.2.6",
-      "@types/react-dom": "^18.2.4"
-    }
   }
 }

@@ -1,73 +1,75 @@
+#
+# When updating this file, sync with .gitignore
+#
+
+# Autoformatting the lockfile is slow and doesn't bring any benefits, so skip it
 /pnpm-lock.yaml
 
 ###############################################################################
-# Everything below this point is from .gitignore
+# Everything below this point is copied from .gitignore
+
+# IDE space
+
+.idea
+.vscode
 
 # dependencies
-/.pnp
-/node_modules
-/demo-apps/*/node_modules
-/test-apps/*/node_modules
-/packages/*/node_modules
-.pnp.js
 
-# outputs
+.pnp
+.pnp.js
+.pnpm-store
+node_modules
+
+# unit tests
+
+/coverage
+/*/*/coverage
+
+# e2e tests
+
+/e2e-test-results
+/playwright-report
+/*/*/e2e-test-results
+/*/*/playwright-report
+
+# linting
+
+.eslintcache
+
+# build output
+
+*.tsbuildinfo
 
 /.next
 /build
-/coverage
-/coverage-local
 /dist
-/e2e-test-results
 /legacy-types
-/lib-dist
 /out
-/playwright-report
+
+/*/*/.next
+/*/*/build
+/*/*/dist
+/*/*/legacy-types
+/*/*/out
+
+# storybook
+
 /storybook-static
-/demo-apps/*/.next
-/demo-apps/*/build
-/demo-apps/*/coverage
-/demo-apps/*/coverage-local
-/demo-apps/*/dist
-/demo-apps/*/e2e-test-results
-/demo-apps/*/legacy-types
-/demo-apps/*/lib-dist
-/demo-apps/*/out
-/demo-apps/*/playwright-report
-/demo-apps/*/storybook-static
-/test-apps/*/.next
-/test-apps/*/build
-/test-apps/*/coverage
-/test-apps/*/coverage-local
-/test-apps/*/dist
-/test-apps/*/e2e-test-results
-/test-apps/*/legacy-types
-/test-apps/*/lib-dist
-/test-apps/*/out
-/test-apps/*/playwright-report
-/test-apps/*/storybook-static
-/packages/*/build
-/packages/*/coverage
-/packages/*/coverage-local
-/packages/*/dist
-/packages/*/legacy-types
-/packages/*/lib-dist
-/packages/*/storybook-static
+/*/*/storybook-static
 
-# misc
-.idea/
-.vscode/
-
-.DS_Store
-.env.local
-.env*.local
-.vercel
-*.pem
-*.tsbuildinfo
-next-env.d.ts
+# log files
 
 .pnpm-debug.log*
 lerna-debug.log*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# misc
+
+.DS_Store
+.env.local
+.env*.local
+.vercel
+*.pem
+next-env.d.ts

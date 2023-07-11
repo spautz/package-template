@@ -8,7 +8,7 @@ export default defineConfig({
     setupFiles: './setupTests.ts',
 
     // Check each package and demo-app
-    // Each test-app has its own test config, following the conventions of its build system
+    // Each test-app has its own test config, following the conventions of its framework, so they're not included
     exclude: [...configDefaults.exclude, 'test-apps/**'],
 
     coverage: {
