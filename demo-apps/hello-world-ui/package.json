@@ -1,14 +1,14 @@
 {
-  "name": "@spautz/demo-app--hello-world",
+  "name": "@spautz/demo-app--hello-world-ui",
   "private": true,
   "description": "Basic demo of package-template libraries",
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/demo-apps/hello-world",
+  "homepage": "https://github.com/spautz/package-template/blob/main/demo-apps/hello-world-ui",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/spautz/package-template.git",
-    "directory": "packages/hello-world"
+    "directory": "packages/hello-world-ui"
   },
   "author": {
     "name": "Steven Pautz",

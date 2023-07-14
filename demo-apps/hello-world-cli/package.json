@@ -1,0 +1,47 @@
+{
+  "name": "@spautz/demo-app--hello-world-cli",
+  "private": true,
+  "description": "Basic demo of package-template libraries",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/demo-apps/hello-world-cli",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "packages/hello-world-cli"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "source": "./src/index.ts",
+  "type": "module",
+  "scripts": {
+    "____ INTEGRATION ___________________________________________________": "",
+    "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache *.log",
+    "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
+    "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
+    "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
+    "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build",
+    "____ INDIVIDUAL COMMANDS ___________________________________________": "",
+    "build": "pnpm run build:clean && pnpm run build:main",
+    "build:clean": "rimraf ./dist",
+    "build:main": "tsc -p tsconfig.build-esm.json",
+    "build:watch": "pnpm run build:clean && tsc -p tsconfig.build-esm.json --watch",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --max-warnings 0 --fix",
+    "start": "node ./dist/index.js",
+    "test": "pnpm run test:coverage",
+    "test:clean": "rimraf ./coverage",
+    "test:ci": "pnpm run test:clean            && vitest run --coverage",
+    "test:coverage": "pnpm run test:clean      && vitest run --coverage",
+    "test:quick": "pnpm run test:clean         && vitest run --coverage=false",
+    "test:watch": "pnpm run test:clean         && vitest watch --coverage=false",
+    "test:watchcoverage": "pnpm run test:clean && vitest watch --coverage",
+    "typecheck": "tsc -p ./tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@spautz/node-library-template": "workspace:^"
+  },
+  "devDependencies": {}
+}

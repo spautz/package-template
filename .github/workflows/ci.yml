@@ -112,7 +112,8 @@ jobs:
       matrix:
         app-path:
           [
-            demo-apps/hello-world,
+            demo-apps/hello-world-cli,
+            demo-apps/hello-world-ui,
             test-apps/cra5-react17,
             test-apps/nextjs13-playwright,
             test-apps/vite4-react18-swc,
