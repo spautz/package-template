@@ -82,6 +82,7 @@
     "husky": "^8.0.3",
     "jsdom": "^22.1.0",
     "lint-staged": "^13.2.3",
+    "only-allow": "^1.1.1",
     "prettier": "^3.0.0",
     "rimraf": "^5.0.1",
     "size-limit": "^8.2.6",

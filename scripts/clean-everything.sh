@@ -26,8 +26,16 @@ if [ -d "./node_modules/" ]; then
   run_command pnpm run clean
 fi
 
+if command_exists npm; then
+  run_command "npm cache verify" || true
+fi
+
 if command_exists pnpm; then
   run_command "pnpm store prune" || true
+fi
+
+if command_exists yarn; then
+  run_command "yarn cache clean --all" || true
 fi
 
 run_command "rm -rf
@@ -37,25 +45,21 @@ run_command "rm -rf
 ##################################################################################################
 # Remove generated files
 
-for DIRECTORY in '.' 'demo-apps/*' 'test-apps/*' 'packages/*' ; do
+for DIRECTORY in '.' 'demo-apps/*git' 'test-apps/*' 'packages/*' ; do
   run_command "rm -rf
-    $DIRECTORY/.yarn
     $DIRECTORY/build/
     $DIRECTORY/coverage/
-    $DIRECTORY/coverage-local/
     $DIRECTORY/dist/
+    $DIRECTORY/e2e-test-results/
     $DIRECTORY/legacy-types/
-    $DIRECTORY/lib-dist/
     $DIRECTORY/node_modules/
+    $DIRECTORY/playwright-report/
     $DIRECTORY/storybook-static/
-    $DIRECTORY/*-debug.log*
-    $DIRECTORY/.*-debug.log*
-    $DIRECTORY/*-error.log*
-    $DIRECTORY/.*-error.log*
+    $DIRECTORY/*.log*
     "
 done
 
-REMAINING_FILES=$(git clean -xdn)
+REMAINING_FILES=$(git clean -xdn | sed 's/Would remove /    /')
 if [[ $REMAINING_FILES ]]; then
   echo "Ignored files left:"
   echo "$REMAINING_FILES"
