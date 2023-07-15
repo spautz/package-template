@@ -148,12 +148,12 @@ jobs:
 
       - name: Install dependencies without lockfile
         run: |
-          # In a normal repo (not package-template), this would be:
-          #   rm pnpm-lock.yaml
           rm -f pnpm-lock.yaml
+          cd ${{ matrix.app-path }}
           pnpm install
 
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
       - name: Run CI checks for demo-app
-        run: |
-          cd ${{ matrix.app-path }}
-          pnpm run all:ci
+        run: pnpm run all:ci
