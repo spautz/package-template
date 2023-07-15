@@ -1,0 +1,62 @@
+{
+  "name": "@spautz/test-app--remix-playwright",
+  "private": true,
+  "description": "Test app for package-template packages in a Remix app with React 18 and Playwright",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/test-apps/remix-playwright",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "packages/remix-playwright"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "____ FROM REMIX ___________________________________________________": "",
+    "build": "remix build",
+    "dev": "remix dev",
+    "start": "remix-serve build",
+    "typecheck": "tsc",
+    "____ FROM PLAYWRIGHT _______________________________________________": "",
+    "test:e2e": "echo TODO:playwright test --ui",
+    "____ WORKSPACE INTEGRATION _________________________________________": "",
+    "clean": "rimraf .cache ./public/build",
+    "_build": "(implemented above)",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --max-warnings 0 --fix",
+    "test": "echo TODO:playwright test",
+    "test:ci": "echo TODO:playwright test",
+    "test:coverage": "echo TODO:playwright test",
+    "test:quick": "echo TODO:playwright test",
+    "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
+    "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
+    "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
+    "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
+  },
+  "dependencies": {
+    "@remix-run/css-bundle": "^1.18.1",
+    "@remix-run/node": "^1.18.1",
+    "@remix-run/react": "^1.18.1",
+    "@remix-run/serve": "^1.18.1",
+    "@spautz/node-library-template": "workspace:^",
+    "@spautz/react-library-template": "workspace:^",
+    "isbot": "^3.6.12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.18.1",
+    "@remix-run/eslint-config": "^1.18.1",
+    "@types/react": "^18.0.35",
+    "@types/react-dom": "^18.0.11",
+    "eslint": "^8.38.0",
+    "typescript": "^5.0.4"
+  }
+}

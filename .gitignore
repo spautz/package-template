@@ -37,17 +37,20 @@ node_modules
 
 *.tsbuildinfo
 
+/.cache
 /.next
 /build
 /dist
 /legacy-types
 /out
 
+/*/*/.cache
 /*/*/.next
 /*/*/build
 /*/*/dist
 /*/*/legacy-types
 /*/*/out
+/*/*/public/build
 
 # storybook
 
@@ -65,6 +68,7 @@ yarn-error.log*
 # misc
 
 .DS_Store
+.env
 .env.local
 .env*.local
 .vercel
