@@ -153,9 +153,6 @@ jobs:
           rm -f pnpm-lock.yaml
           pnpm install
 
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
       - name: Run CI checks for demo-app
         run: |
           cd ${{ matrix.app-path }}
