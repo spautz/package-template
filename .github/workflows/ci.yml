@@ -150,11 +150,12 @@ jobs:
       - name: Install dependencies without lockfile
         run: |
           rm -f pnpm-lock.yaml
-          cd ${{ matrix.app-path }}
           pnpm install
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
       - name: Run CI checks for demo-app
-        run: pnpm run all:ci
+        run: |
+          cd ${{ matrix.app-path }}
+          pnpm run all:ci
