@@ -58,6 +58,7 @@
     "test:ci": "pnpm run test:clean            && vitest run --coverage",
     "test:coverage": "pnpm run test:clean      && vitest run --coverage",
     "test:quick": "pnpm run test:clean         && vitest run --coverage=false",
+    "test:ui": "pnpm run test:clean            && vitest --ui",
     "test:watch": "pnpm run test:clean         && vitest watch --coverage=false",
     "test:watchcoverage": "pnpm run test:clean && vitest watch --coverage",
     "typecheck": "tsc -p ./tsconfig.json --noEmit"
@@ -74,6 +75,7 @@
     "@typescript-eslint/eslint-plugin": "^5.61.0",
     "@typescript-eslint/parser": "^5.61.0",
     "@vitest/coverage-v8": "^0.33.0",
+    "@vitest/ui": "^0.33.0",
     "changesets-format-with-issue-links": "^0.3.0",
     "cross-env": "^7.0.3",
     "downlevel-dts": "^0.11.0",
