@@ -28,10 +28,11 @@
     "_test": "(implemented above)",
     "test:coverage": "pnpm run test --coverage=true  --watchAll=false",
     "test:quick": "pnpm run test    --coverage=false --watchAll=false",
-    "all": "pnpm run lint          && pnpm run test:coverage && pnpm run build",
-    "all:readonly": "pnpm run lint && pnpm run test:quick",
-    "all:quick": "pnpm run lint    && pnpm run test:quick",
-    "all:ci": "pnpm run lint       && pnpm run test:coverage && pnpm run build"
+    "typecheck": "tsc --noEmit",
+    "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
+    "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
+    "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
+    "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
   },
   "dependencies": {
     "@spautz/node-library-template": "workspace:^",

@@ -1,7 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
-import path from 'path';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const baseURL = `http://localhost:${PORT}`;
 
 // See https://playwright.dev/docs/test-configuration.
@@ -44,7 +43,7 @@ export default defineConfig({
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   webServer: {
-    command: 'pnpm run dev',
+    command: `pnpm run start:dev --port ${PORT}`,
     url: baseURL,
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
