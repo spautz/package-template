@@ -26,6 +26,7 @@
     "lint": "eslint src --max-warnings 0",
     "lint:fix": "eslint src --max-warnings 0 --fix",
     "_test": "(implemented above)",
+    "test:ci": "pnpm run test    --coverage=false --watchAll=false --bail",
     "test:coverage": "pnpm run test --coverage=true  --watchAll=false",
     "test:quick": "pnpm run test    --coverage=false --watchAll=false",
     "typecheck": "tsc --noEmit",

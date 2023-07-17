@@ -32,6 +32,7 @@
     "_lint": "(implemented above)",
     "lint:fix": "next lint --fix",
     "test": "playwright test",
+    "test:ci": "playwright test --max-failures=1",
     "test:coverage": "playwright test",
     "test:quick": "playwright test",
     "typecheck": "tsc --noEmit",

@@ -36,7 +36,7 @@
     "lint": "eslint ./app --max-warnings 0",
     "lint:fix": "eslint ./app --max-warnings 0 --fix",
     "test": "playwright test",
-    "test:ci": "playwright test",
+    "test:ci": "playwright test --max-failures=1",
     "test:coverage": "playwright test",
     "test:quick": "playwright test",
     "_typecheck": "(implemented above)",

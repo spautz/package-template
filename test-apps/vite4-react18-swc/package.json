@@ -27,6 +27,7 @@
     "_lint": "(implemented above)",
     "lint:fix": "pnpm run lint --fix",
     "test": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --bail=1",
     "test:coverage": "vitest run --coverage",
     "test:quick": "vitest run --coverage=false",
     "typecheck": "tsc",
