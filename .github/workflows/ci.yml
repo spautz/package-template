@@ -14,45 +14,19 @@ jobs:
         node-version: [16.x, 18.x, 19.x, 20.x]
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: ./_setup-repo.yml
         with:
           fetch-depth: 0
-
-      - name: Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
           node-version: ${{ matrix.node-version }}
 
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - run: corepack enable
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
-        # In a normal repo (not package-template), this would be:
-        #   run: pnpm install --frozen-lockfile
-
       - name: Check for a changelog entry
-        if: ${{ github.ref != 'refs/heads/prepare-release' }}
-        run: pnpm run changelog:status:ci
+        if: ${{ github.ref != 'refs/heads/prepare-release' && github.actor != 'dependabot[bot]' }}
+        run: |
+          pnpm run changelog:status:ci
 
       - name: Run CI checks
-        run: pnpm run all:ci
+        run: |
+          pnpm run all:ci
 
       - name: Report test coverage to coveralls.io
         uses: coverallsapp/github-action@master
@@ -67,38 +41,7 @@ jobs:
         package-name: [node-library-template, react-library-template]
 
     steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - run: corepack enable
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies
-        run: pnpm install
-        # In a normal repo (not package-template), this would be:
-        #   run: pnpm install --frozen-lockfile
+      - uses: ./_setup-repo.yml
 
       - name: Run CI checks for package
         run: |
@@ -121,36 +64,9 @@ jobs:
           ]
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Node.js
-        uses: actions/setup-node@v3
+      - uses: ./_setup-repo.yml
         with:
-          node-version: 20
-
-      - uses: pnpm/action-setup@v2
-        with:
-          version: 8
-
-      - run: corepack enable
-
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        run: |
-          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.pnpm_cache_dir }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies without lockfile
-        run: |
-          rm -f pnpm-lock.yaml
-          pnpm install
+          use-lockfile: false
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps

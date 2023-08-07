@@ -1,0 +1,57 @@
+name: Setup repo (reusable)
+
+on:
+  workflow_call:
+    inputs:
+      fetch-depth:
+        type: number
+      node-version:
+        type: string
+        default: latest
+      use-lockfile:
+        type: boolean
+        required: true
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  setup-repo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: ${{ inputs.fetch-depth }}
+
+      - uses: actions/setup-node@v3.7.0
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - uses: pnpm/action-setup@v2.4.0
+
+      - name: Get pnpm store directory
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install dependencies with lockfile
+        if: ${{ inputs.use-lockfile }}
+        run: |
+          pnpm install
+        #  In a normal repo (not package-template), this would be:
+        #  pnpm install --frozen-lockfile
+
+      - name: Install dependencies without lockfile
+        if: ${{ !inputs.use-lockfile }}
+        run: |
+          rm -f pnpm-lock.yaml
+          pnpm install
