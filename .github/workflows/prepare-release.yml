@@ -28,7 +28,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: ./_setup-repo.yml
+      - uses: ./.github/workflows/_setup-repo.yml
 
       - name: Prepare release
         run: pnpm run release:prep
