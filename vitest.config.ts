@@ -1,11 +1,11 @@
 import { configDefaults, defineConfig } from 'vitest/config';
 
-// Check each package and demo-app
+// Check each package and demo
 const testPathsToExclude = [
   ...configDefaults.exclude,
   '**/legacy-types/**',
-  // Each test-app has its own test config, following the conventions of its framework, so they're not included
-  'test-apps/**',
+  // Each framework-test has its own test config, following the conventions of its framework, so they're not included
+  'framework-tests/**',
 ];
 
 export default defineConfig({

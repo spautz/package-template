@@ -59,8 +59,8 @@ jobs:
         with:
           github-token: ${{ github.token }}
 
-  packages-ci:
-    name: Packages CI
+  package-ci:
+    name: Package CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -105,19 +105,19 @@ jobs:
           cd packages/${{ matrix.package-name }}
           pnpm run all:ci
 
-  apps-ci:
-    name: Apps CI
+  demo-app-ci:
+    name: Demo-App CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        app-path:
+        demo-app-path:
           [
-            demo-apps/hello-world-cli,
-            demo-apps/hello-world-ui,
-            test-apps/cra5-react17,
-            test-apps/nextjs13-playwright,
-            test-apps/remix-playwright,
-            test-apps/vite4-react18-swc,
+            demos/hello-world-cli,
+            demos/hello-world-ui,
+            framework-tests/cra5-react17,
+            framework-tests/nextjs13-playwright,
+            framework-tests/remix-playwright,
+            framework-tests/vite4-react18-swc,
           ]
 
     steps:
@@ -155,7 +155,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Run CI checks for demo-app
+      - name: Run CI checks for demo
         run: |
-          cd ${{ matrix.app-path }}
+          cd ${{ matrix.demo-app-path }}
           pnpm run all:ci

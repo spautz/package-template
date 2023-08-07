@@ -1,9 +1,9 @@
 {
-  "name": "@spautz/demo-app--hello-world-cli",
+  "name": "@spautz/demo--hello-world-cli",
   "private": true,
   "description": "Basic demo of package-template libraries",
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/demo-apps/hello-world-cli",
+  "homepage": "https://github.com/spautz/package-template/blob/main/demos/hello-world-cli",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",

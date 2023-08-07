@@ -1,9 +1,9 @@
 {
-  "name": "@spautz/test-app--vite4-react18-swc",
+  "name": "@spautz/framework-test--vite4-react18-swc",
   "private": true,
   "description": "Test app for package-template packages in a Vite-built app with React 18 and SWC",
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/test-apps/vite4-react18-swc",
+  "homepage": "https://github.com/spautz/package-template/blob/main/framework-tests/vite4-react18-swc",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
     "build": "tsc && vite build",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
+    "____ FOR FRAMEWORK-TEST ____________________________________________": "",
+    "// (none)": "",
     "____ WORKSPACE INTEGRATION _________________________________________": "",
-    "clean": "rimraf ./build",
+    "clean": "rimraf ./coverage ./dist",
     "_build": "(implemented above)",
     "_lint": "(implemented above)",
     "lint:fix": "pnpm run lint --fix",

@@ -45,7 +45,7 @@ run_command "rm -rf
 ##################################################################################################
 # Remove generated files
 
-for DIRECTORY in '.' 'demo-apps/*git' 'test-apps/*' 'packages/*' ; do
+for DIRECTORY in '.' 'demos/*git' 'framework-tests/*' 'packages/*' ; do
   run_command "rm -rf
     $DIRECTORY/build/
     $DIRECTORY/coverage/

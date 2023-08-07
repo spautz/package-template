@@ -50,7 +50,7 @@ module.exports = {
     'lib-dist/',
     'node_modules/',
     'storybook-static/',
-    // Each test-app has its own eslint config, following the conventions of its framework, so they're not included
-    'test-apps/',
+    // Each framework-test has its own eslint config, following the conventions of its framework, so they're not included
+    'framework-tests/',
   ],
 };
