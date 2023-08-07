@@ -24,9 +24,11 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
-      - uses: ./_setup-repo.yml
+      - uses: actions/checkout@v3.5.3
         with:
           fetch-depth: 0
+
+      - uses: ./_setup-repo.yml
 
       - name: Prepare release
         run: pnpm run release:prep

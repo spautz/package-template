@@ -26,6 +26,8 @@ jobs:
         package-name: [node-library-template, react-library-template]
 
     steps:
+      - uses: actions/checkout@v3.5.3
+
       - uses: ./_setup-repo.yml
 
       - name: Run package tests

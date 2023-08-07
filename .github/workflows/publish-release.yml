@@ -23,9 +23,11 @@ jobs:
       matrix:
         package-name: [node-library-template, react-library-template]
     steps:
-      - uses: ./_setup-repo.yml
+      - uses: actions/checkout@v3.5.3
         with:
           fetch-depth: 0
+
+      - uses: ./_setup-repo.yml
 
       - name: Publish to NPM
         run: |

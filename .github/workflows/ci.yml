@@ -14,9 +14,12 @@ jobs:
         node-version: [16.x, 18.x, 19.x, 20.x]
 
     steps:
-      - uses: ./_setup-repo.yml
+      - uses: actions/checkout@v3.5.3
         with:
           fetch-depth: 0
+
+      - uses: ./_setup-repo.yml
+        with:
           node-version: ${{ matrix.node-version }}
 
       - name: Check for a changelog entry
@@ -41,6 +44,8 @@ jobs:
         package-name: [node-library-template, react-library-template]
 
     steps:
+      - uses: actions/checkout@v3.5.3
+
       - uses: ./_setup-repo.yml
 
       - name: Run CI checks for package
@@ -64,6 +69,8 @@ jobs:
           ]
 
     steps:
+      - uses: actions/checkout@v3.5.3
+
       - uses: ./_setup-repo.yml
         with:
           use-lockfile: false
