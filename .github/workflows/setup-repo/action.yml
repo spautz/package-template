@@ -1,51 +1,47 @@
 name: Setup repo (reusable)
+description: Standardized workspace setup for package-template
+inputs:
+  node-version:
+    description: NodeJS version, for actions/setup-node
+    type: string
+    required: false
+    default: latest
+  use-lockfile:
+    description: Whether or not to honor pnpm-lock.yaml
+    type: boolean
+    required: true
+    default: true
 
-on:
-  workflow_call:
-    inputs:
-      node-version:
-        type: string
-        default: latest
-      use-lockfile:
-        type: boolean
-        required: true
-        default: true
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v3.7.0
+      with:
+        node-version: ${{ github.event.inputs.node-version }}
 
-permissions:
-  contents: read
+    - uses: pnpm/action-setup@v2.4.0
 
-jobs:
-  setup-repo:
-    runs-on: ubuntu-latest
+    - name: Get pnpm store directory
+      run: |
+        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
-    steps:
-      - uses: actions/setup-node@v3.7.0
-        with:
-          node-version: ${{ inputs.node-version }}
+    - uses: actions/cache@v3.3.1
+      name: Setup pnpm cache
+      with:
+        path: ${{ env.STORE_PATH }}
+        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-store-
 
-      - uses: pnpm/action-setup@v2.4.0
+    - name: Install dependencies with lockfile
+      if: ${{ github.event.inputs.use-lockfile }}
+      run: |
+        pnpm install
+      #  In a normal repo (not package-template), this would be:
+      #  pnpm install --frozen-lockfile
 
-      - name: Get pnpm store directory
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3.3.1
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: Install dependencies with lockfile
-        if: ${{ inputs.use-lockfile }}
-        run: |
-          pnpm install
-        #  In a normal repo (not package-template), this would be:
-        #  pnpm install --frozen-lockfile
-
-      - name: Install dependencies without lockfile
-        if: ${{ !inputs.use-lockfile }}
-        run: |
-          rm -f pnpm-lock.yaml
-          pnpm install
+    - name: Install dependencies without lockfile
+      if: ${{ !github.event.inputs.use-lockfile }}
+      run: |
+        rm -f pnpm-lock.yaml
+        pnpm install
