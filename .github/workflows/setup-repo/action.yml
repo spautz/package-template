@@ -22,6 +22,7 @@ runs:
     - uses: pnpm/action-setup@v2.4.0
 
     - name: Get pnpm store directory
+      shell: bash
       run: |
         echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
 
@@ -35,6 +36,7 @@ runs:
 
     - name: Install dependencies with lockfile
       if: ${{ github.event.inputs.use-lockfile }}
+      shell: bash
       run: |
         pnpm install
       #  In a normal repo (not package-template), this would be:
@@ -42,6 +44,7 @@ runs:
 
     - name: Install dependencies without lockfile
       if: ${{ !github.event.inputs.use-lockfile }}
+      shell: bash
       run: |
         rm -f pnpm-lock.yaml
         pnpm install
