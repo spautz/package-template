@@ -18,7 +18,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: ./.github/workflows/setup-repo/
+      - uses: ./.github/reusable-workflows/setup-repo
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -46,37 +46,26 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.3
 
-      - uses: ./.github/workflows/setup-repo/
+      - uses: ./.github/reusable-workflows/setup-repo
 
       - name: Run CI checks for package
         run: |
           cd packages/${{ matrix.package-name }}
           pnpm run all:ci
 
-  demo-app-ci:
-    name: Demo-App CI
+  demo-ci:
+    name: Demo CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        demo-app-path:
-          [
-            demos/hello-world-cli,
-            demos/hello-world-ui,
-            framework-tests/cra5-react17,
-            framework-tests/nextjs13-playwright,
-            framework-tests/remix-playwright,
-            framework-tests/vite4-react18-swc,
-          ]
+        demo-name: [hello-world-cli, hello-world-ui]
 
     steps:
       - uses: actions/checkout@v3.5.3
 
-      - uses: ./.github/workflows/setup-repo/
+      - uses: ./.github/reusable-workflows/setup-repo
         with:
           use-lockfile: false
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
 
       - name: Run CI checks for demo
         run: |

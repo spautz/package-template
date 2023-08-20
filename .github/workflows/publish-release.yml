@@ -27,7 +27,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: ./.github/workflows/setup-repo/
+      - uses: ./.github/reusable-workflows/setup-repo
 
       - name: Publish to NPM
         run: |

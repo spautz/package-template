@@ -28,7 +28,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3.5.3
 
-      - uses: ./.github/workflows/setup-repo/
+      - uses: ./.github/reusable-workflows/setup-repo
 
       - name: Run package tests
         run: |
