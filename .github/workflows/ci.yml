@@ -69,5 +69,5 @@ jobs:
 
       - name: Run CI checks for demo
         run: |
-          cd ${{ matrix.demo-app-path }}
+          cd demos/${{ matrix.package-name }}
           pnpm run all:ci
