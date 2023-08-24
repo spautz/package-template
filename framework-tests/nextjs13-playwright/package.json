@@ -36,6 +36,7 @@
     "test:coverage": "playwright test",
     "test:quick": "playwright test",
     "typecheck": "tsc --noEmit",
+    "yalc-teardown": "pnpm run clean && rimraf ./.yalc ./pnpm-lock.yaml",
     "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
     "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
     "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
@@ -57,7 +58,9 @@
     "postcss": "^8.4.24",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rimraf": "^5.0.1",
     "tailwindcss": "^3.3.2",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "yalc": "^1.0.0-pre.53"
   }
 }

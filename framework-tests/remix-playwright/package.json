@@ -40,6 +40,7 @@
     "test:coverage": "playwright test",
     "test:quick": "playwright test",
     "_typecheck": "(implemented above)",
+    "yalc-teardown": "pnpm run clean && rimraf ./.yalc ./pnpm-lock.yaml",
     "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
     "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
     "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
@@ -54,7 +55,9 @@
     "@spautz/react-library-template": "workspace:^",
     "isbot": "^3.6.12",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "rimraf": "^5.0.1",
+    "yalc": "^1.0.0-pre.53"
   },
   "devDependencies": {
     "@playwright/test": "^1.36.1",

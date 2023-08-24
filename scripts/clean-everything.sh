@@ -26,17 +26,17 @@ if [ -d "./node_modules/" ]; then
   run_command pnpm run clean
 fi
 
-if command_exists npm; then
-  run_command "npm cache verify" || true
-fi
-
-if command_exists pnpm; then
-  run_command "pnpm store prune" || true
-fi
-
-if command_exists yarn; then
-  run_command "yarn cache clean --all" || true
-fi
+#if command_exists npm; then
+#  run_command "npm cache verify" || true
+#fi
+#
+#if command_exists pnpm; then
+#  run_command "pnpm store prune" || true
+#fi
+#
+#if command_exists yarn; then
+#  run_command "yarn cache clean --all" || true
+#fi
 
 run_command "rm -rf
   $TMPDIR/react-*
@@ -44,6 +44,15 @@ run_command "rm -rf
 
 ##################################################################################################
 # Remove generated files
+
+
+for DIRECTORY in framework-tests/*/ ; do
+  pushd $DIRECTORY
+  if [ -d "./node_modules/" ]; then
+    run_command "pnpm run yalc-teardown"
+  fi
+  popd
+done
 
 for DIRECTORY in '.' 'demos/*git' 'framework-tests/*' 'packages/*' ; do
   run_command "rm -rf
