@@ -15,9 +15,6 @@
     "url": "https://github.com/spautz/"
   },
   "scripts": {
-    "____ HOOKS _________________________________________________________": "",
-    "preinstall": "yalc update",
-    "pnpm:devPreinstall": "yalc update",
     "____ FROM CREATE-REACT-APP _________________________________________": "",
     "start": "react-scripts start",
     "build": "react-scripts build",
