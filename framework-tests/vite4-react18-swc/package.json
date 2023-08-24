@@ -40,8 +40,8 @@
     "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
   },
   "dependencies": {
-    "@spautz/node-library-template": "workspace:^",
-    "@spautz/react-library-template": "workspace:^",
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

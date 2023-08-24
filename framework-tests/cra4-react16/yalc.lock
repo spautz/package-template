@@ -3,13 +3,11 @@
   "packages": {
     "@spautz/node-library-template": {
       "signature": "7fa0902e272d453ff6dd919b85d232ae",
-      "pure": true,
-      "replaced": "workspace:^"
+      "pure": true
     },
     "@spautz/react-library-template": {
       "signature": "b2400d6749d013c4840f678fab2a28ca",
-      "pure": true,
-      "replaced": "workspace:^"
+      "pure": true
     }
   }
 }

@@ -39,6 +39,8 @@
     "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
   },
   "dependencies": {
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
