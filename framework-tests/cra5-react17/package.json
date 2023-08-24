@@ -15,13 +15,16 @@
     "url": "https://github.com/spautz/"
   },
   "scripts": {
+    "____ HOOKS _________________________________________________________": "",
+    "preinstall": "yalc update",
+    "pnpm:devPreinstall": "yalc update",
     "____ FROM CREATE-REACT-APP _________________________________________": "",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "_eject": "react-scripts eject",
     "____ FOR FRAMEWORK-TEST ____________________________________________": "",
-    "// (none)": "",
+    "yalc-teardown": "rimraf ./.yalc ./pnpm-lock.yaml",
     "____ WORKSPACE INTEGRATION _________________________________________": "",
     "clean": "rimraf ./build ./coverage",
     "_build": "(implemented above)",
@@ -38,8 +41,8 @@
     "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
   },
   "dependencies": {
-    "@spautz/node-library-template": "workspace:^",
-    "@spautz/react-library-template": "workspace:^"
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",

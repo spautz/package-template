@@ -34,6 +34,7 @@
     "packages:test:coverage": "pnpm -r run test:coverage",
     "packages:test:quick": "pnpm --parallel -r run test:quick",
     "packages:typecheck": "pnpm -r run typecheck",
+    "packages:yalc-publish": "pnpm -r --filter \"./packages/*\" exec yalc publish",
     "packages:all": "pnpm -r run all",
     "packages:all:readonly": "pnpm -r run all:readonly",
     "packages:all:quick": "pnpm --parallel -r run all:quick",
@@ -94,7 +95,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "vite": "^4.4.8",
-    "vitest": "^0.34.1"
+    "vitest": "^0.34.1",
+    "yalc": "^1.0.0-pre.53"
   },
   "lint-staged": {
     "*.{css,html,js,jsx,json,less,md,scss,ts,tsx,yaml}": [

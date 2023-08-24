@@ -69,5 +69,25 @@ jobs:
 
       - name: Run CI checks for demo
         run: |
-          cd demos/${{ matrix.package-name }}
+          cd demos/${{ matrix.demo-name }}
+          pnpm run all:ci
+
+  framework-test-ci:
+    name: Framework-Test CI
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        framework-test-name: [cra5-react17]
+
+    steps:
+      - uses: actions/checkout@v3.5.3
+
+      - uses: ./.github/reusable-workflows/setup-repo
+        with:
+          use-lockfile: false
+
+      - name: Run CI checks for framework-test
+        run: |
+          cd framework-tests/${{ matrix.framework-test-name }}
+          ../../scripts/setup-framework-test.sh
           pnpm run all:ci

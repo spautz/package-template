@@ -16,6 +16,10 @@
 .pnp.js
 .pnpm-store
 node_modules
+/framework-tests/*/.yalc
+/framework-tests/*/package-lock.json
+/framework-tests/*/pnpm-lock.yaml
+/framework-tests/*/yarn.lock
 
 # unit tests
 
