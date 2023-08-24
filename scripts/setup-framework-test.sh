@@ -16,13 +16,7 @@ fi;
 
 corepack enable
 
-pnpm install -w --save-optional  \
-  rimraf                         \
-  yalc                           ;
-
-pnpm run yalc-teardown;
-
-pnpm exec yalc update;
+pnpm dlx yalc update
 pnpm install;
 
 ###################################################################################################
