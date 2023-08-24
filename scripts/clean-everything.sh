@@ -54,7 +54,7 @@ for DIRECTORY in framework-tests/*/ ; do
   popd
 done
 
-for DIRECTORY in '.' 'demos/*git' 'framework-tests/*' 'packages/*' ; do
+for DIRECTORY in '.' 'demos/*' 'framework-tests/*' 'packages/*' ; do
   run_command "rm -rf
     $DIRECTORY/build/
     $DIRECTORY/coverage/

@@ -1,3 +1,14 @@
-import baseConfig from '../../vitest.config.js';
+import { defineConfig } from 'vitest/config';
 
-export default baseConfig;
+export default defineConfig({
+  test: {
+    environment: 'jsdom',
+
+    setupFiles: './setupTests.ts',
+
+    coverage: {
+      provider: 'v8',
+      reporter: ['html', 'lcov'],
+    },
+  },
+});

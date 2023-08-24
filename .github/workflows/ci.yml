@@ -78,7 +78,7 @@ jobs:
     strategy:
       matrix:
         framework-test-name:
-          [cra4-react16, cra5-react17, nextjs13-playwright, remix-playwright, vite4-react18-swc]
+          [cra5-react17, nextjs13-playwright, remix-playwright, vite4-react18-swc]
 
     steps:
       - uses: actions/checkout@v3.5.3
