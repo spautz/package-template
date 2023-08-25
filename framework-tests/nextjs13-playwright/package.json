@@ -15,6 +15,8 @@
     "url": "https://github.com/spautz/"
   },
   "scripts": {
+    "____ HOOKS _________________________________________________________": "",
+    "postinstall": "playwright install --with-deps",
     "____ FROM NEXTJS ___________________________________________________": "",
     "dev": "next dev",
     "build": "next build",

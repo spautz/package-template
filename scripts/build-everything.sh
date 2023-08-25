@@ -23,6 +23,8 @@ run_command "pnpm run all:readonly"
 run_command "pnpm run packages:all"
 run_command "pnpm run packages:all:readonly"
 
+./scripts/build-framework-tests.sh
+
 ###################################################################################################
 
 echo "All builds completed"

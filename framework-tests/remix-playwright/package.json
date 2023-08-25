@@ -19,6 +19,8 @@
   },
   "sideEffects": false,
   "scripts": {
+    "____ HOOKS _________________________________________________________": "",
+    "postinstall": "playwright install --with-deps",
     "____ FROM REMIX ___________________________________________________": "",
     "build": "remix build",
     "dev": "remix dev",
