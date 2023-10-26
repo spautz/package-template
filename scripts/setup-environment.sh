@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
+THIS_SCRIPT_NAME=$(basename "$0")
+echo "### Begin ${THIS_SCRIPT_NAME}"
+
 # Fail if anything in here fails
 set -e
-
-# This script runs from the project root
-cd "$(dirname "$0")/.."
+# Run from the repo root
+pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
-# NVM and Node
 
 # on Windows `nvm` will be a real command; on other environments -- with "real" nvm -- it's just a function
 if ! command_exists nvm; then
@@ -40,4 +41,5 @@ run_command "pnpm install --frozen-lockfile --offline"
 
 ###################################################################################################
 
-echo "Environment setup complete"
+popd
+echo "### End ${THIS_SCRIPT_NAME}"

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+THIS_SCRIPT_NAME=$(basename "$0")
+echo "### Begin ${THIS_SCRIPT_NAME}"
+
 # Fail if anything in here fails
 set -e
-
-# This script starts from the project root
-cd "$(dirname "$0")/.."
+# Run from the repo root
+pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 
 source ./scripts/helpers/helpers.sh
 
@@ -19,10 +21,7 @@ run_command "pnpm run packages:yalc-publish"
 # Setup each framework-test
 
 for DIRECTORY in framework-tests/*/ ; do
-  pushd $DIRECTORY
-  echo "Framework-test setup for $DIRECTORY"
-  ../../scripts/setup-framework-test.sh
-  popd
+  ./scripts/setup-framework-test.sh $(basename "$DIRECTORY")
 done
 
 ##################################################################################################
@@ -36,7 +35,7 @@ for DIRECTORY in framework-tests/*/ ; do
   popd
 done
 
-
 ###################################################################################################
 
-echo "All framework-tests completed"
+popd
+echo "### End ${THIS_SCRIPT_NAME}"

@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
+THIS_SCRIPT_NAME=$(basename "$0")
+echo "### Begin ${THIS_SCRIPT_NAME}"
+
 # Fail if anything in here fails
 set -e
-
-# This script runs from the project root
-cd "$(dirname "$0")/.."
+# Run from the repo root
+pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 
 source ./scripts/helpers/helpers.sh
 
@@ -33,4 +35,5 @@ run_command npm cache clean --force
 
 ###################################################################################################
 
-echo "Environment reset completed"
+popd
+echo "### End ${THIS_SCRIPT_NAME}"
