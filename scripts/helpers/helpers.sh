@@ -6,19 +6,6 @@ command_exists() {
   command -v "$1" > /dev/null 2>&1
 }
 
-get_json_value() {
-  local FILE=$1
-  local PROPERTY=$2
-
-  echo $(cat $FILE \
-    | grep "\"$PROPERTY\":" \
-    | head -1 \
-    | awk -F: '{ print $2 }' \
-    | sed 's/[",]//g' \
-    | tr -d '[[:space:]]'
-  )
-}
-
 # This simply echoes and then runs a command. It's just an alternative to turning on echo (set -x)
 run_command() {
   local FULL_COMMAND=$*

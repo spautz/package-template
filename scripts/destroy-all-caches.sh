@@ -17,7 +17,9 @@ source ./scripts/helpers/helpers.sh
 
 
 if command_exists jest; then
-  run_npm_command jest --clearCache
+  run_command "jest --clearCache"
+else
+  run_command "npx jest --clearCache"
 fi
 
 if command_exists pnpm; then
@@ -28,7 +30,7 @@ if command_exists yarn; then
   run_command "yarn cache clean --all"
 fi
 
-run_command npm cache clean --force
+run_command "npm cache clean --force"
 
 
 ./scripts/clean-everything.sh

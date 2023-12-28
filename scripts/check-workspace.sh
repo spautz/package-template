@@ -13,13 +13,13 @@ source ./scripts/helpers/helpers.sh
 ###################################################################################################
 # Check versions of Node, pnpm, and any other tools required
 
-if ! command_exists pnpm; then
-  echo "Could not find pnpm!"
-  exit 1
-fi
+./scripts/check-environment.sh
 
-# Validate against engines set in the workspace package.json
-run_command pnpm dlx check-node-version --package --print
+# Quick install to check lockfile status
+run_command "pnpm install --frozen-lockfile --ignore-scripts --prefer-offline"
+
+# This command checks that the workspace is *already* set up (i.e., no `prepare`)
+run_command
 
 ###################################################################################################
 

@@ -12,14 +12,25 @@ source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
 
+if [[ ! "${BASH_SOURCE[0]}" != "${0}" ]]; then
+  echo "###"
+  echo "###"
+  echo "WARNING: ${THIS_SCRIPT_NAME} is NOT being sourced: you should run 'source $0' instead."
+  echo "###"
+  echo "###"
+fi;
+
 # on Windows `nvm` will be a real command; on other environments -- with "real" nvm -- it's just a function
 if ! command_exists nvm; then
   NVM_INIT="$HOME/.nvm/nvm.sh"
   if [ -f $NVM_INIT ]; then
     source $NVM_INIT
   else
-    echo "Could not find nvm!"
-    exit 1
+    echo "###"
+    echo "###"
+    echo "WARNING: Could not find nvm."
+    echo "###"
+    echo "###"
   fi
 fi
 
@@ -35,8 +46,8 @@ if ! command_exists pnpm; then
 fi
 
 run_command "./scripts/check-environment.sh"
-run_command "pnpm install --frozen-lockfile --ignore-scripts"
-run_command "pnpm clean"
+run_command "pnpm install --frozen-lockfile --ignore-scripts --prefer-offline"
+run_command "pnpm run clean"
 run_command "pnpm install --frozen-lockfile --offline"
 
 ###################################################################################################

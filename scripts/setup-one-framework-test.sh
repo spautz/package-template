@@ -19,9 +19,13 @@ if [ -z "$FRAMEWORK_TEST_NAME" ]; then
 fi
 
 if [ ! -d "$FRAMEWORK_TEST_DIRECTORY" ]; then
-  echo "Invalid framework-test: \"$FRAMEWORK_TEST_NAME\""
+  echo "Invalid framework-test name: \"$FRAMEWORK_TEST_NAME\""
   exit 1
 fi
+
+run_command "./scripts/check-environment.sh"
+run_command "pnpm install"
+run_command "pnpm run packages:yalc-publish"
 
 cd $FRAMEWORK_TEST_DIRECTORY
 
@@ -30,9 +34,8 @@ cd $FRAMEWORK_TEST_DIRECTORY
 if [ -f .nvmrc ] ; then
   nvm install $(cat .nvmrc)
   nvm use $(cat .nvmrc)
+  corepack enable
 fi
-
-corepack enable
 
 pnpm dlx yalc update
 pnpm install
