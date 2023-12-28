@@ -11,24 +11,19 @@ pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
-# Setup
+# `build-workspace.sh` ensures that all packages and demos are up-to-date and passing.
+# This covers everything except the framework-tests.
 
 ./scripts/check-environment.sh
 
-# TODO: install, clean, install?
-# TODO: git status?
 run_command pnpm install
 
-###################################################################################################
 # Run all read-write scripts and read-only scripts. This is overkill and duplicates a lot of work,
 # but also helps catch any intermittent errors. Suitable for running before lunch or teatime.
-
 run_command pnpm run all
 run_command pnpm run all:readonly
 run_command pnpm run packages:all
 run_command pnpm run packages:all:readonly
-
-./scripts/build-framework-tests.sh
 
 ###################################################################################################
 

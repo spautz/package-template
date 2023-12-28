@@ -11,13 +11,13 @@ pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
+# `setup-local-environment.sh` is for developers to use on their local machines.
+# It's a quick way to run through the repo-setup steps in CONTRIBUTING.md
+#
+# NOTE: this script will mutate your environment to match the repo's needs.
 
 if [[ ! "${BASH_SOURCE[0]}" != "${0}" ]]; then
-  echo "###"
-  echo "###"
-  echo "WARNING: ${THIS_SCRIPT_NAME} is NOT being sourced: you should run 'source $0' instead."
-  echo "###"
-  echo "###"
+  emit_warning "${THIS_SCRIPT_NAME} is NOT being sourced: you should run 'source $0' instead."
 fi;
 
 # on Windows `nvm` will be a real command; on other environments -- with "real" nvm -- it's just a function
@@ -26,11 +26,7 @@ if ! command_exists nvm; then
   if [ -f $NVM_INIT ]; then
     source $NVM_INIT
   else
-    echo "###"
-    echo "###"
-    echo "WARNING: Could not find nvm."
-    echo "###"
-    echo "###"
+    emit_warning "Could not find nvm."
   fi
 fi
 
@@ -46,6 +42,8 @@ if ! command_exists pnpm; then
 fi
 
 run_command "./scripts/check-environment.sh"
+
+# Ensure any lingering artifacts from earlier work have been cleaned out
 run_command "pnpm install --frozen-lockfile --ignore-scripts --prefer-offline"
 run_command "pnpm run clean"
 run_command "pnpm install --frozen-lockfile --offline"

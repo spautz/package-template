@@ -6,6 +6,16 @@ command_exists() {
   command -v "$1" > /dev/null 2>&1
 }
 
+emit_warning() {
+  local MESSAGE=$*
+
+  echo "###"
+  echo "###"
+  echo "WARNING: ${MESSAGE}"
+  echo "###"
+  echo "###"
+}
+
 # This simply echoes and then runs a command. It's just an alternative to turning on echo (set -x)
 run_command() {
   local FULL_COMMAND=$*

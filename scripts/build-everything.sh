@@ -11,23 +11,10 @@ pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
-# Setup
+# Quick shorthand for running all packages', demos', *and* framework-tests' checks together.
+# This will take a while to run.
 
-./scripts/check-environment.sh
-
-# TODO: install, clean, install?
-# TODO: git status?
-run_command pnpm install
-
-###################################################################################################
-# Run all read-write scripts and read-only scripts. This is overkill and duplicates a lot of work,
-# but also helps catch any intermittent errors. Suitable for running before lunch or teatime.
-
-run_command pnpm run all
-run_command pnpm run all:readonly
-run_command pnpm run packages:all
-run_command pnpm run packages:all:readonly
-
+./scripts/build-workspace.sh
 ./scripts/build-framework-tests.sh
 
 ###################################################################################################

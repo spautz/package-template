@@ -11,21 +11,13 @@ pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
-# Setup workspace and Yalc
 
 ./scripts/check-environment.sh
+
 run_command pnpm install
 run_command pnpm run packages:yalc-publish
 
-##################################################################################################
-# Setup each framework-test
-
-for DIRECTORY in framework-tests/*/ ; do
-  ./scripts/setup-framework-test.sh $(basename "$DIRECTORY")
-done
-
-##################################################################################################
-# Run checks for each framework-test
+./scripts/setup-framework-tests.sh
 
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY

@@ -34,17 +34,14 @@ runs:
         restore-keys: |
           ${{ runner.os }}-pnpm-store-
 
-    - name: Install dependencies with lockfile
-      if: ${{ github.event.inputs.use-lockfile }}
-      shell: bash
-      run: |
-        pnpm install
-      #  In a normal repo (not package-template), this would be:
-      #  pnpm install --frozen-lockfile
-
-    - name: Install dependencies without lockfile
+    - name: Remove lockfile to loosen dependency tree
       if: ${{ !github.event.inputs.use-lockfile }}
       shell: bash
       run: |
         rm -f pnpm-lock.yaml
-        pnpm install
+
+    - name: Install dependencies
+      if: ${{ github.event.inputs.use-lockfile }}
+      shell: bash
+      run: |
+        ./scripts/setup-ci-environment.sh

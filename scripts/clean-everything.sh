@@ -30,8 +30,11 @@ fi
 
 run_command "rm -rf
   $TMPDIR/react-*
+  .pnpm-debug.log
+  npm-debug.log
+  yarn-debug.log
+  yarn-error.log
   "
-# TODO: error files
 
 ##################################################################################################
 # Remove generated files
