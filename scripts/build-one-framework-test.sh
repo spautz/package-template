@@ -8,6 +8,8 @@ set -e
 # Run from the repo root
 pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 
+source ./scripts/helpers/helpers.sh
+
 ###################################################################################################
 
 FRAMEWORK_TEST_NAME=$1
@@ -39,6 +41,10 @@ fi
 
 pnpm dlx yalc update
 pnpm install
+
+# Run checks
+run_command pnpm run all
+run_command pnpm run all:readonly
 
 ###################################################################################################
 
