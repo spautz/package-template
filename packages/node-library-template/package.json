@@ -32,16 +32,16 @@
   "type": "module",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/esm/index.js",
       "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/esm/index.d.ts"
     },
     "./package.json": "./package.json"
   },
   "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "jsnext:main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "module": "./dist/esm/index.js",
+  "jsnext:main": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "sideEffects": false,
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
@@ -80,34 +80,34 @@
   "peerDependencies": {},
   "size-limit": [
     {
-      "path": "./dist/index.js",
+      "path": "./dist/esm/index.js",
       "import": "{}",
       "limit": "20 B"
     },
     {
-      "path": "./dist/index.js",
+      "path": "./dist/esm/index.js",
       "limit": "1 kB"
     }
   ],
   "typesVersions": {
     "<4.0": {
       "*": [
-        "./legacy-types/ts3.5/index.d.ts"
+        "./legacy-types/ts3.5/esm/index.d.ts"
       ]
     },
     "<4.5": {
       "*": [
-        "./legacy-types/ts4.0/index.d.ts"
+        "./legacy-types/ts4.0/esm/index.d.ts"
       ]
     },
     "<4.7": {
       "*": [
-        "./legacy-types/ts4.5/index.d.ts"
+        "./legacy-types/ts4.5/esm/index.d.ts"
       ]
     },
     "*": {
       "*": [
-        "./dist/index.d.ts"
+        "./dist/esm/index.d.ts"
       ]
     }
   }

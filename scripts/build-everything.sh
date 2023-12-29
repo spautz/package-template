@@ -14,6 +14,9 @@ source ./scripts/helpers/helpers.sh
 # Quick shorthand for running all packages', demos', *and* framework-tests' checks together.
 # This will take a while to run.
 
+run_command "pnpm install --frozen-lockfile --ignore-scripts --prefer-offline"
+run_command "pnpm run clean"
+
 ./scripts/build-workspace.sh
 ./scripts/build-framework-tests.sh
 
