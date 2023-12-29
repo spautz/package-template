@@ -2,8 +2,8 @@
   "extends": "./tsconfig-base.typecheck.json",
   "compilerOptions": {
     // Modules
-    "module": "es2020",
-    "moduleResolution": "nodenext",
+    "module": "commonjs",
+    "target": "es6",
 
     // Emit
     "declaration": true,
