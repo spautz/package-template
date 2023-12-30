@@ -14,7 +14,7 @@ source ./scripts/helpers/helpers.sh
 
 echo "Going to doing everything: this will take a while..."
 ./scripts/clean-everything.sh
-./scripts/setup-local-environment.sh
+source ./scripts/setup-local-environment.sh
 ./scripts/build-everything.sh
 
 ###################################################################################################

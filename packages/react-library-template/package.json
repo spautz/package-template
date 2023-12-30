@@ -34,11 +34,11 @@
     ".": {
       "types": "./dist/esm/index.d.ts",
       "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "require": "./dist/cjs/index.cjs"
     },
     "./package.json": "./package.json"
   },
-  "main": "./dist/cjs/index.js",
+  "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
   "jsnext:main": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
@@ -56,11 +56,11 @@
     "____ INDIVIDUAL COMMANDS ___________________________________________": "",
     "build": "pnpm run build:main && pnpm run sizecheck && pnpm run build:legacytypes",
     "build:clean": "rimraf ./dist ./legacy-types",
-    "build:main": "pnpm run build:clean && tsc -p tsconfig.build-esm.json && tsc -p tsconfig.build-cjs.json",
+    "build:main": "pnpm run build:clean && tsup src/index.ts --format cjs --outDir dist/cjs/ --dts && tsc -p tsconfig.build-esm.json",
     "build:legacytypes": "pnpm run build:legacytypes:3.5 && pnpm run build:legacytypes:4.0 && pnpm run build:legacytypes:4.5",
-    "build:legacytypes:3.5": "downlevel-dts ./dist ./legacy-types/ts3.5 --to=3.5",
-    "build:legacytypes:4.0": "downlevel-dts ./dist ./legacy-types/ts4.0 --to=4.0",
-    "build:legacytypes:4.5": "downlevel-dts ./dist ./legacy-types/ts4.5 --to=4.5",
+    "build:legacytypes:3.5": "downlevel-dts ./dist ./legacy-types/ts3.5/dist --to=3.5",
+    "build:legacytypes:4.0": "downlevel-dts ./dist ./legacy-types/ts4.0/dist --to=4.0",
+    "build:legacytypes:4.5": "downlevel-dts ./dist ./legacy-types/ts4.5/dist --to=4.5",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
     "sizecheck": "size-limit",
@@ -106,11 +106,6 @@
     "<4.7": {
       "*": [
         "./legacy-types/ts4.5/*"
-      ]
-    },
-    "*": {
-      "*": [
-        "./dist/*"
       ]
     }
   }
