@@ -13,10 +13,6 @@ source ./scripts/helpers/helpers.sh
 ###################################################################################################
 
 ./scripts/check-environment.sh
-
-run_command pnpm install
-run_command pnpm run packages:yalc-publish
-
 ./scripts/setup-framework-tests.sh
 
 for DIRECTORY in framework-tests/*/ ; do

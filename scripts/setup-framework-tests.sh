@@ -14,7 +14,7 @@ source ./scripts/helpers/helpers.sh
 # Setup workspace and Yalc
 
 run_command "./scripts/check-environment.sh"
-run_command "pnpm install"
+run_command "pnpm install --ignore-scripts"
 run_command "pnpm run packages:yalc-publish"
 
 ##################################################################################################
@@ -29,7 +29,6 @@ for DIRECTORY in framework-tests/*/ ; do
     corepack enable
   fi
 
-  pnpm dlx yalc update
   pnpm install
 
   popd

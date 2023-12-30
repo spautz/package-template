@@ -26,7 +26,7 @@ if [ ! -d "$FRAMEWORK_TEST_DIRECTORY" ]; then
 fi
 
 run_command "./scripts/check-environment.sh"
-run_command "pnpm install"
+run_command "pnpm install --ignore-scripts"
 run_command "pnpm run packages:yalc-publish"
 
 cd $FRAMEWORK_TEST_DIRECTORY
@@ -39,10 +39,7 @@ if [ -f .nvmrc ] ; then
   corepack enable
 fi
 
-pnpm dlx yalc update
 pnpm install
-
-# Run checks
 run_command pnpm run all
 run_command pnpm run all:readonly
 
