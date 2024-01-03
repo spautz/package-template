@@ -56,7 +56,7 @@
     "____ INDIVIDUAL COMMANDS ___________________________________________": "",
     "build": "pnpm run build:main && pnpm run build:validate && pnpm run build:legacytypes",
     "build:clean": "rimraf ./dist ./legacy-types",
-    "build:main": "pnpm run build:clean && tsup src/index.ts --format cjs --outDir dist/cjs/ --dts && tsc -p tsconfig.build-esm.json",
+    "build:main": "pnpm run build:clean && tsup src/index.ts --format cjs --dts --outDir=./dist/cjs/ && tsc -p tsconfig.build-esm.json",
     "build:legacytypes": "pnpm run build:legacytypes:3.5 && pnpm run build:legacytypes:4.0 && pnpm run build:legacytypes:4.5",
     "build:legacytypes:3.5": "downlevel-dts ./dist ./legacy-types/ts3.5/dist --to=3.5",
     "build:legacytypes:4.0": "downlevel-dts ./dist ./legacy-types/ts4.0/dist --to=4.0",
