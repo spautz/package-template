@@ -41,7 +41,6 @@ runs:
         rm -f pnpm-lock.yaml
 
     - name: Install dependencies
-      if: ${{ github.event.inputs.use-lockfile }}
       shell: bash
       run: |
         ./scripts/setup-ci-environment.sh
