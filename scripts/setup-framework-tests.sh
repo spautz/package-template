@@ -27,6 +27,7 @@ for DIRECTORY in framework-tests/*/ ; do
     corepack enable
   fi
 
+  yalc update
   pnpm install
   popd
 done

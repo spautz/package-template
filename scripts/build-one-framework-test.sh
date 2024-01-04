@@ -13,12 +13,25 @@ source ./scripts/helpers/helpers.sh
 ###################################################################################################
 
 FRAMEWORK_TEST_NAME=$1
+FRAMEWORK_TEST_DIRECTORY="./framework-tests/$FRAMEWORK_TEST_NAME"
+
+if [ -z "$FRAMEWORK_TEST_NAME" ]; then
+  echo "Must specify the framework-test to set up"
+  exit 1
+fi
+
+if [ ! -d "$FRAMEWORK_TEST_DIRECTORY" ]; then
+  echo "Invalid framework-test name: \"$FRAMEWORK_TEST_NAME\""
+  exit 1
+fi
 
 ./scripts/check-environment.sh
 ./scripts/setup-one-framework-test.sh $FRAMEWORK_TEST_NAME
 
-run_command pnpm run all
-run_command pnpm run all:readonly
+pushd $FRAMEWORK_TEST_DIRECTORY
+pnpm run all
+pnpm run all:readonly
+popd
 
 ###################################################################################################
 

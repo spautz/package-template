@@ -39,6 +39,7 @@ if [ -f .nvmrc ] ; then
   corepack enable
 fi
 
+yalc update
 pnpm install
 popd
 
