@@ -27,8 +27,11 @@ for DIRECTORY in framework-tests/*/ ; do
     corepack enable
   fi
 
-  yalc update
+  # Use workspace's copy of Yalc to copy over any necessary local packages, so that they'll be
+  # in place when we try to install
+  ../../node_modules/.bin/yalc update
   pnpm install
+
   popd
 done
 

@@ -57,8 +57,7 @@
     "isbot": "^3.6.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rimraf": "^5.0.1",
-    "yalc": "^1.0.0-pre.53"
+    "rimraf": "^5.0.1"
   },
   "devDependencies": {
     "@playwright/test": "^1.36.1",
