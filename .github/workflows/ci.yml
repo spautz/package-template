@@ -89,7 +89,7 @@ jobs:
 
       - name: Setup framework-test
         run: |
-          ./scripts/setup-one-framework-test ${{ matrix.framework-test-name }}
+          ./scripts/setup-one-framework-test.sh ${{ matrix.framework-test-name }}
 
       - name: Run CI checks for framework-test
         run: |
