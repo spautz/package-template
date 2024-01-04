@@ -22,31 +22,23 @@ if command_exists watchman; then
 fi
 
 ##################################################################################################
-# Clear caches
+# Remove any and all generated files
 
 if [ -d "./node_modules/" ]; then
   run_command pnpm run clean
 fi
 
-run_command "rm -rf
-  $TMPDIR/react-*
-  .pnpm-debug.log
-  npm-debug.log
-  yarn-debug.log
-  yarn-error.log
-  "
-
-##################################################################################################
-# Remove generated files
-
-
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
   if [ -d "./node_modules/" ]; then
-    run_command "pnpm run yalc-teardown"
+    run_command "pnpm run clean"
   fi
   popd
 done
+
+run_command "rm -rf
+  $TMPDIR/react-*
+  "
 
 for DIRECTORY in '.' 'demos/*' 'framework-tests/*' 'packages/*' ; do
   run_command "rm -rf

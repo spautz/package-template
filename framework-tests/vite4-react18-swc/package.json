@@ -33,7 +33,6 @@
     "test:coverage": "vitest run --coverage",
     "test:quick": "vitest run --coverage=false",
     "typecheck": "tsc",
-    "yalc-teardown": "pnpm run clean && rimraf ./.yalc ./pnpm-lock.yaml",
     "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
     "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
     "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
