@@ -87,14 +87,9 @@ jobs:
         with:
           use-lockfile: false
 
-      - name: Yalc publish
-        run: |
-          pnpm run packages:yalc-publish
-
       - name: Setup framework-test
         run: |
-          cd framework-tests/${{ matrix.framework-test-name }}
-          ../../scripts/setup-framework-test.sh
+          ./scripts/setup-one-framework-test ${{ matrix.framework-test-name }}
 
       - name: Run CI checks for framework-test
         run: |
