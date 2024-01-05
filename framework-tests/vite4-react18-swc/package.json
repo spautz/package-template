@@ -59,5 +59,12 @@
     "typescript": "^5.0.2",
     "vite": "^4.3.9",
     "vitest": "^0.34.2"
+  },
+  "pnpm": {
+    "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
+    "overrides": {
+      "@spautz/node-library-template": "$@spautz/node-library-template",
+      "@spautz/react-library-template": "$@spautz/react-library-template"
+    }
   }
 }

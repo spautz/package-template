@@ -62,5 +62,12 @@
     "rimraf": "^5.0.1",
     "tailwindcss": "^3.3.2",
     "typescript": "^5.1.6"
+  },
+  "pnpm": {
+    "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
+    "overrides": {
+      "@spautz/node-library-template": "$@spautz/node-library-template",
+      "@spautz/react-library-template": "$@spautz/react-library-template"
+    }
   }
 }

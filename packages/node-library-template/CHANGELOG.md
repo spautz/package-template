@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0
+
+### Minor Changes
+
+- Updated build and package exports config ([8c6fcc3](https://github.com/spautz/package-template/commit/8c6fcc337f90f872c1cc76d1570012a0a0a9facb))
+
 ## 0.2.1
 
 ### Patch Changes
