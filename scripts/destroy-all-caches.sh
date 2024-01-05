@@ -13,6 +13,23 @@ source ./scripts/helpers/helpers.sh
 ###################################################################################################
 # Clean everything local first -- and again at the end
 
+if [ -d "./node_modules/" ]; then
+  for DIRECTORY in framework-tests/*/ ; do
+    pushd $DIRECTORY
+
+    if [[ `git status --porcelain package.json yalc.lock` ]]; then
+      emit_warning "Not detaching $DIRECTORY because it has local changes."
+    else
+      # Detach the framework-test completely -- but leave the lockfile and package.json changes intact
+      # so that we can restore it later
+      ../../node_modules/.bin/yalc remove --all
+      git checkout package.json yalc.lock
+    fi
+
+    popd
+  done
+fi
+
 ./scripts/clean-everything.sh
 
 
