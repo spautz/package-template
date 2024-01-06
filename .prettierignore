@@ -2,35 +2,34 @@
 # When updating this file, sync with .gitignore
 #
 
-# Autoformatting the lockfile is slow and doesn't bring any benefits, so skip it
-/pnpm-lock.yaml
+# Autoformatting lockfiles is slow and doesn't bring any benefits, so skip them
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
 
 ###############################################################################
 # Everything below this point is copied from .gitignore
-
-# IDE space
-
-.idea
-.vscode
 
 # dependencies
 
 .pnp
 .pnp.js
-.pnpm-store
-node_modules
+.pnpm-store/
+node_modules/
+# Framework-test dependencies are always loose
+/framework-tests/*/.yalc/
+/framework-tests/*/package-lock.json
+/framework-tests/*/pnpm-lock.yaml
+/framework-tests/*/yarn.lock
 
 # unit tests
 
-/coverage
-/*/*/coverage
+coverage/
 
 # e2e tests
 
-/e2e-test-results
-/playwright-report
-/*/*/e2e-test-results
-/*/*/playwright-report
+e2e-test-results/
+playwright-report/
 
 # linting
 
@@ -40,22 +39,17 @@ node_modules
 
 *.tsbuildinfo
 
-/.next
-/build
-/dist
-/legacy-types
-/out
-
-/*/*/.next
-/*/*/build
-/*/*/dist
-/*/*/legacy-types
-/*/*/out
+.cache/
+.next/
+build/
+dist/
+legacy-types/
+out/
+public/build/
 
 # storybook
 
-/storybook-static
-/*/*/storybook-static
+storybook-static/
 
 # log files
 
@@ -68,8 +62,11 @@ yarn-error.log*
 # misc
 
 .DS_Store
+.env
 .env.local
 .env*.local
+.idea/
 .vercel
+.vscode/
 *.pem
 next-env.d.ts

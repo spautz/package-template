@@ -2,36 +2,26 @@
 # When updating this file, sync with .prettierignore
 #
 
-# In a normal repo (not package-template), this line should be removed:
-/pnpm-lock.yaml
-
-# IDE space
-
-.idea
-.vscode
-
 # dependencies
 
 .pnp
 .pnp.js
-.pnpm-store
-node_modules
-/framework-tests/*/.yalc
+.pnpm-store/
+node_modules/
+# Framework-test dependencies are always loose
+/framework-tests/*/.yalc/
 /framework-tests/*/package-lock.json
 /framework-tests/*/pnpm-lock.yaml
 /framework-tests/*/yarn.lock
 
 # unit tests
 
-/coverage
-/*/*/coverage
+coverage/
 
 # e2e tests
 
-/e2e-test-results
-/playwright-report
-/*/*/e2e-test-results
-/*/*/playwright-report
+e2e-test-results/
+playwright-report/
 
 # linting
 
@@ -41,25 +31,17 @@ node_modules
 
 *.tsbuildinfo
 
-/.cache
-/.next
-/build
-/dist
-/legacy-types
-/out
-
-/*/*/.cache
-/*/*/.next
-/*/*/build
-/*/*/dist
-/*/*/legacy-types
-/*/*/out
-/*/*/public/build
+.cache/
+.next/
+build/
+dist/
+legacy-types/
+out/
+public/build/
 
 # storybook
 
-/storybook-static
-/*/*/storybook-static
+storybook-static/
 
 # log files
 
@@ -75,6 +57,8 @@ yarn-error.log*
 .env
 .env.local
 .env*.local
+.idea/
 .vercel
+.vscode/
 *.pem
 next-env.d.ts
