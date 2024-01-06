@@ -33,6 +33,7 @@ for DIRECTORY in framework-tests/*/ ; do
   if [ -d "./node_modules/" ]; then
     run_command "pnpm run clean"
   fi
+  rm -f package-lock.json pnpm-lock.yaml yarn.lock
   popd
 done
 
@@ -50,6 +51,7 @@ for DIRECTORY in '.' 'demos/*' 'framework-tests/*' 'packages/*' ; do
     $DIRECTORY/legacy-types/
     $DIRECTORY/node_modules/
     $DIRECTORY/playwright-report/
+    $DIRECTORY/public/build/
     $DIRECTORY/storybook-static/
     $DIRECTORY/*.log*
     "
