@@ -18,8 +18,9 @@ source ./scripts/helpers/helpers.sh
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
   echo "Framework-test checks for $DIRECTORY"
-  run_command pnpm run all
-  run_command pnpm run all:readonly
+
+  pnpm_or_bun run all
+  pnpm_or_bun run all:readonly
   popd
 done
 

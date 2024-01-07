@@ -20,6 +20,10 @@ runs:
         node-version: ${{ github.event.inputs.node-version }}
         registry-url: 'https://registry.npmjs.org'
 
+    - uses: oven-sh/setup-bun@v1.1.1
+      with:
+        bun-version: latest
+
     - uses: pnpm/action-setup@v2.4.0
 
     - name: Get pnpm store directory

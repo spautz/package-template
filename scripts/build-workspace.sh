@@ -16,14 +16,14 @@ source ./scripts/helpers/helpers.sh
 
 ./scripts/check-environment.sh
 
-run_command pnpm install
+pnpm_or_bun install
 
 # Run all read-write scripts and read-only scripts. This is overkill and duplicates a lot of work,
 # but also helps catch any intermittent errors. Suitable for running before lunch or teatime.
-run_command pnpm run all
-run_command pnpm run all:readonly
-run_command pnpm run packages:all
-run_command pnpm run packages:all:readonly
+pnpm_or_bun run all
+pnpm_or_bun run all:readonly
+pnpm_or_bun run packages:all
+pnpm_or_bun run packages:all:readonly
 
 ###################################################################################################
 

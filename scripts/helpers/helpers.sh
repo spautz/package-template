@@ -36,3 +36,13 @@ run_npm_command() {
     run_command npx $FULL_COMMAND
   fi
 }
+
+pnpm_or_bun() {
+  local FULL_COMMAND=$*
+
+  if [ -f bun.lockb ] ; then
+    run_command bun $FULL_COMMAND
+  else
+    run_command pnpm $FULL_COMMAND
+  fi
+}

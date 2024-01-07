@@ -2,6 +2,11 @@
   "name": "bun-vite5",
   "private": true,
   "description": "Test app for package-template packages in a Vite-built app powered by Bun",
+  "// COMMENT_01": "Engines and packageManager aren't yet supported for Bun: these are for the future.",
+  "engines": {
+    "bun": "^1"
+  },
+  "packageManager": "bun@1.0.21",
   "type": "module",
   "scripts": {
     "____ FROM VITE + Bun _______________________________________________": "",
@@ -10,7 +15,7 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "____ FOR FRAMEWORK-TEST ____________________________________________": "",
-    "// (none)": "",
+    "preinstall": "npx only-allow bun",
     "____ WORKSPACE INTEGRATION _________________________________________": "",
     "clean": "rimraf ./coverage ./dist",
     "_build": "(implemented above)",

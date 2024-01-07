@@ -15,9 +15,9 @@ source ./scripts/helpers/helpers.sh
 echo "Going to doing everything: this will take a while..."
 ./scripts/clean-everything.sh
 source ./scripts/setup-local-environment.sh
-run_command "pnpm run all:quick"
-run_command "pnpm run packages:all:quick"
-run_command "pnpm run clean"
+pnpm_or_bun run all:quick
+pnpm_or_bun run packages:all:quick
+pnpm_or_bun run clean
 ./scripts/build-everything.sh
 
 ###################################################################################################

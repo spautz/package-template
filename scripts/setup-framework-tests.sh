@@ -14,8 +14,8 @@ source ./scripts/helpers/helpers.sh
 
 # Setup workspace and Yalc
 run_command "./scripts/check-environment.sh"
-run_command "pnpm install --ignore-scripts"
-run_command "pnpm run packages:yalc-publish"
+pnpm_or_bun install --ignore-scripts
+pnpm_or_bun run packages:yalc-publish
 
 # Setup each framework-test
 for DIRECTORY in framework-tests/*/ ; do
@@ -30,7 +30,7 @@ for DIRECTORY in framework-tests/*/ ; do
   # Use workspace's copy of Yalc to copy over any necessary local packages, so that they'll be
   # in place when we try to install
   ../../node_modules/.bin/yalc update
-  pnpm install
+  pnpm_or_bun install
 
   popd
 done

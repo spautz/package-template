@@ -29,8 +29,8 @@ fi
 ./scripts/setup-one-framework-test.sh $FRAMEWORK_TEST_NAME
 
 pushd $FRAMEWORK_TEST_DIRECTORY
-pnpm run all
-pnpm run all:readonly
+pnpm_or_bun run all
+pnpm_or_bun run all:readonly
 popd
 
 ###################################################################################################

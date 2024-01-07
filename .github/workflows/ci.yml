@@ -90,7 +90,7 @@ jobs:
       - name: Remove lockfile for framework-test
         run: |
           cd ./framework-tests/${{ matrix.framework-test-name }}/
-          rm -rf package-lock.json pnpm-lock.yaml yarn.lock
+          rm -rf bun.lockb package-lock.json pnpm-lock.yaml yarn.lock
 
       - name: Setup framework-test
         run: |
@@ -99,4 +99,8 @@ jobs:
       - name: Run CI checks for framework-test
         run: |
           cd ./framework-tests/${{ matrix.framework-test-name }}
-          pnpm run all:ci
+          if test -f "bun.lockb"; then
+            bun run all:ci
+          else
+            pnpm run all:ci
+          fi

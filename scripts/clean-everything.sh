@@ -25,15 +25,15 @@ fi
 # Remove any and all generated files
 
 if [ -d "./node_modules/" ]; then
-  run_command pnpm run clean
+  pnpm_or_bun run clean
 fi
 
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
   if [ -d "./node_modules/" ]; then
-    run_command "pnpm run clean"
+    pnpm_or_bun run clean
   fi
-  rm -f package-lock.json pnpm-lock.yaml yarn.lock
+  rm -f bun.lockb package-lock.json pnpm-lock.yaml yarn.lock
   popd
 done
 

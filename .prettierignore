@@ -10,17 +10,25 @@ yarn.lock
 ###############################################################################
 # Everything below this point is copied from .gitignore
 
+# IDEs, etc
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 # dependencies
 
 .pnp
 .pnp.js
 .pnpm-store/
 node_modules/
-# Framework-test dependencies are always loose
-/framework-tests/*/.yalc/
-/framework-tests/*/package-lock.json
-/framework-tests/*/pnpm-lock.yaml
-/framework-tests/*/yarn.lock
+framework-tests/*/.yalc/
 
 # unit tests
 
@@ -43,6 +51,7 @@ playwright-report/
 .next/
 build/
 dist/
+dist-ssr/
 legacy-types/
 out/
 public/build/
@@ -53,20 +62,17 @@ storybook-static/
 
 # log files
 
-.pnpm-debug.log*
 lerna-debug.log*
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # misc
 
-.DS_Store
 .env
 .env.local
 .env*.local
-.idea/
 .vercel
-.vscode/
 *.pem
 next-env.d.ts
