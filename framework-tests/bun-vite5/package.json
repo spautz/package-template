@@ -1,15 +1,34 @@
 {
   "name": "bun-vite5",
   "private": true,
-  "version": "0.0.0",
+  "description": "Test app for package-template packages in a Vite-built app powered by Bun",
   "type": "module",
   "scripts": {
+    "____ FROM VITE + Bun _______________________________________________": "",
     "dev": "bunx --bun vite",
     "build": "tsc && bunx --bun vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "____ FOR FRAMEWORK-TEST ____________________________________________": "",
+    "// (none)": "",
+    "____ WORKSPACE INTEGRATION _________________________________________": "",
+    "clean": "rimraf ./coverage ./dist",
+    "_build": "(implemented above)",
+    "_lint": "(implemented above)",
+    "lint:fix": "bun run lint --fix",
+    "test": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --bail=1",
+    "test:coverage": "vitest run --coverage",
+    "test:quick": "vitest run --coverage=false",
+    "typecheck": "tsc",
+    "all": "bun run          typecheck && bun run lint:fix && bun run test:coverage && bun run build",
+    "all:readonly": "bun run typecheck && bun run lint     && bun run test:quick",
+    "all:quick": "bun run    typecheck && bun run lint:fix",
+    "all:ci": "bun run       typecheck && bun run lint     && bun run test:ci && bun run build"
   },
   "dependencies": {
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
