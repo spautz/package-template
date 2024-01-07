@@ -2,6 +2,18 @@
 # When updating this file, sync with .prettierignore
 #
 
+# IDEs, etc
+
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 # dependencies
 
 .pnp
@@ -31,6 +43,7 @@ playwright-report/
 .next/
 build/
 dist/
+dist-ssr/
 legacy-types/
 out/
 public/build/
@@ -41,20 +54,17 @@ storybook-static/
 
 # log files
 
-.pnpm-debug.log*
 lerna-debug.log*
 npm-debug.log*
+pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
 # misc
 
-.DS_Store
 .env
 .env.local
 .env*.local
-.idea/
 .vercel
-.vscode/
 *.pem
 next-env.d.ts
