@@ -40,21 +40,21 @@
   "dependencies": {
     "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "react": "16.9.0",
-    "react-dom": "16.9.0",
-    "react-scripts": "^4.0.3",
-    "web-vitals": "^1.1.2"
+    "@testing-library/jest-dom": "5.17.0",
+    "@testing-library/react": "11.2.7",
+    "@testing-library/user-event": "12.8.3",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-scripts": "4.0.1",
+    "web-vitals": "1.1.2"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.24",
-    "@types/react": "^16.9.56",
-    "@types/react-dom": "^16.9.19",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.32.0",
-    "rimraf": "^5.0.1",
+    "@types/jest": "26.0.24",
+    "@types/react": "16.14.55",
+    "@types/react-dom": "16.9.24",
+    "cross-env": "7.0.3",
+    "eslint": "7.32.0",
+    "rimraf": "5.0.5",
     "typescript": "4.4.4"
   },
   "eslintConfig": {

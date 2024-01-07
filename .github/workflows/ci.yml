@@ -87,11 +87,16 @@ jobs:
         with:
           use-lockfile: false
 
+      - name: Remove lockfile for framework-test
+        run: |
+          cd ./framework-tests/${{ matrix.framework-test-name }}/
+          rm -rf package-lock.json pnpm-lock.yaml yarn.lock
+
       - name: Setup framework-test
         run: |
           ./scripts/setup-one-framework-test.sh ${{ matrix.framework-test-name }}
 
       - name: Run CI checks for framework-test
         run: |
-          cd framework-tests/${{ matrix.framework-test-name }}
+          cd ./framework-tests/${{ matrix.framework-test-name }}
           pnpm run all:ci

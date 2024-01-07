@@ -8,11 +8,7 @@
 .pnp.js
 .pnpm-store/
 node_modules/
-# Framework-test dependencies are always loose
-/framework-tests/*/.yalc/
-/framework-tests/*/package-lock.json
-/framework-tests/*/pnpm-lock.yaml
-/framework-tests/*/yarn.lock
+framework-tests/*/.yalc/
 
 # unit tests
 

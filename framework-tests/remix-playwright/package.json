@@ -48,25 +48,25 @@
     "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "^1.18.1",
-    "@remix-run/node": "^1.18.1",
-    "@remix-run/react": "^1.18.1",
-    "@remix-run/serve": "^1.18.1",
+    "@remix-run/css-bundle": "1.18.1",
+    "@remix-run/node": "1.18.1",
+    "@remix-run/react": "1.18.1",
+    "@remix-run/serve": "1.18.1",
     "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
-    "isbot": "^3.6.12",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rimraf": "^5.0.1"
+    "isbot": "3.6.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "5.0.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.36.1",
-    "@remix-run/dev": "^1.18.1",
-    "@remix-run/eslint-config": "^1.18.1",
-    "@types/react": "^18.0.35",
-    "@types/react-dom": "^18.0.11",
-    "eslint": "^8.38.0",
-    "typescript": "^5.0.4"
+    "@playwright/test": "1.36.1",
+    "@remix-run/dev": "1.18.1",
+    "@remix-run/eslint-config": "1.18.1",
+    "@types/react": "18.0.35",
+    "@types/react-dom": "18.0.11",
+    "eslint": "8.38.0",
+    "typescript": "5.0.4"
   },
   "pnpm": {
     "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
