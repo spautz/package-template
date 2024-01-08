@@ -41,7 +41,7 @@ run_npm_command() {
 
 pnpm_or_bun() {
   local SCRIPT_AND_ARGS=$*
-  local EXEC=$(sed -nr 's/"packageManager.*": "(.*)@.*",/\1/p' package.json || echo "pnpm")
+  local EXEC=$(sed -nr 's/"packageManager.*": "(.*)@.*",/\1/p' package.json)
 
-  run_command $EXEC $SCRIPT_AND_ARGS
+  run_command "${EXEC:-pnpm}" $SCRIPT_AND_ARGS
 }
