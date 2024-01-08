@@ -7,7 +7,7 @@ inputs:
     required: false
     default: latest
   use-lockfile:
-    description: Whether or not to honor pnpm-lock.yaml
+    description: Whether or not to honor pnpm-lock.yaml or other lockfiles
     type: boolean
     required: true
     default: true
@@ -43,7 +43,7 @@ runs:
       if: ${{ !github.event.inputs.use-lockfile }}
       shell: bash
       run: |
-        rm -f pnpm-lock.yaml
+        rm -f bun.lockb package-lock.json pnpm-lock.yaml yarn.lock
 
     - name: Install dependencies
       shell: bash

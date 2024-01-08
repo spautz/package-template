@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # These are helpful functions for the other bash scripts in this directory.
 # Note that this is not a runnable script itself.
 
@@ -38,11 +40,8 @@ run_npm_command() {
 }
 
 pnpm_or_bun() {
-  local FULL_COMMAND=$*
+  local SCRIPT_AND_ARGS=$*
+  local EXEC=$(sed -nr 's/"packageManager.*": "(.*)@.*",/\1/p' package.json || echo "pnpm")
 
-  if [ -f bun.lockb ] ; then
-    run_command bun $FULL_COMMAND
-  else
-    run_command pnpm $FULL_COMMAND
-  fi
+  run_command $EXEC $SCRIPT_AND_ARGS
 }

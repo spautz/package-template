@@ -105,9 +105,6 @@ jobs:
 
       - name: Run CI checks for framework-test
         run: |
+          source ./scripts/helpers/helpers.sh
           cd ./framework-tests/${{ matrix.framework-test-name }}
-          if test -f "bun.lockb"; then
-            bun run all:ci
-          else
-            pnpm run all:ci
-          fi
+          pnpm_or_bun run all:ci
