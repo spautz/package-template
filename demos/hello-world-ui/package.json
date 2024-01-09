@@ -16,6 +16,10 @@
   },
   "source": "./src/main.tsx",
   "type": "module",
+  "imports": {
+    "#node-library-template": "@spautz/node-library-template/local-dev",
+    "#react-library-template": "@spautz/react-library-template/local-dev"
+  },
   "scripts": {
     "____ INTEGRATION ___________________________________________________": "",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache *.log",
