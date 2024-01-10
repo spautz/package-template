@@ -17,7 +17,7 @@
   "source": "./src/index.ts",
   "type": "module",
   "imports": {
-    "#node-library-template": "@spautz/node-library-template/local-dev"
+    "#spautz/node-library-template": "@spautz/node-library-template/local-dev"
   },
   "scripts": {
     "____ INTEGRATION ___________________________________________________": "",

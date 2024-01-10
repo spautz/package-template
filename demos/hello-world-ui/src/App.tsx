@@ -1,7 +1,7 @@
 import 'react';
 
-import { helloWorld } from '#node-library-template';
-import { TodoComponent } from '#react-library-template';
+import { helloWorld } from '#spautz/node-library-template';
+import { TodoComponent } from '#spautz/react-library-template';
 
 function App() {
   return (

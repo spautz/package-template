@@ -17,8 +17,8 @@
   "source": "./src/main.tsx",
   "type": "module",
   "imports": {
-    "#node-library-template": "@spautz/node-library-template/local-dev",
-    "#react-library-template": "@spautz/react-library-template/local-dev"
+    "#spautz/node-library-template": "@spautz/node-library-template/local-dev",
+    "#spautz/react-library-template": "@spautz/react-library-template/local-dev"
   },
   "scripts": {
     "____ INTEGRATION ___________________________________________________": "",
