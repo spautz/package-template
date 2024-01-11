@@ -16,11 +16,11 @@ source ../../scripts/helpers/helpers.sh
 # handled all environmental setup already
 ../../node_modules/.bin/yalc update
 
-DEFAULT_ARGS="-p 4173:4173 -p 5173:5173"
+DEFAULT_ARGS="-p 4173:4173 -p 5173:5173 -v src:/framework-test-bun-vite5/src"
 
-EXTRA_ARGS=$*
+FINAL_ARGS="${*:-$DEFAULT_ARGS}"
 run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt
-run_command docker run -it $DEFAULT_ARGS $EXTRA_ARGS "$(cat ./docker-id.txt)"  bash
+run_command docker run -it $FINAL_ARGS "$(cat ./docker-id.txt)"  bash
 
 ###################################################################################################
 

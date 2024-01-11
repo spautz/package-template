@@ -3,7 +3,9 @@ import { configDefaults, defineConfig } from 'vitest/config';
 // Check each package and demo
 const testPathsToExclude = [
   ...configDefaults.exclude,
+  '**/coverage/**',
   '**/legacy-types/**',
+  '**/setupTests.ts',
   // Each framework-test has its own test config, following the conventions of its framework, so they're not included
   'framework-tests/**',
 ];

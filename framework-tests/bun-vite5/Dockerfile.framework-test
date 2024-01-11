@@ -16,6 +16,11 @@ COPY *.cjs *.html *.js *.json *.mjs *.ts  ./
 COPY public public/
 COPY src src/
 
+# 4173 = Vite preview
+EXPOSE 4173
+# 5173 = Vite dev
+EXPOSE 5173
+
 
 # A target for each check or test case. These are just for readability.
 #   'run-all'     = all project checks

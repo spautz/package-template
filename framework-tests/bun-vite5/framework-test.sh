@@ -18,9 +18,9 @@ source ../../scripts/helpers/helpers.sh
 
 DOCKERFILE_TARGET="${1:-default}"
 
-run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt  --target $DOCKERFILE_TARGET
 echo "DOCKERFILE_TARGET=$DOCKERFILE_TARGET"
-run_command docker run "$(cat ./docker-id.txt)"
+run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt  --target $DOCKERFILE_TARGET
+run_command docker run -p 4173:4173 -p 5173:5173 "$(cat ./docker-id.txt)"
 
 ###################################################################################################
 

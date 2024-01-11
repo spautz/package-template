@@ -20,7 +20,6 @@
 .pnp.js
 .pnpm-store/
 node_modules/
-framework-tests/*/.yalc/
 
 # unit tests
 
@@ -51,6 +50,11 @@ public/build/
 # storybook
 
 storybook-static/
+
+# framework-tests
+
+framework-tests/*/.yalc/
+framework-tests/*/docker-id.txt
 
 # log files
 
