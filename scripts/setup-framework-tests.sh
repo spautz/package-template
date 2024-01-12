@@ -21,16 +21,9 @@ pnpm_or_bun run packages:yalc-publish
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
 
-  if [ -f .nvmrc ] ; then
-    nvm install $(cat .nvmrc)
-    nvm use $(cat .nvmrc)
-    corepack enable
-  fi
-
   # Use workspace's copy of Yalc to copy over any necessary local packages, so that they'll be
   # in place when we try to install
   ../../node_modules/.bin/yalc update
-  pnpm_or_bun install
 
   popd
 done

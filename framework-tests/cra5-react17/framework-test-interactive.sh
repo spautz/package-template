@@ -16,12 +16,10 @@ source ../../scripts/helpers/helpers.sh
 # handled all environmental setup already
 ../../node_modules/.bin/yalc update
 
-DOCKERFILE_TARGET="${1:-default}"
 source ./framework-test-variables.sh
 
-echo "DOCKERFILE_TARGET=$DOCKERFILE_TARGET"
-run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt  --target $DOCKERFILE_TARGET
-run_command docker run $FRAMEWORK_TEST_RUN_ARGS "$(cat ./docker-id.txt)"
+run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt --build-arg NODE_VERSION=$(cat .nvmrc)
+run_command docker run -it $FRAMEWORK_TEST_RUN_ARGS "$(cat ./docker-id.txt)"  bash
 
 ###################################################################################################
 

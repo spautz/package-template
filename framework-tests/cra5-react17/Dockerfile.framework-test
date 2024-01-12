@@ -1,25 +1,24 @@
 # For sanity and performance, local packages must be Yalc'd into this directory BEFORE
 # building this image (via ../../scripts/setup-framework-tests.sh)
 
-ARG BUN_VERSION=1
+ARG NODE_VERSION=14
 
 # 'base' is deps + project source: plain files only, without any checks or test cases
-FROM oven/bun:${BUN_VERSION} as base
+FROM node:${NODE_VERSION}-buster-slim as base
 
-WORKDIR /framework-test-bun-vite5
-COPY bun.lockb package.json  ./
+WORKDIR /framework-test-cra5-react17
+COPY package.json pnpm-lock.yaml  ./
 COPY .yalc  .yalc/
 
-RUN bun install
+RUN corepack enable
+RUN pnpm install
 
 COPY .env* *.cjs *.html *.js *.json *.mjs *.ts  ./
 COPY public public/
 COPY src src/
 
-# 4173 = Vite preview
-EXPOSE 4173
-# 5173 = Vite dev
-EXPOSE 5173
+# 3000 = react-scripts start
+EXPOSE 3000
 
 
 # A target for each check or test case. These are just for readability.
@@ -28,13 +27,13 @@ EXPOSE 5173
 #   'run-server'  = spin up a local dev server
 
 FROM base as run-all
-CMD bun run all
+CMD pnpm run all
 
 FROM base as run-ci
-CMD bun run all:ci
+CMD pnpm run all:ci
 
 FROM base as run-server
-CMD bun run dev
+CMD pnpm run start
 
 
 FROM run-all as default

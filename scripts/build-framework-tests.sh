@@ -19,8 +19,7 @@ for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
   echo "Framework-test checks for $DIRECTORY"
 
-  pnpm_or_bun run all
-  pnpm_or_bun run all:readonly
+  run_command ./framework-test.sh
   popd
 done
 

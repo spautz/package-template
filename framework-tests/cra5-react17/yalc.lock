@@ -2,11 +2,11 @@
   "version": "v1",
   "packages": {
     "@spautz/node-library-template": {
-      "signature": "52b27ad88b44f1eedfec105902a98682",
+      "signature": "6ff310308fa1892e72ab264cf8d02988",
       "pure": true
     },
     "@spautz/react-library-template": {
-      "signature": "d0d81890ad0819cf52cdd78c65c84408",
+      "signature": "46b56a5f1db55be501422ff7eb39da7d",
       "pure": true
     }
   }

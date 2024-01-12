@@ -14,10 +14,14 @@
     "name": "Steven Pautz",
     "url": "https://github.com/spautz/"
   },
+  "engines": {
+    "yarn": "^1"
+  },
+  "packageManager": "yarn@1.22.19",
   "scripts": {
     "____ FROM CREATE-REACT-APP _________________________________________": "",
     "start": "react-scripts start",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider  react-scripts build",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "_eject": "react-scripts eject",
     "____ FOR FRAMEWORK-TEST ____________________________________________": "",
@@ -28,14 +32,14 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --max-warnings 0",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --max-warnings 0 --fix",
     "_test": "(implemented above)",
-    "test:ci": "pnpm run test    --coverage=false --watchAll=false --bail",
-    "test:coverage": "pnpm run test --coverage=true  --watchAll=false",
-    "test:quick": "pnpm run test    --coverage=false --watchAll=false",
+    "test:ci": "yarn run test    --coverage=false --watchAll=false --bail",
+    "test:coverage": "yarn run test --coverage=true  --watchAll=false",
+    "test:quick": "yarn run test    --coverage=false --watchAll=false",
     "typecheck": "tsc --noEmit",
-    "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
-    "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
-    "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
-    "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
+    "all": "yarn run          typecheck && yarn run lint:fix && yarn run test:coverage && yarn run build",
+    "all:readonly": "yarn run typecheck && yarn run lint     && yarn run test:quick",
+    "all:quick": "yarn run    typecheck && yarn run lint:fix",
+    "all:ci": "yarn run       typecheck && yarn run lint     && yarn run test:ci && yarn run build"
   },
   "dependencies": {
     "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
@@ -43,9 +47,10 @@
     "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "11.2.7",
     "@testing-library/user-event": "12.8.3",
+    "@types/testing-library__jest-dom": "5.14.9",
     "react": "16.14.0",
     "react-dom": "16.14.0",
-    "react-scripts": "4.0.1",
+    "react-scripts": "4.0.3",
     "web-vitals": "1.1.2"
   },
   "devDependencies": {
@@ -76,11 +81,9 @@
       "last 1 safari version"
     ]
   },
-  "pnpm": {
-    "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
-    "overrides": {
-      "@spautz/node-library-template": "$@spautz/node-library-template",
-      "@spautz/react-library-template": "$@spautz/react-library-template"
-    }
+  "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
+  "resolutions": {
+    "@spautz/node-library-template": "$@spautz/node-library-template",
+    "@spautz/react-library-template": "$@spautz/react-library-template"
   }
 }
