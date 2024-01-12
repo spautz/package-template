@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  main-container:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.framework-test
+      target: '${DOCKER_BUILD_TARGET:-default}'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./src:/framework-test-bun-vite5/src
+    ports:
+      - 4173:4173
+      - 5173:5173

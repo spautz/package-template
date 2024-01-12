@@ -1,5 +1,10 @@
+docker-compose.framework-test.yaml
+Dockerfile.framework-test
+framework-test.sh
+framework-test-interactive.sh
+
 #
-# When updating this file, sync with .prettierignore
+# Everything below this point is copied from the root .gitignore
 #
 
 # IDEs, etc

@@ -1,9 +1,11 @@
+# syntax=docker/dockerfile:1
+
 # For sanity and performance, local packages must be Yalc'd into this directory BEFORE
 # building this image (via ../../scripts/setup-framework-tests.sh)
 
 ARG BUN_VERSION=1
 
-# 'base' is deps + project source: plain files only, without any checks or test cases
+# 'base' is deps + project source: raw files only
 FROM oven/bun:${BUN_VERSION} as base
 
 WORKDIR /framework-test-bun-vite5
@@ -12,9 +14,7 @@ COPY .yalc  .yalc/
 
 RUN bun install
 
-COPY .env* *.cjs *.html *.js *.json *.mjs *.ts  ./
-COPY public public/
-COPY src src/
+COPY . ./
 
 # 4173 = Vite preview
 EXPOSE 4173
@@ -38,3 +38,4 @@ CMD bun run dev
 
 
 FROM run-all as default
+LABEL framework-test-name="bun-vite5"

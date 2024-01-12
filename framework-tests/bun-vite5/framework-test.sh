@@ -16,12 +16,21 @@ source ../../scripts/helpers/helpers.sh
 # handled all environmental setup already
 ../../node_modules/.bin/yalc update
 
-DOCKERFILE_TARGET="${1:-default}"
-source ./framework-test-variables.sh
+DOCKER_BUILD_TARGET="$1"
+EXTRA_ARGS="${*:2}"
 
-echo "DOCKERFILE_TARGET=$DOCKERFILE_TARGET"
-run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt  --target $DOCKERFILE_TARGET
-run_command docker run $FRAMEWORK_TEST_RUN_ARGS "$(cat ./docker-id.txt)"
+# Always rebuild, so that build target may be (optionally) overridden
+DOCKER_BUILD_TARGET="$DOCKER_BUILD_TARGET"  run_command     \
+  docker compose -f ./docker-compose.framework-test.yaml    \
+  up --build --remove-orphans $EXTRA_ARGS                   ;
+
+CONTAINER_ID=$(docker ps -a --filter=name=bun-vite5-main-container --format "{{.ID}}" --last 1)
+IMAGE_ID=$(docker images --filter=reference=bun-vite5-main-container --format "{{.ID}}")
+echo "CONTAINER_ID=$CONTAINER_ID"
+echo "IMAGE_ID=$IMAGE_ID"
+
+# Sync back the lockfile, in case it changed
+run_command docker cp $CONTAINER_ID:/framework-test-bun-vite5/bun.lockb ./
 
 ###################################################################################################
 
