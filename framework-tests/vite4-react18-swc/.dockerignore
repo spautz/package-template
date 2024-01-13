@@ -32,7 +32,7 @@ coverage/
 
 # e2e tests
 
-e2e-test-results/
+e2e-test-output/
 playwright-report/
 
 # linting

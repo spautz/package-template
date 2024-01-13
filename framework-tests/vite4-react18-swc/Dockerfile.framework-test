@@ -3,9 +3,7 @@
 # Local packages must be Yalc'd into this directory BEFORE building this image
 # (via ../../scripts/setup-framework-tests.sh)
 
-ARG NODE_VERSION=20.8.1-bullseye-slim
-
-FROM node:${NODE_VERSION} as base-workspace
+FROM node:20.8.1-bullseye-slim as base-workspace
 WORKDIR /framework-test-vite4-react18-swc
 RUN corepack enable
 
@@ -21,6 +19,7 @@ FROM base-workspace as base
 # deps come second so that we don't lose any lockfile changes
 COPY . ./
 COPY --from=base-deps /framework-test-vite4-react18-swc /framework-test-vite4-react18-swc/
+RUN pnpm run clean
 
 # 4173 = Vite preview
 EXPOSE 4173

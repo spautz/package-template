@@ -27,7 +27,7 @@ export default defineConfig({
    * https://stackoverflow.com/questions/73249132/unable-to-open-playwright-html-report-using-docker */
   reporter: [['html', { open: 'never' }], ['list']],
   // Artifacts folder where screenshots, videos, and traces are stored.
-  outputDir: 'e2e-test-results/',
+  outputDir: 'e2e-test-output/',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */

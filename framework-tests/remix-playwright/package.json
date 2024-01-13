@@ -32,8 +32,9 @@
     "server:staging": "remix-serve build",
     "server:prod": "remix-serve build",
     "test:ui": "playwright test --ui",
+    "test:show-report": "playwright show-report",
     "____ WORKSPACE INTEGRATION _________________________________________": "",
-    "clean": "rimraf .cache ./build ./e2e-test-results ./playwright-report ./public/build",
+    "clean": "rimraf .cache ./build ./e2e-test-output ./playwright-report ./public/build",
     "_build": "(implemented above)",
     "lint": "eslint ./app --max-warnings 0",
     "lint:fix": "eslint ./app --max-warnings 0 --fix",
@@ -41,7 +42,6 @@
     "test:ci": "cross-env CI=true playwright test --max-failures=1",
     "test:coverage": "playwright test",
     "test:quick": "playwright test",
-    "test:show-report": "playwright show-report",
     "_typecheck": "(implemented above)",
     "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
     "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
@@ -61,7 +61,7 @@
     "rimraf": "5.0.1"
   },
   "devDependencies": {
-    "@playwright/test": "1.36.1",
+    "@playwright/test": "1.40.1",
     "@remix-run/dev": "1.18.1",
     "@remix-run/eslint-config": "1.18.1",
     "@types/react": "18.0.35",

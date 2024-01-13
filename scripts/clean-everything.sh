@@ -47,7 +47,7 @@ for DIRECTORY in '.' 'demos/*' 'framework-tests/*' 'packages/*' ; do
     $DIRECTORY/build/
     $DIRECTORY/coverage/
     $DIRECTORY/dist/
-    $DIRECTORY/e2e-test-results/
+    $DIRECTORY/e2e-test-output/
     $DIRECTORY/legacy-types/
     $DIRECTORY/node_modules/
     $DIRECTORY/playwright-report/

@@ -8,62 +8,63 @@ overrides:
   '@spautz/node-library-template': file:.yalc/@spautz/node-library-template
   '@spautz/react-library-template': file:.yalc/@spautz/react-library-template
 
-importers:
+dependencies:
+  '@remix-run/css-bundle':
+    specifier: 1.18.1
+    version: 1.18.1
+  '@remix-run/node':
+    specifier: 1.18.1
+    version: 1.18.1
+  '@remix-run/react':
+    specifier: 1.18.1
+    version: 1.18.1(react-dom@18.2.0)(react@18.2.0)
+  '@remix-run/serve':
+    specifier: 1.18.1
+    version: 1.18.1
+  '@spautz/node-library-template':
+    specifier: file:/framework-test-remix-playwright/.yalc/@spautz/node-library-template
+    version: file:.yalc/@spautz/node-library-template
+  '@spautz/react-library-template':
+    specifier: file:/framework-test-remix-playwright/.yalc/@spautz/react-library-template
+    version: file:.yalc/@spautz/react-library-template(react@18.2.0)
+  isbot:
+    specifier: 3.6.12
+    version: 3.6.12
+  react:
+    specifier: 18.2.0
+    version: 18.2.0
+  react-dom:
+    specifier: 18.2.0
+    version: 18.2.0(react@18.2.0)
+  rimraf:
+    specifier: 5.0.1
+    version: 5.0.1
 
-  .:
-    dependencies:
-      '@remix-run/css-bundle':
-        specifier: 1.18.1
-        version: 1.18.1
-      '@remix-run/node':
-        specifier: 1.18.1
-        version: 1.18.1
-      '@remix-run/react':
-        specifier: 1.18.1
-        version: 1.18.1(react-dom@18.2.0)(react@18.2.0)
-      '@remix-run/serve':
-        specifier: 1.18.1
-        version: 1.18.1
-      '@spautz/node-library-template':
-        specifier: file:C:\Users\spautz\dev\git\package-template\framework-tests\remix-playwright\.yalc\@spautz\node-library-template
-        version: file:.yalc/@spautz/node-library-template
-      '@spautz/react-library-template':
-        specifier: file:C:\Users\spautz\dev\git\package-template\framework-tests\remix-playwright\.yalc\@spautz\react-library-template
-        version: file:.yalc/@spautz/react-library-template(react@18.2.0)
-      isbot:
-        specifier: 3.6.12
-        version: 3.6.12
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      rimraf:
-        specifier: 5.0.1
-        version: 5.0.1
-    devDependencies:
-      '@playwright/test':
-        specifier: 1.36.1
-        version: 1.36.1
-      '@remix-run/dev':
-        specifier: 1.18.1
-        version: 1.18.1(@remix-run/serve@1.18.1)
-      '@remix-run/eslint-config':
-        specifier: 1.18.1
-        version: 1.18.1(eslint@8.38.0)(react@18.2.0)(typescript@5.0.4)
-      '@types/react':
-        specifier: 18.0.35
-        version: 18.0.35
-      '@types/react-dom':
-        specifier: 18.0.11
-        version: 18.0.11
-      eslint:
-        specifier: 8.38.0
-        version: 8.38.0
-      typescript:
-        specifier: 5.0.4
-        version: 5.0.4
+devDependencies:
+  '@playwright/test':
+    specifier: 1.40.1
+    version: 1.40.1
+  '@remix-run/dev':
+    specifier: 1.18.1
+    version: 1.18.1(@remix-run/serve@1.18.1)
+  '@remix-run/eslint-config':
+    specifier: 1.18.1
+    version: 1.18.1(eslint@8.38.0)(react@18.2.0)(typescript@5.0.4)
+  '@types/react':
+    specifier: 18.0.35
+    version: 18.0.35
+  '@types/react-dom':
+    specifier: 18.0.11
+    version: 18.0.11
+  cross-env:
+    specifier: 7.0.3
+    version: 7.0.3
+  eslint:
+    specifier: 8.38.0
+    version: 8.38.0
+  typescript:
+    specifier: 5.0.4
+    version: 5.0.4
 
 packages:
 
@@ -1931,15 +1932,12 @@ packages:
     dev: false
     optional: true
 
-  /@playwright/test@1.36.1:
-    resolution: {integrity: sha512-YK7yGWK0N3C2QInPU6iaf/L3N95dlGdbsezLya4n0ZCh3IL7VgPGxC6Gnznh9ApWdOmkJeleT2kMTcWPRZvzqg==}
+  /@playwright/test@1.40.1:
+    resolution: {integrity: sha512-EaaawMTOeEItCRvfmkI9v6rBkF1svM8wjl/YPRrg2N2Wmp+4qJYkWtJsbew1szfKKDm6fPLy4YAanBhIlf9dWw==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      '@types/node': 20.10.7
-      playwright-core: 1.36.1
-    optionalDependencies:
-      fsevents: 2.3.2
+      playwright: 1.40.1
     dev: true
 
   /@remix-run/css-bundle@1.18.1:
@@ -3176,6 +3174,14 @@ packages:
 
   /core-util-is@1.0.3:
     resolution: {integrity: sha512-ZQBvi1DcpJ4GDqanjucZ2Hj3wEO5pZDS89BWbkcrvdxksJorwUDDZamX9ldFkp9aw2lmBDLgkObEA4DWNJ9FYQ==}
+    dev: true
+
+  /cross-env@7.0.3:
+    resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
+    engines: {node: '>=10.14', npm: '>=6', yarn: '>=1'}
+    hasBin: true
+    dependencies:
+      cross-spawn: 7.0.3
     dev: true
 
   /cross-spawn@7.0.3:
@@ -6270,10 +6276,20 @@ packages:
       pathe: 1.1.1
     dev: true
 
-  /playwright-core@1.36.1:
-    resolution: {integrity: sha512-7+tmPuMcEW4xeCL9cp9KxmYpQYHKkyjwoXRnoeTowaeNat8PoBMk/HwCYhqkH2fRkshfKEOiVus/IhID2Pg8kg==}
+  /playwright-core@1.40.1:
+    resolution: {integrity: sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==}
     engines: {node: '>=16'}
     hasBin: true
+    dev: true
+
+  /playwright@1.40.1:
+    resolution: {integrity: sha512-2eHI7IioIpQ0bS1Ovg/HszsN/XKNwEG1kbzSDDmADpclKc7CyqkHw7Mg2JCz/bbCxg25QUPcjksoMW7JcIFQmw==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      playwright-core: 1.40.1
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /postcss-discard-duplicates@5.1.0(postcss@8.4.33):

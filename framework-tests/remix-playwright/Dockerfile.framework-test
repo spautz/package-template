@@ -3,9 +3,7 @@
 # Local packages must be Yalc'd into this directory BEFORE building this image
 # (via ../../scripts/setup-framework-tests.sh)
 
-ARG NODE_VERSION=20.8.1-bullseye-slim
-
-FROM node:${NODE_VERSION} as base-workspace
+FROM mcr.microsoft.com/playwright:v1.40.0-jammy as base-workspace
 WORKDIR /framework-test-remix-playwright
 RUN corepack enable
 
@@ -21,11 +19,10 @@ FROM base-workspace as base
 # deps come second so that we don't lose any lockfile changes
 COPY . ./
 COPY --from=base-deps /framework-test-remix-playwright /framework-test-remix-playwright/
+RUN pnpm run clean
 
 # 3000 = Remix dev and remix-serve
 EXPOSE 3000
-# 9323 = Playwright test report
-EXPOSE 9323
 
 
 # A target for each check or test case. These are just for readability.

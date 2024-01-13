@@ -8,7 +8,5 @@ services:
       target: "${DOCKER_BUILD_TARGET:-default}"
     volumes:
       - ./src:/framework-test-remix-playwright/src
-#    network_mode: "host"
     ports:
       - 3000:3000
-      - "127.0.0.1:9323:9323"

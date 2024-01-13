@@ -30,9 +30,11 @@ EXIT_CODE=$(docker inspect $CONTAINER_ID --format='{{.State.ExitCode}}')
 echo "CONTAINER_ID=$CONTAINER_ID"
 echo "IMAGE_ID=$IMAGE_ID"
 
-# Sync back the lockfile, in case it changed
+# Sync back the lockfile, in case it changed, and also any test reports
 if [[ $EXIT_CODE -eq 0 ]]; then
   run_command docker cp $CONTAINER_ID:/framework-test-remix-playwright/pnpm-lock.yaml ./
+  run_command docker cp $CONTAINER_ID:/framework-test-remix-playwright/playwright-report ./
+  run_command docker cp $CONTAINER_ID:/framework-test-remix-playwright/e2e-test-output ./
 else
   exit $EXIT_CODE
 fi
