@@ -18,10 +18,9 @@ source ../../scripts/helpers/helpers.sh
 
 EXTRA_ARGS="$*"
 
-run_command                                               \
-  docker compose -f ./docker-compose.framework-test.yaml  \
-  run --build --service-ports $EXTRA_ARGS                 \
-  main-container  bash                                    \
+run_command docker compose -f ./docker-compose.framework-test.yaml            \
+  run --build --service-ports $EXTRA_ARGS                                     \
+  main-container  bash                                                        \
   || true;
 
 CONTAINER_ID=$(docker ps -a --filter=name=bun-vite5-main-container --format "{{.ID}}" --last 1)

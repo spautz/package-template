@@ -1,20 +1,25 @@
 # syntax=docker/dockerfile:1
 
-# For sanity and performance, local packages must be Yalc'd into this directory BEFORE
-# building this image (via ../../scripts/setup-framework-tests.sh)
+# Local packages must be Yalc'd into this directory BEFORE building this image
+# (via ../../scripts/setup-framework-tests.sh)
 
-ARG BUN_VERSION=1
+ARG BUN_VERSION=1.0.22
 
-# 'base' is deps + project source: raw files only
-FROM oven/bun:${BUN_VERSION} as base
-
+FROM oven/bun:${BUN_VERSION} as base-workspace
 WORKDIR /framework-test-bun-vite5
-COPY bun.lockb package.json  ./
-COPY .yalc  .yalc/
 
+# 'base' is deps + project source
+FROM base-workspace as base-deps
+
+COPY package.json bun.lockb  ./
+COPY .yalc  .yalc/
 RUN bun install
 
+FROM base-workspace as base
+
+# deps come second so that we don't lose any lockfile changes
 COPY . ./
+COPY --from=base-deps /framework-test-bun-vite5 /framework-test-bun-vite5/
 
 # 4173 = Vite preview
 EXPOSE 4173
@@ -23,9 +28,9 @@ EXPOSE 5173
 
 
 # A target for each check or test case. These are just for readability.
-#   'run-all'     = all project checks
-#   'run-ci'      = all project checks, but for CI
-#   'run-server'  = spin up a local dev server
+#   'run-all' = all project checks
+#   'run-ci'  = all project checks, but for CI
+#   'run-dev' = spin up a local dev server
 
 FROM base as run-all
 CMD bun run all
@@ -33,7 +38,7 @@ CMD bun run all
 FROM base as run-ci
 CMD bun run all:ci
 
-FROM base as run-server
+FROM base as run-dev
 CMD bun run dev
 
 
