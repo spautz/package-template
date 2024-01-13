@@ -1,0 +1,47 @@
+# syntax=docker/dockerfile:1
+
+# Local packages must be Yalc'd into this directory BEFORE building this image
+# (via ../../scripts/setup-framework-tests.sh)
+
+ARG NODE_VERSION=20.8.1-bullseye-slim
+
+FROM node:${NODE_VERSION} as base-workspace
+WORKDIR /framework-test-vite4-react18-swc
+RUN corepack enable
+
+# 'base' is deps + project source
+FROM base-workspace as base-deps
+
+COPY package.json pnpm-lock.yaml  ./
+COPY .yalc  .yalc/
+RUN pnpm install
+
+FROM base-workspace as base
+
+# deps come second so that we don't lose any lockfile changes
+COPY . ./
+COPY --from=base-deps /framework-test-vite4-react18-swc /framework-test-vite4-react18-swc/
+
+# 4173 = Vite preview
+EXPOSE 4173
+# 5173 = Vite dev
+EXPOSE 5173
+
+
+# A target for each check or test case. These are just for readability.
+#   'run-all' = all project checks
+#   'run-ci'  = all project checks, but for CI
+#   'run-dev' = spin up a local dev server
+
+FROM base as run-all
+CMD pnpm run all
+
+FROM base as run-ci
+CMD pnpm run all:ci
+
+FROM base as run-dev
+CMD pnpm run dev
+
+
+FROM run-all as default
+LABEL framework-test-name="vite4-react18-swc"

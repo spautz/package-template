@@ -23,8 +23,9 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
-  /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  /* Reporter to use. See https://playwright.dev/docs/test-reporters and
+   * https://stackoverflow.com/questions/73249132/unable-to-open-playwright-html-report-using-docker */
+  reporter: [['html', { open: 'never' }], ['list']],
   // Artifacts folder where screenshots, videos, and traces are stored.
   outputDir: 'e2e-test-results/',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
@@ -77,9 +78,9 @@ export default defineConfig({
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   webServer: {
-    command: 'pnpm run start:dev',
+    command: 'pnpm run server:dev',
     url: baseURL,
     timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
+    // reuseExistingServer: !process.env.CI,
   },
 });
