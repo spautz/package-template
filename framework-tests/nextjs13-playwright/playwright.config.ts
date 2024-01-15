@@ -1,6 +1,6 @@
 import { defineConfig, devices } from '@playwright/test';
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 const baseURL = `http://localhost:${PORT}`;
 
 // See https://playwright.dev/docs/test-configuration.
@@ -16,9 +16,9 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html', { open: 'never' }], ['list']],
   // Artifacts folder where screenshots, videos, and traces are stored.
-  outputDir: 'e2e-test-results/',
+  outputDir: 'e2e-test-output/',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -43,9 +43,9 @@ export default defineConfig({
   // Run your local dev server before starting the tests:
   // https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests
   webServer: {
-    command: `pnpm run start:dev --port ${PORT}`,
+    command: `pnpm run server:dev --port ${PORT}`,
     url: baseURL,
     timeout: 120 * 1000,
-    reuseExistingServer: !process.env.CI,
+    // reuseExistingServer: !process.env.CI,
   },
 });

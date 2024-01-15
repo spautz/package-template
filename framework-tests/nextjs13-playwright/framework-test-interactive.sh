@@ -23,8 +23,8 @@ run_command docker compose -f ./docker-compose.framework-test.yaml            \
   main-container  bash                                                        \
   || true;
 
-CONTAINER_ID=$(docker ps -a --filter=name=cra5-react17-main-container --format "{{.ID}}" --last 1)
-IMAGE_ID=$(docker images --filter=reference=cra5-react17-main-container --format "{{.ID}}")
+CONTAINER_ID=$(docker ps -a --filter=name=nextjs13-playwright-main-container --format "{{.ID}}" --last 1)
+IMAGE_ID=$(docker images --filter=reference=nextjs13-playwright-main-container --format "{{.ID}}")
 echo "CONTAINER_ID=$CONTAINER_ID"
 echo "IMAGE_ID=$IMAGE_ID"
 

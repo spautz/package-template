@@ -23,8 +23,8 @@ EXTRA_ARGS="${*:2}"
 run_command docker compose -f ./docker-compose.framework-test.yaml            \
   up --build --remove-orphans $EXTRA_ARGS
 
-CONTAINER_ID=$(docker ps -a --filter=name=cra5-react17-main-container --format "{{.ID}}" --last 1)
-IMAGE_ID=$(docker images --filter=reference=cra5-react17-main-container --format "{{.ID}}")
+CONTAINER_ID=$(docker ps -a --filter=name=nextjs13-playwright-main-container --format "{{.ID}}" --last 1)
+IMAGE_ID=$(docker images --filter=reference=nextjs13-playwright-main-container --format "{{.ID}}")
 EXIT_CODE=$(docker inspect $CONTAINER_ID --format='{{.State.ExitCode}}')
 
 echo "CONTAINER_ID=$CONTAINER_ID"
@@ -32,8 +32,9 @@ echo "IMAGE_ID=$IMAGE_ID"
 
 # Sync back the lockfile, in case it changed, and also any test reports
 if [[ $EXIT_CODE -eq 0 ]]; then
-  run_command docker cp $CONTAINER_ID:/framework-test-cra5-react17/pnpm-lock.yaml ./
-  run_command docker cp $CONTAINER_ID:/framework-test-cra5-react17/coverage ./
+  run_command docker cp $CONTAINER_ID:/framework-test-nextjs13-playwright/pnpm-lock.yaml ./
+  run_command docker cp $CONTAINER_ID:/framework-test-nextjs13-playwright/playwright-report ./
+  run_command docker cp $CONTAINER_ID:/framework-test-nextjs13-playwright/e2e-test-output ./
 else
   exit $EXIT_CODE
 fi

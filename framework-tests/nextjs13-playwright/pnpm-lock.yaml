@@ -8,59 +8,57 @@ overrides:
   '@spautz/node-library-template': file:.yalc/@spautz/node-library-template
   '@spautz/react-library-template': file:.yalc/@spautz/react-library-template
 
-importers:
+dependencies:
+  '@spautz/node-library-template':
+    specifier: file:/framework-test-nextjs13-playwright/.yalc/@spautz/node-library-template
+    version: file:.yalc/@spautz/node-library-template
+  '@spautz/react-library-template':
+    specifier: file:/framework-test-nextjs13-playwright/.yalc/@spautz/react-library-template
+    version: file:.yalc/@spautz/react-library-template(react@18.2.0)
 
-  .:
-    dependencies:
-      '@spautz/node-library-template':
-        specifier: file:C:\Users\spautz\dev\git\package-template\framework-tests\nextjs13-playwright\.yalc\@spautz\node-library-template
-        version: file:.yalc/@spautz/node-library-template
-      '@spautz/react-library-template':
-        specifier: file:C:\Users\spautz\dev\git\package-template\framework-tests\nextjs13-playwright\.yalc\@spautz\react-library-template
-        version: file:.yalc/@spautz/react-library-template(react@18.2.0)
-    devDependencies:
-      '@playwright/test':
-        specifier: 1.36.1
-        version: 1.36.1
-      '@types/node':
-        specifier: 20.3.3
-        version: 20.3.3
-      '@types/react':
-        specifier: 18.2.14
-        version: 18.2.14
-      '@types/react-dom':
-        specifier: 18.2.6
-        version: 18.2.6
-      autoprefixer:
-        specifier: 10.4.14
-        version: 10.4.14(postcss@8.4.24)
-      eslint:
-        specifier: 8.44.0
-        version: 8.44.0
-      eslint-config-next:
-        specifier: 13.4.8
-        version: 13.4.8(eslint@8.44.0)(typescript@5.1.6)
-      next:
-        specifier: 13.4.8
-        version: 13.4.8(react-dom@18.2.0)(react@18.2.0)
-      postcss:
-        specifier: 8.4.24
-        version: 8.4.24
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      rimraf:
-        specifier: 5.0.1
-        version: 5.0.1
-      tailwindcss:
-        specifier: 3.3.2
-        version: 3.3.2
-      typescript:
-        specifier: 5.1.6
-        version: 5.1.6
+devDependencies:
+  '@playwright/test':
+    specifier: 1.40.1
+    version: 1.40.1
+  '@types/node':
+    specifier: 20.3.3
+    version: 20.3.3
+  '@types/react':
+    specifier: 18.2.14
+    version: 18.2.14
+  '@types/react-dom':
+    specifier: 18.2.6
+    version: 18.2.6
+  autoprefixer:
+    specifier: 10.4.14
+    version: 10.4.14(postcss@8.4.24)
+  eslint:
+    specifier: 8.44.0
+    version: 8.44.0
+  eslint-config-next:
+    specifier: 13.4.8
+    version: 13.4.8(eslint@8.44.0)(typescript@5.1.6)
+  next:
+    specifier: 13.4.8
+    version: 13.4.8(react-dom@18.2.0)(react@18.2.0)
+  postcss:
+    specifier: 8.4.24
+    version: 8.4.24
+  react:
+    specifier: 18.2.0
+    version: 18.2.0
+  react-dom:
+    specifier: 18.2.0
+    version: 18.2.0(react@18.2.0)
+  rimraf:
+    specifier: 5.0.1
+    version: 5.0.1
+  tailwindcss:
+    specifier: 3.3.2
+    version: 3.3.2
+  typescript:
+    specifier: 5.1.6
+    version: 5.1.6
 
 packages:
 
@@ -299,15 +297,12 @@ packages:
     dev: true
     optional: true
 
-  /@playwright/test@1.36.1:
-    resolution: {integrity: sha512-YK7yGWK0N3C2QInPU6iaf/L3N95dlGdbsezLya4n0ZCh3IL7VgPGxC6Gnznh9ApWdOmkJeleT2kMTcWPRZvzqg==}
+  /@playwright/test@1.40.1:
+    resolution: {integrity: sha512-EaaawMTOeEItCRvfmkI9v6rBkF1svM8wjl/YPRrg2N2Wmp+4qJYkWtJsbew1szfKKDm6fPLy4YAanBhIlf9dWw==}
     engines: {node: '>=16'}
     hasBin: true
     dependencies:
-      '@types/node': 20.3.3
-      playwright-core: 1.36.1
-    optionalDependencies:
-      fsevents: 2.3.2
+      playwright: 1.40.1
     dev: true
 
   /@rushstack/eslint-patch@1.6.1:
@@ -2115,10 +2110,20 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /playwright-core@1.36.1:
-    resolution: {integrity: sha512-7+tmPuMcEW4xeCL9cp9KxmYpQYHKkyjwoXRnoeTowaeNat8PoBMk/HwCYhqkH2fRkshfKEOiVus/IhID2Pg8kg==}
+  /playwright-core@1.40.1:
+    resolution: {integrity: sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==}
     engines: {node: '>=16'}
     hasBin: true
+    dev: true
+
+  /playwright@1.40.1:
+    resolution: {integrity: sha512-2eHI7IioIpQ0bS1Ovg/HszsN/XKNwEG1kbzSDDmADpclKc7CyqkHw7Mg2JCz/bbCxg25QUPcjksoMW7JcIFQmw==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      playwright-core: 1.40.1
+    optionalDependencies:
+      fsevents: 2.3.2
     dev: true
 
   /postcss-import@15.1.0(postcss@8.4.24):
