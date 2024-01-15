@@ -32,7 +32,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --max-warnings 0",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --max-warnings 0 --fix",
     "_test": "(implemented above)",
-    "test:ci": "yarn run test    --coverage=false --watchAll=false --bail",
+    "test:ci": "yarn run test       --coverage=true  --watchAll=false --bail",
     "test:coverage": "yarn run test --coverage=true  --watchAll=false",
     "test:quick": "yarn run test    --coverage=false --watchAll=false",
     "typecheck": "tsc --noEmit",
@@ -54,6 +54,7 @@
     "web-vitals": "1.1.2"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@types/jest": "26.0.24",
     "@types/react": "16.14.55",
     "@types/react-dom": "16.9.24",

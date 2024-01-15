@@ -16,12 +16,27 @@ source ../../scripts/helpers/helpers.sh
 # handled all environmental setup already
 ../../node_modules/.bin/yalc update
 
-DOCKERFILE_TARGET="${1:-default}"
-source ./framework-test-variables.sh
+export DOCKER_BUILD_TARGET="$1"
+EXTRA_ARGS="${*:2}"
 
-echo "DOCKERFILE_TARGET=$DOCKERFILE_TARGET"
-run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt --build-arg NODE_VERSION=$(cat .nvmrc)  --target $DOCKERFILE_TARGET
-run_command docker run $FRAMEWORK_TEST_RUN_ARGS "$(cat ./docker-id.txt)"
+# Always rebuild, so that build target may be (optionally) overridden
+run_command docker compose -f ./docker-compose.framework-test.yaml            \
+  up --build --remove-orphans $EXTRA_ARGS
+
+CONTAINER_ID=$(docker ps -a --filter=name=cra4-react16-main-container --format "{{.ID}}" --last 1)
+IMAGE_ID=$(docker images --filter=reference=cra4-react16-main-container --format "{{.ID}}")
+EXIT_CODE=$(docker inspect $CONTAINER_ID --format='{{.State.ExitCode}}')
+
+echo "CONTAINER_ID=$CONTAINER_ID"
+echo "IMAGE_ID=$IMAGE_ID"
+
+# Sync back the lockfile, in case it changed, and also any test reports
+if [[ $EXIT_CODE -eq 0 ]]; then
+  run_command docker cp $CONTAINER_ID:/framework-test-cra4-react16/yarn.lock ./
+  run_command docker cp $CONTAINER_ID:/framework-test-cra4-react16/coverage ./
+else
+  exit $EXIT_CODE
+fi
 
 ###################################################################################################
 

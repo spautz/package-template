@@ -1,29 +1,34 @@
-# For sanity and performance, local packages must be Yalc'd into this directory BEFORE
-# building this image (via ../../scripts/setup-framework-tests.sh)
+# syntax=docker/dockerfile:1
 
-ARG NODE_VERSION=14
+# Local packages must be Yalc'd into this directory BEFORE building this image
+# (via ../../scripts/setup-framework-tests.sh)
 
-# 'base' is deps + project source: plain files only, without any checks or test cases
-FROM node:${NODE_VERSION}-buster-slim as base
-
+FROM node:16.20.2-bullseye-slim as base-workspace
 WORKDIR /framework-test-cra4-react16
+RUN corepack enable
+
+# 'base' is deps + project source
+FROM base-workspace as base-deps
+
 COPY package.json yarn.lock  ./
 COPY .yalc  .yalc/
-
 RUN yarn install
 
-COPY .env* *.cjs *.html *.js *.json *.mjs *.ts  ./
-COPY public public/
-COPY src src/
+FROM base-workspace as base
 
-# 3000 = react-scripts start
+# deps come second so that we don't lose any lockfile changes
+COPY . ./
+COPY --from=base-deps /framework-test-cra4-react16 /framework-test-cra4-react16/
+RUN yarn run clean
+
+# 3000 = React-Scripts dev server
 EXPOSE 3000
 
 
 # A target for each check or test case. These are just for readability.
-#   'run-all'     = all project checks
-#   'run-ci'      = all project checks, but for CI
-#   'run-server'  = spin up a local dev server
+#   'run-all' = all project checks
+#   'run-ci'  = all project checks, but for CI
+#   'run-dev' = spin up a local dev server
 
 FROM base as run-all
 CMD yarn run all
@@ -31,8 +36,9 @@ CMD yarn run all
 FROM base as run-ci
 CMD yarn run all:ci
 
-FROM base as run-server
+FROM base as run-dev
 CMD yarn run start
 
 
 FROM run-all as default
+LABEL framework-test-name="cra4-react16"

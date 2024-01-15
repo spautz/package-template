@@ -14,6 +14,10 @@
     "name": "Steven Pautz",
     "url": "https://github.com/spautz/"
   },
+  "engines": {
+    "pnpm": "^7"
+  },
+  "packageManager": "pnpm@7.33.6",
   "scripts": {
     "____ FROM CREATE-REACT-APP _________________________________________": "",
     "start": "react-scripts start",
@@ -28,7 +32,7 @@
     "lint": "eslint src --max-warnings 0",
     "lint:fix": "eslint src --max-warnings 0 --fix",
     "_test": "(implemented above)",
-    "test:ci": "pnpm run test    --coverage=false --watchAll=false --bail",
+    "test:ci": "pnpm run test       --coverage=true  --watchAll=false --bail",
     "test:coverage": "pnpm run test --coverage=true  --watchAll=false",
     "test:quick": "pnpm run test    --coverage=false --watchAll=false",
     "typecheck": "tsc --noEmit",

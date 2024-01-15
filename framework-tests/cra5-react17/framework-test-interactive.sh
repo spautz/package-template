@@ -16,10 +16,17 @@ source ../../scripts/helpers/helpers.sh
 # handled all environmental setup already
 ../../node_modules/.bin/yalc update
 
-source ./framework-test-variables.sh
+EXTRA_ARGS="$*"
 
-run_command docker build . -f ./Dockerfile.framework-test --iidfile ./docker-id.txt --build-arg NODE_VERSION=$(cat .nvmrc)
-run_command docker run -it $FRAMEWORK_TEST_RUN_ARGS "$(cat ./docker-id.txt)"  bash
+run_command docker compose -f ./docker-compose.framework-test.yaml            \
+  run --build --service-ports $EXTRA_ARGS                                     \
+  main-container  bash                                                        \
+  || true;
+
+CONTAINER_ID=$(docker ps -a --filter=name=cra5-react17-main-container --format "{{.ID}}" --last 1)
+IMAGE_ID=$(docker images --filter=reference=cra5-react17-main-container --format "{{.ID}}")
+echo "CONTAINER_ID=$CONTAINER_ID"
+echo "IMAGE_ID=$IMAGE_ID"
 
 ###################################################################################################
 

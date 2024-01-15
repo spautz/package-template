@@ -14,6 +14,7 @@
     "name": "Steven Pautz",
     "url": "https://github.com/spautz/"
   },
+  "packageManager": "pnpm@8.13.1",
   "type": "module",
   "scripts": {
     "____ FROM VITE _____________________________________________________": "",
