@@ -100,6 +100,4 @@ jobs:
 
       - name: Run CI checks for framework-test
         run: |
-          source ./scripts/helpers/helpers.sh
-          cd ./framework-tests/${{ matrix.framework-test-name }}
-          pnpm_or_bun run all:ci
+          ./framework-tests/${{ matrix.framework-test-name }}/framework-test.sh run-ci
