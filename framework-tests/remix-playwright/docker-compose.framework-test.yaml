@@ -1,11 +1,10 @@
-version: "3.8"
+version: '3.8'
 services:
-
   main-container:
     build:
       context: .
       dockerfile: ./Dockerfile.framework-test
-      target: "${DOCKER_BUILD_TARGET:-default}"
+      target: '${DOCKER_BUILD_TARGET:-default}'
     volumes:
       - ./src:/framework-test-remix-playwright/src
     ports:
