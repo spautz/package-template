@@ -81,7 +81,7 @@ jobs:
           [
             bun-vite5,
             cra4-react16,
-            cra5-react17,
+            cra5-react18,
             nextjs13-playwright,
             remix-playwright,
             vite4-react18-swc,

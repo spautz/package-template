@@ -1,14 +1,14 @@
 {
-  "name": "@spautz/framework-test--cra5-react17",
+  "name": "@spautz/framework-test--cra5-react18",
   "private": true,
   "description": "Test app for package-template packages in a React-Scripts-built app with React 17",
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/framework-tests/cra5-react17",
+  "homepage": "https://github.com/spautz/package-template/blob/main/framework-tests/cra5-react18",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/spautz/package-template.git",
-    "directory": "packages/cra5-react17"
+    "directory": "packages/cra5-react18"
   },
   "author": {
     "name": "Steven Pautz",

@@ -10,10 +10,10 @@ overrides:
 
 dependencies:
   '@spautz/node-library-template':
-    specifier: file:/framework-test-cra5-react17/.yalc/@spautz/node-library-template
+    specifier: file:/framework-test-cra5-react18/.yalc/@spautz/node-library-template
     version: file:.yalc/@spautz/node-library-template
   '@spautz/react-library-template':
-    specifier: file:/framework-test-cra5-react17/.yalc/@spautz/react-library-template
+    specifier: file:/framework-test-cra5-react18/.yalc/@spautz/react-library-template
     version: file:.yalc/@spautz/react-library-template(react@18.2.0)
 
 devDependencies:

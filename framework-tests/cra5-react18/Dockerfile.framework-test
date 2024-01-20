@@ -4,7 +4,7 @@
 # (via ../../scripts/setup-framework-tests.sh)
 
 FROM node:18.19.0-bullseye-slim as base-workspace
-WORKDIR /framework-test-cra5-react17
+WORKDIR /framework-test-cra5-react18
 RUN corepack enable
 
 # 'base' is deps + project source
@@ -18,7 +18,7 @@ FROM base-workspace as base
 
 # deps come second so that we don't lose any lockfile changes
 COPY . ./
-COPY --from=base-deps /framework-test-cra5-react17 /framework-test-cra5-react17/
+COPY --from=base-deps /framework-test-cra5-react18 /framework-test-cra5-react18/
 RUN pnpm run clean
 
 # 3000 = React-Scripts dev server
@@ -41,4 +41,4 @@ CMD pnpm run start
 
 
 FROM run-all as default
-LABEL framework-test-name="cra5-react17"
+LABEL framework-test-name="cra5-react18"

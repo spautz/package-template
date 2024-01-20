@@ -6,6 +6,6 @@ services:
       dockerfile: ./Dockerfile.framework-test
       target: '${DOCKER_BUILD_TARGET:-default}'
     volumes:
-      - ./src:/framework-test-cra5-react17/src
+      - ./src:/framework-test-cra5-react18/src
     ports:
       - 3000:3000

@@ -16,27 +16,17 @@ source ../../scripts/helpers/helpers.sh
 # handled all environmental setup already
 ../../node_modules/.bin/yalc update
 
-export DOCKER_BUILD_TARGET="$1"
-EXTRA_ARGS="${*:2}"
+EXTRA_ARGS="$*"
 
-# Always rebuild, so that build target may be (optionally) overridden
 run_command docker compose -f ./docker-compose.framework-test.yaml            \
-  up --build --remove-orphans $EXTRA_ARGS
+  run --build --service-ports $EXTRA_ARGS                                     \
+  main-container  bash                                                        \
+  || true;
 
-CONTAINER_ID=$(docker ps -a --filter=name=cra5-react17-main-container --format "{{.ID}}" --last 1)
-IMAGE_ID=$(docker images --filter=reference=cra5-react17-main-container --format "{{.ID}}")
-EXIT_CODE=$(docker inspect $CONTAINER_ID --format='{{.State.ExitCode}}')
-
+CONTAINER_ID=$(docker ps -a --filter=name=cra5-react18-main-container --format "{{.ID}}" --last 1)
+IMAGE_ID=$(docker images --filter=reference=cra5-react18-main-container --format "{{.ID}}")
 echo "CONTAINER_ID=$CONTAINER_ID"
 echo "IMAGE_ID=$IMAGE_ID"
-
-# Sync back the lockfile, in case it changed, and also any test reports
-if [[ $EXIT_CODE -eq 0 ]]; then
-  run_command docker cp $CONTAINER_ID:/framework-test-cra5-react17/pnpm-lock.yaml ./
-  run_command docker cp $CONTAINER_ID:/framework-test-cra5-react17/coverage ./
-else
-  exit $EXIT_CODE
-fi
 
 ###################################################################################################
 
