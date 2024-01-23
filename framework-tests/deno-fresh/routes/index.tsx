@@ -1,5 +1,6 @@
 import { useSignal } from '@preact/signals';
 import Counter from '../islands/Counter.tsx';
+import { InternalTestApp } from '../components/internal-test-app/InternalTestApp.tsx';
 
 export default function Home() {
   const count = useSignal(3);
@@ -20,6 +21,7 @@ export default function Home() {
         </p>
         <Counter count={count} />
       </div>
+      <InternalTestApp />
     </div>
   );
 }

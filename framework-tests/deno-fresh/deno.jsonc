@@ -20,7 +20,7 @@
     "test:ci": "deno task test:quick",
     "test:coverage": "deno test --allow-read --allow-env --coverage=./coverage && deno coverage ./coverage --html",
     "test:quick": "deno test    --allow-read --allow-env --fail-fast",
-    "typecheck": "deno cache  *.ts  components/**/*.tsx  islands/**/*.tsx  routes/**/*.ts routes/**/*.tsx  tests/**/*.ts",
+    "typecheck": "deno cache  *.ts  components/**/*.tsx  islands/**/*.tsx  routes/**/*.ts routes/**/*.tsx",
     "all": "deno task          typecheck && deno task lint:fix && deno task test:coverage && deno task build",
     "all:readonly": "deno task typecheck && deno task lint     && deno task test:quick",
     "all:quick": "deno task    typecheck && deno task lint:fix",
@@ -33,17 +33,19 @@
   },
   "exclude": ["**/_fresh/*"],
   "imports": {
+    // Can only use path aliases for the Yalc's packages, not true import aliases
+    // Related issue: https://github.com/denoland/deno/issues/18474
+    "#spautz/node-library-template": "./.yalc/@spautz/node-library-template/dist/esm/index.js",
+    "#spautz/react-library-template": "./.yalc/@spautz/react-library-template/dist/esm/index.js",
     "$fresh/": "https://deno.land/x/fresh@1.6.3/",
-    "preact": "https://esm.sh/preact@10.19.2",
-    "preact/": "https://esm.sh/preact@10.19.2/",
+    "$std/": "https://deno.land/std@0.211.0/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
-    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
+    "preact": "https://esm.sh/preact@10.19.2",
+    "preact/": "https://esm.sh/preact@10.19.2/",
     "tailwindcss": "npm:tailwindcss@3.3.5",
     "tailwindcss/": "npm:/tailwindcss@3.3.5/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js",
-    "$std/": "https://deno.land/std@0.211.0/"
+    "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
