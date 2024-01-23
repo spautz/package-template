@@ -1,0 +1,51 @@
+{
+  "lock": false,
+  "tasks": {
+    "____ FROM FRESH ____________________________________________________": "",
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "manifest": "deno task cli manifest $(pwd)",
+    "start": "deno run -A --watch=static/,routes/ dev.ts",
+    "build": "deno run -A dev.ts build",
+    "preview": "deno run -A main.ts",
+    "update": "deno run -A -r https://fresh.deno.dev/update .",
+    "____ FOR FRAMEWORK-TEST ____________________________________________": "",
+    "// (none)": "",
+    "____ WORKSPACE INTEGRATION _________________________________________": "",
+    "clean": "rimraf ./coverage ./dist",
+    "_build": "(implemented above)",
+    "_lint": "(implemented above)",
+    "lint:fix": "pnpm run lint --fix",
+    "test": "vitest run --coverage",
+    "test:ci": "vitest run --coverage --bail=1",
+    "test:coverage": "vitest run --coverage",
+    "test:quick": "vitest run --coverage=false",
+    "typecheck": "tsc",
+    "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
+    "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
+    "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
+    "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["fresh", "recommended"]
+    }
+  },
+  "exclude": ["**/_fresh/*"],
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.6.3/",
+    "preact": "https://esm.sh/preact@10.19.2",
+    "preact/": "https://esm.sh/preact@10.19.2/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
+    "tailwindcss": "npm:tailwindcss@3.3.5",
+    "tailwindcss/": "npm:/tailwindcss@3.3.5/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js",
+    "$std/": "https://deno.land/std@0.211.0/"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  },
+  "nodeModulesDir": true
+}
