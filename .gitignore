@@ -40,6 +40,7 @@ playwright-report/
 
 .cache/
 .next/
+_fresh/
 build/
 dist/
 dist-ssr/
