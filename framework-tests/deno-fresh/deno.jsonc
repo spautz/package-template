@@ -24,12 +24,12 @@
     "all": "deno task          typecheck && deno task lint:fix && deno task test:coverage && deno task build",
     "all:readonly": "deno task typecheck && deno task lint     && deno task test:quick",
     "all:quick": "deno task    typecheck && deno task lint:fix",
-    "all:ci": "deno task       typecheck && deno task lint     && deno task test:ci && deno task build"
+    "all:ci": "deno task       typecheck && deno task lint     && deno task test:ci && deno task build",
   },
   "lint": {
     "rules": {
-      "tags": ["fresh", "recommended"]
-    }
+      "tags": ["fresh", "recommended"],
+    },
   },
   "exclude": ["**/_fresh/*"],
   "imports": {
@@ -45,11 +45,11 @@
     "preact/": "https://esm.sh/preact@10.19.2/",
     "tailwindcss": "npm:tailwindcss@3.3.5",
     "tailwindcss/": "npm:/tailwindcss@3.3.5/",
-    "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js"
+    "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js",
   },
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
   },
-  "nodeModulesDir": true
+  "nodeModulesDir": true,
 }
