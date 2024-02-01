@@ -12,7 +12,7 @@ source ../../scripts/helpers/helpers.sh
 
 ###################################################################################################
 
-# Ensure the local dir is (reasonly) up-to-date: the base `setup-framework-tests.sh` should have
+# Ensure the local dir is (reasonly) up-to-date: the base `update-framework-tests.sh` should have
 # handled all environmental setup already
 ../../node_modules/.bin/yalc update
 

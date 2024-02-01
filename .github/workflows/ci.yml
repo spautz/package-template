@@ -94,10 +94,6 @@ jobs:
         with:
           use-lockfile: false
 
-      - name: Setup framework-tests
-        run: |
-          ./scripts/setup-framework-tests.sh
-
       - name: Run CI checks for framework-test
         run: |
           ./framework-tests/${{ matrix.framework-test-name }}/framework-test.sh run-ci

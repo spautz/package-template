@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Local packages must be Yalc'd into this directory BEFORE building this image
-# (via ../../scripts/setup-framework-tests.sh)
+# (via ../../scripts/update-framework-tests.sh)
 
 FROM node:18.19.0-bullseye-slim as base-workspace
 WORKDIR /framework-test-cra5-react18

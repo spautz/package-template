@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Local packages must be Yalc'd into this directory BEFORE building this image
-# (via ../../scripts/setup-framework-tests.sh)
+# (via ../../scripts/update-framework-tests.sh)
 
 FROM node:20.8.1-bullseye-slim as base-workspace
 WORKDIR /framework-test-vite4-react18-swc

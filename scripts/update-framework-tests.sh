@@ -12,12 +12,9 @@ source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
 
-# Setup workspace and Yalc
-run_command "./scripts/check-environment.sh"
-pnpm_or_bun install --ignore-scripts
-pnpm_or_bun run packages:yalc-publish
+# This script assumes you've already run either `setup-local-environment.sh` or
+# `setup-ci-environment.sh`
 
-# Setup each framework-test
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
 

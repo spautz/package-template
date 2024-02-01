@@ -13,6 +13,10 @@ source ./scripts/helpers/helpers.sh
 ###################################################################################################
 
 ./scripts/check-environment.sh
+
+pnpm_or_bun install --frozen-lockfile --prefer-offline
+pnpm_or_bun run setup
+
 ./scripts/setup-framework-tests.sh
 
 for DIRECTORY in framework-tests/*/ ; do

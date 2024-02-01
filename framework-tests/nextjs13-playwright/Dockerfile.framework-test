@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Local packages must be Yalc'd into this directory BEFORE building this image
-# (via ../../scripts/setup-framework-tests.sh)
+# (via ../../scripts/update-framework-tests.sh)
 
 FROM mcr.microsoft.com/playwright:v1.40.0-jammy as base-workspace
 WORKDIR /framework-test-nextjs13-playwright

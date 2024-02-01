@@ -16,7 +16,8 @@ source ./scripts/helpers/helpers.sh
 
 ./scripts/check-environment.sh
 
-pnpm_or_bun install
+pnpm_or_bun install --frozen-lockfile --prefer-offline
+pnpm_or_bun run setup
 
 # Run all read-write scripts and read-only scripts. This is overkill and duplicates a lot of work,
 # but also helps catch any intermittent errors. Suitable for running before lunch or teatime.

@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 # Local packages must be Yalc'd into this directory BEFORE building this image
-# (via ../../scripts/setup-framework-tests.sh)
+# (via ../../scripts/update-framework-tests.sh)
 
 FROM oven/bun:1.0.22 as base-workspace
 WORKDIR /framework-test-bun-vite5
