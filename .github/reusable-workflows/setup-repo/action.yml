@@ -4,8 +4,7 @@ inputs:
   node-version:
     description: NodeJS version, for actions/setup-node
     type: string
-    required: false
-    default: latest
+    required: true
   use-lockfile:
     description: Whether or not to honor pnpm-lock.yaml or other lockfiles
     type: boolean
@@ -16,8 +15,14 @@ runs:
   using: composite
   steps:
     - uses: actions/setup-node@v3.7.0
+      if: ${{ github.event.inputs.node-version }} != "nvmrc"
       with:
         node-version: ${{ github.event.inputs.node-version }}
+        registry-url: 'https://registry.npmjs.org'
+    - uses: actions/setup-node@v3.7.0
+      if: ${{ github.event.inputs.node-version }} == "nvmrc"
+      with:
+        node-version-file: .nvmrc
         registry-url: 'https://registry.npmjs.org'
 
     - uses: oven-sh/setup-bun@v1.1.1

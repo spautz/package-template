@@ -45,7 +45,6 @@ run_command "./scripts/check-environment.sh"
 
 # Ensure any lingering artifacts from earlier work have been cleaned out
 pnpm_or_bun install --frozen-lockfile --prefer-offline
-pnpm_or_bun run setup
 
 ###################################################################################################
 

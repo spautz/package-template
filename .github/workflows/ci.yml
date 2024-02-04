@@ -47,6 +47,8 @@ jobs:
       - uses: actions/checkout@v3.5.3
 
       - uses: ./.github/reusable-workflows/setup-repo
+        with:
+          node-version: latest
 
       - name: Run CI checks for package
         run: |
@@ -65,6 +67,7 @@ jobs:
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
+          node-version: latest
           use-lockfile: false
 
       - name: Run CI checks for demo
@@ -92,6 +95,7 @@ jobs:
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
+          node-version: nvmrc
           use-lockfile: false
 
       - name: Run CI checks for framework-test

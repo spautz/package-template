@@ -28,6 +28,8 @@ jobs:
           fetch-depth: 0
 
       - uses: ./.github/reusable-workflows/setup-repo
+        with:
+          node-version: nvmrc
 
       - name: Publish to NPM
         run: |

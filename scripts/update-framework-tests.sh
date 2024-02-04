@@ -20,7 +20,10 @@ for DIRECTORY in framework-tests/*/ ; do
 
   # Use workspace's copy of Yalc to copy over any necessary local packages, so that they'll be
   # in place when we try to install
-  ../../node_modules/.bin/yalc update
+  if [ -f "./package.json" ]; then
+    ../../node_modules/.bin/yalc update
+  fi
+  # TODO: else = Deno or other alternative
 
   popd
 done
