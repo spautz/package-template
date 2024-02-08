@@ -67,6 +67,7 @@
     "typecheck": "tsc -p ./tsconfig.json --noEmit"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "0.13.6",
     "@changesets/cli": "2.27.1",
     "@size-limit/preset-small-lib": "11.0.2",
     "@testing-library/jest-dom": "6.4.0",
