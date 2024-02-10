@@ -28,7 +28,7 @@
     "LICENSE",
     "*.md"
   ],
-  "source": "./src/index.tsx",
+  "source": "./src/index.ts",
   "type": "module",
   "exports": {
     ".": {
@@ -100,7 +100,7 @@
     {
       "path": "./dist/esm/index.js",
       "import": "{ TodoComponent }",
-      "limit": "1 kb"
+      "limit": "300 B"
     }
   ],
   "typesVersions": {

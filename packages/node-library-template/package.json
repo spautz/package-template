@@ -96,7 +96,7 @@
     {
       "path": "./dist/esm/index.js",
       "import": "{ helloWorld }",
-      "limit": "1 kb"
+      "limit": "50 B"
     }
   ],
   "typesVersions": {
