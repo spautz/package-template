@@ -16,8 +16,6 @@ source ./scripts/helpers/helpers.sh
 
 pnpm_or_bun install --frozen-lockfile --prefer-offline
 
-./scripts/setup-framework-tests.sh
-
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
   echo "Framework-test checks for $DIRECTORY"
