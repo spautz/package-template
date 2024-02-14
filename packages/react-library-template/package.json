@@ -4,7 +4,7 @@
   "description": "My opinionated template for a React package",
   "keywords": [],
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/packages/react-library-template/README.md",
+  "homepage": "https://github.com/spautz/package-template/blob/main/packages/react-library-template#readme",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
