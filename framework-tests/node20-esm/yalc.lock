@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "packages": {
+    "@spautz/node-library-template": {
+      "signature": "83a1a7a8de3573d130511a725574ce31",
+      "pure": true
+    },
+    "@spautz/react-library-template": {
+      "signature": "bdf01be671a409c5830f6c6b6a108d79",
+      "pure": true
+    }
+  }
+}
