@@ -83,6 +83,10 @@ jobs:
         framework-test-name:
           [
             bun-vite5,
+            node18-cjs,
+            node18-esm,
+            node20-cjs,
+            node20-esm,
             cra4-react16,
             cra5-react18,
             nextjs13-playwright,
