@@ -21,6 +21,7 @@ const projectDirectoriesToIgnore = `{${buildOutputs.join(',')}}/**`;
 const eslintConfig = [
   {
     ignores: [
+      projectDirectoriesToIgnore,
       `demos/*/${projectDirectoriesToIgnore}`,
       `packages/*/${projectDirectoriesToIgnore}`,
       // Each framework-test has its own eslint config, following the conventions of its framework, so they're not included
@@ -33,6 +34,9 @@ const eslintConfig = [
       'jsx-a11y': eslintPluginJsxA11y,
       import: eslintPluginImport,
       'react-hooks': eslintPluginReactHooks,
+    },
+    linterOptions: {
+      reportUnusedDisableDirectives: true,
     },
     settings: {
       react: {
