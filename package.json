@@ -15,9 +15,9 @@
   },
   "engines": {
     "node": "^18 || ^20 || ^21 || ^22",
-    "pnpm": "^8"
+    "pnpm": "^9"
   },
-  "packageManager": "pnpm@8.15.1",
+  "packageManager": "pnpm@9.1.2",
   "type": "module",
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
