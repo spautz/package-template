@@ -87,6 +87,8 @@ jobs:
             node18-esm,
             node20-cjs,
             node20-esm,
+            node22-cjs,
+            node22-esm,
             cra4-react16,
             cra5-react18,
             nextjs13-playwright,
