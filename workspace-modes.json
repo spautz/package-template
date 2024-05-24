@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "options": {},
+  "modes": {
+    "fast": {
+      "packages/*": {
+        "addEntryPoints": {
+          "./internal-raw-src": "./src/index.ts"
+        }
+      },
+      "demos/*": {
+        "setImportMap": {
+          "#spautz/node-library-template": "@spautz/node-library-template/internal-raw-src"
+        }
+      }
+    },
+    "formal": {
+      "packages/*": {
+        "removeEntryPoints": "./internal-raw-src"
+      },
+      "demos/*": {
+        "setImportMap": {
+          "#spautz/node-library-template": "@spautz/node-library-template"
+        }
+      }
+    }
+  }
+}

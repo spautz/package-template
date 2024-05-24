@@ -41,7 +41,6 @@
         "default": "./dist/cjs/index.cjs"
       }
     },
-    "./internal-raw-src": "./src/index.ts",
     "./package.json": "./package.json"
   },
   "main": "./dist/cjs/index.cjs",
