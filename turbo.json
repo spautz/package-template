@@ -13,10 +13,10 @@
   "pipeline": {
     // Integrations
     "all": {
-      "dependsOn": ["typecheck", "lint:fix", "test:coverage", "build"]
+      "dependsOn": ["typecheck", "lint:fix", "test", "build"]
     },
-    "all:quick": {
-      "dependsOn": ["typecheck", "lint", "test:quick"]
+    "all:ci": {
+      "dependsOn": ["typecheck", "lint", "test:ci", "build"]
     },
     // Common deps
     "dependencies": {
@@ -34,25 +34,27 @@
     "clean": {
       "cache": false
     },
+    "dev": {
+      "dependsOn": ["dependencies"],
+      "cache": false
+    },
     "lint": {},
     "lint:fix": {},
+    "publish:yalc": {
+      "dependsOn": ["^publish:yalc"]
+    },
     "typecheck": {
       "dependsOn": ["dependencies"]
     },
     "test": {
-      "dependsOn": ["dependencies"]
+      "dependsOn": ["dependencies"],
+      "outputs": ["coverage/**"]
     },
-    "test:coverage": {
-      "dependsOn": ["dependencies"]
-    },
-    "test:quick": {
-      "dependsOn": ["dependencies"]
+    "test:ci": {
+      "dependsOn": ["dependencies"],
+      "outputs": ["coverage/**"]
     },
     "test:watch": {
-      "dependsOn": ["dependencies"],
-      "cache": false
-    },
-    "test:watchcoverage": {
       "dependsOn": ["dependencies"],
       "cache": false
     }
