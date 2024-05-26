@@ -1,0 +1,60 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": [
+    ".gitignore",
+    ".npmrc",
+    ".nvmrc",
+    "eslint.config.js",
+    "pnpm-*.yaml",
+    "tsconfig.*",
+    "tsconfig-*",
+    "vitest.*"
+  ],
+  "pipeline": {
+    // Integrations
+    "all": {
+      "dependsOn": ["typecheck", "lint:fix", "test:coverage", "build"]
+    },
+    "all:quick": {
+      "dependsOn": ["typecheck", "lint", "test:quick"]
+    },
+    // Common deps
+    "dependencies": {
+      "dependsOn": ["^build"]
+    },
+    // Individual tasks
+    "build": {
+      "dependsOn": ["dependencies"],
+      "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
+    },
+    "build:watch": {
+      "dependsOn": ["dependencies"],
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    },
+    "lint": {},
+    "lint:fix": {},
+    "typecheck": {
+      "dependsOn": ["dependencies"]
+    },
+    "test": {
+      "dependsOn": ["dependencies"]
+    },
+    "test:coverage": {
+      "dependsOn": ["dependencies"]
+    },
+    "test:quick": {
+      "dependsOn": ["dependencies"]
+    },
+    "test:watch": {
+      "dependsOn": ["dependencies"],
+      "cache": false
+    },
+    "test:watchcoverage": {
+      "dependsOn": ["dependencies"],
+      "cache": false
+    }
+  }
+}

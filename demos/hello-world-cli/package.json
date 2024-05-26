@@ -33,7 +33,7 @@
     "build:watch": "pnpm run build:clean && tsc -p tsconfig.build-esm.json --watch",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
-    "start": "node ./dist/index.js",
+    "run": "node ./dist/index.js",
     "test": "pnpm run test:coverage",
     "test:clean": "rimraf ./coverage",
     "test:ci": "pnpm run test:clean            && vitest run --coverage",

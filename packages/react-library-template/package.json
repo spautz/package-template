@@ -71,6 +71,7 @@
     "build:legacytypes:4.5": "downlevel-dts ./dist ./legacy-types/ts4.5/dist --to=4.5",
     "build:verify": "publint --strict && size-limit",
     "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src",
+    "build:watch": "pnpm run build:esm:watch",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
     "test": "pnpm run test:coverage",
@@ -81,7 +82,8 @@
     "test:ui": "pnpm run test:clean            && vitest --ui",
     "test:watch": "pnpm run test:clean         && vitest watch --coverage=false",
     "test:watchcoverage": "pnpm run test:clean && vitest watch --coverage",
-    "typecheck": "tsc -p ./tsconfig.json --noEmit"
+    "typecheck": "tsc -p ./tsconfig.json --noEmit",
+    "yalc:publish": "yalc publish --sig --push --replace"
   },
   "dependencies": {
     "@spautz/node-library-template": "workspace:^"
