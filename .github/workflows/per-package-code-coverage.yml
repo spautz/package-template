@@ -33,7 +33,7 @@ jobs:
       - name: Run package tests
         run: |
           cd packages/${{ matrix.package-name }}
-          pnpm run test:coverage
+          pnpm run test
 
       - name: Report package test coverage to coveralls.io
         uses: coverallsapp/github-action@master
