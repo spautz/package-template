@@ -15,6 +15,8 @@ source ./scripts/helpers/helpers.sh
 # This script assumes you've already run either `setup-local-environment.sh` or
 # `setup-ci-environment.sh`
 
+pnpm_or_bun run packages:publish:yalc
+
 for DIRECTORY in framework-tests/*/ ; do
   pushd $DIRECTORY
 
