@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1
+
+### Patch Changes
+
+- Validating CI and package publish actions after updating repo scripts ([7433fc3](https://github.com/spautz/package-template/commit/7433fc3f2bce809d5f7d1392e81d095be753d7b5))
+
 ## 0.3.0
 
 ### Minor Changes
