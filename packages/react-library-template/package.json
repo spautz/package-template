@@ -53,6 +53,8 @@
     "prepack": "pnpm run clean && pnpm run build",
     "postpack": "pnpm run build:verifypack",
     "____ STANDARD PACKAGE COMMANDS _____________________________________": "",
+    "all": "turbo run all-checks",
+    "all:ci": "turbo run all-checks:ci",
     "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify && pnpm run build:legacytypes",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache *.log",
     "dev": "pnpm run build:esm:watch",
