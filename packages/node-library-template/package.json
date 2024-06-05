@@ -1,6 +1,6 @@
 {
   "name": "@spautz/node-library-template",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "My opinionated template for a NodeJS library",
   "keywords": [],
   "license": "MIT",
