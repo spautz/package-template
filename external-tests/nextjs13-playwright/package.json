@@ -1,0 +1,74 @@
+{
+  "name": "@spautz/external-test--nextjs13-playwright",
+  "private": true,
+  "description": "Test app for package-template packages in a NextJS 13 app with React 18 and Playwright",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/external-tests/nextjs13-playwright",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "packages/nextjs13-playwright"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "scripts": {
+    "____ HOOKS _________________________________________________________": "",
+    "postinstall": "next telemetry disable && playwright install --with-deps",
+    "____ FROM NEXTJS ___________________________________________________": "",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "____ FOR EXTERNAL-TEST ____________________________________________": "",
+    "_start": "(implemented above)",
+    "server:dev": "next dev",
+    "server:staging": "next start",
+    "server:prod": "next start",
+    "test:ui": "playwright test --ui",
+    "test:show-report": "playwright show-report",
+    "____ WORKSPACE INTEGRATION _________________________________________": "",
+    "clean": "rimraf ./.next ./e2e-test-output ./playwright-report",
+    "_build": "(implemented above)",
+    "_lint": "(implemented above)",
+    "lint:fix": "next lint --fix",
+    "test": "playwright test",
+    "test:ci": "playwright test --max-failures=1",
+    "test:coverage": "playwright test",
+    "test:quick": "playwright test",
+    "typecheck": "tsc --noEmit",
+    "all": "pnpm run          typecheck && pnpm run lint:fix && pnpm run test:coverage && pnpm run build",
+    "all:readonly": "pnpm run typecheck && pnpm run lint     && pnpm run test:quick",
+    "all:quick": "pnpm run    typecheck && pnpm run lint:fix",
+    "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
+  },
+  "dependencies": {
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.40.1",
+    "@types/node": "20.3.3",
+    "@types/react": "18.2.14",
+    "@types/react-dom": "18.2.6",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.44.0",
+    "eslint-config-next": "13.4.8",
+    "next": "13.4.8",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "rimraf": "5.0.1",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.6"
+  },
+  "pnpm": {
+    "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
+    "overrides": {
+      "@spautz/node-library-template": "$@spautz/node-library-template",
+      "@spautz/react-library-template": "$@spautz/react-library-template"
+    }
+  }
+}

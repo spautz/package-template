@@ -32,7 +32,7 @@ run_command "rm -rf
   $TMPDIR/react-*
   "
 
-for DIRECTORY in '.' 'demos/*' 'framework-tests/*' 'packages/*' ; do
+for DIRECTORY in '.' 'demos/*' 'external-tests/*' 'packages/*' ; do
   run_command "rm -rf
     $DIRECTORY/.yalc/
     $DIRECTORY/build/

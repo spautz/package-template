@@ -1,0 +1,21 @@
+{
+  "name": "node18-cjs",
+  "private": true,
+  "description": "External-test for @spautz/node-library-template using Node v18",
+  "engines": {
+    "node": "^18"
+  },
+  "packageManager": "npm@10.2.4",
+  "type": "commonjs",
+  "scripts": {
+    "____ FOR EXTERNAL-TEST ____________________________________________": "",
+    "preinstall": "npx only-allow npm",
+    "clean": "true",
+    "external-test": "./internal-test-script/internal-test-script.js",
+    "external-test:ci": "./internal-test-script/internal-test-script.js"
+  },
+  "dependencies": {
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template"
+  },
+  "devDependencies": {}
+}

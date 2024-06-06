@@ -1,0 +1,3 @@
+# This ensures no stray `pnpm` commands run within an external-test reach the main workspace
+packages:
+  - '.'

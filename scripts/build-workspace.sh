@@ -12,7 +12,7 @@ source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
 # `build-workspace.sh` ensures that all packages and demos are up-to-date and passing.
-# This covers everything except the framework-tests.
+# This covers everything except the external-tests.
 
 ./scripts/check-environment.sh
 

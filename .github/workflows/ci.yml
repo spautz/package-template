@@ -75,12 +75,12 @@ jobs:
           cd demos/${{ matrix.demo-name }}
           pnpm run all:ci
 
-  framework-test-ci:
-    name: Framework-Test CI
+  external-test-ci:
+    name: External-Test CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        framework-test-name:
+        external-test-name:
           [
             bun-vite5,
             node18-cjs,
@@ -108,6 +108,6 @@ jobs:
         run: |
           pnpm run packages:publish:yalc
 
-      - name: Run CI checks for framework-test
+      - name: Run CI checks for external-test
         run: |
-          ./framework-tests/${{ matrix.framework-test-name }}/framework-test.sh run-ci
+          ./external-tests/${{ matrix.external-test-name }}/external-test.sh run-ci

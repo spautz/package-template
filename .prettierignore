@@ -61,9 +61,9 @@ packages/*/*.tgz
 
 storybook-static/
 
-# framework-tests
+# external-tests
 
-framework-tests/*/.yalc/
+external-tests/*/.yalc/
 
 # log files
 

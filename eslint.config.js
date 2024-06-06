@@ -24,8 +24,8 @@ const eslintConfig = [
       projectDirectoriesToIgnore,
       `demos/*/${projectDirectoriesToIgnore}`,
       `packages/*/${projectDirectoriesToIgnore}`,
-      // Each framework-test has its own eslint config, following the conventions of its framework, so they're not included
-      'framework-tests/*/**',
+      // Each external-test has its own eslint config, following the conventions of its framework, so they're not included
+      'external-tests/*/**',
     ],
   },
   {

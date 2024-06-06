@@ -1,0 +1,90 @@
+{
+  "name": "@spautz/external-test--cra4-react16",
+  "private": true,
+  "description": "Test app for package-template packages in an older React-Scripts-built app with React 16",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/external-tests/cra4-react16",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "packages/cra4-react16"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "engines": {
+    "yarn": "^1"
+  },
+  "packageManager": "yarn@1.22.19",
+  "scripts": {
+    "____ FROM CREATE-REACT-APP _________________________________________": "",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "_eject": "react-scripts eject",
+    "____ FOR EXTERNAL-TEST ____________________________________________": "",
+    "// (none)": "",
+    "____ WORKSPACE INTEGRATION _________________________________________": "",
+    "clean": "rimraf ./build ./coverage",
+    "_build": "(implemented above)",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --max-warnings 0",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --max-warnings 0 --fix",
+    "_test": "(implemented above)",
+    "test:ci": "yarn run test       --coverage=true  --watchAll=false --bail",
+    "test:coverage": "yarn run test --coverage=true  --watchAll=false",
+    "test:quick": "yarn run test    --coverage=false --watchAll=false",
+    "typecheck": "tsc --noEmit",
+    "all": "yarn run          typecheck && yarn run lint:fix && yarn run test:coverage && yarn run build",
+    "all:readonly": "yarn run typecheck && yarn run lint     && yarn run test:quick",
+    "all:quick": "yarn run    typecheck && yarn run lint:fix",
+    "all:ci": "yarn run       typecheck && yarn run lint     && yarn run test:ci && yarn run build"
+  },
+  "dependencies": {
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
+    "@testing-library/jest-dom": "5.17.0",
+    "@testing-library/react": "11.2.7",
+    "@testing-library/user-event": "12.8.3",
+    "@types/testing-library__jest-dom": "5.14.9",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "react-scripts": "4.0.3",
+    "web-vitals": "1.1.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "7.21.11",
+    "@types/jest": "26.0.24",
+    "@types/react": "16.14.55",
+    "@types/react-dom": "16.9.24",
+    "cross-env": "7.0.3",
+    "eslint": "7.32.0",
+    "rimraf": "5.0.5",
+    "typescript": "4.4.4"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
+  "resolutions": {
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template"
+  }
+}

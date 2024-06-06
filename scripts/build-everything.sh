@@ -11,11 +11,11 @@ pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
-# Quick shorthand for running all packages', demos', *and* framework-tests' checks together.
+# Quick shorthand for running all packages', demos', *and* external-tests' checks together.
 # This will take a while to run.
 
 ./scripts/build-workspace.sh
-./scripts/build-framework-tests.sh
+./scripts/build-external-tests.sh
 
 ###################################################################################################
 

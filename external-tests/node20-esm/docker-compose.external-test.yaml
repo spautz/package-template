@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  main-container:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.external-test
+      target: '${DOCKER_BUILD_TARGET:-default}'
+    volumes:
+      - ./src:/external-test-node20-esm/src
+    # no ports

@@ -6,8 +6,8 @@ const testPathsToExclude = [
   '**/coverage/**',
   '**/legacy-types/**',
   '**/setupTests.ts',
-  // Each framework-test has its own test config, following the conventions of its framework, so they're not included
-  'framework-tests/**',
+  // Each external-test has its own test config, following the conventions of its framework, so they're not included
+  'external-tests/**',
 ];
 
 export default defineConfig({
