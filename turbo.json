@@ -10,7 +10,7 @@
     "tsconfig-*",
     "vitest.*"
   ],
-  "pipeline": {
+  "tasks": {
     // Abstract tasks
     "all-checks": {
       "dependsOn": ["typecheck", "lint:fix", "test", "build"]
@@ -26,8 +26,13 @@
     },
     // Tasks defined in packages
     "build": {
-      "dependsOn": ["dependencies"],
-      "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
+      "dependsOn": ["^build"]
+      //      "outputs": [
+      //        ".next/**",
+      //        "!.next/cache/**",
+      //        "build/**",
+      //        "dist/**"
+      //      ]
     },
     "build:watch": {
       "dependsOn": ["dependencies"],
