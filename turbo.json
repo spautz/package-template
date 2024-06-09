@@ -12,10 +12,10 @@
   ],
   "tasks": {
     // Abstract tasks
-    "all-checks": {
+    "pipeline-all": {
       "dependsOn": ["typecheck", "lint:fix", "test", "build"]
     },
-    "all-checks:ci": {
+    "pipeline-ci": {
       "dependsOn": ["typecheck", "lint", "test:ci", "build"]
     },
     "dependencies": {
@@ -26,13 +26,8 @@
     },
     // Tasks defined in packages
     "build": {
-      "dependsOn": ["^build"]
-      //      "outputs": [
-      //        ".next/**",
-      //        "!.next/cache/**",
-      //        "build/**",
-      //        "dist/**"
-      //      ]
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
     },
     "build:watch": {
       "dependsOn": ["dependencies"],

@@ -21,10 +21,10 @@
   },
   "scripts": {
     "____ STANDARD APP COMMANDS _________________________________________": "",
-    "all": "turbo run all-checks",
-    "all:ci": "turbo run all-checks:ci",
+    "all": "turbo run pipeline-all",
+    "all:ci": "turbo run pipeline-ci",
     "build": "pnpm run build:clean && pnpm run build:main",
-    "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache *.log",
+    "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --max-warnings 0 --fix",
     "run": "node ./dist/index.js",
