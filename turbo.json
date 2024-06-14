@@ -18,47 +18,102 @@
     "pipeline-ci": {
       "dependsOn": ["typecheck", "lint", "test:ci", "build"]
     },
+    "//#w:pipeline-all": {
+      "dependsOn": [
+        "//#format",
+        "//#w:typecheck",
+        "//#w:lint:fix",
+        "//#w:test",
+        "@spautz/all-packages#build"
+      ]
+    },
+    "//#w:pipeline-ci": {
+      "dependsOn": [
+        "//#format:verify",
+        "//#w:typecheck",
+        "//#w:lint",
+        "//#w:test:ci",
+        "@spautz/all-packages#build"
+      ]
+    },
     "dependencies": {
       "dependsOn": ["^build"]
     },
     "topo": {
       "dependsOn": ["^topo"]
     },
-    // Tasks defined in packages
+
+    // Standalone workspace tasks
+    "//#format": {
+      "dependsOn": ["@spautz/all-packages#topo"]
+    },
+    "//#format:verify": {
+      "dependsOn": ["@spautz/all-packages#topo"]
+    },
+
+    // Workspace tasks that overlap with package tasks
+    "//#w:lint": {
+      "dependsOn": ["@spautz/all-packages#lint"]
+    },
+    "//#w:lint:fix": {
+      "dependsOn": ["@spautz/all-packages#lint:fix"]
+    },
+    "//#w:test": {
+      "dependsOn": ["@spautz/all-packages#test"],
+      "outputs": ["coverage/**"]
+    },
+    "//#w:test:ci": {
+      "dependsOn": ["@spautz/all-packages#test:ci"],
+      "outputs": ["coverage/**"]
+    },
+    "//#w:test:watch": {
+      "dependsOn": ["@spautz/all-packages#dependencies"],
+      "outputs": ["coverage/**"]
+    },
+    "//#w:test:ui": {
+      "dependsOn": ["@spautz/all-packages#dependencies"],
+      "outputs": ["coverage/**"]
+    },
+    "//#w:typecheck": {
+      "dependsOn": ["@spautz/all-packages#typecheck"]
+    },
+
+    // Package tasks
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["dependencies"],
       "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
     },
     "build:watch": {
       "dependsOn": ["dependencies"],
-      "cache": false
-    },
-    "clean": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "dev": {
       "dependsOn": ["dependencies"],
-      "cache": false
+      "cache": false,
+      "persistent": true
     },
     "lint": {},
     "lint:fix": {},
     "publish:yalc": {
-      "dependsOn": ["^publish:yalc"]
+      "dependsOn": ["build"]
     },
     "typecheck": {
-      "dependsOn": ["dependencies"]
+      "dependsOn": ["dependencies", "^typecheck"]
     },
     "test": {
-      "dependsOn": ["dependencies"],
+      "dependsOn": ["dependencies", "^test"],
       "outputs": ["coverage/**"]
     },
     "test:ci": {
-      "dependsOn": ["dependencies"],
+      "dependsOn": ["dependencies", "^test:ci"],
       "outputs": ["coverage/**"]
     },
     "test:watch": {
       "dependsOn": ["dependencies"],
-      "cache": false
+      "cache": false,
+      "interactive": true,
+      "persistent": true
     }
   }
 }

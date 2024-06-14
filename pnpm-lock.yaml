@@ -138,6 +138,21 @@ importers:
         specifier: workspace:^
         version: link:../../packages/react-library-template
 
+  packages/all-packages:
+    dependencies:
+      '@spautz/demo--hello-world-cli':
+        specifier: workspace:^
+        version: link:../../demos/hello-world-cli
+      '@spautz/demo--hello-world-ui':
+        specifier: workspace:^
+        version: link:../../demos/hello-world-ui
+      '@spautz/node-library-template':
+        specifier: workspace:^
+        version: link:../node-library-template
+      '@spautz/react-library-template':
+        specifier: workspace:^
+        version: link:../react-library-template
+
   packages/node-library-template: {}
 
   packages/react-library-template:
@@ -4031,8 +4046,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.6.0-dev.20240612:
-    resolution: {integrity: sha512-C5WDxLlEMZhdyZBkhZkysctw9uOpGnua48Zrq0FxJLx6+tFrNkanXn4Zhatjg1vbKjzk19FYggX4Gc6Wgz5flg==}
+  typescript@5.6.0-dev.20240613:
+    resolution: {integrity: sha512-X5TncElQQlWPSobnuwbFBirMcTRLrtE1creiCFs9SBBGjJneZj6yggl0zJ6vLqbI5uzcos8XYjQ0CHRfjySS5A==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -6613,7 +6628,7 @@ snapshots:
     dependencies:
       semver: 7.6.2
       shelljs: 0.8.5
-      typescript: 5.6.0-dev.20240612
+      typescript: 5.6.0-dev.20240613
 
   eastasianwidth@0.2.0: {}
 
@@ -8740,7 +8755,7 @@ snapshots:
 
   typescript@5.4.5: {}
 
-  typescript@5.6.0-dev.20240612: {}
+  typescript@5.6.0-dev.20240613: {}
 
   ufo@1.5.3: {}
 
