@@ -85,9 +85,6 @@
     },
     "lint": {},
     "lint:fix": {},
-    "publish:yalc": {
-      "dependsOn": ["build"]
-    },
     "typecheck": {
       "dependsOn": ["dependencies", "^typecheck"]
     },
