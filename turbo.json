@@ -1,15 +1,5 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [
-    ".gitignore",
-    ".npmrc",
-    ".nvmrc",
-    "eslint.config.js",
-    "pnpm-*.yaml",
-    "tsconfig.*",
-    "tsconfig-*",
-    "vitest.*"
-  ],
   "tasks": {
     // Abstract tasks
     "pipeline-all": {

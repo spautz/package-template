@@ -15,7 +15,7 @@ source ./scripts/helpers/helpers.sh
 ./scripts/check-environment.sh
 
 pnpm_or_bun install --frozen-lockfile --prefer-offline
-pnpm_or_bun run packages:publish:yalc
+pnpm_or_bun run publish:yalc
 
 for DIRECTORY in external-tests/*/ ; do
   pushd $DIRECTORY

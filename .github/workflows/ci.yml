@@ -106,7 +106,7 @@ jobs:
 
       - name: Yalc publish
         run: |
-          pnpm run packages:publish:yalc
+          pnpm run publish:yalc
 
       - name: Run CI checks for external-test
         run: |
