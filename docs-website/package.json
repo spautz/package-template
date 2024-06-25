@@ -1,0 +1,71 @@
+{
+  "name": "@spautz/package-template--docs-website",
+  "private": true,
+  "description": "Docs website for package-template",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/docs",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/package-template.git",
+    "directory": "docs"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "engines": {
+    "node": ">=18.0"
+  },
+  "source": "./src/pages/index.tsx",
+  "type": "module",
+  "scripts": {
+    "____ STANDARD APP COMMANDS _________________________________________": "",
+    "all": "turbo run pipeline-all",
+    "all:ci": "turbo run pipeline-ci",
+    "build": "docusaurus build",
+    "clean": "docusaurus clear",
+    "dev": "docusaurus start:dev",
+    "lint": "eslint . --max-warnings 0",
+    "lint:fix": "eslint . --max-warnings 0 --fix",
+    "start": "docusaurus start:staging",
+    "typecheck": "tsc -p ./tsconfig.json --noEmit",
+    "____ DOCS TASKS ____________________________________________________": "",
+    "deploy": "docusaurus deploy",
+    "start:dev": "docusaurus start",
+    "start:staging": "docusaurus serve",
+    "start:prod": "docusaurus serve",
+    "swizzle": "docusaurus swizzle",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.4.0",
+    "@docusaurus/preset-classic": "3.4.0",
+    "@docusaurus/theme-classic": "3.4.0",
+    "@mdx-js/react": "3.0.1",
+    "clsx": "2.1.1",
+    "prism-react-renderer": "2.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@tsconfig/docusaurus": "2.0.3",
+    "@docusaurus/module-type-aliases": "3.4.0",
+    "@docusaurus/tsconfig": "3.4.0",
+    "@docusaurus/types": "3.4.0",
+    "typescript": "5.2.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  }
+}

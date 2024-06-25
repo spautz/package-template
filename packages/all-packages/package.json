@@ -4,8 +4,8 @@
   "description": "A fake package used to let workspace scripts depend on package scripts, with Turborepo",
   "license": "MIT",
   "dependencies": {
-    "@spautz/demo--hello-world-cli": "workspace:^",
-    "@spautz/demo--hello-world-ui": "workspace:^",
+    "@spautz/package-template--hello-world-cli": "workspace:^",
+    "@spautz/package-template--hello-world-ui": "workspace:^",
     "@spautz/node-library-template": "workspace:^",
     "@spautz/react-library-template": "workspace:^"
   }

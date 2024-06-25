@@ -1,5 +1,5 @@
 {
-  "name": "@spautz/demo--hello-world-ui",
+  "name": "@spautz/package-template--hello-world-ui",
   "private": true,
   "description": "Basic demo of package-template libraries",
   "license": "MIT",

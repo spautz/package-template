@@ -9,6 +9,7 @@ import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
 import typescriptEslint from 'typescript-eslint';
 
 const buildOutputs = [
+  '.docusaurus',
   'build',
   'coverage',
   'dist',
@@ -23,6 +24,7 @@ const eslintConfig = [
     ignores: [
       projectDirectoriesToIgnore,
       `demos/*/${projectDirectoriesToIgnore}`,
+      `docs-website/${projectDirectoriesToIgnore}`,
       `packages/*/${projectDirectoriesToIgnore}`,
       // Each external-test has its own eslint config, following the conventions of its framework, so they're not included
       'external-tests/*/**',

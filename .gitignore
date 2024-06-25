@@ -39,6 +39,8 @@ playwright-report/
 *.tsbuildinfo
 
 .cache/
+.cache-loader/
+.docusaurus/
 .next/
 .turbo/
 _fresh/
