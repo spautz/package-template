@@ -34,6 +34,7 @@
     "format": "prettier --write .",
     "format:verify": "prettier --list-different .",
     "publish:yalc": "pnpm run -r publish:yalc",
+    "release:docs": "pnpm run --filter=./docs-website deploy",
     "release:prep": "pnpm run changelog:status && changeset version",
     "____ PACKAGE-ONLY COMMANDS _________________________________________": "",
     "packages:all": "turbo run pipeline-all      --filter=!//",

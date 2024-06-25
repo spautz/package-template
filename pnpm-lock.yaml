@@ -189,6 +189,9 @@ importers:
       '@spautz/node-library-template':
         specifier: workspace:^
         version: link:../node-library-template
+      '@spautz/package-template--docs-website':
+        specifier: workspace:^
+        version: link:../../docs-website
       '@spautz/package-template--hello-world-cli':
         specifier: workspace:^
         version: link:../../demos/hello-world-cli
