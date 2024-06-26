@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_spautz_package_template_docs_website=self.webpackChunk_spautz_package_template_docs_website||[]).push([[903],{1912:e=>{e.exports=JSON.parse('{"blogBasePath":"/package-template/blog","blogTitle":"Blog"}')}}]);

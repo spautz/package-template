@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_spautz_package_template_docs_website=self.webpackChunk_spautz_package_template_docs_website||[]).push([[1235],{8552:e=>{e.exports=JSON.parse('{"name":"docusaurus-plugin-content-pages","id":"default"}')}}]);
