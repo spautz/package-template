@@ -1,0 +1,8 @@
+{
+  "label": "node-library-template",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "`@spautz/node-library-template` is an example package which does nothing of value."
+  }
+}

@@ -1,0 +1,47 @@
+---
+title: Markdown page example
+---
+
+import * as React from 'react';
+import * as everythingFromReactLibraryTemplate from '@spautz/react-library-template';
+
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
+
+export const demoScope = {
+  React,
+  ...React,
+  ...everythingFromReactLibraryTemplate,
+};
+
+export const demoCode = `
+function Demo() {
+  return (
+    <TodoComponent>Hello</TodoComponent>
+  );
+}
+`;
+
+export const LiveDemoArea = () => {
+  return (
+    <section>
+      <LiveProvider code={demoCode} scope={demoScope}>
+        <LiveEditor />
+        <LiveError />
+        <div class="padding-vert--md">
+          <LivePreview />
+        </div>
+      </LiveProvider>
+    </section>
+  );
+};
+
+<!-- ====================================================================== -->
+
+# Demo
+
+This is a live demo of the `<TodoComponent>` from `@spautz/react-library-template`.
+
+<h1>Hello</h1>
+<LiveDemoArea />

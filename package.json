@@ -31,6 +31,7 @@
     "changelog:status:ci": "changeset status --since=origin/main --verbose",
     "clean": "pnpm run w:test:clean && rimraf --glob ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
     "dev": "turbo run dev",
+    "docs": "pnpm run --filter=./docs-website dev",
     "format": "prettier --write .",
     "format:verify": "prettier --list-different .",
     "publish:yalc": "pnpm run -r publish:yalc",
