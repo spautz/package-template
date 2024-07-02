@@ -32,6 +32,7 @@ const eslintConfig = [
   },
   {
     plugins: {
+      // These plugins are all needed for eslint-config-react-app
       flowtype: eslintPluginFlowtype,
       'jsx-a11y': eslintPluginJsxA11y,
       import: eslintPluginImport,
@@ -52,6 +53,7 @@ const eslintConfig = [
   reactRecommended,
   ...typescriptEslint.configs.recommended,
 
+  // Overrides:
   {
     files: ['**/*.{js,ts,jsx,tsx,cjs,mjs}'],
     rules: {
