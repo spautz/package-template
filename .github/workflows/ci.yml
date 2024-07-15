@@ -14,7 +14,7 @@ jobs:
         node-version: [18.x, 20.x, 22.x, latest]
 
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v4.1.7
         with:
           fetch-depth: 0
 
@@ -32,7 +32,7 @@ jobs:
           pnpm run all:ci
 
       - name: Report test coverage to coveralls.io
-        uses: coverallsapp/github-action@master
+        uses: coverallsapp/github-action@v2.3.0
         with:
           github-token: ${{ github.token }}
 
@@ -44,7 +44,7 @@ jobs:
         package-name: [node-library-template, react-library-template]
 
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v4.1.7
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
@@ -63,7 +63,7 @@ jobs:
         demo-name: [hello-world-cli, hello-world-ui]
 
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v4.1.7
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
@@ -97,7 +97,7 @@ jobs:
           ]
 
     steps:
-      - uses: actions/checkout@v3.5.3
+      - uses: actions/checkout@v4.1.7
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
