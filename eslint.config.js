@@ -1,3 +1,4 @@
+import { fixupPluginRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import eslintConfigReactApp from 'eslint-config-react-app';
@@ -33,9 +34,9 @@ const eslintConfig = [
   {
     plugins: {
       // These plugins are all needed for eslint-config-react-app
-      flowtype: eslintPluginFlowtype,
+      flowtype: fixupPluginRules(eslintPluginFlowtype),
       'jsx-a11y': eslintPluginJsxA11y,
-      import: eslintPluginImport,
+      import: fixupPluginRules(eslintPluginImport),
       'react-hooks': eslintPluginReactHooks,
     },
     linterOptions: {
