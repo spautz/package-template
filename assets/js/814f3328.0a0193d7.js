@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_spautz_package_template_docs_website=self.webpackChunk_spautz_package_template_docs_website||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Tutorial Intro","permalink":"/package-template/blog/2024/06/15/hello","unlisted":false}]}')}}]);

@@ -8,34 +8,11 @@
     <subtitle>spautz's Package-Template Docs Blog</subtitle>
     <icon>https://spautz.github.io/package-template/img/favicon.ico</icon>
     <entry>
-        <title type="html"><![CDATA[Tutorial Intro]]></title>
-        <id>https://spautz.github.io/package-template/blog/2024/06/15/hello</id>
-        <link href="https://spautz.github.io/package-template/blog/2024/06/15/hello"/>
+        <title type="html"><![CDATA[Hello World]]></title>
+        <id>https://spautz.github.io/package-template/blog/2024/06/15/hello-world</id>
+        <link href="https://spautz.github.io/package-template/blog/2024/06/15/hello-world"/>
         <updated>2024-06-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Let's discover Docusaurus in less than 5 minutes.]]></summary>
-        <content type="html"><![CDATA[<p>Let's discover <strong>Docusaurus in less than 5 minutes</strong>.</p>
-<h2 class="anchor anchorWithStickyNavbar_CFWY" id="getting-started">Getting Started<a class="hash-link" aria-label="Direct link to Getting Started" title="Direct link to Getting Started" href="https://spautz.github.io/package-template/blog/2024/06/15/hello#getting-started">​</a></h2>
-<p>Get started by <strong>creating a new site</strong>.</p>
-<p>Or <strong>try Docusaurus immediately</strong> with <strong><a href="https://docusaurus.new/" target="_blank" rel="noopener noreferrer">docusaurus.new</a></strong>.</p>
-<h3 class="anchor anchorWithStickyNavbar_CFWY" id="what-youll-need">What you'll need<a class="hash-link" aria-label="Direct link to What you'll need" title="Direct link to What you'll need" href="https://spautz.github.io/package-template/blog/2024/06/15/hello#what-youll-need">​</a></h3>
-<ul>
-<li><a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreferrer">Node.js</a> version 18.0 or above:<!-- -->
-<ul>
-<li>When installing Node.js, you are recommended to check all checkboxes related to dependencies.</li>
-</ul>
-</li>
-</ul>
-<h2 class="anchor anchorWithStickyNavbar_CFWY" id="generate-a-new-site">Generate a new site<a class="hash-link" aria-label="Direct link to Generate a new site" title="Direct link to Generate a new site" href="https://spautz.github.io/package-template/blog/2024/06/15/hello#generate-a-new-site">​</a></h2>
-<p>Generate a new Docusaurus site using the <strong>classic template</strong>.</p>
-<p>The classic template will automatically be added to your project after you run the command:</p>
-<div class="language-bash codeBlockContainer_DJiG theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_DWSn"><pre tabindex="0" class="prism-code language-bash codeBlock_Bv8j thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_eccc"><span class="token-line" style="color:#393A34"><span class="token plain">npm init docusaurus@latest docs classic</span><br></span></code></pre><div class="buttonGroup_o5pt"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_k0Hi" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_uIy6"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_b75S"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.</p>
-<p>The command also installs all necessary dependencies you need to run Docusaurus.</p>
-<h2 class="anchor anchorWithStickyNavbar_CFWY" id="start-your-site">Start your site<a class="hash-link" aria-label="Direct link to Start your site" title="Direct link to Start your site" href="https://spautz.github.io/package-template/blog/2024/06/15/hello#start-your-site">​</a></h2>
-<p>Run the development server:</p>
-<div class="language-bash codeBlockContainer_DJiG theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_DWSn"><pre tabindex="0" class="prism-code language-bash codeBlock_Bv8j thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_eccc"><span class="token-line" style="color:#393A34"><span class="token plain">cd docs</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">npm run start</span><br></span></code></pre><div class="buttonGroup_o5pt"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_k0Hi" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_uIy6"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_b75S"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
-<p>The <code>cd</code> command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.</p>
-<p>The <code>npm run start</code> command builds your website locally and serves it through a development server, ready for you to view at <a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer">http://localhost:3000/</a>.</p>
-<p>Open <code>docs/intro.md</code> (this page) and edit some lines: the site <strong>reloads automatically</strong> and displays your changes.</p>]]></content>
+        <summary type="html"><![CDATA[This is a blog post.]]></summary>
+        <content type="html"><![CDATA[<p>This is a blog post.</p>]]></content>
     </entry>
 </feed>
