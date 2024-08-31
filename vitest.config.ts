@@ -6,6 +6,7 @@ const testPathsToExclude = [
   '**/coverage/**',
   '**/legacy-types/**',
   '**/setupTests.ts',
+  'docs-website/**',
   // Each external-test has its own test config, following the conventions of its framework, so they're not included
   'external-tests/**',
 ];

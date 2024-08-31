@@ -24,12 +24,19 @@ function Demo() {
 `;
 
 export const LiveDemoArea = () => {
+  // React in Production mode gives us a default export, which causes a syntax error with 'react-live'
+  // when it tries to bind a local variable for its scope.
+  delete demoScope.default;
+
   return (
     <section>
-      <LiveProvider code={demoCode} scope={demoScope}>
+      <LiveProvider
+        code={demoCode}
+        scope={demoScope}
+      >
         <LiveEditor />
         <LiveError />
-        <div class="padding-vert--md">
+        <div className="padding-vert--md">
           <LivePreview />
         </div>
       </LiveProvider>

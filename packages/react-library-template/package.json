@@ -71,7 +71,7 @@
     "build:clean": "rimraf --glob ./dist ./legacy-types ./*.tgz",
     "build:cjs": "tsup src/index.ts --format cjs --dts --outDir=./dist/cjs/ --tsconfig=./tsconfig.build-cjs.json",
     "build:cjs:watch": "pnpm run build:cjs --watch",
-    "build:esm": "tsc -p tsconfig.build-esm.json",
+    "build:esm": "tsc -p tsconfig.build-esm.json --extendedDiagnostics",
     "build:esm:watch": "pnpm run build:esm --watch",
     "build:legacytypes": "pnpm run build:legacytypes:3.5 && pnpm run build:legacytypes:4.0 && pnpm run build:legacytypes:4.5",
     "build:legacytypes:3.5": "downlevel-dts ./dist ./legacy-types/ts3.5/dist --to=3.5",

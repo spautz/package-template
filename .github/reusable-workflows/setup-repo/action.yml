@@ -12,35 +12,24 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: pnpm/action-setup@v4.0.0
+
     - uses: actions/setup-node@v4.0.3
       if: ${{ inputs.node-version == 'nvmrc' }}
       with:
         node-version-file: .nvmrc
         registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
     - uses: actions/setup-node@v4.0.3
       if: ${{ inputs.node-version != 'nvmrc' }}
       with:
         node-version: ${{ inputs.node-version }}
         registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
 
     - uses: oven-sh/setup-bun@v2.0.1
       with:
         bun-version: latest
-
-    - uses: pnpm/action-setup@v4.0.0
-
-    - name: Get pnpm store directory
-      shell: bash
-      run: |
-        echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-    - uses: actions/cache@v4.0.2
-      name: Setup pnpm cache
-      with:
-        path: ${{ env.STORE_PATH }}
-        key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-store-
 
     - name: Remove lockfile to loosen dependency tree
       if: ${{ inputs.use-lockfile == 'false' }}
