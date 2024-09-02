@@ -14,7 +14,11 @@
         "//#w:typecheck",
         "//#w:lint:fix",
         "//#w:test",
-        "@spautz/all-packages#build"
+        "@spautz/package-template--docs-website:build",
+        "@spautz/package-template--hello-world-cli:build",
+        "@spautz/package-template--hello-world-ui:build",
+        "@spautz/node-library-template:build",
+        "@spautz/react-library-template:build"
       ]
     },
     "//#w:pipeline-ci": {
@@ -23,7 +27,11 @@
         "//#w:typecheck",
         "//#w:lint",
         "//#w:test:ci",
-        "@spautz/all-packages#build"
+        "@spautz/package-template--docs-website:build",
+        "@spautz/package-template--hello-world-cli:build",
+        "@spautz/package-template--hello-world-ui:build",
+        "@spautz/node-library-template:build",
+        "@spautz/react-library-template:build"
       ]
     },
     "dependencies": {
@@ -35,38 +43,50 @@
 
     // Standalone workspace tasks
     "//#format": {
-      "dependsOn": ["@spautz/all-packages#topo"]
+      "dependsOn": [
+        "@spautz/package-template--docs-website:topo",
+        "@spautz/package-template--hello-world-cli:topo",
+        "@spautz/package-template--hello-world-ui:topo",
+        "@spautz/node-library-template:topo",
+        "@spautz/react-library-template:topo"
+      ]
     },
     "//#format:verify": {
-      "dependsOn": ["@spautz/all-packages#topo"]
+      "dependsOn": [
+        "@spautz/package-template--docs-website:topo",
+        "@spautz/package-template--hello-world-cli:topo",
+        "@spautz/package-template--hello-world-ui:topo",
+        "@spautz/node-library-template:topo",
+        "@spautz/react-library-template:topo"
+      ]
     },
 
     // Workspace tasks that overlap with package tasks
-    "//#w:lint": {
-      "dependsOn": ["@spautz/all-packages#lint"]
-    },
-    "//#w:lint:fix": {
-      "dependsOn": ["@spautz/all-packages#lint:fix"]
-    },
-    "//#w:test": {
-      "dependsOn": ["@spautz/all-packages#test"],
-      "outputs": ["coverage/**"]
-    },
-    "//#w:test:ci": {
-      "dependsOn": ["@spautz/all-packages#test:ci"],
-      "outputs": ["coverage/**"]
-    },
-    "//#w:test:watch": {
-      "dependsOn": ["@spautz/all-packages#dependencies"],
-      "outputs": ["coverage/**"]
-    },
-    "//#w:test:ui": {
-      "dependsOn": ["@spautz/all-packages#dependencies"],
-      "outputs": ["coverage/**"]
-    },
-    "//#w:typecheck": {
-      "dependsOn": ["@spautz/all-packages#typecheck"]
-    },
+    //    "//#w:lint": {
+    //      "dependsOn": ["@spautz/all-packages#lint"]
+    //    },
+    //    "//#w:lint:fix": {
+    //      "dependsOn": ["@spautz/all-packages#lint:fix"]
+    //    },
+    //    "//#w:test": {
+    //      "dependsOn": ["@spautz/all-packages#test"],
+    //      "outputs": ["coverage/**"]
+    //    },
+    //    "//#w:test:ci": {
+    //      "dependsOn": ["@spautz/all-packages#test:ci"],
+    //      "outputs": ["coverage/**"]
+    //    },
+    //    "//#w:test:watch": {
+    //      "dependsOn": ["@spautz/all-packages#dependencies"],
+    //      "outputs": ["coverage/**"]
+    //    },
+    //    "//#w:test:ui": {
+    //      "dependsOn": ["@spautz/all-packages#dependencies"],
+    //      "outputs": ["coverage/**"]
+    //    },
+    //    "//#w:typecheck": {
+    //      "dependsOn": ["@spautz/all-packages#typecheck"]
+    //    },
 
     // Package tasks
     "build": {
