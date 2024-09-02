@@ -1,13 +1,15 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    // Abstract tasks
+    // Batch scripts: run a series of checks for the package
     "pipeline-all": {
       "dependsOn": ["typecheck", "lint:fix", "test", "build"]
     },
     "pipeline-ci": {
       "dependsOn": ["typecheck", "lint", "test:ci", "build"]
     },
+    // Workspace batch scripts: run workspace checks (which also run package checks, since the workspace checks
+    // depends on them), and then run all packages' builds
     "//#w:pipeline-all": {
       "dependsOn": [
         "//#format",
@@ -26,14 +28,8 @@
         "@spautz/all-packages#build"
       ]
     },
-    "dependencies": {
-      "dependsOn": ["^build"]
-    },
-    "topo": {
-      "dependsOn": ["^topo"]
-    },
 
-    // Standalone workspace tasks
+    // Formatting depends on everything, but doesn't run anything in those dependencies
     "//#format": {
       "dependsOn": ["@spautz/all-packages#topo"]
     },
@@ -41,7 +37,9 @@
       "dependsOn": ["@spautz/all-packages#topo"]
     },
 
-    // Workspace tasks that overlap with package tasks
+    // Workspace tasks that depend on package tasks
+    // When the packages have their own overlapping tasks, those task are run first, as dependencies,
+    // so that future changes at the package level will invalidate at the workspace level
     "//#w:lint": {
       "dependsOn": ["@spautz/all-packages#lint"]
     },
@@ -58,17 +56,29 @@
     },
     "//#w:test:watch": {
       "dependsOn": ["@spautz/all-packages#dependencies"],
-      "outputs": ["coverage/**"]
+      "cache": false,
+      "persistent": true
     },
     "//#w:test:ui": {
       "dependsOn": ["@spautz/all-packages#dependencies"],
-      "outputs": ["coverage/**"]
+      "cache": false,
+      "persistent": true
     },
     "//#w:typecheck": {
       "dependsOn": ["@spautz/all-packages#typecheck"]
     },
 
-    // Package tasks
+    // Core package tasks:
+    // Dependencies require a concrete build
+    "dependencies": {
+      "dependsOn": ["^build"]
+    },
+    // Topographic dependencies are abstract, since there's no 'topo' task to run
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
+
+    // Individual/standalone package tasks
     "build": {
       "dependsOn": ["dependencies"],
       "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
@@ -76,12 +86,14 @@
     "build:watch": {
       "dependsOn": ["dependencies"],
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "interactive": true
     },
     "dev": {
       "dependsOn": ["dependencies"],
       "cache": false,
-      "persistent": true
+      "persistent": true,
+      "interactive": true
     },
     "lint": {},
     "lint:fix": {},
@@ -99,8 +111,8 @@
     "test:watch": {
       "dependsOn": ["dependencies"],
       "cache": false,
-      "interactive": true,
-      "persistent": true
+      "persistent": true,
+      "interactive": true
     }
   }
 }
