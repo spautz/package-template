@@ -41,10 +41,12 @@
     // When the packages have their own overlapping tasks, those task are run first, as dependencies,
     // so that future changes at the package level will invalidate at the workspace level
     "//#w:lint": {
-      "dependsOn": ["@spautz/all-packages#lint"]
+      "inputs": ["$TURBO_DEFAULT$", "!README.md"]
+
+      //      "dependsOn": ["@spautz/all-packages#^lint"]
     },
     "//#w:lint:fix": {
-      "dependsOn": ["@spautz/all-packages#lint:fix"]
+      //      "dependsOn": ["@spautz/all-packages#lint:fix"]
     },
     "//#w:test": {
       "dependsOn": ["@spautz/all-packages#test"],

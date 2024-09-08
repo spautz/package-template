@@ -1,4 +1,14 @@
 example-tag:
   label: example
   permalink: /example
-  description: Example Tag
+  description: A tag for demoing tags
+
+package-workspace:
+  label: package-workspace
+  permalink: /package-workspace
+  description: The package workspace setup for this package-template repo
+
+philosophy:
+  label: philosophy
+  permalink: /philosophy
+  description: Philosophy behind design and engineering decisions

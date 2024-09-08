@@ -42,6 +42,7 @@ playwright-report/
 .cache-loader/
 .docusaurus/
 .next/
+.react-router/
 .turbo/
 _fresh/
 build/

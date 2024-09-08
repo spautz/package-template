@@ -58,7 +58,8 @@
     "all": "turbo run format           && turbo run w:pipeline-all",
     "all:ci": "turbo run format:verify w:pipeline-ci",
     "all:all": "turbo run format       && turbo run pipeline-all w:pipeline-all",
-    "lint": "turbo run w:lint",
+    "_lint": "turbo run w:lint",
+    "lint": "eslint . --max-warnings 0",
     "lint:fix": "turbo run w:lint:fix",
     "test": "turbo run w:test",
     "test:watch": "turbo run w:test:watch",
@@ -102,10 +103,10 @@
     "yargs": "17.7.2"
   },
   "lint-staged": {
-    "*.{css,html,js,jsx,json,less,md,scss,ts,tsx,yaml}": [
+    "*.{cjs,cts,css,html,js,jsx,json,less,md,mjs,mts,scss,ts,tsx,yaml}": [
       "prettier --write"
     ],
-    "*.{js,jsx,ts,tsx}": [
+    "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}": [
       "eslint --max-warnings 0 --no-warn-ignored"
     ]
   }
