@@ -80,17 +80,17 @@
 
     // Individual/standalone package tasks
     "build": {
-      "dependsOn": ["dependencies"],
+      "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
     },
     "build:watch": {
-      "dependsOn": ["dependencies"],
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true,
       "interactive": true
     },
     "dev": {
-      "dependsOn": ["dependencies"],
+      "dependsOn": ["^build"],
       "cache": false,
       "persistent": true,
       "interactive": true
@@ -98,18 +98,18 @@
     "lint": {},
     "lint:fix": {},
     "typecheck": {
-      "dependsOn": ["dependencies", "^typecheck"]
+      "dependsOn": ["^build", "^typecheck"]
     },
     "test": {
-      "dependsOn": ["dependencies", "^test"],
+      "dependsOn": ["^build", "^test"],
       "outputs": ["coverage/**"]
     },
     "test:ci": {
-      "dependsOn": ["dependencies", "^test:ci"],
+      "dependsOn": ["^build", "^test:ci"],
       "outputs": ["coverage/**"]
     },
     "test:watch": {
-      "dependsOn": ["dependencies"],
+      "dependsOn": ["^build", "^test"],
       "cache": false,
       "persistent": true,
       "interactive": true
