@@ -1,53 +1,19 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    // Batch scripts: run a series of checks for the package
+    // Batch scripts: run a set of checks for the package
     "pipeline-all": {
       "dependsOn": ["typecheck", "lint:fix", "test", "build"]
     },
     "pipeline-ci": {
       "dependsOn": ["typecheck", "lint", "test:ci", "build"]
     },
-    // Workspace batch scripts: run workspace checks (which also run package checks, since the workspace checks
-    // depends on them), and then run all packages' builds
-    "//#w:pipeline-all": {
-      "dependsOn": [
-        "//#format",
-        "//#w:typecheck",
-        "//#w:lint:fix",
-        "//#w:test",
-        "@spautz/all-packages#build"
-      ]
-    },
-    "//#w:pipeline-ci": {
-      "dependsOn": [
-        "//#format:verify",
-        "//#w:typecheck",
-        "//#w:lint",
-        "//#w:test:ci",
-        "@spautz/all-packages#build"
-      ]
-    },
 
-    // Formatting depends on everything, but doesn't run anything in those dependencies
-    "//#format": {
-      "dependsOn": ["@spautz/all-packages#topo"]
-    },
-    "//#format:verify": {
-      "dependsOn": ["@spautz/all-packages#topo"]
-    },
-
-    // Workspace tasks that depend on package tasks
+    // Workspace tasks
     // When the packages have their own overlapping tasks, those task are run first, as dependencies,
     // so that future changes at the package level will invalidate at the workspace level
-    "//#w:lint": {
-      "inputs": ["$TURBO_DEFAULT$", "!README.md"]
-
-      //      "dependsOn": ["@spautz/all-packages#^lint"]
-    },
-    "//#w:lint:fix": {
-      //      "dependsOn": ["@spautz/all-packages#lint:fix"]
-    },
+    "//#w:lint": {},
+    "//#w:lint:fix": {},
     "//#w:test": {
       "dependsOn": ["@spautz/all-packages#test"],
       "outputs": ["coverage/**"]
@@ -65,9 +31,6 @@
       "dependsOn": ["@spautz/all-packages#dependencies"],
       "cache": false,
       "persistent": true
-    },
-    "//#w:typecheck": {
-      "dependsOn": ["@spautz/all-packages#typecheck"]
     },
 
     // Core package tasks:
@@ -99,9 +62,6 @@
     },
     "lint": {},
     "lint:fix": {},
-    "typecheck": {
-      "dependsOn": ["^build", "^typecheck"]
-    },
     "test": {
       "dependsOn": ["^build", "^test"],
       "outputs": ["coverage/**"]
@@ -115,6 +75,9 @@
       "cache": false,
       "persistent": true,
       "interactive": true
+    },
+    "typecheck": {
+      "dependsOn": ["^build", "^typecheck"]
     }
   }
 }

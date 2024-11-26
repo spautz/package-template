@@ -67,7 +67,7 @@ jobs:
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
-          node-version: latest
+          node-version: lts/*
           use-lockfile: false
 
       - name: Run CI checks for demo
