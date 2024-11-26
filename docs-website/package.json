@@ -19,7 +19,7 @@
   },
   "source": "./src/pages/index.tsx",
   "scripts": {
-    "____ STANDARD APP COMMANDS _________________________________________": "",
+    "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci",
     "build": "docusaurus build",

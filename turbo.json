@@ -1,5 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  // OPTIONAL: "ui": "tui",
+
   "tasks": {
     // Batch scripts: run a set of checks for the package
     "pipeline-all": {
@@ -8,31 +10,25 @@
     "pipeline-ci": {
       "dependsOn": ["typecheck", "lint", "test:ci", "build"]
     },
-
     // Workspace tasks
     // When the packages have their own overlapping tasks, those task are run first, as dependencies,
     // so that future changes at the package level will invalidate at the workspace level
     "//#w:lint": {},
     "//#w:lint:fix": {},
     "//#w:test": {
-      "dependsOn": ["@spautz/all-packages#test"],
       "outputs": ["coverage/**"]
     },
     "//#w:test:ci": {
-      "dependsOn": ["@spautz/all-packages#test:ci"],
       "outputs": ["coverage/**"]
     },
     "//#w:test:watch": {
-      "dependsOn": ["@spautz/all-packages#dependencies"],
       "cache": false,
       "persistent": true
     },
     "//#w:test:ui": {
-      "dependsOn": ["@spautz/all-packages#dependencies"],
       "cache": false,
       "persistent": true
     },
-
     // Core package tasks:
     // Dependencies require a concrete build
     "dependencies": {
@@ -42,7 +38,6 @@
     "topo": {
       "dependsOn": ["^topo"]
     },
-
     // Individual/standalone package tasks
     "build": {
       "dependsOn": ["^build"],

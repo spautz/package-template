@@ -21,7 +21,7 @@
     "#spautz/react-library-template": "@spautz/react-library-template"
   },
   "scripts": {
-    "____ STANDARD APP COMMANDS _________________________________________": "",
+    "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci",
     "build": "pnpm run build:clean && pnpm run build:main",
@@ -33,8 +33,8 @@
     "test:clean": "rimraf ./coverage",
     "test": "pnpm run test:clean       && vitest run --coverage",
     "test:ci": "pnpm run test:clean    && vitest run --coverage --bail 1",
-    "test:watch": "pnpm run test:clean && vitest watch --coverage",
     "test:ui": "pnpm run test:clean    && vitest --ui",
+    "test:watch": "pnpm run test:clean && vitest watch --coverage",
     "typecheck": "tsc -p ./tsconfig.json --noEmit",
     "____ BUILD & DEPLOY TASKS __________________________________________": "",
     "build:clean": "rimraf ./dist",

@@ -190,24 +190,6 @@ importers:
         specifier: 2.0.3
         version: 2.0.3
 
-  packages/all-packages:
-    dependencies:
-      '@spautz/node-library-template':
-        specifier: workspace:^
-        version: link:../node-library-template
-      '@spautz/package-template--docs-website':
-        specifier: workspace:^
-        version: link:../../docs-website
-      '@spautz/package-template--hello-world-cli':
-        specifier: workspace:^
-        version: link:../../demos/hello-world-cli
-      '@spautz/package-template--hello-world-ui':
-        specifier: workspace:^
-        version: link:../../demos/hello-world-ui
-      '@spautz/react-library-template':
-        specifier: workspace:^
-        version: link:../react-library-template
-
   packages/node-library-template: {}
 
   packages/react-library-template:

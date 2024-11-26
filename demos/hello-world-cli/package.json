@@ -20,7 +20,7 @@
     "#spautz/node-library-template": "@spautz/node-library-template"
   },
   "scripts": {
-    "____ STANDARD APP COMMANDS _________________________________________": "",
+    "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci",
     "build": "pnpm run build:clean && pnpm run build:main",
@@ -31,8 +31,8 @@
     "test:clean": "rimraf ./coverage",
     "test": "pnpm run test:clean       && vitest run --coverage",
     "test:ci": "pnpm run test:clean    && vitest run --coverage --bail 1",
-    "test:watch": "pnpm run test:clean && vitest watch --coverage",
     "test:ui": "pnpm run test:clean    && vitest --ui",
+    "test:watch": "pnpm run test:clean && vitest watch --coverage",
     "typecheck": "tsc -p ./tsconfig.json --noEmit",
     "____ BUILD TASKS ___________________________________________________": "",
     "build:clean": "rimraf ./dist",
