@@ -14,7 +14,6 @@ const buildOutputs = [
   'build',
   'coverage',
   'dist',
-  'legacy-types',
   'node_modules',
   'storybook-static',
 ];

@@ -23,7 +23,6 @@
   "files": [
     "dist/",
     "docs/",
-    "legacy-types/",
     "src/",
     "LICENSE",
     "*.md"
@@ -55,7 +54,7 @@
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci",
-    "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify && pnpm run build:legacytypes",
+    "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:esm:watch",
     "lint": "eslint . --max-warnings 0",
@@ -68,15 +67,11 @@
     "test:watch": "pnpm run test:clean && vitest watch --coverage",
     "typecheck": "tsc -p ./tsconfig.json --noEmit",
     "____ BUILD TASKS ___________________________________________________": "",
-    "build:clean": "rimraf --glob ./dist ./legacy-types ./*.tgz",
+    "build:clean": "rimraf --glob ./dist ./*.tgz",
     "build:cjs": "tsup src/index.ts --format cjs --dts --outDir=./dist/cjs/ --tsconfig=./tsconfig.build-cjs.json",
     "build:cjs:watch": "pnpm run build:cjs --watch",
     "build:esm": "tsc -p tsconfig.build-esm.json",
     "build:esm:watch": "pnpm run build:esm --watch",
-    "build:legacytypes": "pnpm run build:legacytypes:3.5 && pnpm run build:legacytypes:4.0 && pnpm run build:legacytypes:4.5",
-    "build:legacytypes:3.5": "downlevel-dts ./dist ./legacy-types/ts3.5/dist --to=3.5",
-    "build:legacytypes:4.0": "downlevel-dts ./dist ./legacy-types/ts4.0/dist --to=4.0",
-    "build:legacytypes:4.5": "downlevel-dts ./dist ./legacy-types/ts4.5/dist --to=4.5",
     "build:verify": "publint --strict && size-limit",
     "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src"
   },
@@ -94,22 +89,5 @@
       "import": "{ helloWorld }",
       "limit": "50 B"
     }
-  ],
-  "typesVersions": {
-    "<4.0": {
-      "*": [
-        "./legacy-types/ts3.5/*"
-      ]
-    },
-    "<4.5": {
-      "*": [
-        "./legacy-types/ts4.0/*"
-      ]
-    },
-    "<4.7": {
-      "*": [
-        "./legacy-types/ts4.5/*"
-      ]
-    }
-  }
+  ]
 }
