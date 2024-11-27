@@ -16,9 +16,6 @@
   },
   "source": "./src/index.ts",
   "type": "module",
-  "imports": {
-    "#spautz/node-library-template": "@spautz/node-library-template"
-  },
   "scripts": {
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",

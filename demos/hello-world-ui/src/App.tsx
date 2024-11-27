@@ -1,5 +1,5 @@
-import { helloWorld } from '#spautz/node-library-template';
-import { TodoComponent } from '#spautz/react-library-template';
+import { helloWorld } from '@spautz/node-library-template';
+import { TodoComponent } from '@spautz/react-library-template';
 
 function App() {
   return (
