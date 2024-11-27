@@ -36,6 +36,7 @@
     "build:clean": "rimraf ./dist",
     "build:main": "vite build",
     "build:watch": "pnpm run build:clean && vite build --watch",
+    "size-check": "source-map-explorer dist/**/*.js",
     "start:dev": "vite",
     "start:staging": "vite preview",
     "start:prod": "vite preview"
