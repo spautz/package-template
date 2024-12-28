@@ -15,17 +15,19 @@
     // so that future changes at the package level will invalidate at the workspace level
     "//#w:lint": {},
     "//#w:lint:fix": {},
-    "//#w:test": {
-      "outputs": ["coverage/**"]
+    "//#w:all-tests": {
+      "outputs": ["coverage/**"],
+      "cache": false
     },
-    "//#w:test:ci": {
-      "outputs": ["coverage/**"]
+    "//#w:all-tests:ci": {
+      "outputs": ["coverage/**"],
+      "cache": false
     },
-    "//#w:test:watch": {
+    "//#w:all-tests:watch": {
       "cache": false,
       "persistent": true
     },
-    "//#w:test:ui": {
+    "//#w:all-tests:ui": {
       "cache": false,
       "persistent": true
     },
@@ -65,6 +67,12 @@
     "test:ci": {
       "dependsOn": ["^build", "^test:ci"],
       "outputs": ["coverage/**"]
+    },
+    "test:ui": {
+      "dependsOn": ["^build", "^test"],
+      "cache": false,
+      "persistent": true,
+      "interactive": true
     },
     "test:watch": {
       "dependsOn": ["^build", "^test"],
