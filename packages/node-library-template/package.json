@@ -53,7 +53,7 @@
     "postpack": "pnpm run build:verifypack",
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
-    "all:ci": "turbo run pipeline-ci",
+    "all:ci": "turbo run pipeline-ci --ui=stream",
     "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:esm:watch",

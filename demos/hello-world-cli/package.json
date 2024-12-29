@@ -19,7 +19,7 @@
   "scripts": {
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
-    "all:ci": "turbo run pipeline-ci",
+    "all:ci": "turbo run pipeline-ci --ui=stream",
     "build": "pnpm run build:clean && pnpm run build:main",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "lint": "eslint . --max-warnings 0",

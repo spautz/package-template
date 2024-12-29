@@ -1,6 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  // OPTIONAL: "ui": "tui",
+  "ui": "tui",
 
   "tasks": {
     // -----------------------------------------------------------------------

@@ -21,7 +21,7 @@
   "scripts": {
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
-    "all:ci": "turbo run pipeline-ci",
+    "all:ci": "turbo run pipeline-ci --ui=stream",
     "build": "docusaurus build",
     "clean": "docusaurus clear",
     "dev": "pnpm run start:dev",
