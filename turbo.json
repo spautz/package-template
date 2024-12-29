@@ -3,37 +3,46 @@
   // OPTIONAL: "ui": "tui",
 
   "tasks": {
-    // Batch scripts: run a set of checks for the package
+    // -----------------------------------------------------------------------
+    // Workspace tasks
+
+    // Tests are a repo-wide task
+    "//#w:all-tests": {
+      "inputs": ["$TURBO_DEFAULT$", "**/__tests__/**", "**/tests/**", "**/*.test.*", "**/*.spec.*"],
+      "outputs": ["coverage/**"]
+    },
+    "//#w:all-tests:ci": {
+      "inputs": ["$TURBO_DEFAULT$", "**/__tests__/**", "**/tests/**", "**/*.test.*", "**/*.spec.*"],
+      "outputs": ["coverage/**"]
+    },
+    "//#w:all-tests:ui": {
+      "cache": false,
+      "persistent": true
+    },
+    "//#w:all-tests:watch": {
+      "cache": false,
+      "persistent": true
+    },
+
+    // Lint and typecheck only target the root's own files: not repo-wide
+    "//#w:lint": {},
+    "//#w:lint:fix": {},
+    "//#w:typecheck": {},
+
+    // -----------------------------------------------------------------------
+    // Batch tasks for packages
+
     "pipeline-all": {
       "dependsOn": ["typecheck", "lint:fix", "test", "build"]
     },
     "pipeline-ci": {
       "dependsOn": ["typecheck", "lint", "test:ci", "build"]
     },
-    // Workspace tasks
-    // When the packages have their own overlapping tasks, those task are run first, as dependencies,
-    // so that future changes at the package level will invalidate at the workspace level
-    "//#w:lint": {},
-    "//#w:lint:fix": {},
-    "//#w:all-tests": {
-      "outputs": ["coverage/**"],
-      "cache": false
-    },
-    "//#w:all-tests:ci": {
-      "outputs": ["coverage/**"],
-      "cache": false
-    },
-    "//#w:all-tests:watch": {
-      "cache": false,
-      "persistent": true
-    },
-    "//#w:all-tests:ui": {
-      "cache": false,
-      "persistent": true
-    },
-    "//#w:typecheck": {},
-    // Core package tasks:
-    // Dependencies require a concrete build
+
+    // -----------------------------------------------------------------------
+    // Package tasks
+
+    // Anything that's a dependency of something else in this repo must be built
     "dependencies": {
       "dependsOn": ["^build"]
     },
@@ -41,6 +50,7 @@
     "topo": {
       "dependsOn": ["^topo"]
     },
+
     // Individual/standalone package tasks
     "build": {
       "dependsOn": ["^build"],
