@@ -34,7 +34,7 @@
     "test": "turbo run test",
     "test:ci": "turbo run w:all-tests:ci --ui=stream",
     "test:ui": "turbo run w:all-tests:ui",
-    "test:watch": "turbo run test:watch",
+    "test:watch": "turbo run w:all-tests:watch",
     "typecheck": "turbo run w:typecheck typecheck",
     "____ WORKSPACE-ONLY TASKS __________________________________________": "",
     "changelog": "changeset",
