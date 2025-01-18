@@ -3169,7 +3169,7 @@ packages:
     id: file:.yalc/@spautz/react-library-template
     name: '@spautz/react-library-template'
     peerDependencies:
-      react: ^16.9.0 || ^17 || ^18
+      react: ^16.9.0 || ^17 || ^18 || ^19
     dependencies:
       '@spautz/node-library-template': file:.yalc/@spautz/node-library-template
       react: 18.2.0
