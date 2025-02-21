@@ -17,18 +17,19 @@
     "node": "^18 || ^20 || ^21 || ^22 || ^23",
     "pnpm": "^10"
   },
-  "packageManager": "pnpm@10.0.0",
+  "packageManager": "pnpm@10.4.1",
   "type": "module",
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "husky && turbo run dependencies",
+    "prepare": "husky",
     "husky:precommit": "lint-staged",
     "husky:prepush": "pnpm run format:verify && turbo run w:lint lint w:typecheck typecheck",
     "____ BATCH OPERATIONS & STANDARD TASKS _____________________________": "",
     "all": "pnpm run format     && turbo run w:lint:fix lint:fix w:typecheck typecheck test build",
     "all:all": "pnpm run format && turbo run w:lint:fix lint:fix w:typecheck typecheck w:all-tests test build pipeline-all",
     "all:ci": "pnpm run format:verify && turbo run w:lint w:typecheck w:all-tests:ci --ui=stream",
+    "dependencies": "turbo run dependencies",
     "lint": "turbo run w:lint lint",
     "lint:fix": "turbo run w:lint:fix lint:fix",
     "test": "turbo run test",
@@ -126,7 +127,11 @@
   },
   "pnpm": {
     "onlyBuiltDependencies": [
-      "eslint"
+      "esbuild"
+    ],
+    "ignoredBuiltDependencies": [
+      "core-js",
+      "core-js-pure"
     ]
   }
 }
