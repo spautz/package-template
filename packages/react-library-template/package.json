@@ -49,7 +49,7 @@
   "sideEffects": false,
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
-    "prepack": "pnpm run clean && pnpm run build",
+    "prepack": "pnpm run clean && turbo run build",
     "postpack": "pnpm run build:verifypack",
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",

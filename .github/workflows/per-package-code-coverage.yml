@@ -29,11 +29,13 @@ jobs:
       - uses: actions/checkout@v4.1.7
 
       - uses: ./.github/reusable-workflows/setup-repo
+        with:
+          node-version: nvmrc
 
       - name: Run package tests
         run: |
           cd packages/${{ matrix.package-name }}
-          pnpm run test
+          pnpm exec turbo run test:ci
 
       - name: Report package test coverage to coveralls.io
         uses: coverallsapp/github-action@v2.3.0
