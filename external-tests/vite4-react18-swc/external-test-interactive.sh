@@ -28,6 +28,13 @@ IMAGE_ID=$(docker images --filter=reference=vite4-react18-swc-main-container --f
 echo "CONTAINER_ID=$CONTAINER_ID"
 echo "IMAGE_ID=$IMAGE_ID"
 
+# Sync back the lockfile, in case it changed
+if [[ $EXIT_CODE -eq 0 ]]; then
+  run_command docker cp $CONTAINER_ID:/external-test-vite4-react18-swc/pnpm-lock.yaml ./
+else
+  exit $EXIT_CODE
+fi
+
 ###################################################################################################
 
 popd

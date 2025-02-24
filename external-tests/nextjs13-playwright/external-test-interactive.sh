@@ -28,6 +28,13 @@ IMAGE_ID=$(docker images --filter=reference=nextjs13-playwright-main-container -
 echo "CONTAINER_ID=$CONTAINER_ID"
 echo "IMAGE_ID=$IMAGE_ID"
 
+# Sync back the lockfile, in case it changed, and also any test reports
+if [[ $EXIT_CODE -eq 0 ]]; then
+  run_command docker cp $CONTAINER_ID:/external-test-nextjs13-playwright/pnpm-lock.yaml ./
+else
+  exit $EXIT_CODE
+fi
+
 ###################################################################################################
 
 popd

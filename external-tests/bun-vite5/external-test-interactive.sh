@@ -28,6 +28,13 @@ IMAGE_ID=$(docker images --filter=reference=bun-vite5-main-container --format "{
 echo "CONTAINER_ID=$CONTAINER_ID"
 echo "IMAGE_ID=$IMAGE_ID"
 
+# Sync back the lockfile, in case it changed
+if [[ $EXIT_CODE -eq 0 ]]; then
+  run_command docker cp $CONTAINER_ID:/external-test-bun-vite5/bun.lockb ./
+else
+  exit $EXIT_CODE
+fi
+
 ###################################################################################################
 
 popd

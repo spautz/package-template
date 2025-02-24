@@ -28,6 +28,13 @@ echo "CONTAINER_ID=$CONTAINER_ID"
 IMAGE_ID=$(docker images --filter=reference=node18-cjs-main-container --format "{{.ID}}")
 echo "IMAGE_ID=$IMAGE_ID"
 
+# Sync back the lockfile, in case it changed
+if [[ $EXIT_CODE -eq 0 ]]; then
+  run_command docker cp $CONTAINER_ID:/external-test-node18-cjs/package-lock.json ./
+else
+  exit $EXIT_CODE
+fi
+
 ###################################################################################################
 
 popd

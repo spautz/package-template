@@ -28,6 +28,13 @@ IMAGE_ID=$(docker images --filter=reference=cra4-react16-main-container --format
 echo "CONTAINER_ID=$CONTAINER_ID"
 echo "IMAGE_ID=$IMAGE_ID"
 
+# Sync back the lockfile, in case it changed
+if [[ $EXIT_CODE -eq 0 ]]; then
+  run_command docker cp $CONTAINER_ID:/external-test-cra4-react16/yarn.lock ./
+else
+  exit $EXIT_CODE
+fi
+
 ###################################################################################################
 
 popd
