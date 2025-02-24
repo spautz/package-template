@@ -10,7 +10,7 @@ RUN corepack enable
 # 'base' is deps + project source
 FROM base-workspace as base-deps
 
-COPY package.json yarn.lock  ./
+COPY package.json yarn.loc[k]  ./
 COPY .yalc  .yalc/
 RUN yarn install
 

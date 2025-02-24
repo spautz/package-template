@@ -10,7 +10,7 @@ RUN corepack enable
 # 'base' is deps + project source
 FROM base-workspace as base-deps
 
-COPY package.json pnpm-lock.yaml  ./
+COPY package.json pnpm-lock.yam[l]  ./
 COPY .yalc  .yalc/
 RUN pnpm install
 

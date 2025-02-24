@@ -9,7 +9,7 @@ WORKDIR /external-test-bun-vite5
 # 'base' is deps + project source
 FROM base-workspace as base-deps
 
-COPY package.json bun.lockb  ./
+COPY package.json bun.lock[b]  ./
 COPY .yalc  .yalc/
 RUN bun install
 
