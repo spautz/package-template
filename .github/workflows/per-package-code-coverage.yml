@@ -26,7 +26,7 @@ jobs:
         package-name: [node-library-template, react-library-template]
 
     steps:
-      - uses: actions/checkout@v4.1.7
+      - uses: actions/checkout@v4.2.2
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
@@ -38,7 +38,7 @@ jobs:
           pnpm exec turbo run test:ci
 
       - name: Report package test coverage to coveralls.io
-        uses: coverallsapp/github-action@v2.3.0
+        uses: coverallsapp/github-action@v2.3.6
         with:
           github-token: ${{ github.token }}
           path-to-lcov: packages/${{ matrix.package-name }}/coverage/lcov.info
