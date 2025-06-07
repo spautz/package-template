@@ -7,7 +7,7 @@
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/spautz/package-template.git"
+    "url": "git+https://github.com/spautz/package-template.git"
   },
   "author": {
     "name": "Steven Pautz",
@@ -72,7 +72,6 @@
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.1",
     "@changesets/cli": "2.29.4",
-    "@eslint/compat": "1.2.9",
     "@eslint/js": "9.28.0",
     "@size-limit/esbuild": "11.2.0",
     "@size-limit/esbuild-why": "11.2.0",
@@ -89,12 +88,13 @@
     "eslint": "9.28.0",
     "eslint-config-prettier": "10.1.5",
     "eslint-config-react-app": "7.0.1",
-    "eslint-plugin-flowtype": "8.0.3",
+    "eslint-import-resolver-typescript": "4.4.3",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "5.2.0",
     "glob": "11.0.2",
+    "globals": "16.2.0",
     "husky": "9.1.7",
     "jsdom": "26.1.0",
     "lint-staged": "16.1.0",
@@ -131,7 +131,8 @@
     ],
     "ignoredBuiltDependencies": [
       "core-js",
-      "core-js-pure"
+      "core-js-pure",
+      "unrs-resolver"
     ]
   }
 }

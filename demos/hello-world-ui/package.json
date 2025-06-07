@@ -7,7 +7,7 @@
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/spautz/package-template.git",
+    "url": "git+https://github.com/spautz/package-template.git",
     "directory": "packages/hello-world-ui"
   },
   "author": {
