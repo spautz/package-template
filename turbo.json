@@ -36,9 +36,15 @@
     },
 
     // Lint and typecheck only target the root's own files: not repo-wide
-    "//#w:lint": {},
-    "//#w:lint:fix": {},
-    "//#w:typecheck": {},
+    "//#w:lint": {
+      "outputLogs": "new-only"
+    },
+    "//#w:lint:fix": {
+      "outputLogs": "new-only"
+    },
+    "//#w:typecheck": {
+      "outputLogs": "new-only"
+    },
 
     // -----------------------------------------------------------------------
     // Special tasks for packages
@@ -65,7 +71,8 @@
     // Individual/standalone package tasks
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"],
+      "outputLogs": "new-only"
     },
     "build:watch": {
       "dependsOn": ["^build"],
@@ -79,15 +86,21 @@
       "persistent": true,
       "interactive": true
     },
-    "lint": {},
-    "lint:fix": {},
+    "lint": {
+      "outputLogs": "new-only"
+    },
+    "lint:fix": {
+      "outputLogs": "new-only"
+    },
     "test": {
       "dependsOn": ["^build", "^test"],
-      "outputs": ["coverage/**"]
+      "outputs": ["coverage/**"],
+      "outputLogs": "new-only"
     },
     "test:ci": {
       "dependsOn": ["^build", "^test:ci"],
-      "outputs": ["coverage/**"]
+      "outputs": ["coverage/**"],
+      "outputLogs": "new-only"
     },
     "test:ui": {
       "dependsOn": ["^build", "^test"],
@@ -102,7 +115,8 @@
       "interactive": true
     },
     "typecheck": {
-      "dependsOn": ["^build", "^typecheck"]
+      "dependsOn": ["^build", "^typecheck"],
+      "outputLogs": "new-only"
     }
   }
 }
