@@ -110,7 +110,7 @@
     "*.{cjs,cts,d.cts,d.mts,d.ts,js,jsx,json,jsonc,mjs,mts,ts,tsx}": ["biome check --write"]
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"],
+    "onlyBuiltDependencies": ["@biomejs/biome", "esbuild"],
     "ignoredBuiltDependencies": ["core-js", "core-js-pure", "unrs-resolver"]
   }
 }

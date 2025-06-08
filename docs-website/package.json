@@ -15,7 +15,6 @@
     "url": "https://github.com/spautz/"
   },
   "source": "./src/pages/index.tsx",
-  "type": "module",
   "scripts": {
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
