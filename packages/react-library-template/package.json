@@ -20,13 +20,7 @@
     "provenance": true,
     "tag": "next"
   },
-  "files": [
-    "dist/",
-    "docs/",
-    "src/",
-    "LICENSE",
-    "*.md"
-  ],
+  "files": ["dist/", "docs/", "src/", "LICENSE", "*.md"],
   "source": "./src/index.ts",
   "type": "module",
   "exports": {
@@ -57,7 +51,7 @@
     "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:esm:watch",
-    "lint": "biome check --apply .",
+    "lint": "biome check --write .",
     "lint:verify": "biome check .",
     "publish:yalc": "yalc publish --sig --push --replace",
     "test:clean": "rimraf ./coverage",

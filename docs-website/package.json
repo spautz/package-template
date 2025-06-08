@@ -23,7 +23,7 @@
     "build": "docusaurus build",
     "clean": "docusaurus clear",
     "dev": "docusaurus start",
-    "lint": "biome check --apply .",
+    "lint": "biome check --write .",
     "lint:verify": "biome check .",
     "start": "turbo run build && docusaurus serve",
     "typecheck": "tsc -p ./tsconfig.json --noEmit",
@@ -52,15 +52,7 @@
     "@tsconfig/docusaurus": "2.0.3"
   },
   "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
+    "production": [">0.5%", "not dead", "not op_mini all"],
+    "development": ["last 3 chrome version", "last 3 firefox version", "last 5 safari version"]
   }
 }

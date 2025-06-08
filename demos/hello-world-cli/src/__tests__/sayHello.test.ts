@@ -1,5 +1,5 @@
-import { afterEach, describe, expect, test, vi } from 'vitest';
 import { helloWorld } from '@spautz/node-library-template';
+import { afterEach, describe, expect, test, vi } from 'vitest';
 
 import { sayHello } from '../sayHello.js';
 

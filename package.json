@@ -44,7 +44,7 @@
     "clean": "pnpm run w:all-tests:clean && rimraf --glob ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
     "docs": "pnpm run --filter=./docs-website dev",
     "format": "biome format --write .",
-    "format:verify": "biome format --write-changes=false .",
+    "format:verify": "biome format .",
     "publish:yalc": "pnpm run -r publish:yalc",
     "release:docs": "pnpm run --filter=./docs-website deploy",
     "release:prep": "pnpm run changelog:status && changeset version",
@@ -54,7 +54,7 @@
     "w:all-tests:ci": "pnpm run w:all-tests:clean    && vitest run --coverage --bail 1",
     "w:all-tests:ui": "pnpm run w:all-tests:clean    && vitest --ui",
     "w:all-tests:watch": "pnpm run w:all-tests:clean && vitest watch --coverage",
-    "w:lint": "biome check --apply .",
+    "w:lint": "biome check --write .",
     "w:lint:verify": "biome check .",
     "w:typecheck": "tsc -p ./tsconfig.json --noEmit",
     "____ PACKAGE-ONLY TASKS ____________________________________________": "",
@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.1",
-    "@biomejs/biome": "1.5.3",
+    "@biomejs/biome": "1.9.4",
     "@changesets/cli": "2.29.4",
     "@size-limit/esbuild": "11.2.0",
     "@size-limit/esbuild-why": "11.2.0",
@@ -107,18 +107,10 @@
     "yargs": "18.0.0"
   },
   "lint-staged": {
-    "*.{cjs,cts,d.cts,d.mts,d.ts,js,jsx,json,jsonc,mjs,mts,ts,tsx}": [
-      "biome check --apply"
-    ]
+    "*.{cjs,cts,d.cts,d.mts,d.ts,js,jsx,json,jsonc,mjs,mts,ts,tsx}": ["biome check --write"]
   },
   "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ],
-    "ignoredBuiltDependencies": [
-      "core-js",
-      "core-js-pure",
-      "unrs-resolver"
-    ]
+    "onlyBuiltDependencies": ["esbuild"],
+    "ignoredBuiltDependencies": ["core-js", "core-js-pure", "unrs-resolver"]
   }
 }

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignore": [
+      // These are in addition to .gitignore
+      "*.log",
+      "package-lock.json",
+      "pnpm-lock.yaml",
+      "yarn.lock",
+      // Each external-test has its own eslint config, following the conventions of its framework, so they're not included
+      "external-tests/*/**"
+    ],
+    "maxSize": 2097152 // 2mb
+  },
+  "formatter": {
+    "formatWithErrors": true,
+    "indentStyle": "space",
+    "lineWidth": 100
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "json": {
+    "parser": {
+      "allowComments": true,
+      "allowTrailingCommas": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "error",
+        "useHookAtTopLevel": "error",
+        "noUndeclaredVariables": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noConsoleLog": "warn",
+        "noEmptyInterface": "error",
+        "noRedundantUseStrict": "error"
+      },
+      "style": {
+        "noNonNullAssertion": "error",
+        "useTemplate": "error",
+        "useConst": "error",
+        "noUselessElse": "error"
+      },
+      // "nursery": {
+      //   "useImportType": "error",
+      //   "useExportType": "error",
+      //   "noUnusedImports": "error",
+      //   "noNodejsModules": "error"
+      // },
+      "performance": {
+        "noDelete": "error"
+      },
+      "complexity": {
+        "noForEach": "warn",
+        "noStaticOnlyClass": "error",
+        "noBannedTypes": "error"
+      }
+    }
+  }
+}

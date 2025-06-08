@@ -23,7 +23,7 @@
     "build": "pnpm run build:clean && pnpm run build:main",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run start",
-    "lint": "biome check --apply .",
+    "lint": "biome check --write .",
     "lint:verify": "biome check .",
     "start": "node ./dist/index.js",
     "test:clean": "rimraf ./coverage",
