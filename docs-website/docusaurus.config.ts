@@ -3,7 +3,7 @@ import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: "spautz's Package-Template Docs",
+  title: 'spautz\'s Package-Template Docs',
   tagline: 'My opinionated template for a npm library repo',
   favicon: 'img/favicon.ico',
 
@@ -48,7 +48,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: "spautz's Package-Template Docs\n",
+      title: 'spautz\'s Package-Template Docs\n',
       // logo: {
       //   alt: 'My Site Logo',
       //   src: 'img/logo.svg',

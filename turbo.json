@@ -39,7 +39,7 @@
       "dependsOn": ["w:dependencies"],
       "outputLogs": "new-only"
     },
-    "//#w:lint:fix": {
+    "//#w:lint:verify": {
       "dependsOn": ["w:dependencies"],
       "outputLogs": "new-only"
     },
@@ -53,10 +53,10 @@
     // Special tasks for packages
 
     "pipeline-all": {
-      "dependsOn": ["typecheck", "lint:fix", "test", "build"]
+      "dependsOn": ["typecheck", "lint", "test", "build"]
     },
     "pipeline-ci": {
-      "dependsOn": ["typecheck", "lint", "test:ci", "build"]
+      "dependsOn": ["typecheck", "lint:verify", "test:ci", "build"]
     },
 
     // -----------------------------------------------------------------------
@@ -93,7 +93,7 @@
       "dependsOn": ["^build"],
       "outputLogs": "new-only"
     },
-    "lint:fix": {
+    "lint:verify": {
       "dependsOn": ["^build"],
       "outputLogs": "new-only"
     },
