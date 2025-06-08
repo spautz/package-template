@@ -1,7 +1,7 @@
 {
   "name": "@spautz/react-library-template",
   "version": "0.3.1",
-  "description": "My opinionated template for a React package",
+  "description": "My opinionated template for a React library",
   "keywords": [],
   "license": "MIT",
   "homepage": "https://github.com/spautz/package-template/blob/main/packages/react-library-template#readme",
@@ -49,7 +49,7 @@
   "sideEffects": false,
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
-    "prepack": "pnpm run clean && turbo run build",
+    "prepack": "pnpm run clean && pnpm run build",
     "postpack": "pnpm run build:verifypack",
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
@@ -57,8 +57,8 @@
     "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:esm:watch",
-    "lint": "eslint --fix . --max-warnings 0",
-    "lint:verify": "eslint . --max-warnings 0",
+    "lint": "biome check --apply .",
+    "lint:verify": "biome check .",
     "publish:yalc": "yalc publish --sig --push --replace",
     "test:clean": "rimraf ./coverage",
     "test": "pnpm run test:clean       && vitest run --coverage",

@@ -43,8 +43,8 @@
     "changelog:status:ci": "changeset status --since=origin/main --verbose",
     "clean": "pnpm run w:all-tests:clean && rimraf --glob ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
     "docs": "pnpm run --filter=./docs-website dev",
-    "format": "pnpm run lint",
-    "format:verify": "pnpm run lint:verify",
+    "format": "biome format --write .",
+    "format:verify": "biome format --write-changes=false .",
     "publish:yalc": "pnpm run -r publish:yalc",
     "release:docs": "pnpm run --filter=./docs-website deploy",
     "release:prep": "pnpm run changelog:status && changeset version",
@@ -54,8 +54,8 @@
     "w:all-tests:ci": "pnpm run w:all-tests:clean    && vitest run --coverage --bail 1",
     "w:all-tests:ui": "pnpm run w:all-tests:clean    && vitest --ui",
     "w:all-tests:watch": "pnpm run w:all-tests:clean && vitest watch --coverage",
-    "w:lint": "eslint --fix . --max-warnings 0",
-    "w:lint:verify": "eslint . --max-warnings 0",
+    "w:lint": "biome check --apply .",
+    "w:lint:verify": "biome check .",
     "w:typecheck": "tsc -p ./tsconfig.json --noEmit",
     "____ PACKAGE-ONLY TASKS ____________________________________________": "",
     "packages:all": "turbo run pipeline-all",
@@ -71,12 +71,11 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "0.18.1",
+    "@biomejs/biome": "1.5.3",
     "@changesets/cli": "2.29.4",
-    "@eslint/js": "9.28.0",
     "@size-limit/esbuild": "11.2.0",
     "@size-limit/esbuild-why": "11.2.0",
     "@size-limit/file": "11.2.0",
-    "@stylistic/eslint-plugin": "4.4.1",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
     "@types/node": "22.15.30",
@@ -86,14 +85,7 @@
     "@vitest/ui": "3.2.2",
     "changesets-format-with-issue-links": "0.3.0",
     "cross-env": "7.0.3",
-    "eslint": "9.28.0",
-    "eslint-import-resolver-typescript": "4.4.3",
-    "eslint-plugin-import": "2.31.0",
-    "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-react-hooks": "5.2.0",
     "glob": "11.0.2",
-    "globals": "16.2.0",
     "husky": "9.1.7",
     "jsdom": "26.1.0",
     "lint-staged": "16.1.0",
@@ -109,15 +101,14 @@
     "tsup": "8.5.0",
     "turbo": "2.5.4",
     "typescript": "5.8.3",
-    "typescript-eslint": "8.33.1",
     "vite": "6.3.5",
     "vitest": "3.2.2",
     "yalc": "1.0.0-pre.53",
     "yargs": "18.0.0"
   },
   "lint-staged": {
-    "*.{cjs,cts,css,html,js,jsx,json,less,md,mjs,mts,scss,ts,tsx,yaml}": [
-      "eslint --fix --max-warnings 0 --no-warn-ignored"
+    "*.{cjs,cts,d.cts,d.mts,d.ts,js,jsx,json,jsonc,mjs,mts,ts,tsx}": [
+      "biome check --apply"
     ]
   },
   "pnpm": {
