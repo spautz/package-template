@@ -26,6 +26,9 @@ importers:
       '@size-limit/file':
         specifier: 11.2.0
         version: 11.2.0(size-limit@11.2.0)
+      '@stylistic/eslint-plugin':
+        specifier: 4.4.1
+        version: 4.4.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
       '@testing-library/jest-dom':
         specifier: 6.6.3
         version: 6.6.3
@@ -56,9 +59,6 @@ importers:
       eslint:
         specifier: 9.28.0
         version: 9.28.0(jiti@2.4.2)
-      eslint-config-prettier:
-        specifier: 10.1.5
-        version: 10.1.5(eslint@9.28.0(jiti@2.4.2))
       eslint-config-react-app:
         specifier: 7.0.1
         version: 7.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.27.4))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.27.4))(eslint-import-resolver-typescript@4.4.3)(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
@@ -98,9 +98,6 @@ importers:
       only-allow:
         specifier: 1.2.1
         version: 1.2.1
-      prettier:
-        specifier: 3.5.3
-        version: 3.5.3
       publint:
         specifier: 0.3.12
         version: 0.3.12
@@ -1965,6 +1962,12 @@ packages:
   '@slorber/remark-comment@1.0.0':
     resolution: {integrity: sha512-RCE24n7jsOj1M0UPvIQCHTe7fI0sFL4S2nwKVWwHyVr/wI/H8GosgsJGyhnsZoGFnD/P2hLf1mSbrrgSLN93NA==}
 
+  '@stylistic/eslint-plugin@4.4.1':
+    resolution: {integrity: sha512-CEigAk7eOLyHvdgmpZsKFwtiqS2wFwI1fn4j09IU9GmD4euFM4jEBAViWeCqaNLlbX2k2+A/Fq9cje4HQBXuJQ==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: '>=9.0.0'
+
   '@svgr/babel-plugin-add-jsx-attribute@8.0.0':
     resolution: {integrity: sha512-b9MIk7yhdS1pMCZM8VeNfUlSKVRhsHZNMl5O9SfaX0l0t5wjdgu4IDzGB8bpnGBBOjGST3rRFVsaaEtI4W6f7g==}
     engines: {node: '>=14'}
@@ -3663,12 +3666,6 @@ packages:
   escape-string-regexp@5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
     engines: {node: '>=12'}
-
-  eslint-config-prettier@10.1.5:
-    resolution: {integrity: sha512-zc1UmCpNltmVY34vuLRV61r1K27sWuX39E+uyUnY8xS2Bex88VV9cugG+UZbRSRGtGyFboj+D8JODyme1plMpw==}
-    hasBin: true
-    peerDependencies:
-      eslint: '>=7.0.0'
 
   eslint-config-react-app@7.0.1:
     resolution: {integrity: sha512-K6rNzvkIeHaTd8m/QEh1Zko0KI7BACWkkneSs6s9cKZC/J27X3eZR6Upt1jkmZ/4FK+XUOPPxMEN7+lbUXfSlA==}
@@ -6099,11 +6096,6 @@ packages:
   prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
-    hasBin: true
-
-  prettier@3.5.3:
-    resolution: {integrity: sha512-QQtaxnoDJeAkDvDKWCLiwIXkTgRhwYDEQCghU9Z6q03iyek/rxRh/2lC3HB7P8sWT2xC/y5JDctPLBIGzHKbhw==}
-    engines: {node: '>=14'}
     hasBin: true
 
   pretty-error@4.0.0:
@@ -10164,6 +10156,18 @@ snapshots:
       micromark-util-character: 1.2.0
       micromark-util-symbol: 1.1.0
 
+  '@stylistic/eslint-plugin@4.4.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)':
+    dependencies:
+      '@typescript-eslint/utils': 8.33.1(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint: 9.28.0(jiti@2.4.2)
+      eslint-visitor-keys: 4.2.0
+      espree: 10.3.0
+      estraverse: 5.3.0
+      picomatch: 4.0.2
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   '@svgr/babel-plugin-add-jsx-attribute@8.0.0(@babel/core@7.27.4)':
     dependencies:
       '@babel/core': 7.27.4
@@ -12148,10 +12152,6 @@ snapshots:
   escape-string-regexp@4.0.0: {}
 
   escape-string-regexp@5.0.0: {}
-
-  eslint-config-prettier@10.1.5(eslint@9.28.0(jiti@2.4.2)):
-    dependencies:
-      eslint: 9.28.0(jiti@2.4.2)
 
   eslint-config-react-app@7.0.1(@babel/plugin-syntax-flow@7.27.1(@babel/core@7.27.4))(@babel/plugin-transform-react-jsx@7.27.1(@babel/core@7.27.4))(eslint-import-resolver-typescript@4.4.3)(eslint@9.28.0(jiti@2.4.2))(typescript@5.8.3):
     dependencies:
@@ -15130,8 +15130,6 @@ snapshots:
   prelude-ls@1.2.1: {}
 
   prettier@2.8.8: {}
-
-  prettier@3.5.3: {}
 
   pretty-error@4.0.0:
     dependencies:

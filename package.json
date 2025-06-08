@@ -43,8 +43,8 @@
     "changelog:status:ci": "changeset status --since=origin/main --verbose",
     "clean": "pnpm run w:all-tests:clean && rimraf --glob ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
     "docs": "pnpm run --filter=./docs-website dev",
-    "format": "prettier --write .",
-    "format:verify": "prettier --list-different .",
+    "format": "eslint --fix .",
+    "format:verify": "eslint .",
     "publish:yalc": "pnpm run -r publish:yalc",
     "release:docs": "pnpm run --filter=./docs-website deploy",
     "release:prep": "pnpm run changelog:status && changeset version",
@@ -76,6 +76,7 @@
     "@size-limit/esbuild": "11.2.0",
     "@size-limit/esbuild-why": "11.2.0",
     "@size-limit/file": "11.2.0",
+    "@stylistic/eslint-plugin": "4.4.1",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "16.3.0",
     "@types/node": "22.15.30",
@@ -86,7 +87,6 @@
     "changesets-format-with-issue-links": "0.3.0",
     "cross-env": "7.0.3",
     "eslint": "9.28.0",
-    "eslint-config-prettier": "10.1.5",
     "eslint-config-react-app": "7.0.1",
     "eslint-import-resolver-typescript": "4.4.3",
     "eslint-plugin-import": "2.31.0",
@@ -100,7 +100,6 @@
     "lint-staged": "16.1.0",
     "lodash": "4.17.21",
     "only-allow": "1.2.1",
-    "prettier": "3.5.3",
     "publint": "0.3.12",
     "react": "19.1.0",
     "react-dom": "19.1.0",
@@ -119,10 +118,7 @@
   },
   "lint-staged": {
     "*.{cjs,cts,css,html,js,jsx,json,less,md,mjs,mts,scss,ts,tsx,yaml}": [
-      "prettier --write"
-    ],
-    "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}": [
-      "eslint --max-warnings 0 --no-warn-ignored"
+      "eslint --fix --max-warnings 0 --no-warn-ignored"
     ]
   },
   "pnpm": {

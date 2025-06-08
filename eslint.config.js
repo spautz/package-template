@@ -1,10 +1,10 @@
 import eslintJs from '@eslint/js';
-import eslintConfigPrettier from 'eslint-config-prettier';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import importPlugin from 'eslint-plugin-import';
 import globals from 'globals';
+import stylistic from '@stylistic/eslint-plugin';
 import typescriptEslint from 'typescript-eslint';
 
 const buildOutputs = [
@@ -20,6 +20,12 @@ const projectDirectoriesToIgnore = `{${buildOutputs.join(',')}}/**`;
 export default typescriptEslint.config(
   {
     ignores: [
+      // Don't bother with lockfiles and temporary files
+      '*.log',
+      'package-lock.json',
+      'pnpm-lock.yaml',
+      'yarn.lock',
+      // Ignore all outputs everywhere
       projectDirectoriesToIgnore,
       `demos/*/${projectDirectoriesToIgnore}`,
       `docs-website/${projectDirectoriesToIgnore}`,
@@ -38,7 +44,7 @@ export default typescriptEslint.config(
       reportUnusedDisableDirectives: true,
     },
     settings: {
-      react: { version: 'detect' },
+      'react': { version: 'detect' },
       'import/resolver': {
         typescript: true,
         node: true,
@@ -49,8 +55,22 @@ export default typescriptEslint.config(
   // Base configs for all files
   eslintJs.configs.recommended,
   importPlugin.flatConfigs.recommended,
+  stylistic.configs.customize({
+    indent: 2,
+    lineWidth: 100,
+    jsx: true,
+    arrowParens: 'always',
+    bracketSpacing: true,
+    commaDangle: 'always-multiline',
+    semi: true,
+  }),
+  {
+    rules: {
+      quotes: ['error', 'single', { avoidEscape: true }],
+    },
+  },
 
-  //CJS
+  // CJS
   {
     files: ['**/*.{cjs,cts}'],
     languageOptions: {
@@ -71,7 +91,7 @@ export default typescriptEslint.config(
     },
     // We have to set things up manually for the react and react-hooks plugins to work in flat config
     plugins: {
-      react: reactPlugin,
+      'react': reactPlugin,
       'react-hooks': reactHooksPlugin,
     },
     rules: {
@@ -93,12 +113,9 @@ export default typescriptEslint.config(
     },
     extends: [
       eslintJs.configs.recommended,
-      // importPlugin.flatConfigs.typescript,
+      importPlugin.flatConfigs.typescript,
       typescriptEslint.configs.strict,
       typescriptEslint.configs.strictTypeChecked,
     ],
   },
-
-  // Prettier always comes last
-  eslintConfigPrettier,
 );
