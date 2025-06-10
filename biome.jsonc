@@ -35,42 +35,5 @@
       "allowComments": true,
       "allowTrailingCommas": true
     }
-  },
-  "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": true,
-      "correctness": {
-        "noUnusedVariables": "error",
-        "useHookAtTopLevel": "error",
-        "noUndeclaredVariables": "error"
-      },
-      "suspicious": {
-        "noExplicitAny": "error",
-        "noConsoleLog": "warn",
-        "noEmptyInterface": "error",
-        "noRedundantUseStrict": "error"
-      },
-      "style": {
-        "noNonNullAssertion": "error",
-        "useTemplate": "error",
-        "useConst": "error",
-        "noUselessElse": "error"
-      },
-      // "nursery": {
-      //   "useImportType": "error",
-      //   "useExportType": "error",
-      //   "noUnusedImports": "error",
-      //   "noNodejsModules": "error"
-      // },
-      "performance": {
-        "noDelete": "error"
-      },
-      "complexity": {
-        "noForEach": "warn",
-        "noStaticOnlyClass": "error",
-        "noBannedTypes": "error"
-      }
-    }
   }
 }
