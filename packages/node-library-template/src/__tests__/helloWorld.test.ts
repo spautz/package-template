@@ -1,9 +1,9 @@
-import { describe, expect, test } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import { helloWorld } from '../index.js';
 
-describe('helloWorld', () => {
-  test('is exported', () => {
-    expect(helloWorld).toEqual('Hello World!');
+describe('helloworld', () => {
+  it('is exported', () => {
+    expect(helloWorld).toBe('Hello World!');
   });
 });

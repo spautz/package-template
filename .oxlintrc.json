@@ -1,0 +1,22 @@
+{
+  "$schema": "https://oxc-project.github.io/oxc/schemas/oxlint.json",
+  "extends": ["oxlint/strict", "oxlint/react", "oxlint/typescript"],
+  "ignorePatterns": [
+    "build/**",
+    "coverage/**",
+    "dist/**",
+    "node_modules/**",
+    "storybook-static/**",
+    ".docusaurus/**",
+    // Each external-test has its own eslint config, following the conventions of its framework, so they're not included
+    "external-tests/**"
+  ],
+  "rules": {
+    "suspicious": {
+      "noConsoleLog": "warn"
+    },
+    "performance": {
+      "noArrayPush": "warn"
+    }
+  }
+}

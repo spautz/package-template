@@ -1,5 +1,5 @@
 import { helloWorld } from '@spautz/node-library-template';
-import { afterEach, describe, expect, test, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { sayHello } from '../sayHello.js';
 
@@ -8,8 +8,8 @@ describe('sayHello', () => {
     vi.clearAllMocks();
   });
 
-  test('prints "Hello World"', () => {
-    const consoleLogSpy = vi.spyOn(console, 'log').mockImplementationOnce(() => null);
+  it('prints "Hello World"', () => {
+    const consoleLogSpy = vi.spyOn(console, 'log').mockImplementationOnce(() => {});
 
     sayHello();
 
