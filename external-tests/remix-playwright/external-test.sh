@@ -20,8 +20,9 @@ export DOCKER_BUILD_TARGET="$1"
 EXTRA_ARGS="${*:2}"
 
 # Always rebuild, so that build target may be (optionally) overridden
-run_command docker compose -f ./docker-compose.external-test.yaml            \
-  up --build --remove-orphans $EXTRA_ARGS
+run_command docker compose -f ./docker-compose.external-test.yaml                                     \
+  up --build --remove-orphans --menu=false --abort-on-container-exit --exit-code-from main-container  \
+  $EXTRA_ARGS
 
 CONTAINER_ID=$(docker ps -a --filter=name=remix-playwright-main-container --format "{{.ID}}" --last 1)
 IMAGE_ID=$(docker images --filter=reference=remix-playwright-main-container --format "{{.ID}}")

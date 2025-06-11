@@ -1,5 +1,6 @@
 import { helloWorld } from '@spautz/node-library-template';
-import React, { type ReactNode } from 'react';
+import React from 'react';
+import type { ReactNode } from 'react';
 
 export interface TodoComponentProps {
   children?: ReactNode;
