@@ -15,7 +15,7 @@ source ./scripts/helpers/helpers.sh
 # This will take a while to run.
 
 ./scripts/build-workspace.sh
-./scripts/build-external-tests.sh
+./scripts/run-all-external-tests.sh
 
 ###################################################################################################
 
