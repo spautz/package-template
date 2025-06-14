@@ -3,42 +3,43 @@
 # Local packages must be Yalc'd into this directory BEFORE building this image
 # (via ../../scripts/update-external-tests.sh)
 
-FROM node:18.19.0-bullseye-slim as base-workspace
-WORKDIR /external-test-cra5-react18
+FROM node:18.19.0-bullseye-slim as base-environment
+WORKDIR /app-cra5-react18
 RUN corepack enable
 
-# 'base' is deps + project source
-FROM base-workspace as base-deps
+FROM base-environment as base-deps
 
 COPY package.json pnpm-lock.yam[l]  ./
 COPY .yalc  .yalc/
 RUN pnpm install
 
-FROM base-workspace as base
+FROM base-deps as base-app
 
-# deps come second so that we don't lose any lockfile changes
 COPY . ./
-COPY --from=base-deps /external-test-cra5-react18 /external-test-cra5-react18/
+# We need to reapply the lockfile from deps, in case it changed
+COPY --from=base-deps /app-cra5-react18/pnpm-lock.yaml ./
 RUN pnpm run clean
-
-# 3000 = React-Scripts dev server
-EXPOSE 3000
-
+USER node
 
 # A target for each check or test case. These are just for readability.
 #   'run-all' = all project checks
 #   'run-ci'  = all project checks, but for CI
 #   'run-dev' = spin up a local dev server
+#   'run-tests' = run tests in watch mode
 
-FROM base as run-all
+FROM base-app as run-all
 CMD pnpm run all
 
-FROM base as run-ci
+FROM base-app as run-ci
 CMD pnpm run all:ci
 
-FROM base as run-dev
+FROM base-app as run-dev
+# 3000 = React-Scripts dev server
+EXPOSE 3000
 CMD pnpm run start
 
-
 FROM run-all as default
-LABEL external-test-name="cra5-react18"
+
+LABEL external-test.name="cra5-react18"
+LABEL external-test.artifact.1="/app-cra5-react18/pnpm-lock.yaml"
+LABEL external-test.artifact.2="/app-cra5-react18/coverage"
