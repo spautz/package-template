@@ -19,7 +19,6 @@ COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
 COPY --from=base-deps /app-cra5-react18/pnpm-lock.yaml ./
 RUN pnpm run clean
-USER node
 
 # A target for each check or test case. These are just for readability.
 #   'run-all' = all project checks
