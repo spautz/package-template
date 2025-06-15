@@ -1,18 +1,25 @@
 #!/usr/bin/env bash
 
+# This runs the checks for every package and demo app.
+
+###################################################################################################
+# Standard setup for all scripts
+
 THIS_SCRIPT_NAME=$(basename "$0")
 echo "### Begin ${THIS_SCRIPT_NAME}"
 
 # Fail if anything in here fails
-set -e
-# Run from the repo root
-pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
+set -euo pipefail
 
+# Always run from the repo root
+REPO_ROOT=$(git -C "$(dirname "${BASH_SOURCE[0]:-$0}")" rev-parse --show-toplevel)
+pushd "$REPO_ROOT"
+
+# shellcheck source=scripts/helpers/helpers.sh
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
-# `build-workspace.sh` ensures that all packages and demos are up-to-date and passing.
-# This covers everything except the external-tests.
+# Main body
 
 ./scripts/check-environment.sh
 
@@ -26,6 +33,7 @@ pnpm_or_bun run packages:all:ci
 pnpm_or_bun run all:ci
 
 ###################################################################################################
+# Standard teardown for all scripts
 
 popd
 echo "### End ${THIS_SCRIPT_NAME}"

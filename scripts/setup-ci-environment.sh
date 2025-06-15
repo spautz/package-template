@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
 
+# `setup-ci-environment.sh` is for CI runs where system-level dependencies are already met.
+# We don't want to clobber that setup with NVM.
+
+###################################################################################################
+# Standard setup for all scripts
+
 THIS_SCRIPT_NAME=$(basename "$0")
 echo "### Begin ${THIS_SCRIPT_NAME}"
 
 # Fail if anything in here fails
-set -e
-# Run from the repo root
-pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
+set -euo pipefail
 
+# Always run from the repo root
+REPO_ROOT=$(git -C "$(dirname "${BASH_SOURCE[0]:-$0}")" rev-parse --show-toplevel)
+pushd "$REPO_ROOT"
+
+# shellcheck source=scripts/helpers/helpers.sh
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
-# `setup-ci-environment.sh` is for CI runs where system-level dependencies are already met.
-# We don't want to clobber that setup with NVM.
+# Main body
 
 run_command "./scripts/check-environment.sh"
 
@@ -25,6 +33,7 @@ else
 fi;
 
 ###################################################################################################
+# Standard teardown for all scripts
 
 popd
 echo "### End ${THIS_SCRIPT_NAME}"

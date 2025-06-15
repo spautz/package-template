@@ -20,11 +20,13 @@ COPY . ./
 COPY --from=base-deps /app-cra5-react18/pnpm-lock.yaml ./
 RUN pnpm run clean
 
+# 3000 = React-Scripts dev server
+EXPOSE 3000
+
 # A target for each check or test case. These are just for readability.
 #   'run-all' = all project checks
 #   'run-ci'  = all project checks, but for CI
 #   'run-dev' = spin up a local dev server
-#   'run-tests' = run tests in watch mode
 
 FROM base-app as run-all
 CMD pnpm run all
@@ -33,8 +35,6 @@ FROM base-app as run-ci
 CMD pnpm run all:ci
 
 FROM base-app as run-dev
-# 3000 = React-Scripts dev server
-EXPOSE 3000
 CMD pnpm run start
 
 FROM run-all as default

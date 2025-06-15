@@ -1,7 +1,6 @@
 services:
   cra5-react18:
     profiles: ["cra5-react18"]
-    container_name: cra5-react18-container
     build:
       context: ./external-tests/cra5-react18
       dockerfile: Dockerfile.external-test

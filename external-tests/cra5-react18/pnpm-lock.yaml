@@ -10,10 +10,10 @@ overrides:
 
 dependencies:
   '@spautz/node-library-template':
-    specifier: file:/external-test-cra5-react18/.yalc/@spautz/node-library-template
+    specifier: file:/app-cra5-react18/.yalc/@spautz/node-library-template
     version: file:.yalc/@spautz/node-library-template
   '@spautz/react-library-template':
-    specifier: file:/external-test-cra5-react18/.yalc/@spautz/react-library-template
+    specifier: file:/app-cra5-react18/.yalc/@spautz/react-library-template
     version: file:.yalc/@spautz/react-library-template(react@18.2.0)
 
 devDependencies:
@@ -10652,14 +10652,14 @@ packages:
   file:.yalc/@spautz/node-library-template:
     resolution: {directory: .yalc/@spautz/node-library-template, type: directory}
     name: '@spautz/node-library-template'
-    version: 0.3.1+230b34ef
+    version: 0.3.1+375e2fcb
     dev: false
 
   file:.yalc/@spautz/react-library-template(react@18.2.0):
     resolution: {directory: .yalc/@spautz/react-library-template, type: directory}
     id: file:.yalc/@spautz/react-library-template
     name: '@spautz/react-library-template'
-    version: 0.3.1+e206b4c4
+    version: 0.3.1+134e8c67
     peerDependencies:
       react: ^16.9.0 || ^17 || ^18 || ^19
     dependencies:
