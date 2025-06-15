@@ -23,6 +23,7 @@ RUN pnpm run clean
 # 3000 = React-Scripts dev server
 EXPOSE 3000
 
+
 # A target for each check or test case. These are just for readability.
 #   'run-all' = all project checks
 #   'run-ci'  = all project checks, but for CI
@@ -36,6 +37,7 @@ CMD pnpm run all:ci
 
 FROM base-app as run-dev
 CMD pnpm run start
+
 
 FROM run-all as default
 

@@ -1,4 +1,32 @@
 services:
+
+  bun-vite5:
+    profiles: ["bun-vite5"]
+    build:
+      context: ./external-tests/bun-vite5
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-bun-vite5
+    ports:
+      - "4173:4173"
+      - "5173:5173"
+    volumes:
+      - ./external-tests/bun-vite5/src:/app-bun-vite5/src:ro
+    init: true
+
+  cra4-react16:
+    profiles: ["cra4-react16"]
+    build:
+      context: ./external-tests/cra4-react16
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-cra4-react16
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./external-tests/cra4-react16/src:/app-cra4-react16/src:ro
+    init: true
+
   cra5-react18:
     profiles: ["cra5-react18"]
     build:
@@ -7,7 +35,36 @@ services:
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-cra5-react18
     ports:
-      - "3000:3000"
+      - "3002:3000"
     volumes:
       - ./external-tests/cra5-react18/src:/app-cra5-react18/src:ro
+    init: true
+
+  deno-fresh:
+    profiles: ["deno-fresh"]
+    build:
+      context: ./external-tests/deno-fresh
+      dockerfile: external-tests/deno-fresh/Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-deno-fresh
+    expose:
+      - "8000:8000"
+    volumes:
+      - ./external-tests/deno-fresh/components:/app-deno-fresh/components:ro
+      - ./external-tests/deno-fresh/islands:/app-deno-fresh/islands:ro
+      - ./external-tests/deno-fresh/routes:/app-deno-fresh/routes:ro
+      - ./external-tests/deno-fresh/static:/app-deno-fresh/static:ro
+    init: true
+
+  nextjs13-playwright:
+    profiles: ["nextjs13-playwright"]
+    build:
+      context: ./external-tests/nextjs13-playwright
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-nextjs13-playwright
+    ports:
+      - "3003:3000"
+    volumes:
+      - ./external-tests/nextjs13-playwright/src:/app-nextjs13-playwright/src:ro
     init: true
