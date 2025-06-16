@@ -97,6 +97,24 @@ services:
     init: true
 
 
+  node16-cjs:
+    profiles: ["node16-cjs"]
+    build:
+      context: ./external-tests/node16-cjs
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node16-cjs
+    init: true
+
+  node16-esm:
+    profiles: ["node16-esm"]
+    build:
+      context: ./external-tests/node16-esm
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node16-esm
+    init: true
+
   node18-cjs:
     profiles: ["node18-cjs"]
     build:

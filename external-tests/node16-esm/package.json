@@ -1,11 +1,11 @@
 {
-  "name": "node24-esm",
+  "name": "node16-esm",
   "private": true,
-  "description": "External-test for @spautz/node-library-template using Node v24",
+  "description": "External-test for @spautz/node-library-template using Node v16",
   "engines": {
-    "node": "^24"
+    "node": "^16"
   },
-  "packageManager": "npm@11.3.0",
+  "packageManager": "npm@10.2.4",
   "type": "module",
   "scripts": {
     "____ FOR EXTERNAL-TEST ____________________________________________": "",
