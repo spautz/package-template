@@ -4,7 +4,7 @@
 
 *.log
 
-# Autoformatting lockfiles is slow and doesn't bring any benefits, so skip them
+# Lockfiles take up a lot of space with (usually) no value
 package-lock.json
 pnpm-lock.yaml
 yarn.lock

@@ -8,7 +8,7 @@
     "node_modules/**",
     "storybook-static/**",
     ".docusaurus/**",
-    // Each external-test has its own eslint config, following the conventions of its framework, so they're not included
+    // Each external-test has its own linting config, following the conventions of its framework
     "external-tests/**"
   ],
   "rules": {

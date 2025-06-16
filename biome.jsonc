@@ -15,7 +15,7 @@
       "package-lock.json",
       "pnpm-lock.yaml",
       "yarn.lock",
-      // Each external-test has its own eslint config, following the conventions of its framework, so they're not included
+      // Each external-test has its own linting config, following the conventions of its framework
       "external-tests/*/**"
     ],
     "maxSize": 2097152 // 2mb
