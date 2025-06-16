@@ -1,0 +1,21 @@
+{
+  "name": "node24-esm",
+  "private": true,
+  "description": "External-test for @spautz/node-library-template using Node v24",
+  "engines": {
+    "node": "^24"
+  },
+  "packageManager": "npm@11.3.0",
+  "type": "commonjs",
+  "scripts": {
+    "____ FOR EXTERNAL-TEST ____________________________________________": "",
+    "preinstall": "npx only-allow npm",
+    "clean": "true",
+    "external-test": "./internal-test-script/internal-test-script.js",
+    "external-test:ci": "./internal-test-script/internal-test-script.js"
+  },
+  "dependencies": {
+    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template"
+  },
+  "devDependencies": {}
+}

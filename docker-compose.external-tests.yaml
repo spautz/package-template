@@ -150,3 +150,21 @@ services:
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-node22-esm
     init: true
+
+  node24-cjs:
+    profiles: ["node24-cjs"]
+    build:
+      context: ./external-tests/node24-cjs
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node24-cjs
+    init: true
+
+  node24-esm:
+    profiles: ["node24-esm"]
+    build:
+      context: ./external-tests/node24-esm
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node24-esm
+    init: true
