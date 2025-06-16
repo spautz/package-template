@@ -5,23 +5,21 @@
 
 ARG NODE_VERSION=18
 
-FROM node:${NODE_VERSION}-bullseye-slim as base-workspace
-WORKDIR /external-test-node18-cjs
+FROM node:${NODE_VERSION}-bullseye-slim as base-environment
+WORKDIR /app-node18-cjs
 RUN corepack enable
 
+FROM base-environment as base-deps
 
-# 'base' is deps + project source
-FROM base-workspace as base-deps
-
-COPY package.json  ./
+COPY package.json package-lock.jso[n]  ./
 COPY .yalc  .yalc/
 RUN npm install
 
-FROM base-workspace as base
+FROM base-deps as base-app
 
-# deps come second so that we don't lose any lockfile changes
 COPY . ./
-COPY --from=base-deps /external-test-node18-cjs /external-test-node18-cjs/
+# We need to reapply the lockfile from deps, in case it changed
+COPY --from=base-deps /app-node18-cjs/package-lock.json ./
 RUN npm run clean
 
 
@@ -29,12 +27,13 @@ RUN npm run clean
 #   'run-all' = all project checks
 #   'run-ci'  = all project checks, but for CI
 
-FROM base as run-all
+FROM base-app as run-all
 CMD npm run external-test
 
-FROM base as run-ci
+FROM base-app as run-ci
 CMD npm run external-test:ci
 
 
 FROM run-all as default
 LABEL external-test-name="node18-cjs"
+LABEL external-test.artifact.1="/app-node18-cjs/package-lock.json"

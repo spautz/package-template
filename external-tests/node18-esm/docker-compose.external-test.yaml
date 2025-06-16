@@ -1,9 +1,0 @@
-services:
-  main-container:
-    build:
-      context: .
-      dockerfile: ./Dockerfile.external-test
-      target: '${DOCKER_BUILD_TARGET:-default}'
-    volumes:
-      - ./src:/external-test-node18-esm/src
-    # no ports

@@ -44,7 +44,7 @@ services:
     profiles: ["deno-fresh"]
     build:
       context: ./external-tests/deno-fresh
-      dockerfile: external-tests/deno-fresh/Dockerfile.external-test
+      dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-deno-fresh
     expose:
@@ -67,4 +67,86 @@ services:
       - "3003:3000"
     volumes:
       - ./external-tests/nextjs13-playwright/src:/app-nextjs13-playwright/src:ro
+    init: true
+
+  remix-playwright:
+    profiles: ["remix-playwright"]
+    build:
+      context: ./external-tests/remix-playwright
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-remix-playwright
+    ports:
+      - "3004:3000"
+    volumes:
+      - ./external-tests/remix-playwright/src:/app-remix-playwright/src:ro
+    init: true
+
+  vite4-react18-swc:
+    profiles: ["vite4-react18-swc"]
+    build:
+      context: ./external-tests/vite4-react18-swc
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-vite4-react18-swc
+    ports:
+      - "4174:4173"
+      - "5174:5173"
+    volumes:
+      - ./external-tests/vite4-react18-swc/src:/app-vite4-react18-swc/src:ro
+    init: true
+
+
+  node18-cjs:
+    profiles: ["node18-cjs"]
+    build:
+      context: ./external-tests/node18-cjs
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node18-cjs
+    init: true
+
+  node18-esm:
+    profiles: ["node18-esm"]
+    build:
+      context: ./external-tests/node18-esm
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node18-esm
+    init: true
+
+  node20-cjs:
+    profiles: ["node20-cjs"]
+    build:
+      context: ./external-tests/node20-cjs
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node20-cjs
+    init: true
+
+  node20-esm:
+    profiles: ["node20-esm"]
+    build:
+      context: ./external-tests/node20-esm
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node20-esm
+    init: true
+
+  node22-cjs:
+    profiles: ["node22-cjs"]
+    build:
+      context: ./external-tests/node22-cjs
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node22-cjs
+    init: true
+
+  node22-esm:
+    profiles: ["node22-esm"]
+    build:
+      context: ./external-tests/node22-esm
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node22-esm
     init: true
