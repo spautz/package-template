@@ -110,4 +110,4 @@ jobs:
 
       - name: Run CI checks for external-test
         run: |
-          ./scripts/run-external-tests.sh ${{ matrix.external-test-name }} run-ci
+          ./scripts/run-external-test.sh ${{ matrix.external-test-name }} run-ci
