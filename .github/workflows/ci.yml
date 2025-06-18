@@ -83,17 +83,17 @@ jobs:
         external-test-name:
           [
             bun-vite5,
-            node18-cjs,
-            node18-esm,
-            node20-cjs,
-            node20-esm,
-            node22-cjs,
-            node22-esm,
             cra4-react16,
             cra5-react18,
             nextjs13-playwright,
             remix-playwright,
             vite4-react18-swc,
+            node20-cjs,
+            node20-esm,
+            node22-cjs,
+            node22-esm,
+            node24-cjs,
+            node24-esm,
           ]
 
     steps:
@@ -110,4 +110,4 @@ jobs:
 
       - name: Run CI checks for external-test
         run: |
-          ./external-tests/${{ matrix.external-test-name }}/external-test.sh run-ci
+          ./scripts/run-external-tests.sh ${{ matrix.external-test-name }} run-ci
