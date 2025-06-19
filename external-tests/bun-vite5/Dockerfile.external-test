@@ -3,14 +3,15 @@
 # Local packages must be Yalc'd into this directory BEFORE building this image
 # (via ../../scripts/update-external-tests.sh)
 
-FROM oven/bun:1.0.22 as base-environment
+ARG BUN_VERSION=1
+
+FROM oven/bun:${BUN_VERSION} as base-environment
 WORKDIR /app-bun-vite5
 
 FROM base-environment as base-deps
 
 COPY package.json bun.lock[b]  ./
 COPY .yalc  .yalc/
-ENV CI=true
 RUN bun install
 
 FROM base-deps as base-app
