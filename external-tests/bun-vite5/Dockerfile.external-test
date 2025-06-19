@@ -10,6 +10,7 @@ FROM base-environment as base-deps
 
 COPY package.json bun.lock[b]  ./
 COPY .yalc  .yalc/
+ENV CI=true
 RUN bun install
 
 FROM base-deps as base-app
