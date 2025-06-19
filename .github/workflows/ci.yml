@@ -106,7 +106,7 @@ jobs:
 
       - name: Yalc publish
         run: |
-          pnpm run publish:yalc
+          ./scripts/update-external-test.sh ${{ matrix.external-test-name }}
 
       - name: Run CI checks for external-test
         run: |

@@ -76,7 +76,7 @@ done
 # Main body
 
 # Ensure local packages are published & every external test dir is up-to-date
-./scripts/update-external-tests.sh
+./scripts/update-all-external-tests.sh
 
 # A safe way to get the list of external-test directories: this won't break if any have spaces in their names
 mapfile -t EXTERNAL_TESTS < <(find external-tests -mindepth 1 -maxdepth 1 -type d -printf "%f\n" | sort)
