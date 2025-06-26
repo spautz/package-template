@@ -38,6 +38,7 @@ playwright-report/
 
 *.tsbuildinfo
 
+.astro/
 .cache/
 .cache-loader/
 .docusaurus/
@@ -71,8 +72,10 @@ yarn-error.log*
 
 # misc
 
+.env
 .env.local
 .env*.local
+.env.production
 .vercel
 *.pem
 next-env.d.ts
