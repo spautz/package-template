@@ -11,6 +11,7 @@
   "files": {
     "ignore": [
       // These are in addition to .gitignore
+      // @TODO: In Biome 2.0, with "includes", there's no way to inherit .gitignore *and* specify overrides
       "*.log",
       "package-lock.json",
       "pnpm-lock.yaml",
@@ -18,7 +19,8 @@
       // Each external-test has its own linting config, following the conventions of its framework
       "external-tests/*/**"
     ],
-    "maxSize": 2097152 // 2mb
+    // 2mb
+    "maxSize": 2097152
   },
   "formatter": {
     "formatWithErrors": true,
@@ -34,6 +36,52 @@
     "parser": {
       "allowComments": true,
       "allowTrailingCommas": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "error",
+        "useHookAtTopLevel": "error",
+        "noUndeclaredVariables": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noConsole": "warn",
+        "noEmptyInterface": "error",
+        "noRedundantUseStrict": "error"
+      },
+      "style": {
+        "noInferrableTypes": "error",
+        "noNonNullAssertion": "error",
+        "noParameterAssign": "error",
+        "noUnusedTemplateLiteral": "error",
+        "noUselessElse": "error",
+        "useAsConstAssertion": "error",
+        "useConst": "error",
+        "useDefaultParameterLast": "error",
+        "useEnumInitializers": "error",
+        "useNumberNamespace": "error",
+        "useSelfClosingElements": "error",
+        "useSingleVarDeclarator": "error",
+        "useTemplate": "error"
+      },
+      // "nursery": {
+      //   "useImportType": "error",
+      //   "useExportType": "error",
+      //   "noUnusedImports": "error",
+      //   "noNodejsModules": "error"
+      // },
+      "performance": {
+        "noDelete": "error"
+      },
+      "complexity": {
+        "noForEach": "warn",
+        "noStaticOnlyClass": "error",
+        "noBannedTypes": "error"
+      }
     }
   }
 }
