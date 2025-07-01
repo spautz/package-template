@@ -48,7 +48,11 @@
     "@docusaurus/module-type-aliases": "3.8.1",
     "@docusaurus/tsconfig": "3.8.1",
     "@docusaurus/types": "3.8.1",
-    "@tsconfig/docusaurus": "2.0.3"
+    "@tsconfig/docusaurus": "2.0.3",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "browserslist": {
     "production": [">0.5%", "not dead", "not op_mini all"],

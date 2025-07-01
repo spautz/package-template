@@ -72,7 +72,12 @@
   "dependencies": {
     "@spautz/basic-library-template": "workspace:^"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  },
   "peerDependencies": {
     "react": "^16.9.0 || ^17 || ^18 || ^19"
   },

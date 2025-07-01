@@ -4,6 +4,24 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+catalogs:
+  default:
+    '@types/react':
+      specifier: 19.1.8
+      version: 19.1.8
+    '@types/react-dom':
+      specifier: 19.1.6
+      version: 19.1.6
+    react:
+      specifier: 19.1.0
+      version: 19.1.0
+    react-dom:
+      specifier: 19.1.0
+      version: 19.1.0
+    typescript:
+      specifier: 5.8.3
+      version: 5.8.3
+
 importers:
 
   .:
@@ -35,12 +53,6 @@ importers:
       '@types/node':
         specifier: 24.0.4
         version: 24.0.4
-      '@types/react':
-        specifier: 19.1.8
-        version: 19.1.8
-      '@types/react-dom':
-        specifier: 19.1.6
-        version: 19.1.6(@types/react@19.1.8)
       '@vitest/coverage-v8':
         specifier: 3.2.4
         version: 3.2.4(vitest@3.2.4)
@@ -77,12 +89,6 @@ importers:
       publint:
         specifier: 0.3.12
         version: 0.3.12
-      react:
-        specifier: 19.1.0
-        version: 19.1.0
-      react-dom:
-        specifier: 19.1.0
-        version: 19.1.0(react@19.1.0)
       rimraf:
         specifier: 6.0.1
         version: 6.0.1
@@ -102,7 +108,7 @@ importers:
         specifier: 2.5.4
         version: 2.5.4
       typescript:
-        specifier: 5.8.3
+        specifier: 'catalog:'
         version: 5.8.3
       vite:
         specifier: 7.0.0
@@ -122,6 +128,19 @@ importers:
       '@spautz/basic-library-template':
         specifier: workspace:^
         version: link:../../packages/basic-library-template
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.8
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.1.6(@types/react@19.1.8)
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.1.0(react@19.1.0)
 
   demos/hello-world-ui:
     dependencies:
@@ -131,6 +150,19 @@ importers:
       '@spautz/react-library-template':
         specifier: workspace:^
         version: link:../../packages/react-library-template
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.8
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.1.6(@types/react@19.1.8)
+      react:
+        specifier: 'catalog:'
+        version: 19.1.0
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.1.0(react@19.1.0)
 
   docs-website:
     dependencies:
@@ -177,6 +209,12 @@ importers:
       '@tsconfig/docusaurus':
         specifier: 2.0.3
         version: 2.0.3
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.8
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.1.6(@types/react@19.1.8)
 
   packages/basic-library-template: {}
 
@@ -187,9 +225,19 @@ importers:
       '@spautz/basic-library-template':
         specifier: workspace:^
         version: link:../basic-library-template
+    devDependencies:
+      '@types/react':
+        specifier: 'catalog:'
+        version: 19.1.8
+      '@types/react-dom':
+        specifier: 'catalog:'
+        version: 19.1.6(@types/react@19.1.8)
       react:
-        specifier: ^16.9.0 || ^17 || ^18 || ^19
+        specifier: 'catalog:'
         version: 19.1.0
+      react-dom:
+        specifier: 'catalog:'
+        version: 19.1.0(react@19.1.0)
 
   packages/server-only-library-template: {}
 

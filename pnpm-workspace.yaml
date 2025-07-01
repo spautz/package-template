@@ -2,3 +2,41 @@ packages:
   - 'packages/*'
   - 'demos/*'
   - 'docs-website'
+
+# Defaults use exact versions, like package.json
+catalog:
+  "@types/react": 19.1.8
+  "@types/react-dom": 19.1.6
+  react: 19.1.0
+  react-dom: 19.1.0
+  typescript: 5.8.3
+
+# Named catalogs are looser
+catalogs:
+  react16:
+    react: ^16.9.0
+    react-dom: ^16.9.0
+    "@types/react": ^16.9.0
+    "@types/react-dom": ^16.9.0
+
+  react17:
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    "@types/react": ^17.0.0
+    "@types/react-dom": ^17.0.0
+
+  react18:
+    react: ^18.2.0
+    react-dom: ^18.2.0
+    "@types/react": ^18.0.0
+    "@types/react-dom": ^18.0.0
+
+  react19:
+    react: ^19.1.0
+    react-dom: ^19.1.0
+    "@types/react": ^19.1.8
+    "@types/react-dom": ^19.1.6
+
+  typescriptLTS:
+    # This should align with https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
+    typescript: 5.2.x

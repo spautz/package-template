@@ -42,5 +42,10 @@
     "@spautz/basic-library-template": "workspace:^",
     "@spautz/react-library-template": "workspace:^"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:"
+  }
 }
