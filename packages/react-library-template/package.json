@@ -73,10 +73,18 @@
     "@spautz/basic-library-template": "workspace:^"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "catalog:",
+    "@size-limit/esbuild": "catalog:",
+    "@size-limit/esbuild-why": "catalog:",
+    "@size-limit/file": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "publint": "catalog:",
     "react": "catalog:",
-    "react-dom": "catalog:"
+    "react-dom": "catalog:",
+    "size-limit": "catalog:",
+    "source-map-explorer": "catalog:",
+    "tsup": "catalog:"
   },
   "peerDependencies": {
     "react": "^16.9.0 || ^17 || ^18 || ^19"
