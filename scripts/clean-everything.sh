@@ -37,7 +37,7 @@ if [ -d "./node_modules/" ]; then
 fi
 
 run_command "rm -rf
-  $TMPDIR/react-*
+  ${TMPDIR:-/tmp}/react-*
   "
 
 for DIRECTORY in '.' 'docs-website' 'demos/*' 'external-tests/*' 'packages/*' ; do

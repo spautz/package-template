@@ -2,27 +2,26 @@
 # When updating this file, sync with .gitignore
 #
 
-*.log
-
 # Lockfiles take up a lot of space with (usually) no value
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
 
-###############################################################################
-# Everything below this point is copied from .gitignore
-
-# IDEs, etc
-
-.vscode/*
-!.vscode/extensions.json
+# IDE settings
+.vscode
 .idea
-.DS_Store
+
+
+###############################################################################
+# Everything below this point is identical between .aiignore and .gitignore
+
+# project files
+
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.swp
 
 # dependencies
 
@@ -46,6 +45,7 @@ playwright-report/
 
 # build output
 
+*.log
 *.tsbuildinfo
 
 .astro/
@@ -72,16 +72,9 @@ storybook-static/
 
 external-tests/*/.yalc/
 
-# log files
-
-lerna-debug.log*
-npm-debug.log*
-pnpm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
 # misc
 
+.DS_Store
 .env
 .env.local
 .env*.local
@@ -89,3 +82,4 @@ yarn-error.log*
 .vercel
 *.pem
 next-env.d.ts
+Thumbs.db
