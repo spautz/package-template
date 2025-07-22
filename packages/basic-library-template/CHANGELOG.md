@@ -5,8 +5,6 @@
 ### Patch Changes
 
 - Validating CI and package publish actions after updating repo scripts ([7433fc3](https://github.com/spautz/package-template/commit/7433fc3f2bce809d5f7d1392e81d095be753d7b5))
-- Updated dependencies ([7433fc3](https://github.com/spautz/package-template/commit/7433fc3f2bce809d5f7d1392e81d095be753d7b5))
-  - @spautz/basic-library-template@0.3.1
 
 ## 0.3.0
 
@@ -14,18 +12,11 @@
 
 - Updated build and package exports config ([8c6fcc3](https://github.com/spautz/package-template/commit/8c6fcc337f90f872c1cc76d1570012a0a0a9facb))
 
-### Patch Changes
-
-- Updated dependencies ([8c6fcc3](https://github.com/spautz/package-template/commit/8c6fcc337f90f872c1cc76d1570012a0a0a9facb))
-  - @spautz/basic-library-template@0.3.0
-
 ## 0.2.1
 
 ### Patch Changes
 
 - Upgraded build tools and devDependencies ([7f52b81](https://github.com/spautz/package-template/commit/7f52b81a7a588ffbd31721a37c2e9f01c6d76dbc))
-- Updated dependencies ([7f52b81](https://github.com/spautz/package-template/commit/7f52b81a7a588ffbd31721a37c2e9f01c6d76dbc))
-  - @spautz/basic-library-template@0.2.1
 
 ## 0.2.0
 

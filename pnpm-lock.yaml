@@ -178,6 +178,8 @@ importers:
         specifier: 2.0.3
         version: 2.0.3
 
+  packages/basic-library-template: {}
+
   packages/node-library-template: {}
 
   packages/react-library-template:

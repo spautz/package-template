@@ -1,15 +1,15 @@
 {
-  "name": "@spautz/react-library-template",
+  "name": "@spautz/basic-library-template",
   "version": "0.3.1",
-  "description": "My opinionated template for a React library",
+  "description": "My opinionated template for a basic, general-use JS library",
   "keywords": [],
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/packages/react-library-template#readme",
+  "homepage": "https://github.com/spautz/package-template/blob/main/packages/basic-library-template#readme",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spautz/package-template.git",
-    "directory": "packages/react-library-template"
+    "directory": "packages/basic-library-template"
   },
   "author": {
     "name": "Steven Pautz",
@@ -51,8 +51,8 @@
     "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:esm:watch",
-    "lint": "oxlint --fix",
-    "lint:verify": "oxlint",
+    "lint": "biome check --write .",
+    "lint:verify": "biome check .",
     "publish:yalc": "yalc publish --sig --push --replace",
     "test:clean": "rimraf ./coverage",
     "test": "pnpm run test:clean       && vitest run --coverage",
@@ -70,13 +70,9 @@
     "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src",
     "size-check": "size-limit --why"
   },
-  "dependencies": {
-    "@spautz/basic-library-template": "workspace:^"
-  },
+  "dependencies": {},
   "devDependencies": {},
-  "peerDependencies": {
-    "react": "^16.9.0 || ^17 || ^18 || ^19"
-  },
+  "peerDependencies": {},
   "size-limit": [
     {
       "path": "./dist/esm/index.js",
@@ -85,8 +81,8 @@
     },
     {
       "path": "./dist/esm/index.js",
-      "import": "{ TodoComponent }",
-      "limit": "300 B"
+      "import": "{ helloWorld }",
+      "limit": "50 B"
     }
   ]
 }

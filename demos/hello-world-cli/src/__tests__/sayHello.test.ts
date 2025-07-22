@@ -1,4 +1,4 @@
-import { helloWorld } from '@spautz/node-library-template';
+import { helloWorld } from '@spautz/basic-library-template';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { sayHello } from '../sayHello.js';

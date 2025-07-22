@@ -39,7 +39,7 @@
     "size-check": "source-map-explorer dist/**/*.js"
   },
   "dependencies": {
-    "@spautz/node-library-template": "workspace:^"
+    "@spautz/basic-library-template": "workspace:^"
   },
   "devDependencies": {}
 }

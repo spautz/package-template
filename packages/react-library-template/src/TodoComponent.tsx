@@ -1,4 +1,4 @@
-import { helloWorld } from '@spautz/node-library-template';
+import { helloWorld } from '@spautz/basic-library-template';
 import React from 'react';
 import type { ReactNode } from 'react';
 

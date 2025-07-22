@@ -1,4 +1,4 @@
-import { helloWorld } from '@spautz/node-library-template';
+import { helloWorld } from '@spautz/basic-library-template';
 
 const sayHello = () => {
   // biome-ignore lint/suspicious/noConsole: This is a demo using the console
