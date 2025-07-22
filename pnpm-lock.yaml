@@ -119,15 +119,15 @@ importers:
 
   demos/hello-world-cli:
     dependencies:
-      '@spautz/node-library-template':
+      '@spautz/basic-library-template':
         specifier: workspace:^
-        version: link:../../packages/node-library-template
+        version: link:../../packages/basic-library-template
 
   demos/hello-world-ui:
     dependencies:
-      '@spautz/node-library-template':
+      '@spautz/basic-library-template':
         specifier: workspace:^
-        version: link:../../packages/node-library-template
+        version: link:../../packages/basic-library-template
       '@spautz/react-library-template':
         specifier: workspace:^
         version: link:../../packages/react-library-template
@@ -178,15 +178,15 @@ importers:
         specifier: 2.0.3
         version: 2.0.3
 
-  packages/basic-library-template: {}
+  packages/backend-only-library-template: {}
 
-  packages/node-library-template: {}
+  packages/basic-library-template: {}
 
   packages/react-library-template:
     dependencies:
-      '@spautz/node-library-template':
+      '@spautz/basic-library-template':
         specifier: workspace:^
-        version: link:../node-library-template
+        version: link:../basic-library-template
       react:
         specifier: ^16.9.0 || ^17 || ^18 || ^19
         version: 19.1.0

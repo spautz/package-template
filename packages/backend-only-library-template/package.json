@@ -20,11 +20,12 @@
     "provenance": true,
     "tag": "next"
   },
-  "files": ["dist/", "docs/", "src/", "LICENSE", "*.md"],
+  "files": ["dist/", "docs/", "src/", "LICENSE", "*.md", "wrong-environment.ts"],
   "source": "./src/index.ts",
   "type": "module",
   "exports": {
     ".": {
+      "browser": "./wrong-environment.ts",
       "import": {
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
@@ -38,7 +39,6 @@
   },
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
-  "jsnext:main": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "sideEffects": false,
   "scripts": {
