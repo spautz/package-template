@@ -1,0 +1,91 @@
+{
+  "name": "@spautz/node-library-template",
+  "version": "0.3.1",
+  "description": "My opinionated template for a NodeJS library",
+  "keywords": [],
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/package-template/blob/main/packages/node-library-template#readme",
+  "bugs": "https://github.com/spautz/package-template/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spautz/package-template.git",
+    "directory": "packages/node-library-template"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true,
+    "tag": "next"
+  },
+  "files": ["dist/", "docs/", "src/", "LICENSE", "*.md", "wrong-environment.ts"],
+  "source": "./src/index.ts",
+  "type": "module",
+  "browser": "./wrong-environment.ts",
+  "exports": {
+    ".": {
+      "deno": "./wrong-environment.ts",
+      "node": "./wrong-environment.ts",
+      "react-server": "./wrong-environment.ts",
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.cts",
+        "default": "./dist/cjs/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "____ HOOKS _________________________________________________________": "",
+    "prepack": "pnpm run clean && pnpm run build",
+    "postpack": "pnpm run build:verifypack",
+    "____ STANDARD PACKAGE TASKS ________________________________________": "",
+    "all": "turbo run pipeline-all",
+    "all:ci": "turbo run pipeline-ci --ui=stream",
+    "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify",
+    "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
+    "dev": "pnpm run build:esm:watch",
+    "lint": "biome check --write .",
+    "lint:verify": "biome check .",
+    "publish:yalc": "yalc publish --sig --push --replace",
+    "test:clean": "rimraf ./coverage",
+    "test": "pnpm run test:clean       && vitest run --coverage",
+    "test:ci": "pnpm run test:clean    && vitest run --coverage --bail 1",
+    "test:ui": "pnpm run test:clean    && vitest --ui",
+    "test:watch": "pnpm run test:clean && vitest watch --coverage",
+    "typecheck": "tsc -p ./tsconfig.json --noEmit",
+    "____ BUILD & VALIDATION TASKS ______________________________________": "",
+    "build:clean": "rimraf --glob ./dist ./*.tgz",
+    "build:cjs": "tsup src/index.ts --format cjs --dts --outDir=./dist/cjs/ --tsconfig=./tsconfig.build-cjs.json",
+    "build:cjs:watch": "pnpm run build:cjs --watch",
+    "build:esm": "tsc -p tsconfig.build-esm.json",
+    "build:esm:watch": "pnpm run build:esm --watch",
+    "build:verify": "publint --strict && size-limit",
+    "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src",
+    "size-check": "size-limit --why"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "size-limit": [
+    {
+      "path": "./dist/esm/index.js",
+      "import": "{}",
+      "limit": "20 B"
+    },
+    {
+      "path": "./dist/esm/index.js",
+      "import": "{ helloWorld }",
+      "limit": "50 B"
+    }
+  ]
+}
