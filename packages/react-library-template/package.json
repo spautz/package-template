@@ -20,7 +20,13 @@
     "provenance": true,
     "tag": "next"
   },
-  "files": ["dist/", "docs/", "src/", "LICENSE", "*.md"],
+  "files": [
+    "dist/",
+    "docs/",
+    "src/",
+    "LICENSE",
+    "*.md"
+  ],
   "source": "./src/index.ts",
   "type": "module",
   "exports": {

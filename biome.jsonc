@@ -1,7 +1,11 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "organizeImports": {
-    "enabled": true
+  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "vcs": {
     "enabled": true,
@@ -9,15 +13,15 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignore": [
+    "includes": [
       // These are in addition to .gitignore
-      // @TODO: In Biome 2.0, with "includes", there's no way to inherit .gitignore *and* specify overrides
-      "*.log",
-      "package-lock.json",
-      "pnpm-lock.yaml",
-      "yarn.lock",
+      "**",
+      "!**/*.log",
+      "!**/package-lock.json",
+      "!**/pnpm-lock.yaml",
+      "!**/yarn.lock",
       // Each external-test has its own linting config, following the conventions of its framework
-      "external-tests/*/**"
+      "!**/external-tests/**/*/**"
     ],
     // 2mb
     "maxSize": 2097152

@@ -12,11 +12,6 @@
     "external-tests/**"
   ],
   "rules": {
-    "suspicious": {
-      "noConsoleLog": "warn"
-    },
-    "performance": {
-      "noArrayPush": "warn"
-    }
+    "no-console": "warn"
   }
 }

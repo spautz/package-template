@@ -20,7 +20,14 @@
     "provenance": true,
     "tag": "next"
   },
-  "files": ["dist/", "docs/", "src/", "LICENSE", "*.md", "wrong-environment.ts"],
+  "files": [
+    "dist/",
+    "docs/",
+    "src/",
+    "LICENSE",
+    "*.md",
+    "wrong-environment.ts"
+  ],
   "source": "./src/index.ts",
   "type": "module",
   "browser": "./wrong-environment.ts",
