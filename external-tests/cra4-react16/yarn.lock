@@ -1639,13 +1639,13 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@spautz/node-library-template@^0.3.1", "@spautz/node-library-template@file:.yalc/@spautz/node-library-template":
+"@spautz/basic-library-template@^0.3.1", "@spautz/basic-library-template@file:.yalc/@spautz/basic-library-template":
   version "0.3.1"
 
 "@spautz/react-library-template@file:.yalc/@spautz/react-library-template":
   version "0.3.1"
   dependencies:
-    "@spautz/node-library-template" "^0.3.1"
+    "@spautz/basic-library-template" "^0.3.1"
 
 "@surma/rollup-plugin-off-main-thread@^1.1.1":
   version "1.4.2"

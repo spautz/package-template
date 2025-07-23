@@ -42,7 +42,7 @@
     "all:ci": "yarn run       typecheck && yarn run lint     && yarn run test:ci && yarn run build"
   },
   "dependencies": {
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
     "@testing-library/jest-dom": "5.17.0",
     "@testing-library/react": "11.2.7",
@@ -84,7 +84,7 @@
   },
   "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
   "resolutions": {
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template"
   }
 }

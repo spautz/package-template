@@ -5,7 +5,7 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@spautz/node-library-template': file:.yalc/@spautz/node-library-template
+  '@spautz/basic-library-template': file:.yalc/@spautz/basic-library-template
   '@spautz/react-library-template': file:.yalc/@spautz/react-library-template
 
 importers:
@@ -24,9 +24,9 @@ importers:
       '@remix-run/serve':
         specifier: 1.18.1
         version: 1.18.1
-      '@spautz/node-library-template':
-        specifier: file:.yalc/@spautz/node-library-template
-        version: file:.yalc/@spautz/node-library-template
+      '@spautz/basic-library-template':
+        specifier: file:.yalc/@spautz/basic-library-template
+        version: file:.yalc/@spautz/basic-library-template
       '@spautz/react-library-template':
         specifier: file:.yalc/@spautz/react-library-template
         version: file:.yalc/@spautz/react-library-template(react@18.2.0)
@@ -1151,8 +1151,8 @@ packages:
     resolution: {integrity: sha512-t09vSN3MdfsyCHoFcTRCH/iUtG7OJ0CsjzB8cjAmKc/va/kIgeDI/TxsigdncE/4be734m0cvIYwNaV4i2XqAw==}
     engines: {node: '>=10'}
 
-  '@spautz/node-library-template@file:.yalc/@spautz/node-library-template':
-    resolution: {directory: .yalc/@spautz/node-library-template, type: directory}
+  '@spautz/basic-library-template@file:.yalc/@spautz/basic-library-template':
+    resolution: {directory: .yalc/@spautz/basic-library-template, type: directory}
 
   '@spautz/react-library-template@file:.yalc/@spautz/react-library-template':
     resolution: {directory: .yalc/@spautz/react-library-template, type: directory}
@@ -5304,11 +5304,11 @@ snapshots:
 
   '@sindresorhus/is@4.6.0': {}
 
-  '@spautz/node-library-template@file:.yalc/@spautz/node-library-template': {}
+  '@spautz/basic-library-template@file:.yalc/@spautz/basic-library-template': {}
 
   '@spautz/react-library-template@file:.yalc/@spautz/react-library-template(react@18.2.0)':
     dependencies:
-      '@spautz/node-library-template': file:.yalc/@spautz/node-library-template
+      '@spautz/basic-library-template': file:.yalc/@spautz/basic-library-template
       react: 18.2.0
 
   '@szmarczak/http-timer@4.0.6':

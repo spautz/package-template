@@ -1,7 +1,7 @@
 {
   "name": "node18-cjs",
   "private": true,
-  "description": "External-test for @spautz/node-library-template using Node v18",
+  "description": "External-test for @spautz/basic-library-template using Node v18",
   "engines": {
     "node": "^18"
   },
@@ -15,7 +15,7 @@
     "external-test:ci": "./internal-test-script/internal-test-script.js"
   },
   "dependencies": {
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template"
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template"
   },
   "devDependencies": {}
 }

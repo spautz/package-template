@@ -178,9 +178,9 @@ importers:
         specifier: 2.0.3
         version: 2.0.3
 
-  packages/backend-only-library-template: {}
-
   packages/basic-library-template: {}
+
+  packages/browser-only-library-template: {}
 
   packages/react-library-template:
     dependencies:
@@ -190,6 +190,8 @@ importers:
       react:
         specifier: ^16.9.0 || ^17 || ^18 || ^19
         version: 19.1.0
+
+  packages/server-only-library-template: {}
 
 packages:
 

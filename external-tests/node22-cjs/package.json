@@ -1,7 +1,7 @@
 {
   "name": "node22-cjs",
   "private": true,
-  "description": "External-test for @spautz/node-library-template using Node v22",
+  "description": "External-test for @spautz/basic-library-template using Node v22",
   "engines": {
     "node": "^22"
   },
@@ -15,7 +15,7 @@
     "external-test:ci": "./internal-test-script/internal-test-script.js"
   },
   "dependencies": {
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template"
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template"
   },
   "devDependencies": {}
 }

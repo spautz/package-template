@@ -5,13 +5,13 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  '@spautz/node-library-template': file:.yalc/@spautz/node-library-template
+  '@spautz/basic-library-template': file:.yalc/@spautz/basic-library-template
   '@spautz/react-library-template': file:.yalc/@spautz/react-library-template
 
 dependencies:
-  '@spautz/node-library-template':
-    specifier: file:/app-cra5-react18/.yalc/@spautz/node-library-template
-    version: file:.yalc/@spautz/node-library-template
+  '@spautz/basic-library-template':
+    specifier: file:/app-cra5-react18/.yalc/@spautz/basic-library-template
+    version: file:.yalc/@spautz/basic-library-template
   '@spautz/react-library-template':
     specifier: file:/app-cra5-react18/.yalc/@spautz/react-library-template
     version: file:.yalc/@spautz/react-library-template(react@18.2.0)
@@ -10649,9 +10649,9 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  file:.yalc/@spautz/node-library-template:
-    resolution: {directory: .yalc/@spautz/node-library-template, type: directory}
-    name: '@spautz/node-library-template'
+  file:.yalc/@spautz/basic-library-template:
+    resolution: {directory: .yalc/@spautz/basic-library-template, type: directory}
+    name: '@spautz/basic-library-template'
     version: 0.3.1+375e2fcb
     dev: false
 
@@ -10663,6 +10663,6 @@ packages:
     peerDependencies:
       react: ^16.9.0 || ^17 || ^18 || ^19
     dependencies:
-      '@spautz/node-library-template': file:.yalc/@spautz/node-library-template
+      '@spautz/basic-library-template': file:.yalc/@spautz/basic-library-template
       react: 18.2.0
     dev: false

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-import { helloWorld } from '@spautz/node-library-template';
+import { helloWorld } from '@spautz/basic-library-template';
 
 if (helloWorld !== 'Hello World!') {
-  throw new Error('@spautz/node-library-template did not export "Hello World!"');
+  throw new Error('@spautz/basic-library-template did not export "Hello World!"');
 }
 
 console.log('helloWorld: ', helloWorld);

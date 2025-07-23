@@ -26,14 +26,17 @@
       "cache": false,
       "persistent": true
     },
-
     // An abstract "all packages" dependency for repo-wide workspace tasks.
     // This should exactly match the package-level `dependencies` task below -- we just have to explicitly list
     // the packages. See https://github.com/vercel/turborepo/discussions/7481
     "//#w:dependencies": {
-      "dependsOn": ["@spautz/node-library-template#build", "@spautz/react-library-template#build"]
+      "dependsOn": [
+        "@spautz/basic-library-template#build",
+        "@spautz/browser-only-library-template#build",
+        "@spautz/react-library-template#build",
+        "@spautz/server-only-library-template#build"
+      ]
     },
-
     // Lint checks cover the whole repo, so packages have to be resolvable
     "//#w:lint": {
       "dependsOn": ["w:dependencies"],
@@ -43,12 +46,10 @@
       "dependsOn": ["w:dependencies"],
       "outputLogs": "new-only"
     },
-
     // Typecheck only target the root's own files: not repo-wide
     "//#w:typecheck": {
       "outputLogs": "new-only"
     },
-
     // -----------------------------------------------------------------------
     // Special tasks for packages
 
@@ -58,7 +59,6 @@
     "pipeline-ci": {
       "dependsOn": ["typecheck", "lint:verify", "test:ci", "build"]
     },
-
     // -----------------------------------------------------------------------
     // Package tasks
 
@@ -70,7 +70,6 @@
     "topo": {
       "dependsOn": ["^topo"]
     },
-
     // Individual/standalone package tasks
     "build": {
       "dependsOn": ["^build"],

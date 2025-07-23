@@ -33,7 +33,7 @@
     "all:ci": "bun run       typecheck && bun run lint     && bun run test:ci && bun run build"
   },
   "dependencies": {
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
     "react": "18.2.0",
     "react-dom": "18.2.0"

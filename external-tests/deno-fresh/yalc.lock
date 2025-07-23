@@ -1,7 +1,7 @@
 {
   "version": "v1",
   "packages": {
-    "@spautz/node-library-template": {
+    "@spautz/basic-library-template": {
       "signature": "5938ab727d7f291dce8bcab3983acd85",
       "pure": true
     },

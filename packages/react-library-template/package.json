@@ -1,7 +1,7 @@
 {
   "name": "@spautz/react-library-template",
   "version": "0.3.1",
-  "description": "My opinionated template for a React library",
+  "description": "My opinionated template for a React JS library",
   "keywords": [],
   "license": "MIT",
   "homepage": "https://github.com/spautz/package-template/blob/main/packages/react-library-template#readme",
@@ -38,7 +38,6 @@
   },
   "main": "./dist/cjs/index.cjs",
   "module": "./dist/esm/index.js",
-  "jsnext:main": "./dist/esm/index.js",
   "types": "./dist/esm/index.d.ts",
   "sideEffects": false,
   "scripts": {

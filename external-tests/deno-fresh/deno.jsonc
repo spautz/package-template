@@ -35,7 +35,7 @@
   "imports": {
     // Can only use path aliases for the Yalc's packages, not true import aliases
     // Related issue: https://github.com/denoland/deno/issues/18474
-    "#spautz/node-library-template": "./.yalc/@spautz/node-library-template/dist/esm/index.js",
+    "#spautz/basic-library-template": "./.yalc/@spautz/basic-library-template/dist/esm/index.js",
     "#spautz/react-library-template": "./.yalc/@spautz/react-library-template/dist/esm/index.js",
     "$fresh/": "https://deno.land/x/fresh@1.6.3/",
     "$std/": "https://deno.land/std@0.211.0/",

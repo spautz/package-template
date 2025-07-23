@@ -53,7 +53,7 @@
     "@remix-run/node": "1.18.1",
     "@remix-run/react": "1.18.1",
     "@remix-run/serve": "1.18.1",
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
     "isbot": "3.6.12",
     "react": "18.2.0",
@@ -73,7 +73,7 @@
   "pnpm": {
     "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
     "overrides": {
-      "@spautz/node-library-template": "$@spautz/node-library-template",
+      "@spautz/basic-library-template": "$@spautz/basic-library-template",
       "@spautz/react-library-template": "$@spautz/react-library-template"
     }
   }

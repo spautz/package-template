@@ -42,7 +42,7 @@
     "all:ci": "pnpm run       typecheck && pnpm run lint     && pnpm run test:ci && pnpm run build"
   },
   "dependencies": {
-    "@spautz/node-library-template": "file:.yalc/@spautz/node-library-template",
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template"
   },
   "devDependencies": {
@@ -83,7 +83,7 @@
   "pnpm": {
     "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
     "overrides": {
-      "@spautz/node-library-template": "$@spautz/node-library-template",
+      "@spautz/basic-library-template": "$@spautz/basic-library-template",
       "@spautz/react-library-template": "$@spautz/react-library-template"
     }
   }

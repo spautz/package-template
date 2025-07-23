@@ -1,7 +1,7 @@
 {
-  "name": "@spautz/node-library-template",
+  "name": "@spautz/browser-only-library-template",
   "version": "0.3.1",
-  "description": "My opinionated template for a NodeJS library",
+  "description": "My opinionated template for a browser-only JS library",
   "keywords": [],
   "license": "MIT",
   "homepage": "https://github.com/spautz/package-template/blob/main/packages/node-library-template#readme",
