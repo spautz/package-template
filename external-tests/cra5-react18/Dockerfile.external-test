@@ -3,17 +3,17 @@
 # Local packages must be Yalc'd into this directory BEFORE building this image
 # (via ../../scripts/update-external-tests.sh)
 
-FROM node:18.19.0-bullseye-slim as base-environment
+FROM node:18.19.0-bullseye-slim AS base-environment
 WORKDIR /app-cra5-react18
 RUN corepack enable
 
-FROM base-environment as base-deps
+FROM base-environment AS base-deps
 
 COPY package.json pnpm-lock.yam[l]  ./
 COPY .yalc  .yalc/
 RUN pnpm install
 
-FROM base-deps as base-app
+FROM base-deps AS base-app
 
 COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
@@ -29,17 +29,17 @@ EXPOSE 3000
 #   'run-ci'  = all project checks, but for CI
 #   'run-dev' = spin up a local dev server
 
-FROM base-app as run-all
-CMD pnpm run all
+FROM base-app AS run-all
+CMD ["pnpm", "run", "all"]
 
-FROM base-app as run-ci
-CMD pnpm run all:ci
+FROM base-app AS run-ci
+CMD ["pnpm", "run", "all:ci"]
 
-FROM base-app as run-dev
-CMD pnpm run start
+FROM base-app AS run-dev
+CMD ["pnpm", "run", "start"]
 
 
-FROM run-all as default
+FROM run-all AS default
 
 LABEL external-test.name="cra5-react18"
 LABEL external-test.artifact.1="/app-cra5-react18/pnpm-lock.yaml"

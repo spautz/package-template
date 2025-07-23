@@ -5,17 +5,17 @@
 
 ARG NODE_VERSION=16
 
-FROM node:${NODE_VERSION}-bullseye-slim as base-environment
+FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
 WORKDIR /app-node16-esm
 RUN corepack enable
 
-FROM base-environment as base-deps
+FROM base-environment AS base-deps
 
 COPY package.json package-lock.jso[n]  ./
 COPY .yalc  .yalc/
 RUN npm install
 
-FROM base-deps as base-app
+FROM base-deps AS base-app
 
 COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
@@ -27,13 +27,13 @@ RUN npm run clean
 #   'run-all' = all project checks
 #   'run-ci'  = all project checks, but for CI
 
-FROM base-app as run-all
-CMD npm run external-test
+FROM base-app AS run-all
+CMD ["npm", "run", "external-test"]
 
-FROM base-app as run-ci
-CMD npm run external-test:ci
+FROM base-app AS run-ci
+CMD ["npm", "run", "external-test:ci"]
 
 
-FROM run-all as default
+FROM run-all AS default
 LABEL external-test-name="node16-esm"
 LABEL external-test.artifact.1="/app-node16-esm/package-lock.json"

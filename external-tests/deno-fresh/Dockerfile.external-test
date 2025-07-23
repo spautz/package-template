@@ -3,16 +3,16 @@
 # Local packages must be Yalc'd into this directory BEFORE building this image
 # (via ../../scripts/update-external-tests.sh)
 
-FROM denoland/deno:alpine-1.46.3 as base-environment
+FROM denoland/deno:alpine-1.46.3 AS base-environment
 WORKDIR /app-deno-fresh
 
 # @TODO: Need some good versioning
 
-FROM base-environment as base-deps
+FROM base-environment AS base-deps
 
 # @TODO
 
-FROM base-deps as base-app
+FROM base-deps AS base-app
 
 # @TODO
 
@@ -25,16 +25,16 @@ EXPOSE 8000
 #   'run-ci'  = all project checks, but for CI
 #   'run-dev' = spin up a local dev server
 
-FROM base-app as run-all
+FROM base-app AS run-all
 CMD echo "TODO: deno-fresh external test"
 
-FROM base-app as run-ci
+FROM base-app AS run-ci
 CMD echo "TODO: deno-fresh external test"
 
-FROM base-app as run-dev
+FROM base-app AS run-dev
 CMD echo "TODO: deno-fresh external test"
 
 
-FROM run-all as default
+FROM run-all AS default
 
 LABEL external-test.name="deno-fresh"
