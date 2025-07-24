@@ -4,12 +4,12 @@
   "description": "My opinionated template for a browser-only JS library",
   "keywords": [],
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/packages/node-library-template#readme",
+  "homepage": "https://github.com/spautz/package-template/blob/main/packages/browser-only-library-template#readme",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/spautz/package-template.git",
-    "directory": "packages/node-library-template"
+    "directory": "packages/browser-only-library-template"
   },
   "author": {
     "name": "Steven Pautz",
@@ -100,7 +100,7 @@
     },
     {
       "path": "./dist/esm/index.js",
-      "import": "{ helloWorld }",
+      "import": "{ browserOnlyValue }",
       "limit": "50 B"
     }
   ]

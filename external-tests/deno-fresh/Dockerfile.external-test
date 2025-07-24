@@ -26,13 +26,13 @@ EXPOSE 8000
 #   'run-dev' = spin up a local dev server
 
 FROM base-app AS run-all
-CMD echo "TODO: deno-fresh external test"
+CMD ["echo", "TODO: deno-fresh external test"]
 
 FROM base-app AS run-ci
-CMD echo "TODO: deno-fresh external test"
+CMD ["echo", "TODO: deno-fresh external test"]
 
 FROM base-app AS run-dev
-CMD echo "TODO: deno-fresh external test"
+CMD ["echo", "TODO: deno-fresh external test"]
 
 
 FROM run-all AS default
