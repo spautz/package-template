@@ -12,7 +12,7 @@
   },
   "author": {
     "name": "Steven Pautz",
-    "url": "https://github.com/spautz/"
+    "url": "https://stevenpautz.com"
   },
   "source": "./src/main.tsx",
   "type": "module",
