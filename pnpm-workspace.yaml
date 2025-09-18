@@ -1,3 +1,20 @@
+# General settings
+engineStrict: true
+linkWorkspacePackages: true
+packageManagerStrictVersion: true
+strictDepBuilds: true
+verifyDepsBeforeRun: error
+
+onlyBuiltDependencies:
+- "@biomejs/biome"
+- "esbuild"
+ignoredBuiltDependencies:
+- "core-js"
+- "core-js-pure"
+- "unrs-resolver"
+
+# Workspace
+
 packages:
   - packages/*
   - demos/*
