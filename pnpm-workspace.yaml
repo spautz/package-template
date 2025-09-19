@@ -1,6 +1,7 @@
 # General settings
 engineStrict: true
 linkWorkspacePackages: true
+minimumReleaseAge: 1440 # 1 day
 packageManagerStrictVersion: true
 strictDepBuilds: true
 verifyDepsBeforeRun: error
@@ -29,8 +30,8 @@ catalog:
   '@size-limit/esbuild': 11.2.0
   '@size-limit/esbuild-why': 11.2.0
   '@size-limit/file': 11.2.0
-  '@types/react': 19.1.10
-  '@types/react-dom': 19.1.7
+  '@types/react': 19.1.13
+  '@types/react-dom': 19.1.9
   publint: 0.3.12
   size-limit: 11.2.0
   source-map-explorer: 2.5.3
