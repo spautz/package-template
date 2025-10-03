@@ -22,17 +22,17 @@ packages:
   - docs-website
 
 catalog:
-  react: 19.1.1
-  react-dom: 19.1.1
-  typescript: 5.9.2
+  react: 19.2.0
+  react-dom: 19.2.0
+  typescript: 5.9.3
   # For libraries/packages:
   '@arethetypeswrong/cli': 0.18.2
   '@size-limit/esbuild': 11.2.0
   '@size-limit/esbuild-why': 11.2.0
   '@size-limit/file': 11.2.0
-  '@types/react': 19.1.13
-  '@types/react-dom': 19.1.9
-  publint: 0.3.12
+  '@types/react': 19.2.0
+  '@types/react-dom': 19.2.0
+  publint: 0.3.13
   size-limit: 11.2.0
   source-map-explorer: 2.5.3
   tsup: 8.5.0
@@ -57,10 +57,10 @@ catalogs:
     react: ^18.2.0
     react-dom: ^18.2.0
   react19:
-    '@types/react': ^19.1.8
-    '@types/react-dom': ^19.1.6
-    react: ^19.1.0
-    react-dom: ^19.1.0
+    '@types/react': ^19.2.0
+    '@types/react-dom': ^19.2.0
+    react: ^19.2.0
+    react-dom: ^19.2.0
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
     typescript: 5.2.x
