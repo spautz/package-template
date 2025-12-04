@@ -22,13 +22,11 @@
     "noEmit": true,
     "removeComments": false,
     "sourceMap": true,
-    // Javascript Support
-    "allowJs": true,
-    "checkJs": true,
     // Interop Constraints
     "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "isolatedDeclarations": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     // Language and Environment

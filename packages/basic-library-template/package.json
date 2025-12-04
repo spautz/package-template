@@ -67,8 +67,8 @@
     "typecheck": "tsc -p ./tsconfig.json --noEmit",
     "____ BUILD & VALIDATION TASKS ______________________________________": "",
     "build:clean": "rimraf --glob ./dist ./*.tgz",
-    "build:lib": "tsdown",
-    "build:lib:watch": "tsdown --watch",
+    "build:lib": "tsdown --config ./tsdown.config.ts",
+    "build:lib:watch": "tsdown --config ./tsdown.config.ts --watch",
     "build:verify": "publint --strict && size-limit",
     "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src",
     "size-check": "size-limit --why"
@@ -82,7 +82,7 @@
     "publint": "catalog:",
     "size-limit": "catalog:",
     "source-map-explorer": "catalog:",
-    "tsup": "catalog:"
+    "tsdown": "catalog:"
   },
   "peerDependencies": {},
   "size-limit": [

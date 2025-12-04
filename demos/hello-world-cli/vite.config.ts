@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
+import { defineConfig, type UserConfig } from 'vite';
 
-export default defineConfig({
+const viteConfig: UserConfig = defineConfig({
   build: {
     sourcemap: true,
     rollupOptions: {
@@ -9,3 +9,5 @@ export default defineConfig({
     },
   },
 });
+
+export default viteConfig;

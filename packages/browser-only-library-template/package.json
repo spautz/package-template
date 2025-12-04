@@ -53,14 +53,14 @@
   "sideEffects": false,
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
-    "prepack": "pnpm run clean && pnpm run build",
+    "prepack": "pnpm run clean && turbo run build",
     "postpack": "pnpm run build:verifypack",
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci --ui=stream",
-    "build": "pnpm run build:clean && pnpm run build:cjs && pnpm run build:esm && pnpm run build:verify",
+    "build": "pnpm run build:clean && pnpm run build:lib && pnpm run build:verify",
     "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
-    "dev": "pnpm run build:esm:watch",
+    "dev": "pnpm run build:lib:watch",
     "lint": "biome check --write .",
     "lint:verify": "biome check .",
     "publish:yalc": "yalc publish --sig --push --replace",
@@ -72,10 +72,8 @@
     "typecheck": "tsc -p ./tsconfig.json --noEmit",
     "____ BUILD & VALIDATION TASKS ______________________________________": "",
     "build:clean": "rimraf --glob ./dist ./*.tgz",
-    "build:cjs": "tsup src/index.ts --format cjs --dts --outDir=./dist/cjs/ --tsconfig=./tsconfig.build-cjs.json",
-    "build:cjs:watch": "pnpm run build:cjs --watch",
-    "build:esm": "tsc -p tsconfig.build-esm.json",
-    "build:esm:watch": "pnpm run build:esm --watch",
+    "build:lib": "tsdown --config ./tsdown.config.ts",
+    "build:lib:watch": "tsdown --config ./tsdown.config.ts --watch",
     "build:verify": "publint --strict && size-limit",
     "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src",
     "size-check": "size-limit --why"
@@ -89,7 +87,7 @@
     "publint": "catalog:",
     "size-limit": "catalog:",
     "source-map-explorer": "catalog:",
-    "tsup": "catalog:"
+    "tsdown": "catalog:"
   },
   "peerDependencies": {},
   "size-limit": [
