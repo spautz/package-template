@@ -1,7 +1,7 @@
 import { helloWorld } from '@spautz/basic-library-template';
 
 const sayHello = (): void => {
-  // biome-ignore lint/suspicious/noConsole: This is a demo using the console
+  // eslint-disable-next-line no-console
   console.log(helloWorld);
 };
 
