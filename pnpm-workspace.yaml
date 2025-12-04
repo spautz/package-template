@@ -17,6 +17,7 @@ ignoredBuiltDependencies:
 - "unrs-resolver"
 
 trustPolicyExclude:
+- "detect-port@1.6.1"
 - "semver@6.3.1"
 
 # Workspace
