@@ -13,6 +13,7 @@
     "noUnusedParameters": true,
     "strict": true,
     // Modules
+    "allowImportingTsExtensions": true,
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "resolvePackageJsonExports": true,

@@ -1,1 +1,1 @@
-export { baseConfig as default } from '../../tsdown-base-config.js';
+export { baseConfig as default } from '../../tsdown-base-config.ts';

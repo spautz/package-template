@@ -12,5 +12,5 @@
   "access": "restricted",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["@spautz/package-template--*"]
+  "ignore": ["@spautz/package-template-*"]
 }
