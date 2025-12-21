@@ -27,10 +27,16 @@ pnpm_or_bun install --frozen-lockfile --prefer-offline
 
 # Run all normal commands and all CI commands. This is overkill and duplicates a lot of work,
 # but also helps catch any intermittent errors. Suitable for running before lunch or teatime.
+pnpm run clean
 pnpm_or_bun run packages:all
-pnpm_or_bun run all:all
 pnpm_or_bun run packages:all:ci
+
+pnpm run clean
+pnpm_or_bun run all
 pnpm_or_bun run all:ci
+
+pnpm run clean
+pnpm_or_bun run all:all
 
 ###################################################################################################
 # Standard teardown for all scripts

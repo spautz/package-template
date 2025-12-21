@@ -1,7 +1,7 @@
 # General settings
 engineStrict: true
 linkWorkspacePackages: true
-minimumReleaseAge: 1440 # 1 day
+minimumReleaseAge: 7200 # 5 days
 packageManagerStrictVersion: true
 strictDepBuilds: true
 trustPolicy: no-downgrade

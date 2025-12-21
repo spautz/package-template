@@ -7,7 +7,7 @@
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/spautz/package-template.git",
+    "url": "git+https://github.com/spautz/package-template.git",
     "directory": "demos/hello-world-ui"
   },
   "author": {
@@ -40,12 +40,12 @@
   },
   "dependencies": {
     "@spautz/basic-library-template": "workspace:^",
-    "@spautz/react-library-template": "workspace:^"
+    "@spautz/react-library-template": "workspace:^",
+    "react": "catalog:",
+    "react-dom": "catalog:"
   },
   "devDependencies": {
     "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:"
+    "@types/react-dom": "catalog:"
   }
 }
