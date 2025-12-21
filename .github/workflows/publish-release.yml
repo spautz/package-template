@@ -23,7 +23,7 @@ jobs:
       matrix:
         package-name: [basic-library-template, react-library-template, browser-only-library-template, server-only-library-template]
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v6.0.1
         with:
           fetch-depth: 0
 
