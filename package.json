@@ -79,7 +79,7 @@
     "changesets-format-with-issue-links": "0.3.0",
     "glob": "13.0.0",
     "husky": "9.1.7",
-    "jsdom": "27.2.0",
+    "jsdom": "27.3.0",
     "lint-staged": "16.2.7",
     "lodash": "4.17.21",
     "only-allow": "1.2.2",
