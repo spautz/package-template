@@ -143,19 +143,6 @@ importers:
       '@spautz/basic-library-template':
         specifier: workspace:^
         version: link:../../packages/basic-library-template
-      react:
-        specifier: 'catalog:'
-        version: 19.2.3
-      react-dom:
-        specifier: 'catalog:'
-        version: 19.2.3(react@19.2.3)
-    devDependencies:
-      '@types/react':
-        specifier: 'catalog:'
-        version: 19.2.7
-      '@types/react-dom':
-        specifier: 'catalog:'
-        version: 19.2.3(@types/react@19.2.7)
 
   demos/hello-world-ui:
     dependencies:

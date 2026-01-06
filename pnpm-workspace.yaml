@@ -5,6 +5,7 @@ minimumReleaseAge: 7200 # 5 days
 packageManagerStrictVersion: true
 strictDepBuilds: true
 trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 129600 # 90 days
 verifyDepsBeforeRun: error
 
 allowBuilds:
@@ -13,10 +14,6 @@ allowBuilds:
   "core-js-pure": false
   "esbuild": true
   "unrs-resolver": false
-
-trustPolicyExclude:
-- "detect-port@1.6.1"
-- "semver@6.3.1"
 
 # Workspace
 
