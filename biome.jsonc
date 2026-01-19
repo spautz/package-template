@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
   "assist": {
     "actions": {
       "source": {
@@ -23,7 +23,7 @@
       // Biome's formatter currently erases comments from yaml files
       "!**/*.yaml",
       // Each external-test has its own linting config, following the conventions of its framework
-      "!**/external-tests/**"
+      "!**/external-tests"
     ],
     // 2mb
     "maxSize": 2097152
@@ -51,7 +51,8 @@
       "correctness": {
         "noUnusedVariables": "error",
         "useHookAtTopLevel": "error",
-        "noUndeclaredVariables": "error"
+        "noUndeclaredVariables": "error",
+        "noUnusedImports": "error"
       },
       "suspicious": {
         "noExplicitAny": "error",
@@ -72,7 +73,9 @@
         "useNumberNamespace": "error",
         "useSelfClosingElements": "error",
         "useSingleVarDeclarator": "error",
-        "useTemplate": "error"
+        "useTemplate": "error",
+        "useImportType": "error",
+        "useExportType": "error"
       },
       // "nursery": {
       //   "useImportType": "error",
@@ -81,7 +84,7 @@
       //   "noNodejsModules": "error"
       // },
       "performance": {
-        "noDelete": "error"
+        "noDelete": "warn"
       },
       "complexity": {
         "noForEach": "warn",

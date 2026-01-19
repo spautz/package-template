@@ -1,3 +1,5 @@
+// biome-ignore-all lint/performance/noDelete: Delete to avoid publishing unnecessary fields
+
 module.exports = {
   hooks: {
     beforePacking(pkg) {
