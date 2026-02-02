@@ -3,6 +3,7 @@
   "ui": "tui",
 
   "globalDependencies": [".pnpmfile.cjs", "tsconfig*"],
+  "globalEnv": ["CI", "SKIP_THE_BUILD"],
 
   "tasks": {
     // -----------------------------------------------------------------------

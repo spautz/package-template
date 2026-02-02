@@ -36,6 +36,7 @@
       "deno": "./wrong-environment.ts",
       "node": "./wrong-environment.ts",
       "react-server": "./wrong-environment.ts",
+      "local-dev": "./src/index.ts",
       "import": {
         "types": "./dist/esm/index.d.ts",
         "default": "./dist/esm/index.js"
