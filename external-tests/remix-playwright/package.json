@@ -50,8 +50,8 @@
   },
   "dependencies": {
     "@remix-run/css-bundle": "1.18.1",
-    "@remix-run/node": "1.18.1",
-    "@remix-run/react": "1.18.1",
+    "@remix-run/node": "2.17.2",
+    "@remix-run/react": "2.17.4",
     "@remix-run/serve": "1.18.1",
     "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template",
     "@spautz/react-library-template": "file:.yalc/@spautz/react-library-template",
@@ -67,7 +67,7 @@
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
     "cross-env": "7.0.3",
-    "eslint": "8.38.0",
+    "eslint": "9.26.0",
     "typescript": "5.0.4"
   },
   "pnpm": {
