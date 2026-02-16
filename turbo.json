@@ -34,12 +34,7 @@
     // This should exactly match the package-level `dependencies` task below -- we just have to explicitly list
     // the packages. See https://github.com/vercel/turborepo/discussions/7481
     "//#w:dependencies": {
-      "dependsOn": [
-        "@spautz/basic-library-template#build",
-        "@spautz/browser-only-library-template#build",
-        "@spautz/react-library-template#build",
-        "@spautz/server-only-library-template#build"
-      ]
+      "dependsOn": ["@spautz/basic-library-template#build", "@spautz/react-library-template#build"]
     },
     // Lint checks cover the whole repo, so packages have to be resolvable
     "//#w:lint": {

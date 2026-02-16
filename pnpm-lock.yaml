@@ -250,33 +250,6 @@ importers:
         specifier: 'catalog:'
         version: 0.20.3(@arethetypeswrong/core@0.18.2)(@typescript/native-preview@7.0.0-dev.20251202.1)(publint@0.3.17)(typescript@5.9.3)
 
-  packages/browser-only-library-template:
-    devDependencies:
-      '@arethetypeswrong/cli':
-        specifier: 'catalog:'
-        version: 0.18.2
-      '@size-limit/esbuild':
-        specifier: 'catalog:'
-        version: 12.0.0(size-limit@12.0.0(jiti@2.6.1))
-      '@size-limit/esbuild-why':
-        specifier: 'catalog:'
-        version: 12.0.0(size-limit@12.0.0(jiti@2.6.1))
-      '@size-limit/file':
-        specifier: 'catalog:'
-        version: 12.0.0(size-limit@12.0.0(jiti@2.6.1))
-      publint:
-        specifier: 'catalog:'
-        version: 0.3.17
-      size-limit:
-        specifier: 'catalog:'
-        version: 12.0.0(jiti@2.6.1)
-      source-map-explorer:
-        specifier: 'catalog:'
-        version: 2.5.3
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.20.3(@arethetypeswrong/core@0.18.2)(@typescript/native-preview@7.0.0-dev.20251202.1)(publint@0.3.17)(typescript@5.9.3)
-
   packages/react-library-template:
     dependencies:
       '@spautz/basic-library-template':
@@ -310,33 +283,6 @@ importers:
       react-dom:
         specifier: 'catalog:'
         version: 19.2.4(react@19.2.4)
-      size-limit:
-        specifier: 'catalog:'
-        version: 12.0.0(jiti@2.6.1)
-      source-map-explorer:
-        specifier: 'catalog:'
-        version: 2.5.3
-      tsdown:
-        specifier: 'catalog:'
-        version: 0.20.3(@arethetypeswrong/core@0.18.2)(@typescript/native-preview@7.0.0-dev.20251202.1)(publint@0.3.17)(typescript@5.9.3)
-
-  packages/server-only-library-template:
-    devDependencies:
-      '@arethetypeswrong/cli':
-        specifier: 'catalog:'
-        version: 0.18.2
-      '@size-limit/esbuild':
-        specifier: 'catalog:'
-        version: 12.0.0(size-limit@12.0.0(jiti@2.6.1))
-      '@size-limit/esbuild-why':
-        specifier: 'catalog:'
-        version: 12.0.0(size-limit@12.0.0(jiti@2.6.1))
-      '@size-limit/file':
-        specifier: 'catalog:'
-        version: 12.0.0(size-limit@12.0.0(jiti@2.6.1))
-      publint:
-        specifier: 'catalog:'
-        version: 0.3.17
       size-limit:
         specifier: 'catalog:'
         version: 12.0.0(jiti@2.6.1)
