@@ -24,6 +24,7 @@ run_command() {
 
   echo "$FULL_COMMAND"
   $FULL_COMMAND
+  return $?
 }
 
 # Given a command like `run_npm_command("jest" "--version")`, this will look for a directly-runnable command

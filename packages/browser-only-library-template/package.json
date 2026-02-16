@@ -1,6 +1,6 @@
 {
   "name": "@spautz/browser-only-library-template",
-  "version": "0.3.1",
+  "version": "0.0.1",
   "description": "My opinionated template for a browser-only JS library",
   "keywords": [],
   "license": "MIT",
@@ -55,7 +55,6 @@
   "scripts": {
     "____ HOOKS _________________________________________________________": "",
     "prepack": "pnpm run clean && turbo run build",
-    "postpack": "pnpm run build:verifypack",
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci --ui=stream",
@@ -76,7 +75,6 @@
     "build:lib": "tsdown --config ./tsdown.config.ts",
     "build:lib:watch": "tsdown --config ./tsdown.config.ts --watch",
     "build:verify": "publint --strict && size-limit",
-    "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src",
     "size-check": "size-limit --why"
   },
   "dependencies": {},

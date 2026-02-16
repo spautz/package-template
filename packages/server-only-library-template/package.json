@@ -1,6 +1,6 @@
 {
   "name": "@spautz/server-only-library-template",
-  "version": "0.3.1",
+  "version": "0.0.1",
   "description": "My opinionated template for a server-only JS library",
   "keywords": [],
   "license": "MIT",
@@ -73,7 +73,7 @@
     "build:lib": "tsdown --config ./tsdown.config.ts",
     "build:lib:watch": "tsdown --config ./tsdown.config.ts --watch",
     "build:verify": "publint --strict && size-limit",
-    "build:verifypack": "ls *.tgz | xargs -I {} attw {} --exclude-entrypoints internal-raw-src",
+    "build:verifypack": "ls *.tgz | xargs -I {} attw {}",
     "size-check": "size-limit --why"
   },
   "dependencies": {},
