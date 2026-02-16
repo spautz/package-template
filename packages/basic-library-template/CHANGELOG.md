@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+### Minor Changes
+
+- Version bump to test package publishing updates ([7eb680c](https://github.com/spautz/package-template/commit/7eb680c171edb777f5b7c4c1f682707762b95f4d))
+
 ## 0.3.1
 
 ### Patch Changes
