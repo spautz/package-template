@@ -10,6 +10,11 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  # pnpm doesn't like the package & branch changes that happen when preparing a release,
+  # and `verifyDepsBeforeRun` causes failures. So we'll disable the hooks that activate pnpm.
+  HUSKY: 0
+
 jobs:
   prepare-release-pr:
     name: Prepare PR for release

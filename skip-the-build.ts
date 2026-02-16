@@ -1,20 +1,15 @@
-// @ts-nocheck
+import { defineSkipTheBuildConfig, presets, type SkipTheBuildConfig } from 'skip-the-build';
 
-const env = import.meta?.env || process.env;
-
-const skipTheBuildSettings = {
+const skipTheBuildSettings: SkipTheBuildConfig = defineSkipTheBuildConfig({
   // When enabled, apps will *directly consume* packages' source code,
   // instead of going through the package's `dist/`.
   // This is orders of magnitude faster for local dev, but it can conceal
   // mistakes because it's not how real packages work.
   // By default it's enabled for local dev and disabled for CI.
-  whenToSkip: {
-    // @TODO: Fix/integrate skip-the-build package
-    default: env.SKIP_THE_BUILD == null ? !env.CI : env.SKIP_THE_BUILD,
-  },
+  extend: presets.default,
   settings: {
-    importConditionName: 'local-dev',
+    exportConditionName: 'local-dev',
   },
-} as const;
+});
 
 export default skipTheBuildSettings;

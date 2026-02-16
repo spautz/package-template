@@ -1,18 +1,11 @@
-import { defineConfig, type UserConfig } from 'vite';
-import skipTheBuildSettings from '../../skip-the-build.ts';
+import { withSkipTheBuild } from '@skip-the-build/vite';
+import type { UserConfig } from 'vite';
 
-// @TODO: Fix/integrate skip-the-build package
-const customImportConditions = ['import', 'default'];
-if (skipTheBuildSettings.whenToSkip.default) {
-  customImportConditions.unshift(skipTheBuildSettings.settings.importConditionName);
-}
+import skipTheBuildConfig from '../../skip-the-build.ts';
 
-const viteConfig: UserConfig = defineConfig({
+const viteConfig: UserConfig = await withSkipTheBuild(skipTheBuildConfig, {
   build: {
     sourcemap: true,
-  },
-  resolve: {
-    conditions: customImportConditions,
   },
 });
 

@@ -2,7 +2,7 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
 
-  "globalDependencies": [".pnpmfile.cjs", "tsconfig*"],
+  "globalDependencies": ["*.js", "*.json", "*.ts"],
   "globalEnv": ["CI", "SKIP_THE_BUILD"],
 
   "tasks": {

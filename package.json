@@ -86,8 +86,8 @@
     "only-allow": "1.2.2",
     "rimraf": "6.1.2",
     "tiny-immutable-set": "1.3.1",
-    "turbo": "2.7.6",
     "tsdown": "catalog:",
+    "turbo": "2.7.6",
     "typescript": "catalog:",
     "vite": "catalog:",
     "vitest": "catalog:",
@@ -98,5 +98,9 @@
     "*.{js,jsx,ts,tsx,cjs,mjs,cts,mts}": [
       "biome check --write"
     ]
+  },
+  "dependencies": {
+    "@skip-the-build/vite": "file:.yalc/@skip-the-build/vite",
+    "skip-the-build": "file:.yalc/skip-the-build"
   }
 }
