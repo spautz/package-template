@@ -39,12 +39,11 @@
     "size-check": "source-map-explorer dist/**/*.js"
   },
   "dependencies": {
-    "@skip-the-build/vite": "file:.yalc/@skip-the-build/vite",
+    "@skip-the-build/vite": "1.0.0",
     "@spautz/basic-library-template": "workspace:^",
     "@spautz/react-library-template": "workspace:^",
     "react": "catalog:",
-    "react-dom": "catalog:",
-    "skip-the-build": "file:.yalc/skip-the-build"
+    "react-dom": "catalog:"
   },
   "devDependencies": {
     "@types/react": "catalog:",
