@@ -1,0 +1,15 @@
+# Documentation Index
+
+Welcome to the documentation. For the most detailed information, please refer to the files under `./docs/llms/`.
+
+To use the MCP server locally:
+- `npx @spautz/react-library-template mcp`
+- `node ./node_modules/@spautz/react-library-template/dist/mcp/server.js`
+
+## Core Resources
+- [Introduction to System](./docs/llms/intro.md): Overview of the system.
+- [API Reference](./docs/llms/api.md): Detailed API endpoints.
+- [Usage Guide](./docs/llms/usage.md): How to use the tools.
+
+## Other Information
+- [FAQ](./faq.md)

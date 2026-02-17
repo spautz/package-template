@@ -25,10 +25,12 @@
     "docs/",
     "src/",
     "LICENSE",
-    "*.md"
+    "*.md",
+    "*.txt"
   ],
   "source": "./src/index.ts",
   "type": "module",
+  "bin": "./dist/mcp/cli.js",
   "exports": {
     ".": {
       "local-dev": "./src/index.ts",
@@ -41,6 +43,7 @@
         "default": "./dist/cjs/index.cjs"
       }
     },
+    "./mcp": "./dist/mcp/server.js",
     "./package.json": "./package.json"
   },
   "main": "./dist/cjs/index.cjs",
@@ -54,7 +57,7 @@
     "____ STANDARD PACKAGE TASKS ________________________________________": "",
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci --ui=stream",
-    "build": "pnpm run build:clean && pnpm run build:lib && pnpm run build:verify",
+    "build": "pnpm run build:clean && pnpm run build:lib && pnpm run build:mcp && pnpm run build:verify",
     "clean": "pnpm run \"/^.*:clean$/\" && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:lib:watch",
     "lint": "biome check --write .",
@@ -69,13 +72,16 @@
     "____ BUILD & VALIDATION TASKS ______________________________________": "",
     "build:clean": "rimraf --glob ./dist ./*.tgz",
     "build:lib": "tsdown --config ./tsdown.config.ts",
+    "build:mcp": "tsdown --config ./tsdown.mcp.config.ts",
     "build:lib:watch": "tsdown --config ./tsdown.config.ts --watch",
     "build:verify": "publint --strict && size-limit",
     "build:verifypack": "ls *.tgz | xargs -I {} attw {}",
     "size-check": "size-limit --why"
   },
   "dependencies": {
-    "@spautz/basic-library-template": "workspace:^"
+    "@modelcontextprotocol/sdk": "^1.26.0",
+    "@spautz/basic-library-template": "workspace:^",
+    "zod": "^4.0.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "catalog:",
