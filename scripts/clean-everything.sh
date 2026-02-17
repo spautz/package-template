@@ -43,16 +43,25 @@ run_command "rm -rf
 for DIRECTORY in '.' 'docs-website' 'demos/*' 'external-tests/*' 'packages/*' ; do
   run_command "rm -rf
     $DIRECTORY/.astro/
+    $DIRECTORY/.cache/
+    $DIRECTORY/.cache-loader/
+    $DIRECTORY/.docusaurus/
+    $DIRECTORY/.next/
+    $DIRECTORY/.nuxt/
     $DIRECTORY/.output/
+    $DIRECTORY/.react-router/
+    $DIRECTORY/.svelte-kit/
     $DIRECTORY/.turbo/
     $DIRECTORY/.wrangler/
     $DIRECTORY/.yalc/
+    $DIRECTORY/_fresh/
     $DIRECTORY/build/
     $DIRECTORY/coverage/
     $DIRECTORY/dist/
     $DIRECTORY/e2e-test-output/
     $DIRECTORY/legacy-types/
     $DIRECTORY/node_modules/
+    $DIRECTORY/out/
     $DIRECTORY/playwright-report/
     $DIRECTORY/public/build/
     $DIRECTORY/storybook-static/

@@ -55,8 +55,12 @@ playwright-report/
 .cache-loader/
 .docusaurus/
 .next/
+.nuxt/
+.output/
 .react-router/
+.svelte-kit/
 .turbo/
+.wrangler/
 _fresh/
 build/
 dist/

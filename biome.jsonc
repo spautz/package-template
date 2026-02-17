@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.3.11/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
   "assist": {
     "actions": {
       "source": {
@@ -16,14 +16,17 @@
     "includes": [
       // These are in addition to .gitignore
       "**",
+      "!**/.yalc",
       "!**/*.log",
       "!package-lock.json",
       "!pnpm-lock.yaml",
       "!yarn.lock",
+      // Generated files
+      "!**/routeTree.gen.ts",
       // Biome's formatter currently erases comments from yaml files
       "!**/*.yaml",
       // Each external-test has its own linting config, following the conventions of its framework
-      "!**/external-tests"
+      "!external-tests"
     ],
     // 2mb
     "maxSize": 2097152
@@ -32,6 +35,15 @@
     "formatWithErrors": true,
     "indentStyle": "space",
     "lineWidth": 100
+  },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
+  "html": {
+    // For processing astro/svelte/etc. As of 2.3.14 / February 2026 this isn't ready.
+    // "experimentalFullSupportEnabled": true
   },
   "javascript": {
     "formatter": {
@@ -48,17 +60,20 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "complexity": {
+        "noForEach": "warn",
+        "noStaticOnlyClass": "error",
+        "noBannedTypes": "error",
+        "useLiteralKeys": "off"
+      },
       "correctness": {
         "noUnusedVariables": "error",
         "useHookAtTopLevel": "error",
         "noUndeclaredVariables": "error",
         "noUnusedImports": "error"
       },
-      "suspicious": {
-        "noExplicitAny": "error",
-        "noConsole": "warn",
-        "noEmptyInterface": "error",
-        "noRedundantUseStrict": "error"
+      "performance": {
+        "noDelete": "warn"
       },
       "style": {
         "noInferrableTypes": "error",
@@ -77,20 +92,27 @@
         "useImportType": "error",
         "useExportType": "error"
       },
-      // "nursery": {
-      //   "useImportType": "error",
-      //   "useExportType": "error",
-      //   "noUnusedImports": "error",
-      //   "noNodejsModules": "error"
-      // },
-      "performance": {
-        "noDelete": "warn"
-      },
-      "complexity": {
-        "noForEach": "warn",
-        "noStaticOnlyClass": "error",
-        "noBannedTypes": "error"
+      "suspicious": {
+        "noExplicitAny": "error",
+        "noConsole": "warn",
+        "noEmptyInterface": "error",
+        "noRedundantUseStrict": "error"
       }
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": ["**/*.astro", "**/*.svelte"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            // Not yet supported
+            // https://github.com/biomejs/biome/issues/2233
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    }
+  ]
 }

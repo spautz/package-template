@@ -55,7 +55,7 @@
     "all": "turbo run pipeline-all",
     "all:ci": "turbo run pipeline-ci --ui=stream",
     "build": "pnpm run build:clean && pnpm run build:lib && pnpm run build:verify",
-    "clean": "pnpm run build:clean && pnpm run test:clean && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
+    "clean": "pnpm run \"/^.*:clean$/\" && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:lib:watch",
     "lint": "biome check --write .",
     "lint:verify": "biome check .",
@@ -88,7 +88,6 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "size-limit": "catalog:",
-    "source-map-explorer": "catalog:",
     "tsdown": "catalog:"
   },
   "peerDependencies": {

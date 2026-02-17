@@ -30,12 +30,14 @@
       "cache": false,
       "persistent": true
     },
+
     // An abstract "all packages" dependency for repo-wide workspace tasks.
     // This should exactly match the package-level `dependencies` task below -- we just have to explicitly list
     // the packages. See https://github.com/vercel/turborepo/discussions/7481
     "//#w:dependencies": {
       "dependsOn": ["@spautz/basic-library-template#build", "@spautz/react-library-template#build"]
     },
+
     // Lint checks cover the whole repo, so packages have to be resolvable
     "//#w:lint": {
       "dependsOn": ["w:dependencies"],
@@ -45,19 +47,22 @@
       "dependsOn": ["w:dependencies"],
       "outputLogs": "new-only"
     },
+
     // Typecheck only target the root's own files: not repo-wide
     "//#w:typecheck": {
       "outputLogs": "new-only"
     },
+
     // -----------------------------------------------------------------------
     // Special tasks for packages
 
     "pipeline-all": {
-      "dependsOn": ["typecheck", "lint", "test", "build"]
+      "dependsOn": ["typecheck", "lint", "test", "build", "build-storybook"]
     },
     "pipeline-ci": {
-      "dependsOn": ["typecheck", "lint:verify", "test:ci", "build"]
+      "dependsOn": ["typecheck", "lint:verify", "test:ci", "build", "build-storybook"]
     },
+
     // -----------------------------------------------------------------------
     // Package tasks
 
@@ -65,14 +70,31 @@
     "dependencies": {
       "dependsOn": ["^build"]
     },
+
     // Topographic dependencies are abstract, since there's no 'topo' task to run
     "topo": {
       "dependsOn": ["^topo"]
     },
+
     // Individual/standalone package tasks
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"],
+      "outputs": [
+        ".astro/**",
+        ".next/**",
+        ".nuxt/**",
+        ".output/**",
+        ".react-router/**",
+        ".svelte-kit/**",
+        ".nuxt/**",
+        "!.next/cache/**",
+        "_fresh/**",
+        "build/**",
+        "dist/**",
+        "legacy-types/**",
+        "out/**",
+        "public/build/**"
+      ],
       "outputLogs": "new-only"
     },
     "build:watch": {
@@ -80,6 +102,10 @@
       "cache": false,
       "persistent": true,
       "interactive": true
+    },
+    "build-storybook": {
+      "dependsOn": ["^build"],
+      "outputLogs": "new-only"
     },
     "dev": {
       "dependsOn": ["^build"],

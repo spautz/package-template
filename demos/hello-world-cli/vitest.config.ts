@@ -1,3 +1,8 @@
-import baseConfig from '../../vitest.config.js';
+import { mergeConfig, type UserConfig } from 'vite';
 
-export default baseConfig;
+import baseVitestConfig from '../../vitest.config.js';
+import viteConfig from './vite.config.js';
+
+const vitestConfig: UserConfig = mergeConfig(viteConfig, baseVitestConfig);
+
+export default vitestConfig;
