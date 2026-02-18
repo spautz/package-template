@@ -76,9 +76,7 @@
     "size-check": "size-limit --why"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.26.0",
-    "@spautz/basic-library-template": "workspace:^",
-    "zod": "^4.0.0"
+    "@spautz/basic-library-template": "workspace:^"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "catalog:",
