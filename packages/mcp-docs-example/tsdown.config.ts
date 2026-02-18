@@ -1,9 +1,11 @@
 import { defineConfig, type UserConfig } from 'tsdown';
+import { baseConfigValues } from '../../tsdown-base-config.ts';
 
 const mcpConfig: UserConfig = defineConfig({
-  entry: ['src/mcp/cli.ts', 'src/mcp/server.ts'],
+  ...baseConfigValues,
+  entry: ['src/cli.ts', 'src/mcp-server.ts'],
   format: 'esm',
-  outDir: './dist/mcp',
+  outDir: './dist',
   platform: 'node',
   dts: false,
   // ESM gets .js extensions instead of .mjs

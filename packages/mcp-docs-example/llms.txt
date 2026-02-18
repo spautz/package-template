@@ -3,7 +3,7 @@
 Welcome to the documentation. For the most detailed information, please refer to the files under `./docs/llms/`.
 
 To use the MCP server locally:
-- `npx @spautz/mcp-docs-example`
+- `npx @spautz/mcp-docs-example mcp`
 - `node ./node_modules/@spautz/mcp-docs-example/dist/mcp/server.js`
 
 ## Core Resources

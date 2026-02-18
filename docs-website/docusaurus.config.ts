@@ -13,7 +13,6 @@ const config: Config = {
   // GitHub pages deployment config.
   organizationName: 'spautz',
   projectName: 'package-template',
-  trailingSlash: false,
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
