@@ -39,7 +39,7 @@
     "size-check": "source-map-explorer dist/**/*.js"
   },
   "dependencies": {
-    "@skip-the-build/vite": "1.0.0",
+    "@skip-the-build/vite": "1.1.0",
     "@spautz/basic-library-template": "workspace:^",
     "@spautz/react-library-template": "workspace:^",
     "react": "catalog:",
