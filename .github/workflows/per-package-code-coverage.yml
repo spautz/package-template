@@ -44,3 +44,4 @@ jobs:
           path-to-lcov: packages/${{ matrix.package-name }}/coverage/lcov.info
           base-path: packages/${{ matrix.package-name }}
           git-branch: x-cov-${{ matrix.package-name }}
+          fail-on-error: false
