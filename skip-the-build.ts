@@ -9,6 +9,7 @@ const skipTheBuildSettings: SkipTheBuildConfig = defineSkipTheBuildConfig({
   extend: presets.default,
   settings: {
     exportConditionName: 'local-dev',
+    validateConfig: false,
   },
 });
 

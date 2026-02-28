@@ -15,6 +15,10 @@ allowBuilds:
   "esbuild": true
   "unrs-resolver": false
 
+minimumReleaseAgeExclude:
+  - "skip-the-build"
+  - "@skip-the-build/*"
+
 # Workspace
 
 packages:
