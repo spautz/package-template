@@ -47,6 +47,7 @@ for DIRECTORY in '.' 'docs-website' 'demos/*' 'external-tests/*' 'packages/*' ; 
     $DIRECTORY/.cache-loader/
     $DIRECTORY/.docusaurus/
     $DIRECTORY/.next/
+    $DIRECTORY/.nitro/
     $DIRECTORY/.nuxt/
     $DIRECTORY/.output/
     $DIRECTORY/.react-router/

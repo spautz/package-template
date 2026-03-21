@@ -33,21 +33,21 @@ catalog:
   '@types/react-dom': 19.2.3
   '@testing-library/jest-dom': 6.9.1
   '@testing-library/react': 16.3.2
-  '@vitest/coverage-v8': 4.0.18
-  '@vitest/ui': 4.0.18
+  '@vitest/coverage-v8': 4.1.0
+  '@vitest/ui': 4.1.0
   react: 19.2.4
   react-dom: 19.2.4
   source-map-explorer: 2.5.3
   typescript: 5.9.3
-  vitest: 4.0.18
+  vitest: 4.1.0
   # For packages/* only:
   '@arethetypeswrong/cli': 0.18.2
-  '@size-limit/esbuild': 12.0.0
-  '@size-limit/esbuild-why': 12.0.0
-  '@size-limit/file': 12.0.0
-  publint: 0.3.17
-  size-limit: 12.0.0
-  tsdown: 0.20.3
+  '@size-limit/esbuild': 12.0.1
+  '@size-limit/esbuild-why': 12.0.1
+  '@size-limit/file': 12.0.1
+  publint: 0.3.18
+  size-limit: 12.0.1
+  tsdown: 0.21.3
   # For demos/* only:
   vite: 7.3.1
 

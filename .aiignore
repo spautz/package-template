@@ -53,6 +53,7 @@ playwright-report/
 .cache-loader/
 .docusaurus/
 .next/
+.nitro/
 .nuxt/
 .output/
 .react-router/
