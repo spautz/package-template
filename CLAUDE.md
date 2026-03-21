@@ -4,10 +4,6 @@
 
 **Biome** replaces ESLint and Prettier. Use `biome check --write` to auto-fix.
 
-## Testing
-
-`mcp-docs-example` test scripts are **intentionally disabled** (`_DISABLED` suffix) — not a bug.
-
 ## External Tests Are Isolated
 
 `external-tests/` has its own workspace config and is not governed by root Biome or Turbo. Root config changes don't apply there.

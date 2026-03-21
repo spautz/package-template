@@ -2,10 +2,6 @@
 
 Welcome to the documentation. For the most detailed information, please refer to the files under `./docs/llms/`.
 
-To use the MCP server locally:
-- `npx @spautz/mcp-docs-example`
-- `node ./node_modules/@spautz/mcp-docs-example/dist/mcp/server.js`
-
 ## Core Resources
 - [Introduction to System](./docs/llms/intro.md): Overview of the system.
 - [API Reference](./docs/llms/api.md): Detailed API endpoints.
