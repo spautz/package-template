@@ -9,3 +9,7 @@
 # Hello World
 
 This is a blog post.
+
+<!-- truncate -->
+
+And this is the rest of the text.

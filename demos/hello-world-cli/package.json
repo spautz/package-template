@@ -41,5 +41,7 @@
   "dependencies": {
     "@spautz/basic-library-template": "workspace:^"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "typescript": "catalog:typescriptLTS"
+  }
 }

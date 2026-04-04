@@ -1,5 +1,9 @@
 {
-  "extends": ["../../tsconfig-base.typecheck-dom.json", "../../tsconfig-base.build-esm.json"],
+  "extends": [
+    "../../tsconfig-base.typecheck-dom.json",
+    "../../tsconfig-base.typecheck-modernonly.json",
+    "../../tsconfig-base.build-esm.json"
+  ],
   "compilerOptions": {
     "outDir": "dist/esm/",
     "declarationDir": "dist/esm/"

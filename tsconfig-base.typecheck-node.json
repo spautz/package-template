@@ -24,10 +24,8 @@
     "removeComments": false,
     "sourceMap": true,
     // Interop Constraints
-    "erasableSyntaxOnly": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedDeclarations": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     // Language and Environment
