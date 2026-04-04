@@ -32,9 +32,8 @@
     "verbatimModuleSyntax": true,
     // Language and Environment
     "jsx": "react-jsx",
-    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "lib": ["ES2022"],
     "moduleDetection": "force",
-    "target": "ES2024",
     // Completeness
     "skipLibCheck": true
   }

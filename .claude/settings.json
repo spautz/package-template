@@ -1,10 +1,42 @@
 {
+  "permissions": {
+    "allow": [
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git show *)",
+      "Bash(git status *)",
+      "Bash(pnpm info *)",
+      "Bash(pnpm install)",
+      "Bash(pnpm ls *)",
+      "Bash(pnpm run all*)",
+      "Bash(pnpm run build*)",
+      "Bash(pnpm run clean*)",
+      "Bash(pnpm run format*)",
+      "Bash(pnpm run lint*)",
+      "Bash(pnpm run packages:*)",
+      "Bash(pnpm run pipeline-*)",
+      "Bash(pnpm run test*)",
+      "Bash(pnpm run typecheck*)",
+      "Bash(pnpm run w:*)",
+      "Bash(pnpm why *)",
+      "WebFetch(domain:biomejs.dev)",
+      "WebFetch(domain:caniuse.com)",
+      "WebFetch(domain:developer.mozilla.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:nodejs.org)",
+      "WebFetch(domain:pnpm.io)",
+      "WebFetch(domain:registry.npmjs.org)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:www.w3.org)"
+    ],
+    "deny": ["Bash(pnpm run release*)", "Bash(pnpm run publish*)"]
+  },
   "sandbox": {
     "enabled": true,
     "filesystem": {
-      "allowRead": ["."],
+      "allowRead": [".", "$TMPDIR"],
       "denyRead": ["/", "~/"],
-      "allowWrite": ["."],
+      "allowWrite": [".", "$TMPDIR"],
       "denyWrite": ["/"]
     }
   }

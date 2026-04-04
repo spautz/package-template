@@ -1,4 +1,4 @@
 {
-  "extends": "../../tsconfig-base.typecheck.json",
+  "extends": ["../../tsconfig-base.typecheck-node.json"],
   "include": ["*.ts", "src"]
 }
