@@ -42,6 +42,6 @@
     "@spautz/basic-library-template": "workspace:^"
   },
   "devDependencies": {
-    "typescript": "catalog:typescriptLTS"
+    "typescript": "catalog:demos"
   }
 }

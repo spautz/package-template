@@ -79,21 +79,21 @@
     "@spautz/basic-library-template": "workspace:^"
   },
   "devDependencies": {
-    "@arethetypeswrong/cli": "catalog:",
-    "@size-limit/esbuild": "catalog:",
-    "@size-limit/esbuild-why": "catalog:",
-    "@size-limit/file": "catalog:",
-    "@testing-library/jest-dom": "catalog:",
-    "@testing-library/react": "catalog:",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:",
-    "@vitest/coverage-v8": "catalog:",
-    "@vitest/ui": "catalog:",
-    "publint": "catalog:",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "size-limit": "catalog:",
-    "tsdown": "catalog:"
+    "@arethetypeswrong/cli": "catalog:packages",
+    "@size-limit/esbuild": "catalog:packages",
+    "@size-limit/esbuild-why": "catalog:packages",
+    "@size-limit/file": "catalog:packages",
+    "@testing-library/jest-dom": "catalog:shared",
+    "@testing-library/react": "catalog:shared",
+    "@types/react": "catalog:packages",
+    "@types/react-dom": "catalog:packages",
+    "@vitest/coverage-v8": "catalog:shared",
+    "@vitest/ui": "catalog:shared",
+    "publint": "catalog:packages",
+    "react": "catalog:packages",
+    "react-dom": "catalog:packages",
+    "size-limit": "catalog:packages",
+    "tsdown": "catalog:packages"
   },
   "peerDependencies": {
     "react": "^16.9.0 || ^17 || ^18 || ^19"

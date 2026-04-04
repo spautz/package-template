@@ -47,6 +47,7 @@ to discuss your idea and make sure it is inline with the project goals.
 
 Eslint, Typescript, and Prettier enforce most code standards.
 A pre-push hook will validate the project against those standards.
+CI also runs `pnpm run catalogs:verify` to validate workspace catalog usage conventions.
 
 Running `pnpm run test` will check the code against unit tests and generate a code coverage report (in `coverage/`).
 This project's goal is to be near 100% code coverage.

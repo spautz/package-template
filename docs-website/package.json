@@ -40,8 +40,8 @@
     "@spautz/react-library-template": "workspace:^",
     "clsx": "2.1.1",
     "prism-react-renderer": "2.4.1",
-    "react": "catalog:",
-    "react-dom": "catalog:",
+    "react": "catalog:packages",
+    "react-dom": "catalog:packages",
     "react-live": "4.1.8"
   },
   "devDependencies": {
@@ -49,8 +49,8 @@
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
     "@tsconfig/docusaurus": "2.0.9",
-    "@types/react": "catalog:",
-    "@types/react-dom": "catalog:"
+    "@types/react": "catalog:packages",
+    "@types/react-dom": "catalog:packages"
   },
   "browserslist": {
     "production": [
