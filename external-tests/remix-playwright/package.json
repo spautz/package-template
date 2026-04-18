@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@remix-run/css-bundle": "1.18.1",
-    "@remix-run/node": "1.18.1",
+    "@remix-run/node": "2.17.2",
     "@remix-run/react": "1.18.1",
     "@remix-run/serve": "1.18.1",
     "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template",
