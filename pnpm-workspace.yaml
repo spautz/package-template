@@ -2,18 +2,16 @@
 blockExoticSubdeps: true
 engineStrict: true
 minimumReleaseAge: 7200 # 5 days
-packageManagerStrictVersion: true
+packageManagerStrictVersion: true # remove after pnpm 11
 strictDepBuilds: true
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 129600 # 90 days
 verifyDepsBeforeRun: error
 
 allowBuilds:
-  "@biomejs/biome": true
-  "core-js": false
-  "core-js-pure": false
-  "esbuild": true
-  "unrs-resolver": false
+  "@biomejs/biome@2.4.11": true
+  "core-js@3.45.1": false
+  "esbuild@0.27.4": true
 
 # Workspace
 
@@ -28,9 +26,9 @@ catalogs:
   shared:
     '@testing-library/jest-dom': 6.9.1
     '@testing-library/react': 16.3.2
-    '@vitest/coverage-v8': 4.1.2
-    '@vitest/ui': 4.1.2
-    vitest: 4.1.2
+    '@vitest/coverage-v8': 4.1.4
+    '@vitest/ui': 4.1.4
+    vitest: 4.1.4
   # Packages use (mostly) up-to-date dependencies and devDependencies
   packages:
     '@arethetypeswrong/cli': 0.18.2
@@ -41,20 +39,20 @@ catalogs:
     '@types/react': 19.2.14
     '@types/react-dom': 19.2.3
     publint: 0.3.18
-    react-dom: 19.2.4
-    react: 19.2.4
+    react-dom: 19.2.5
+    react: 19.2.5
     size-limit: 12.0.1
-    tsdown: 0.21.7
+    tsdown: 0.21.8
     typescript: 6.0.2
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
     '@types/node': 24.10.9
     '@types/react': 19.2.14
     '@types/react-dom': 19.2.3
-    react-dom: 19.2.4
-    react: 19.2.4
+    react-dom: 19.2.5
+    react: 19.2.5
     source-map-explorer: 2.5.3
-    typescript: 5.4.5
+    typescript: 5.5.4
     vite: 8.0.3
 
   # Library-specific catalogs help with isolated testing:
@@ -81,4 +79,4 @@ catalogs:
     react-dom: ^19.2.4
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
-    typescript: 5.4.x
+    typescript: 5.5.x
