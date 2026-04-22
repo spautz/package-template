@@ -25,7 +25,7 @@
     "lint": "biome check --write .",
     "lint:verify": "biome check .",
     "start": "turbo run build && docusaurus serve",
-    "typecheck": "tsc -p ./tsconfig.json --noEmit",
+    "typecheck": "tsgo -p ./tsconfig.json --noEmit",
     "____ DOCS TASKS ____________________________________________________": "",
     "deploy": "docusaurus deploy",
     "swizzle": "docusaurus swizzle",
