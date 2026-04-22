@@ -36,7 +36,7 @@ run_npm_command() {
   if command_exists "$EXEC"; then
     run_command $FULL_COMMAND
   else
-    run_command npx $FULL_COMMAND
+    run_command pnpm dlx $FULL_COMMAND
   fi
 }
 

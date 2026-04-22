@@ -44,7 +44,7 @@ fi
 if command_exists jest; then
   run_command "jest --clearCache"
 else
-  run_command "npx jest --clearCache"
+  run_command "pnpm dlx jest --clearCache"
 fi
 
 if command_exists pnpm; then
