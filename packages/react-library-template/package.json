@@ -59,7 +59,7 @@
     "clean": "pnpm run \"/^.*:clean$/\" && rimraf --glob ./node_modules/.cache ./.turbo ./*.log",
     "dev": "pnpm run build:lib:watch",
     "lint": "biome check --write .",
-    "lint:verify": "biome check .",
+    "lint:verify": "biome lint .",
     "publish:yalc": "yalc publish --sig --push --replace",
     "test:clean": "rimraf ./coverage",
     "test": "pnpm run test:clean       && vitest run --coverage",

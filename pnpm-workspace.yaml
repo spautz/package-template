@@ -9,9 +9,8 @@ trustPolicyIgnoreAfter: 129600 # 90 days
 verifyDepsBeforeRun: error
 
 allowBuilds:
-  "@biomejs/biome@2.4.11": true
-  "core-js@3.45.1": false
-  "esbuild@0.27.4": true
+  "core-js": false
+  "esbuild@0.28.0": true
 
 # Workspace
 
@@ -23,34 +22,28 @@ packages:
 catalogs:
   # Shared = aligned between packages and demos
   # (There are some dependencies in common between packages/demos which are not aligned)
-  shared:
-    '@testing-library/jest-dom': 6.9.1
-    '@testing-library/react': 16.3.2
-    '@vitest/coverage-v8': 4.1.4
-    '@vitest/ui': 4.1.4
-    vitest: 4.1.4
   # Packages use (mostly) up-to-date dependencies and devDependencies
   packages:
     '@arethetypeswrong/cli': 0.18.2
-    '@size-limit/esbuild': 12.0.1
-    '@size-limit/esbuild-why': 12.0.1
-    '@size-limit/file': 12.0.1
+    '@size-limit/esbuild': 12.1.0
+    '@size-limit/esbuild-why': 12.1.0
+    '@size-limit/file': 12.1.0
     '@types/node': 24.10.9
     '@types/react': 19.2.14
     '@types/react-dom': 19.2.3
     publint: 0.3.18
-    react-dom: 19.2.5
     react: 19.2.5
-    size-limit: 12.0.1
-    tsdown: 0.21.8
-    typescript: 6.0.2
+    react-dom: 19.2.5
+    size-limit: 12.1.0
+    tsdown: 0.21.9
+    typescript: 6.0.3
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
     '@types/node': 24.10.9
     '@types/react': 19.2.14
     '@types/react-dom': 19.2.3
-    react-dom: 19.2.5
     react: 19.2.5
+    react-dom: 19.2.5
     source-map-explorer: 2.5.3
     typescript: 5.5.4
     vite: 8.0.3
@@ -77,6 +70,12 @@ catalogs:
     '@types/react-dom': ^19.2.3
     react: ^19.2.4
     react-dom: ^19.2.4
+  shared:
+    '@testing-library/jest-dom': 6.9.1
+    '@testing-library/react': 16.3.2
+    '@vitest/coverage-v8': 4.1.4
+    '@vitest/ui': 4.1.4
+    vitest: 4.1.4
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
     typescript: 5.5.x
