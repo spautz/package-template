@@ -46,7 +46,7 @@ catalogs:
     react-dom: 19.2.5
     source-map-explorer: 2.5.3
     typescript: 5.5.4
-    vite: 8.0.3
+    vite: 8.0.9
 
   # Library-specific catalogs help with isolated testing:
   # these are generally not used for normal dev
