@@ -1,0 +1,39 @@
+# syntax=docker/dockerfile:1
+
+# Local packages must be Yalc'd into this directory BEFORE building this image
+# (via ../../scripts/update-external-tests.sh)
+
+ARG NODE_VERSION=25
+
+FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
+WORKDIR /app-node25-pnpm-esm
+RUN npm install -g pnpm
+
+FROM base-environment AS base-deps
+
+COPY package.json package-lock.jso[n]  ./
+COPY .yalc  .yalc/
+RUN pnpm install
+
+FROM base-deps AS base-app
+
+COPY . ./
+# We need to reapply the lockfile from deps, in case it changed
+COPY --from=base-deps /app-node25-pnpm-esm/package-lock.json ./
+RUN pnpm run clean
+
+
+# A target for each check or test case. These are just for readability.
+#   'run-all' = all project checks
+#   'run-ci'  = all project checks, but for CI
+
+FROM base-app AS run-all
+CMD ["pnpm", "run", "external-test"]
+
+FROM base-app AS run-ci
+CMD ["pnpm", "run", "external-test:ci"]
+
+
+FROM run-all AS default
+LABEL external-test-name="node25-pnpm-esm"
+LABEL external-test.artifact.1="/app-node25-pnpm-esm/package-lock.json"

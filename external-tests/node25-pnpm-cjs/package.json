@@ -1,15 +1,21 @@
 {
-  "name": "node25-cjs",
+  "name": "node25-pnpm-cjs",
   "private": true,
   "description": "External-test for @spautz/basic-library-template using Node v25",
   "engines": {
     "node": "^25"
   },
-  "packageManager": "npm@11.3.0",
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.0.0",
+      "onFail": "download"
+    }
+  },
   "type": "commonjs",
   "scripts": {
     "____ FOR EXTERNAL-TEST ____________________________________________": "",
-    "preinstall": "npx only-allow npm",
+    "preinstall": "pnpm dlx only-allow pnpm",
     "clean": "true",
     "external-test": "./internal-test-script/internal-test-script.js",
     "external-test:ci": "./internal-test-script/internal-test-script.js"

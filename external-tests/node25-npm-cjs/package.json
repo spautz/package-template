@@ -1,12 +1,12 @@
 {
-  "name": "node25-esm",
+  "name": "node25-npm-cjs",
   "private": true,
   "description": "External-test for @spautz/basic-library-template using Node v25",
   "engines": {
     "node": "^25"
   },
   "packageManager": "npm@11.3.0",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
     "____ FOR EXTERNAL-TEST ____________________________________________": "",
     "preinstall": "npx only-allow npm",

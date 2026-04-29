@@ -1,0 +1,27 @@
+{
+  "name": "node25-pnpm-esm",
+  "private": true,
+  "description": "External-test for @spautz/basic-library-template using Node v25",
+  "engines": {
+    "node": "^25"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.0.0",
+      "onFail": "download"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "____ FOR EXTERNAL-TEST ____________________________________________": "",
+    "preinstall": "pnpm dlx only-allow pnpm",
+    "clean": "true",
+    "external-test": "./internal-test-script/internal-test-script.js",
+    "external-test:ci": "./internal-test-script/internal-test-script.js"
+  },
+  "dependencies": {
+    "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template"
+  },
+  "devDependencies": {}
+}

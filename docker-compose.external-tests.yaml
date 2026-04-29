@@ -187,20 +187,38 @@ services:
     working_dir: /app-node24-esm
     init: true
 
-  node25-cjs:
-    profiles: ["node25-cjs"]
+  node25-npm-cjs:
+    profiles: ["node25-npm-cjs"]
     build:
-      context: ./external-tests/node25-cjs
+      context: ./external-tests/node25-npm-cjs
       dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
-    working_dir: /app-node25-cjs
+    working_dir: /app-node25-npm-cjs
     init: true
 
-  node25-esm:
-    profiles: ["node25-esm"]
+  node25-npm-esm:
+    profiles: ["node25-npm-esm"]
     build:
-      context: ./external-tests/node25-esm
+      context: ./external-tests/node25-npm-esm
       dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
-    working_dir: /app-node25-esm
+    working_dir: /app-node25-npm-esm
+    init: true
+
+  node25-pnpm-cjs:
+    profiles: ["node25-pnpm-cjs"]
+    build:
+      context: ./external-tests/node25-pnpm-cjs
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node25-pnpm-cjs
+    init: true
+
+  node25-pnpm-esm:
+    profiles: ["node25-pnpm-esm"]
+    build:
+      context: ./external-tests/node25-pnpm-esm
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node25-pnpm-esm
     init: true

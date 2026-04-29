@@ -6,21 +6,20 @@
 ARG NODE_VERSION=25
 
 FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
-WORKDIR /app-node25-esm
-RUN corepack enable
+WORKDIR /app-node25-pnpm-cjs
 
 FROM base-environment AS base-deps
 
 COPY package.json package-lock.jso[n]  ./
 COPY .yalc  .yalc/
-RUN npm install
+RUN pnpm install
 
 FROM base-deps AS base-app
 
 COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
-COPY --from=base-deps /app-node25-esm/package-lock.json ./
-RUN npm run clean
+COPY --from=base-deps /app-node25-pnpm-cjs/package-lock.json ./
+RUN pnpm run clean
 
 
 # A target for each check or test case. These are just for readability.
@@ -28,12 +27,12 @@ RUN npm run clean
 #   'run-ci'  = all project checks, but for CI
 
 FROM base-app AS run-all
-CMD ["npm", "run", "external-test"]
+CMD ["pnpm", "run", "external-test"]
 
 FROM base-app AS run-ci
-CMD ["npm", "run", "external-test:ci"]
+CMD ["pnpm", "run", "external-test:ci"]
 
 
 FROM run-all AS default
-LABEL external-test-name="node25-esm"
-LABEL external-test.artifact.1="/app-node25-esm/package-lock.json"
+LABEL external-test-name="node25-pnpm-cjs"
+LABEL external-test.artifact.1="/app-node25-pnpm-cjs/package-lock.json"

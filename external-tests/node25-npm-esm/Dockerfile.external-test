@@ -6,7 +6,8 @@
 ARG NODE_VERSION=25
 
 FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
-WORKDIR /app-node25-cjs
+WORKDIR /app-node25-npm-esm
+RUN corepack enable
 
 FROM base-environment AS base-deps
 
@@ -18,7 +19,7 @@ FROM base-deps AS base-app
 
 COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
-COPY --from=base-deps /app-node25-cjs/package-lock.json ./
+COPY --from=base-deps /app-node25-npm-esm/package-lock.json ./
 RUN npm run clean
 
 
@@ -34,5 +35,5 @@ CMD ["npm", "run", "external-test:ci"]
 
 
 FROM run-all AS default
-LABEL external-test-name="node25-cjs"
-LABEL external-test.artifact.1="/app-node25-cjs/package-lock.json"
+LABEL external-test-name="node25-npm-esm"
+LABEL external-test.artifact.1="/app-node25-npm-esm/package-lock.json"
