@@ -186,3 +186,21 @@ services:
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-node24-esm
     init: true
+
+  node25-cjs:
+    profiles: ["node25-cjs"]
+    build:
+      context: ./external-tests/node25-cjs
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node25-cjs
+    init: true
+
+  node25-esm:
+    profiles: ["node25-esm"]
+    build:
+      context: ./external-tests/node25-esm
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-node25-esm
+    init: true

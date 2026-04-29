@@ -95,6 +95,8 @@ jobs:
             node22-esm,
             node24-cjs,
             node24-esm,
+            node25-cjs,
+            node25-esm,
           ]
 
     steps:
