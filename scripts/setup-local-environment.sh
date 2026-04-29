@@ -42,6 +42,9 @@ fi
 run_command "nvm install $(cat .nvmrc)"
 run_command "nvm use $(cat .nvmrc)"
 
+# Micro-nap to let Node and Corepack catch up
+sleep 0.1
+
 run_command "corepack enable"
 
 if ! command_exists pnpm; then
