@@ -7,7 +7,6 @@ ARG NODE_VERSION=25
 
 FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
 WORKDIR /app-node25-npm-esm
-RUN corepack enable
 
 FROM base-environment AS base-deps
 

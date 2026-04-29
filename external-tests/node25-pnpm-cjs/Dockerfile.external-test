@@ -7,6 +7,7 @@ ARG NODE_VERSION=25
 
 FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
 WORKDIR /app-node25-pnpm-cjs
+RUN npm install -g pnpm
 
 FROM base-environment AS base-deps
 

@@ -47,7 +47,7 @@ services:
       dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-deno-fresh
-    expose:
+    ports:
       - "8000:8000"
     volumes:
       - ./external-tests/deno-fresh/components:/app-deno-fresh/components:ro
