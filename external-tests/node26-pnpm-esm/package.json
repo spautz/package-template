@@ -1,9 +1,9 @@
 {
-  "name": "node25-pnpm-esm",
+  "name": "node26-pnpm-esm",
   "private": true,
-  "description": "External-test for @spautz/basic-library-template using Node v25",
+  "description": "External-test for @spautz/basic-library-template using Node v26",
   "engines": {
-    "node": "^25"
+    "node": "^26"
   },
   "devEngines": {
     "packageManager": {
