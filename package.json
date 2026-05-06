@@ -14,14 +14,14 @@
     "url": "https://stevenpautz.com"
   },
   "engines": {
-    "node": "^22 || ^24 || ^25"
+    "node": "^22 || ^24 || ^26"
   },
   "COMMENT_packageManager": "The old `packageManager` field is still required by Turborepo. Using it alongside `devEngines` causes annoying pnpm warnings, though.",
-  "packageManager": "pnpm@11.0.0+sha512.5bd187500e49cc6c3d891d973b432c02b844a5eb7209172c90a517a3ef4f579ed5c23d409b699e6a9dc418ff7b2b1890e63f6d74f1d3fc49848f37779c89c84c",
+  "packageManager": "pnpm@11.0.6+sha512.97f906e1da2bedac3df83cadae04b4753a130092dd49d55cd36825ad3e623e9df3f97754f8f259e699172a360fac569acf2f908e7732bdae3eddb2dcf7e121fd",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.0.0",
+      "version": "11.0.6",
       "onFail": "download"
     }
   },
@@ -80,11 +80,11 @@
   "devDependencies": {
     "@biomejs/biome": "2.4.13",
     "@changesets/cli": "2.31.0",
-    "@typescript/native-preview": "7.0.0-dev.20260424.2",
+    "@typescript/native-preview": "7.0.0-dev.20260430.1",
     "changesets-format-with-issue-links": "0.3.0",
     "glob": "13.0.6",
     "husky": "9.1.7",
-    "jsdom": "29.0.2",
+    "jsdom": "29.1.1",
     "lint-staged": "16.4.0",
     "lodash": "4.18.1",
     "only-allow": "1.2.2",
