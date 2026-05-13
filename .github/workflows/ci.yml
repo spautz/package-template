@@ -2,13 +2,18 @@ name: CI
 
 on: [push]
 
-permissions:
-  contents: read
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
 
 jobs:
   workspace-ci:
     name: Workspace CI
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         node-version: [22.x, 24.x, latest]
@@ -17,13 +22,14 @@ jobs:
       - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
           node-version: ${{ matrix.node-version }}
 
       - name: Check for a changelog entry
-        if: ${{ github.ref != 'refs/heads/prepare-release' && github.actor != 'dependabot[bot]' }}
+        if: ${{ github.ref != 'refs/heads/prepare-release' && !startsWith(github.ref_name, 'dependabot/') }}
         run: |
           pnpm run changelog:status:ci
 
@@ -40,12 +46,16 @@ jobs:
   package-ci:
     name: Package CI
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         package-name: [basic-library-template, react-library-template ]
 
     steps:
       - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
+        with:
+          persist-credentials: false
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
@@ -59,12 +69,16 @@ jobs:
   demo-ci:
     name: Demo CI
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         demo-name: [hello-world-cli, hello-world-ui]
 
     steps:
       - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
+        with:
+          persist-credentials: false
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
@@ -79,6 +93,8 @@ jobs:
   external-test-ci:
     name: External-Test CI
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       matrix:
         external-test-name:
@@ -103,6 +119,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
+        with:
+          persist-credentials: false
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:

@@ -6,9 +6,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: write
-  id-token: write
+permissions: {}
 
 jobs:
   publish-npm:
@@ -22,19 +20,30 @@ jobs:
     strategy:
       matrix:
         package-name: [basic-library-template, react-library-template ]
+    permissions:
+      contents: read # Required to clone the repository when this template is used in a private repo.
+      id-token: write # Required for npm trusted publishing via GitHub OIDC.
     steps:
       - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
           node-version: nvmrc
+          enable-package-manager-cache: false
 
       - name: Publish to NPM
         run: |
           cd packages/${{ matrix.package-name }}
           pnpm pack --out package-${{ matrix.package-name }}-%v.tgz
-          NPM_CONFIG_PROVENANCE=true  pnpm publish --tag next package-${{ matrix.package-name }}*.tgz
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          npm publish  --provenance --tag next  package-${{ matrix.package-name }}*.tgz
+
+      - name: Verify published provenance
+        run: |
+          mkdir verify-publish
+          cd verify-publish
+          npm init -y
+          npm install ${{ matrix.package-name }}@next
+          npm audit signatures --json --include-attestations

@@ -6,9 +6,7 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-permissions:
-  contents: write
-  pull-requests: write
+permissions: {}
 
 env:
   # pnpm doesn't like the package & branch changes that happen when preparing a release,
@@ -25,17 +23,18 @@ jobs:
         && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         && github.ref_protected == true
     permissions:
-      contents: write
-      pull-requests: write
-      id-token: write
+      contents: write # Required to push the release-prep branch back to the repository.
+      pull-requests: write # Required to create or update the automated release PR.
     steps:
       - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - uses: ./.github/reusable-workflows/setup-repo
         with:
           node-version: nvmrc
+          enable-package-manager-cache: false
 
       - name: Prepare release
         run: pnpm run release:prep
