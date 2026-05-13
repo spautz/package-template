@@ -1,6 +1,7 @@
 name: GitHub Actions Security Analysis with zizmor 🌈
 
 on:
+  workflow_dispatch:
   push:
     branches: ["main"]
   pull_request:
