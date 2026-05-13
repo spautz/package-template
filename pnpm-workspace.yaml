@@ -37,19 +37,19 @@ catalogs:
     '@types/node': 24.10.9
     '@types/react': 19.2.14
     '@types/react-dom': 19.2.3
-    publint: 0.3.18
-    react: 19.2.5
-    react-dom: 19.2.5
+    publint: 0.3.19
+    react: 19.2.6
+    react-dom: 19.2.6
     size-limit: 12.1.0
-    tsdown: 0.21.10
+    tsdown: 0.22.0
     typescript: 6.0.3
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
     '@types/node': 24.10.9
     '@types/react': 19.2.14
     '@types/react-dom': 19.2.3
-    react: 19.2.5
-    react-dom: 19.2.5
+    react: 19.2.6
+    react-dom: 19.2.6
     source-map-explorer: 2.5.3
     typescript: 5.5.4
     vite: 8.0.9
