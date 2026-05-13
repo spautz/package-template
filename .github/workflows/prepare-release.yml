@@ -26,7 +26,7 @@ jobs:
       contents: write # Required to push the release-prep branch back to the repository.
       pull-requests: write # Required to create or update the automated release PR.
     steps:
-      - uses: actions/checkout@0c366fd6a839edf440554fa01a7085ccba70ac98
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -40,7 +40,7 @@ jobs:
         run: pnpm run release:prep
 
       - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@1c06494168d0ed3f75efd4e4e0c8412310a0b87a
+        uses: crazy-max/ghaction-import-gpg@e00cb83a68c1158b29afc5217dd0582cada6d172 # v4.4.0
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
@@ -49,7 +49,7 @@ jobs:
 
       - name: Create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@eec7ab75b2f71ddc8a223341c83a67f6f774c39f # zizmor: ignore[superfluous-actions] clearer and lower-maintenance than equivalent gh shell logic
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7.0.11 # zizmor: ignore[superfluous-actions] clearer and lower-maintenance than equivalent gh shell logic
         with:
           branch: prepare-release
           committer: Steven Pautz (Github Actions) <spautz@gmail.com>
