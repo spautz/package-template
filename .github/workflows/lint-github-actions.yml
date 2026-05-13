@@ -15,6 +15,7 @@ permissions: {}
 
 jobs:
   zizmor:
+    name: Zizmor
     runs-on: ubuntu-latest
     permissions:
       contents: read

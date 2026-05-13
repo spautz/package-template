@@ -62,9 +62,8 @@ jobs:
           node-version: nvmrc
 
       - name: Run CI checks for package
-        run: |
-          cd packages/${{ matrix.package-name }}
-          pnpm run all:ci
+        working-directory: packages/${{ matrix.package-name }}
+        run: pnpm run all:ci
 
   demo-ci:
     name: Demo CI
@@ -86,9 +85,8 @@ jobs:
           use-lockfile: false
 
       - name: Run CI checks for demo
-        run: |
-          cd demos/${{ matrix.demo-name }}
-          pnpm run all:ci
+        working-directory: demos/${{ matrix.demo-name }}
+        run: pnpm run all:ci
 
   external-test-ci:
     name: External-Test CI
@@ -128,9 +126,11 @@ jobs:
           use-lockfile: false
 
       - name: Yalc publish
-        run: |
-          ./scripts/update-external-test.sh ${{ matrix.external-test-name }}
+        env:
+          EXTERNAL_TEST_NAME: ${{ matrix.external-test-name }}
+        run: ./scripts/update-external-test.sh "$EXTERNAL_TEST_NAME"
 
       - name: Run CI checks for external-test
-        run: |
-          ./scripts/run-external-test.sh ${{ matrix.external-test-name }} run-ci
+        env:
+          EXTERNAL_TEST_NAME: ${{ matrix.external-test-name }}
+        run: ./scripts/run-external-test.sh "$EXTERNAL_TEST_NAME" run-ci

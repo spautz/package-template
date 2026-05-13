@@ -35,15 +35,19 @@ jobs:
           enable-package-manager-cache: false
 
       - name: Publish to NPM
+        env:
+          PACKAGE_NAME: ${{ matrix.package-name }}
+        working-directory: packages/${{ matrix.package-name }}
         run: |
-          cd packages/${{ matrix.package-name }}
-          pnpm pack --out package-${{ matrix.package-name }}-%v.tgz
-          npm publish  --provenance --tag next  package-${{ matrix.package-name }}*.tgz
+          pnpm pack --out "package-$PACKAGE_NAME-%v.tgz"
+          npm publish --provenance --tag next "package-$PACKAGE_NAME"*.tgz
 
       - name: Verify published provenance
+        env:
+          PACKAGE_NAME: ${{ matrix.package-name }}
         run: |
           mkdir verify-publish
           cd verify-publish
           npm init -y
-          npm install ${{ matrix.package-name }}@next
+          npm install "$PACKAGE_NAME@next"
           npm audit signatures --json --include-attestations

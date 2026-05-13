@@ -48,8 +48,8 @@ jobs:
           git_commit_gpgsign: true
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@eec7ab75b2f71ddc8a223341c83a67f6f774c39f
         id: cpr
+        uses: peter-evans/create-pull-request@eec7ab75b2f71ddc8a223341c83a67f6f774c39f # zizmor: ignore[superfluous-actions] clearer and lower-maintenance than equivalent gh shell logic
         with:
           branch: prepare-release
           committer: Steven Pautz (Github Actions) <spautz@gmail.com>
@@ -60,6 +60,9 @@ jobs:
 
       - name: Check outputs
         if: ${{ steps.cpr.outputs.pull-request-number }}
+        env:
+          PULL_REQUEST_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
+          PULL_REQUEST_URL: ${{ steps.cpr.outputs.pull-request-url }}
         run: |
-          echo "Pull Request Number - ${{ steps.cpr.outputs.pull-request-number }}"
-          echo "Pull Request URL - ${{ steps.cpr.outputs.pull-request-url }}"
+          echo "Pull Request Number - $PULL_REQUEST_NUMBER"
+          echo "Pull Request URL - $PULL_REQUEST_URL"
