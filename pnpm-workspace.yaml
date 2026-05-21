@@ -79,3 +79,6 @@ catalogs:
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
     typescript: 5.5.x
+
+configDependencies:
+  '@pnpm/pacquet': 0.2.2

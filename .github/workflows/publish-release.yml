@@ -17,9 +17,6 @@ jobs:
       (! github.event.push.head.repo.fork)
         && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         && github.ref_protected == true
-    strategy:
-      matrix:
-        package-name: [basic-library-template, react-library-template ]
     permissions:
       contents: read # Required to clone the repository when this template is used in a private repo.
       id-token: write # Required for npm trusted publishing via GitHub OIDC.
@@ -35,19 +32,22 @@ jobs:
           enable-package-manager-cache: false
 
       - name: Publish to NPM
-        env:
-          PACKAGE_NAME: ${{ matrix.package-name }}
-        working-directory: packages/${{ matrix.package-name }}
         run: |
-          pnpm pack --out "package-$PACKAGE_NAME-%v.tgz"
-          npm publish --provenance --tag next "package-$PACKAGE_NAME"*.tgz
+          pnpm -r --filter "./packages/*" exec pnpm pack --out package-%v.tgz
+          pnpm -r --filter "./packages/*" exec npm publish --provenance --tag next
 
       - name: Verify published provenance
-        env:
-          PACKAGE_NAME: ${{ matrix.package-name }}
         run: |
           mkdir verify-publish
           cd verify-publish
           npm init -y
-          npm install "$PACKAGE_NAME@next"
-          npm audit signatures --json --include-attestations
+
+          # Iterate through package directories to get names and verify
+          for dir in ../packages/*; do
+            if [ -d "$dir" ]; then
+              # Use --ignore-scripts to prevent execution of potentially malicious lifecycle scripts
+              PACKAGE_NAME=$(node -p "require('$dir/package.json').name")
+              npm install "$PACKAGE_NAME@next" --ignore-scripts
+              npm audit signatures --json --include-attestations
+            fi
+          done

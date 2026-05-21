@@ -1,3 +1,24 @@
+---
+lockfileVersion: '9.0'
+
+importers:
+
+  .:
+    configDependencies:
+      '@pnpm/pacquet':
+        specifier: 0.2.2
+        version: 0.2.2
+
+packages:
+
+  '@pnpm/pacquet@0.2.2':
+    resolution: {integrity: sha512-oFVVa150B29UfYU3kDaVPCWbSQkPRZ+boCNwsdtmNLujbsDOysaNdCq8gqG49As8BhaOmOp8HO+Cko8XvY2Ikg==}
+
+snapshots:
+
+  '@pnpm/pacquet@0.2.2': {}
+
+---
 lockfileVersion: '9.0'
 
 settings:
