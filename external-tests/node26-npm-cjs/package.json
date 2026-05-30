@@ -5,7 +5,7 @@
   "engines": {
     "node": "^26"
   },
-  "packageManager": "npm@11.3.0",
+  "packageManager": "npm@11.13.0",
   "type": "commonjs",
   "scripts": {
     "____ FOR EXTERNAL-TEST ____________________________________________": "",

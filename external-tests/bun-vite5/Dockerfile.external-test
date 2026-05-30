@@ -3,7 +3,7 @@
 # Local packages must be Yalc'd into this directory BEFORE building this image
 # (via ../../scripts/update-external-tests.sh)
 
-ARG BUN_VERSION=1
+ARG BUN_VERSION=1.3.14
 
 FROM oven/bun:${BUN_VERSION} AS base-environment
 WORKDIR /app-bun-vite5
