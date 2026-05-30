@@ -1,5 +1,6 @@
 # General settings
 blockExoticSubdeps: true
+confirmModulesPurge: false
 engineStrict: true
 minimumReleaseAge: 7200 # 5 days
 packageManagerStrictVersion: true # remove after pnpm 11
@@ -11,6 +12,9 @@ verifyDepsBeforeRun: error
 allowBuilds:
   "core-js": false
   "esbuild@0.28.0": true
+
+configDependencies:
+  '@pnpm/pacquet': 0.2.2-15
 
 # Workspace
 
@@ -25,9 +29,9 @@ catalogs:
   shared:
     '@testing-library/jest-dom': 6.9.1
     '@testing-library/react': 16.3.2
-    '@vitest/coverage-v8': 4.1.6
-    '@vitest/ui': 4.1.6
-    vitest: 4.1.6
+    '@vitest/coverage-v8': 4.1.7
+    '@vitest/ui': 4.1.7
+    vitest: 4.1.7
   # Packages use (mostly) up-to-date dependencies and devDependencies
   packages:
     '@arethetypeswrong/cli': 0.18.2
@@ -35,9 +39,9 @@ catalogs:
     '@size-limit/esbuild-why': 12.1.0
     '@size-limit/file': 12.1.0
     '@types/node': 24.10.9
-    '@types/react': 19.2.14
+    '@types/react': 19.2.15
     '@types/react-dom': 19.2.3
-    publint: 0.3.20
+    publint: 0.3.21
     react: 19.2.6
     react-dom: 19.2.6
     size-limit: 12.1.0
@@ -46,13 +50,13 @@ catalogs:
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
     '@types/node': 24.10.9
-    '@types/react': 19.2.14
+    '@types/react': 19.2.15
     '@types/react-dom': 19.2.3
     react: 19.2.6
     react-dom: 19.2.6
     source-map-explorer: 2.5.3
     typescript: 5.5.4
-    vite: 8.0.9
+    vite: 8.0.14
 
   # Library-specific catalogs help with isolated testing:
   # these are generally not used for normal dev
@@ -72,13 +76,10 @@ catalogs:
     react: ^18.2.0
     react-dom: ^18.2.0
   react19:
-    '@types/react': ^19.2.14
+    '@types/react': ^19.2.15
     '@types/react-dom': ^19.2.3
     react: ^19.2.4
     react-dom: ^19.2.4
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
     typescript: 5.5.x
-
-configDependencies:
-  '@pnpm/pacquet': 0.2.2
