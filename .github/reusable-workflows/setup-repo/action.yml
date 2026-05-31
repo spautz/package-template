@@ -22,8 +22,11 @@ runs:
     - name: Compute flags
       id: flags
       shell: bash
+      env:
+        ENABLE_PACKAGE_MANAGER_CACHE: ${{ inputs.enable-package-manager-cache }}
+        USE_LOCKFILE: ${{ inputs.use-lockfile }}
       run: |
-        if [[ "${{ inputs.enable-package-manager-cache }}" == "true" && "${{ inputs.use-lockfile }}" != "false" ]]; then
+        if [[ "$ENABLE_PACKAGE_MANAGER_CACHE" == "true" && "$USE_LOCKFILE" != "false" ]]; then
           echo "use-cache=true" >> $GITHUB_OUTPUT
         else
           echo "use-cache=false" >> $GITHUB_OUTPUT
