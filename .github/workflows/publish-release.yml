@@ -10,7 +10,7 @@ permissions: {}
 
 jobs:
   publish-npm:
-    name: Publish to NPM
+    name: Publish (stage) to NPM
     runs-on: ubuntu-latest
     # Only run for the original repo, and only the default branch, and only if it's properly protected
     if: |
@@ -19,7 +19,7 @@ jobs:
         && github.ref_protected == true
     permissions:
       contents: read # Required to clone the repository when this template is used in a private repo.
-      id-token: write # Required for npm trusted publishing via GitHub OIDC.
+      id-token: write # Required for npm trusted publishing via GitHub OIDC
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
@@ -31,23 +31,26 @@ jobs:
           node-version: nvmrc
           enable-package-manager-cache: false
 
-      - name: Publish to NPM
+      - name: Stage packages for npm release
+        shell: bash
         run: |
-          pnpm -r --filter "./packages/*" exec pnpm pack --out package-%v.tgz
-          pnpm -r --filter "./packages/*" exec npm publish --provenance --tag next
+          pnpm run release:stage > stage-results.json
 
-      - name: Verify published provenance
+      - name: Upload staged release metadata
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: staged-release-metadata
+          path: stage-results.json
+
+      - name: Summarize staged releases
+        shell: bash
         run: |
-          mkdir verify-publish
-          cd verify-publish
-          npm init -y
-
-          # Iterate through package directories to get names and verify
-          for dir in ../packages/*; do
-            if [ -d "$dir" ]; then
-              # Use --ignore-scripts to prevent execution of potentially malicious lifecycle scripts
-              PACKAGE_NAME=$(node -p "require('$dir/package.json').name")
-              npm install "$PACKAGE_NAME@next" --ignore-scripts
-              npm audit signatures --json --include-attestations
-            fi
-          done
+          {
+            echo '## Staged releases'
+            echo ''
+            echo 'Approval stays manual. Use the stage IDs below with `pnpm stage approve <stage-id>` from a trusted local environment.'
+            echo ''
+            echo '```json'
+            cat stage-results.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

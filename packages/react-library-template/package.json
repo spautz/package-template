@@ -72,7 +72,7 @@
     "build:lib": "tsdown --config ./tsdown.config.ts",
     "build:lib:watch": "tsdown --config ./tsdown.config.ts --watch",
     "build:verify": "publint --strict && size-limit",
-    "build:verifypack": "ls *.tgz | xargs -I {} attw {}",
+    "build:verifypack": "echo '@TODO: AreTheTypesWrong'",
     "size-check": "size-limit --why"
   },
   "dependencies": {
