@@ -24,6 +24,9 @@ source ./scripts/helpers/helpers.sh
 
 run_command ./scripts/check-environment.sh
 
+run_command pwd
+run_command ls -al
+
 # Only use the lockfile if it exists: for many demos and external-tests it's better to ignore the
 # lockfile, to catch issues that package consumers might encounter when upgrading.
 if [ -f "./pnpm-lock.yaml" ]; then
