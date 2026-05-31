@@ -18,32 +18,39 @@ runs:
   steps:
     - uses: pnpm/action-setup@903f9c1a6ebcba6cf41d87230be49611ac97822e # v6.0.3
 
-    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-      if: ${{ inputs.node-version == 'nvmrc' && inputs.enable-package-manager-cache == 'true' }}
-      with:
-        node-version-file: .nvmrc
-        registry-url: 'https://registry.npmjs.org'
-        cache: 'pnpm'
-    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-      if: ${{ inputs.node-version == 'nvmrc' && inputs.enable-package-manager-cache != 'true' }}
-      with:
-        node-version-file: .nvmrc
-        registry-url: 'https://registry.npmjs.org'
-    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-      if: ${{ inputs.node-version != 'nvmrc' && inputs.enable-package-manager-cache == 'true' }}
-      with:
-        node-version: ${{ inputs.node-version }}
-        registry-url: 'https://registry.npmjs.org'
-        cache: 'pnpm'
-    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
-      if: ${{ inputs.node-version != 'nvmrc' && inputs.enable-package-manager-cache != 'true' }}
-      with:
-        node-version: ${{ inputs.node-version }}
-        registry-url: 'https://registry.npmjs.org'
+    # Disable the pnpm cache when asked to, or when the lockfile is not used
+    - name: Compute flags
+      id: flags
+      shell: bash
+      run: |
+        if [[ "${{ inputs.enable-package-manager-cache }}" == "true" && "${{ inputs.use-lockfile }}" != "false" ]]; then
+          echo "use-cache=true" >> $GITHUB_OUTPUT
+        else
+          echo "use-cache=false" >> $GITHUB_OUTPUT
+        fi
 
-    - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2
+    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      if: ${{ inputs.node-version == 'nvmrc' && steps.flags.outputs.use-cache == 'true' }}
       with:
-        bun-version: latest
+        node-version-file: .nvmrc
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
+    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      if: ${{ inputs.node-version == 'nvmrc' && steps.flags.outputs.use-cache != 'true' }}
+      with:
+        node-version-file: .nvmrc
+        registry-url: 'https://registry.npmjs.org'
+    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      if: ${{ inputs.node-version != 'nvmrc' && steps.flags.outputs.use-cache == 'true' }}
+      with:
+        node-version: ${{ inputs.node-version }}
+        registry-url: 'https://registry.npmjs.org'
+        cache: 'pnpm'
+    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6.4.0
+      if: ${{ inputs.node-version != 'nvmrc' && steps.flags.outputs.use-cache != 'true' }}
+      with:
+        node-version: ${{ inputs.node-version }}
+        registry-url: 'https://registry.npmjs.org'
 
     - name: Remove lockfile to loosen dependency tree
       if: ${{ inputs.use-lockfile == 'false' }}

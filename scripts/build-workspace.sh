@@ -23,20 +23,20 @@ source ./scripts/helpers/helpers.sh
 
 ./scripts/check-environment.sh
 
-pnpm_or_bun install --frozen-lockfile --prefer-offline
+pnpm install --frozen-lockfile --prefer-offline
 
 # Run all normal commands and all CI commands. This is overkill and duplicates a lot of work,
 # but also helps catch any intermittent errors. Suitable for running before lunch or teatime.
-pnpm_or_bun run clean
-pnpm_or_bun run packages:all
-pnpm_or_bun run packages:all:ci
+pnpm run clean
+pnpm run packages:all
+pnpm run packages:all:ci
 
-pnpm_or_bun run clean
-pnpm_or_bun run all
-pnpm_or_bun run all:ci
+pnpm run clean
+pnpm run all
+pnpm run all:ci
 
-pnpm_or_bun run clean
-pnpm_or_bun run all:all
+pnpm run clean
+pnpm run all:all
 
 # Also ensure that packing works: AreTheTypesWrong might not run outside of pack
 for DIRECTORY in packages/* ; do

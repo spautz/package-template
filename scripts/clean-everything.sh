@@ -33,7 +33,7 @@ fi
 # Remove any and all generated files
 
 if [ -d "./node_modules/" ]; then
-  pnpm_or_bun run clean
+  pnpm run clean
 fi
 
 run_command "rm -rf

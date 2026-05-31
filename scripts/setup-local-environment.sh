@@ -55,7 +55,7 @@ fi
 run_command "./scripts/check-environment.sh"
 
 # Ensure any lingering artifacts from earlier work have been cleaned out
-pnpm_or_bun install --frozen-lockfile --prefer-offline
+pnpm install --frozen-lockfile --prefer-offline
 
 ###################################################################################################
 # Standard teardown for all scripts
