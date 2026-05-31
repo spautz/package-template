@@ -59,7 +59,7 @@
     "dev": "pnpm run build:lib:watch",
     "lint": "biome check --write .",
     "lint:verify": "biome check .",
-    "publish:yalc": "yalc publish --sig --push --replace",
+    "publish:yalc": "pnpm run prepack && yalc publish --no-scripts --sig --push --replace",
     "test:clean": "rimraf ./coverage",
     "test": "pnpm run test:clean       && vitest run --coverage",
     "test:ci": "pnpm run test:clean    && vitest run --coverage --bail 1",
