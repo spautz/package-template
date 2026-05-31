@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-
 /** biome-ignore-all lint/suspicious/noConsole: This is a shell script */
+
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 

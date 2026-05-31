@@ -97,7 +97,7 @@
     "tsdown": "catalog:packages",
     "turbo": "2.9.14",
     "typescript": "catalog:packages",
-    "vite": "8.0.14",
+    "vite": "catalog:shared",
     "vitest": "catalog:shared",
     "yalc": "1.0.0-pre.53",
     "yargs": "18.0.0"
