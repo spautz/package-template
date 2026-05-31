@@ -20,8 +20,9 @@ trustPolicyExclude:
   - 'tinyexec@1.2.2'
   - 'ast-v8-to-istanbul@1.0.2'
 
-configDependencies:
-  '@pnpm/pacquet': 0.2.2-15
+# Disabled: pnpm's Rust port seems to have issues with stable hashes?
+#configDependencies:
+#  '@pnpm/pacquet': 0.2.2-15
 
 # Workspace
 
