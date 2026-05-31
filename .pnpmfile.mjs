@@ -1,9 +1,7 @@
-// biome-ignore-all lint/performance/noDelete: Delete to avoid publishing unnecessary fields
-
-module.exports = {
+export default {
   hooks: {
     beforePacking(pkg) {
-      // Remove development-only fields
+      // biome-ignore-all lint/performance/noDelete: Remove development-only fields
       delete pkg.devDependencies;
       delete pkg.scripts;
       delete pkg['size-limit'];

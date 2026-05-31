@@ -286,8 +286,6 @@ catalogs:
       specifier: 4.1.7
       version: 4.1.7
 
-pnpmfileChecksum: sha256-vBuayoEv1IA+U+aN9zbd7IA5jTsWpz13iYzJCb+1bRU=
-
 importers:
 
   .:
