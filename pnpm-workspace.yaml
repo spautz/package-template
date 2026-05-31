@@ -13,7 +13,12 @@ allowBuilds:
   "core-js": false
   "esbuild@0.28.0": true
 
-# These overrudes are due to npm staged releases:
+# Fix for fflate: https://github.com/arethetypeswrong/arethetypeswrong.github.io/issues/258
+minimumReleaseAgeExclude:
+  - '@arethetypeswrong/cli@0.18.3'
+  - '@arethetypeswrong/core@0.18.3'
+
+# These overrides are due to npm staged releases:
 # tinyexec: https://github.com/tinylibs/tinyexec/issues/136
 # ast-v8-to-istanbul: https://github.com/AriPerkkio/ast-v8-to-istanbul/issues/166
 trustPolicyExclude:
@@ -23,6 +28,7 @@ trustPolicyExclude:
 # Disabled: pnpm's Rust port seems to have issues with stable hashes?
 #configDependencies:
 #  '@pnpm/pacquet': 0.2.2-15
+
 
 # Workspace
 
@@ -43,7 +49,7 @@ catalogs:
     vitest: 4.1.7
   # Packages use (mostly) up-to-date dependencies and devDependencies
   packages:
-    '@arethetypeswrong/cli': 0.18.2
+    '@arethetypeswrong/cli': 0.18.3
     '@size-limit/esbuild': 12.1.0
     '@size-limit/esbuild-why': 12.1.0
     '@size-limit/file': 12.1.0

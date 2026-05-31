@@ -81,6 +81,7 @@
     "packages:typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "catalog:packages",
     "@biomejs/biome": "2.4.15",
     "@changesets/cli": "2.31.0",
     "@typescript/native-preview": "7.0.0-dev.20260525.1",

@@ -71,7 +71,7 @@
     "build:lib": "tsdown --config ./tsdown.config.ts",
     "build:lib:watch": "tsdown --config ./tsdown.config.ts --watch",
     "build:verify": "publint --strict && size-limit",
-    "build:verifypack": "node --experimental-strip-types ../../scripts/verify-pack-tarballs.ts",
+    "build:verifypack": "node --experimental-strip-types ../../scripts/verify-packed-tarballs.ts",
     "size-check": "size-limit --why"
   },
   "dependencies": {},
