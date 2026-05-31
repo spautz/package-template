@@ -13,6 +13,13 @@ allowBuilds:
   "core-js": false
   "esbuild@0.28.0": true
 
+# These overrudes are due to npm staged releases:
+# tinyexec: https://github.com/tinylibs/tinyexec/issues/136
+# ast-v8-to-istanbul: https://github.com/AriPerkkio/ast-v8-to-istanbul/issues/166
+trustPolicyExclude:
+  - 'tinyexec@1.2.2'
+  - 'ast-v8-to-istanbul@1.0.2'
+
 configDependencies:
   '@pnpm/pacquet': 0.2.2-15
 
