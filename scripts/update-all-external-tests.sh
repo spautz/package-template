@@ -24,7 +24,7 @@ source ./scripts/helpers/helpers.sh
 # This script assumes you've already run either `setup-local-environment.sh` or
 # `setup-ci-environment.sh`
 
-pnpm run publish:yalc
+run_command pnpm run publish:yalc
 
 for DIRECTORY in external-tests/*/ ; do
   pushd $DIRECTORY
