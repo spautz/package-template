@@ -28,7 +28,6 @@ trustPolicyExclude:
 configDependencies:
   '@pnpm/pacquet': 0.2.2-15
 
-
 # Workspace
 
 packages:

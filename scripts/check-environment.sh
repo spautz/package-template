@@ -27,7 +27,7 @@ if ! command_exists pnpm; then
 fi
 
 # Validate against engines set in the workspace package.json
-run_command pnpm dlx check-node-version --package --print
+run_command_pnpm_dlx check-node-version --package --print
 
 ###################################################################################################
 # Standard teardown for all scripts
