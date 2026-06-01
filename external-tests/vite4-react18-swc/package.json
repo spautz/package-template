@@ -64,8 +64,8 @@
     "jsdom": "23.2.0",
     "rimraf": "5.0.1",
     "typescript": "5.0.2",
-    "vite": "6.4.2",
-    "vitest": "0.34.2"
+    "vite": "6.4.3",
+    "vitest": "4.1.0"
   },
   "pnpm": {
     "// COMMENT_01": "Always resolve local packages to the same Yalc'd copy: this ensures transitive dependencies between packages don't break when releasing a new semver-minor or -major versions",
