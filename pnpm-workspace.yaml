@@ -3,7 +3,6 @@ blockExoticSubdeps: true
 confirmModulesPurge: false
 engineStrict: true
 minimumReleaseAge: 7200 # 5 days
-packageManagerStrictVersion: true # remove after pnpm 11
 strictDepBuilds: true
 trustPolicy: no-downgrade
 trustPolicyIgnoreAfter: 129600 # 90 days
@@ -26,7 +25,7 @@ trustPolicyExclude:
   - 'ast-v8-to-istanbul@1.0.2'
 
 configDependencies:
-  '@pnpm/pacquet': 0.2.2-15
+  '@pnpm/pacquet': 0.11.0
 
 # Workspace
 
