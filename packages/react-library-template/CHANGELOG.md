@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.1
+
+### Patch Changes
+
+- Adopt staged publishing ([4cff52c](https://github.com/spautz/package-template/commit/4cff52cafebce17b84a38e022df647941fd96005))
+- Updated dependencies ([4cff52c](https://github.com/spautz/package-template/commit/4cff52cafebce17b84a38e022df647941fd96005))
+  - @spautz/basic-library-template@0.4.1
+
 ## 0.4.0
 
 ### Minor Changes
