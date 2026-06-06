@@ -37,7 +37,7 @@ jobs:
           enable-package-manager-cache: false
 
       - name: Prepare release
-        run: pnpm run release:prep
+        run: pnpm run release:prepare
 
       - name: Import GPG key
         uses: crazy-max/ghaction-import-gpg@e00cb83a68c1158b29afc5217dd0582cada6d172 # v4.4.0

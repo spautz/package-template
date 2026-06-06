@@ -31,23 +31,38 @@ jobs:
           node-version: nvmrc
           enable-package-manager-cache: false
 
-      - name: Publish to NPM
+      - name: Pack and verify tarballs
         run: |
           pnpm -r --filter "./packages/*" exec pnpm pack --out package-%v.tgz
-          pnpm -r --filter "./packages/*" exec npm publish --provenance --tag next
 
-      - name: Verify published provenance
+      - name: Stage packages to NPM
+        id: stage-release
         run: |
-          mkdir verify-publish
-          cd verify-publish
-          npm init -y
+          set -o pipefail
+          mkdir -p .tmp
+          pnpm run --silent release:stage | tee .tmp/staged-release.json
 
-          # Iterate through package directories to get names and verify
-          for dir in ../packages/*; do
-            if [ -d "$dir" ]; then
-              # Use --ignore-scripts to prevent execution of potentially malicious lifecycle scripts
-              PACKAGE_NAME=$(node -p "require('$dir/package.json').name")
-              npm install "$PACKAGE_NAME@next" --ignore-scripts
-              npm audit signatures --json --include-attestations
-            fi
-          done
+          stage_ids="$(jq -r '.. | .stageId? // .stageID? // .stage_id? // empty' .tmp/staged-release.json | sort -u)"
+          [ -n "$stage_ids" ] || { echo 'Failed to extract any stage IDs from pnpm output.'; exit 1; }
+
+          {
+            echo 'stage_ids<<EOF'
+            printf '%s\n' "$stage_ids"
+            echo EOF
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Summarize staged releases
+        env:
+          STAGE_IDS: ${{ steps.stage-release.outputs.stage_ids }}
+        run: |
+          {
+            echo '## Staged releases'
+            echo
+            echo 'Approve these stages manually on npm, then run the Verify Live Release workflow.'
+            echo
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          while IFS= read -r stage_id; do
+            [ -n "$stage_id" ] || continue
+            echo "- \`$stage_id\`" >> "$GITHUB_STEP_SUMMARY"
+          done <<< "$STAGE_IDS"

@@ -1,0 +1,68 @@
+name: Verify Live Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      npm-tag:
+        description: Dist-tag to verify
+        required: true
+        default: next
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  verify-live-release:
+    name: Verify live NPM release
+    runs-on: ubuntu-latest
+    # Only run for the original repo, and only the default branch, and only if it's properly protected
+    if: |
+      (! github.event.push.head.repo.fork)
+        && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        && github.ref_protected == true
+    permissions:
+      contents: read
+    env:
+      NPM_TAG: ${{ inputs['npm-tag'] }}
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - uses: ./.github/reusable-workflows/setup-repo
+        with:
+          node-version: nvmrc
+          enable-package-manager-cache: false
+
+      - name: Verify live packages
+        run: |
+          for dir in packages/*; do
+            [ -d "$dir" ] || continue
+
+            is_private="$(node -p "require('./$dir/package.json').private === true ? 'true' : 'false'")"
+            [ "$is_private" != "true" ] || continue
+
+            package_name="$(node -p "require('./$dir/package.json').name")"
+            expected_version="$(node -p "require('./$dir/package.json').version")"
+            actual_version="$(pnpm view "${package_name}@${NPM_TAG}" version)"
+
+            if [ "$actual_version" != "$expected_version" ]; then
+              echo "Expected ${package_name}@${NPM_TAG} to resolve to ${expected_version}, but got ${actual_version}."
+              exit 1
+            fi
+
+            temp_dir="$(mktemp -d)"
+
+            (
+              cd "$temp_dir"
+              # npm is required here for --include-attestations; pnpm audit signatures verifies signatures only.
+              npm init -y >/dev/null 2>&1
+              npm install "${package_name}@${NPM_TAG}" --ignore-scripts
+              npm audit signatures --json --include-attestations
+            )
+
+            rm -rf "$temp_dir"
+          done

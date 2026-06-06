@@ -10,8 +10,8 @@ const require = createRequire(import.meta.url);
 /**
  * `pnpm pack` leaves the tarball in the current package directory, so look for it there.
  */
-async function findPackedTarball(): Promise<string> {
-  const tarballs = (await readdir(process.cwd(), { withFileTypes: true })).filter(
+async function findPackedTarball(directory: string): Promise<string> {
+  const tarballs = (await readdir(directory, { withFileTypes: true })).filter(
     (entry) => entry.isFile() && entry.name.endsWith('.tgz'),
   );
 
@@ -20,11 +20,13 @@ async function findPackedTarball(): Promise<string> {
   }
   if (tarballs.length > 1) {
     throw new Error(
-      `Expected exactly one packed tarball, found ${tarballs.length}: ${tarballs.join(', ')}`,
+      `Expected exactly one packed tarball, found ${tarballs.length}: ${tarballs
+        .map((entry) => entry.name)
+        .join(', ')}`,
     );
   }
 
-  return tarballs[0].name;
+  return path.resolve(directory, tarballs[0].name);
 }
 
 /**
@@ -61,16 +63,27 @@ async function runAttw(tarball: string): Promise<number> {
 }
 
 /**
- * Find the tarball, hand it to ATTW, and pass ATTW's exit code back through.
+ * When a tarball path is provided, verify that. Otherwise, look for exactly one tarball in cwd.
  */
 async function main(): Promise<void> {
-  const tarball = await findPackedTarball().catch((error: unknown) => {
-    const errorMessage = error instanceof Error ? error.message : 'Failed to find packed tarball.';
-    process.stderr.write(`${errorMessage}\n`);
-    process.exit(1);
-  });
+  const tarballs =
+    process.argv.length > 2
+      ? process.argv.slice(2).map((input) => path.resolve(process.cwd(), input))
+      : [
+          await findPackedTarball(process.cwd()).catch((error: unknown) => {
+            const errorMessage =
+              error instanceof Error ? error.message : 'Failed to find packed tarball.';
+            process.stderr.write(`${errorMessage}\n`);
+            process.exit(1);
+          }),
+        ];
 
-  process.exitCode = await runAttw(tarball);
+  for (const tarball of tarballs) {
+    process.exitCode = await runAttw(tarball);
+    if (process.exitCode) {
+      return;
+    }
+  }
 }
 
 await main();

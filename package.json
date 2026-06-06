@@ -56,7 +56,7 @@
     "format:verify": "biome format .",
     "publish:yalc": "pnpm run -r publish:yalc",
     "release:docs": "pnpm run --filter=./docs-website deploy",
-    "release:prep": "pnpm run changelog:status && changeset version",
+    "release:prepare": "pnpm run changelog:status && changeset version",
     "release:stage": "pnpm stage publish -r --filter=\"./packages/*\" --json",
     "release:stage:dry-run": "pnpm run release:stage --dry-run",
     "// COMMENT": "Scripts prefixed with 'w:' are the workspace-only versions of the standard tasks",
