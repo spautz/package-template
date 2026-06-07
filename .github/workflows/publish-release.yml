@@ -39,10 +39,10 @@ jobs:
         id: stage-release
         run: |
           set -o pipefail
-          mkdir -p .tmp
-          pnpm run --silent release:stage | tee .tmp/staged-release.json
+          staged_release_json="$(mktemp "$RUNNER_TEMP/staged-release.XXXXXX.json")"
+          pnpm run --silent release:stage | tee "$staged_release_json"
 
-          stage_ids="$(jq -r '.. | .stageId? // .stageID? // .stage_id? // empty' .tmp/staged-release.json | sort -u)"
+          stage_ids="$(jq -r '.. | .stageId? // .stageID? // .stage_id? // empty' "$staged_release_json" | sort -u)"
           [ -n "$stage_ids" ] || { echo 'Failed to extract any stage IDs from pnpm output.'; exit 1; }
 
           {
