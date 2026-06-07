@@ -31,46 +31,13 @@ jobs:
           enable-package-manager-cache: false
 
       - name: Pack and verify tarballs
-        run: |
-          pnpm -r --filter "./packages/*" exec pnpm pack --out package-%v.tgz
+        run: pnpm run release:pack-packages
 
       - name: Stage packages to npm
         id: stage-release
-        run: |
-          set -o pipefail
-          staged_release_json="$(mktemp "$RUNNER_TEMP/staged-release.XXXXXX.json")"
-          : > "$staged_release_json"
-
-          mapfile -t packed_tarballs < <(find packages -mindepth 2 -maxdepth 2 -type f -name 'package-*.tgz' | sort)
-          [ "${#packed_tarballs[@]}" -gt 0 ] || { echo 'No packed tarballs were found.'; exit 1; }
-
-          for packed_tarball in "${packed_tarballs[@]}"; do
-            echo "Staging $packed_tarball"
-            pnpm run --silent release:stage -- "$packed_tarball" | tee -a "$staged_release_json"
-            printf '\n' >> "$staged_release_json"
-          done
-
-          stage_ids="$(jq -r '.. | .stageId? // .stageID? // .stage_id? // empty' "$staged_release_json" | sort -u)"
-          [ -n "$stage_ids" ] || { echo 'Failed to extract any stage IDs from pnpm output.'; exit 1; }
-
-          {
-            echo 'stage_ids<<EOF'
-            printf '%s\n' "$stage_ids"
-            echo EOF
-          } >> "$GITHUB_OUTPUT"
+        run: bash ./scripts/release/stage-packages-to-npm.sh
 
       - name: Summarize staged releases
         env:
           STAGE_IDS: ${{ steps.stage-release.outputs.stage_ids }}
-        run: |
-          {
-            echo '## Staged releases'
-            echo
-            echo 'Approve these stages manually on npm, then run the Verify and Promote Release workflow.'
-            echo
-          } >> "$GITHUB_STEP_SUMMARY"
-
-          while IFS= read -r stage_id; do
-            [ -n "$stage_id" ] || continue
-            echo "- \`$stage_id\`" >> "$GITHUB_STEP_SUMMARY"
-          done <<< "$STAGE_IDS"
+        run: bash ./scripts/release/summarize-staged-releases.sh

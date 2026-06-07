@@ -56,6 +56,7 @@
     "format:verify": "biome format .",
     "publish:yalc": "pnpm run -r publish:yalc",
     "release:docs": "pnpm run --filter=./docs-website deploy",
+    "release:pack-packages": "bash ./scripts/release/pack-public-packages.sh",
     "release:prepare": "pnpm run changelog:status && changeset version",
     "release:stage": "pnpm stage publish --json --tag next",
     "release:stage:dry-run": "pnpm stage publish --json --dry-run --tag next",

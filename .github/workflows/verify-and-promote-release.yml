@@ -42,58 +42,11 @@ jobs:
           enable-package-manager-cache: false
 
       - name: Verify live packages
-        run: |
-          for dir in packages/*; do
-            [ -d "$dir" ] || continue
-
-            is_private="$(node -p "require('./$dir/package.json').private === true ? 'true' : 'false'")"
-            [ "$is_private" != "true" ] || continue
-
-            package_name="$(node -p "require('./$dir/package.json').name")"
-            expected_version="$(node -p "require('./$dir/package.json').version")"
-            actual_version="$(pnpm view "${package_name}@${NPM_TAG}" version)"
-
-            if [ "$actual_version" != "$expected_version" ]; then
-              echo "Expected ${package_name}@${NPM_TAG} to resolve to ${expected_version}, but got ${actual_version}."
-              exit 1
-            fi
-
-            temp_dir="$(mktemp -d)"
-
-            (
-              cd "$temp_dir"
-              # npm is required here for --include-attestations; pnpm audit signatures verifies signatures only.
-              npm init -y >/dev/null 2>&1
-              npm install "${package_name}@${NPM_TAG}" --ignore-scripts
-              npm audit signatures --json --include-attestations
-            )
-
-            rm -rf "$temp_dir"
-          done
+        run: bash ./scripts/release/verify-live-packages.sh
 
       - name: Promote dist-tags
         if: ${{ inputs['promote-to-tag'] != '' && inputs['promote-to-tag'] != inputs['npm-tag'] }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
           PROMOTE_TO_TAG: ${{ inputs['promote-to-tag'] }}
-        run: |
-          [ -n "$NODE_AUTH_TOKEN" ] || { echo 'NPM_PUBLISH_TOKEN is required.'; exit 1; }
-
-          for dir in packages/*; do
-            [ -d "$dir" ] || continue
-
-            is_private="$(node -p "require('./$dir/package.json').private === true ? 'true' : 'false'")"
-            [ "$is_private" != "true" ] || continue
-
-            package_name="$(node -p "require('./$dir/package.json').name")"
-            expected_version="$(node -p "require('./$dir/package.json').version")"
-            package_spec="${package_name}@${expected_version}"
-
-            pnpm dist-tag add "$package_spec" "$PROMOTE_TO_TAG"
-            actual_version="$(pnpm view "${package_name}@${PROMOTE_TO_TAG}" version)"
-
-            if [ "$actual_version" != "$expected_version" ]; then
-              echo "Expected ${package_name}@${PROMOTE_TO_TAG} to resolve to ${expected_version}, but got ${actual_version}."
-              exit 1
-            fi
-          done
+        run: bash ./scripts/release/promote-dist-tags.sh
