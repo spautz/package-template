@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+### Patch Changes
+
+- Small bump to test package publishing
+
 ## 0.4.1
 
 ### Patch Changes
