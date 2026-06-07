@@ -40,7 +40,16 @@ jobs:
         run: |
           set -o pipefail
           staged_release_json="$(mktemp "$RUNNER_TEMP/staged-release.XXXXXX.json")"
-          pnpm run --silent release:stage | tee "$staged_release_json"
+          : > "$staged_release_json"
+
+          mapfile -t packed_tarballs < <(find packages -mindepth 2 -maxdepth 2 -type f -name 'package-*.tgz' | sort)
+          [ "${#packed_tarballs[@]}" -gt 0 ] || { echo 'No packed tarballs were found.'; exit 1; }
+
+          for packed_tarball in "${packed_tarballs[@]}"; do
+            echo "Staging $packed_tarball"
+            pnpm run --silent release:stage -- "$packed_tarball" | tee -a "$staged_release_json"
+            printf '\n' >> "$staged_release_json"
+          done
 
           stage_ids="$(jq -r '.. | .stageId? // .stageID? // .stage_id? // empty' "$staged_release_json" | sort -u)"
           [ -n "$stage_ids" ] || { echo 'Failed to extract any stage IDs from pnpm output.'; exit 1; }
