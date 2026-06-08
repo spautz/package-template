@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.2
+
+### Patch Changes
+
+- Small bump to test package publishing
+- Updated dependencies
+  - @spautz/basic-library-template@0.4.2
+
 ## 0.4.1
 
 ### Patch Changes
