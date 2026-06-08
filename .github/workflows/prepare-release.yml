@@ -17,6 +17,7 @@ jobs:
   prepare-release-pr:
     name: Prepare PR for release
     runs-on: ubuntu-latest
+    environment: prepare-release-pr
     # Only run in non-fork repos, on protected default branches.
     if: |
       (! github.event.repository.fork)
@@ -26,7 +27,7 @@ jobs:
       contents: write # Required to push the release-prep branch back to the repository.
       pull-requests: write # Required to create or update the automated release PR.
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v6.0.3
         with:
           persist-credentials: false
 
@@ -39,7 +40,7 @@ jobs:
         run: pnpm run release:prepare
 
       - name: Import GPG key
-        uses: crazy-max/ghaction-import-gpg@e00cb83a68c1158b29afc5217dd0582cada6d172 # v4.4.0
+        uses: crazy-max/ghaction-import-gpg@2dc316deee8e90f13e1a351ab510b4d5bc0c82cd # v7.0.0
         with:
           gpg_private_key: ${{ secrets.GPG_PRIVATE_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
@@ -48,7 +49,7 @@ jobs:
 
       - name: Create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7.0.11 # zizmor: ignore[superfluous-actions] clearer and lower-maintenance than equivalent gh shell logic
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1 # zizmor: ignore[superfluous-actions] clearer and lower-maintenance than equivalent gh shell logic
         with:
           branch: prepare-release
           committer: Steven Pautz (Github Actions) <spautz@gmail.com>

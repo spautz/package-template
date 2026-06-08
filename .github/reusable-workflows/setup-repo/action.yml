@@ -16,7 +16,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: pnpm/action-setup@903f9c1a6ebcba6cf41d87230be49611ac97822e # v6.0.3
+    - uses: pnpm/action-setup@0e279bb31d42b0f6f1eb8e325e4c5ac75919b53f # v6.0.8
 
     # Disable the pnpm cache when asked to, or when the lockfile is not used
     - name: Compute flags

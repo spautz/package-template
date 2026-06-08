@@ -22,6 +22,7 @@ jobs:
   verify-and-promote-release:
     name: Verify and promote npm release
     runs-on: ubuntu-latest
+    environment: npm-dist-tag-promotion
     # Only run in non-fork repos, on protected default branches.
     if: |
       (! github.event.repository.fork)
@@ -32,7 +33,7 @@ jobs:
     env:
       NPM_TAG: ${{ inputs['npm-tag'] }}
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v6.0.3
         with:
           persist-credentials: false
 
@@ -47,6 +48,6 @@ jobs:
       - name: Promote dist-tags
         if: ${{ inputs['promote-to-tag'] != '' && inputs['promote-to-tag'] != inputs['npm-tag'] }}
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
+          NPM_DIST_TAG_TOKEN: ${{ secrets.NPM_DIST_TAG_TOKEN }}
           PROMOTE_TO_TAG: ${{ inputs['promote-to-tag'] }}
         run: bash ./scripts/release/promote-dist-tags.sh
