@@ -45,6 +45,11 @@ jobs:
       - name: Verify live packages
         run: bash ./scripts/release/verify-live-packages.sh
 
+      - name: Verify npm auth
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DIST_TAG_TOKEN }}
+        run: pnpm whoami
+
       - name: Promote dist-tags
         if: ${{ inputs['promote-to-tag'] != '' && inputs['promote-to-tag'] != inputs['npm-tag'] }}
         env:
