@@ -49,5 +49,6 @@ jobs:
         if: ${{ inputs['promote-to-tag'] != '' && inputs['promote-to-tag'] != inputs['npm-tag'] }}
         env:
           NPM_DIST_TAG_TOKEN: ${{ secrets.NPM_DIST_TAG_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_DIST_TAG_TOKEN }}
           PROMOTE_TO_TAG: ${{ inputs['promote-to-tag'] }}
         run: bash ./scripts/release/promote-dist-tags.sh

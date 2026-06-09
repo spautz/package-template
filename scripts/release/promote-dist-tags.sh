@@ -25,7 +25,7 @@ NPM_TAG="${NPM_TAG:?NPM_TAG is required.}"
 PROMOTE_TO_TAG="${PROMOTE_TO_TAG:?PROMOTE_TO_TAG is required.}"
 
 if [[ -z "${NODE_AUTH_TOKEN:-}" ]]; then
-  echo 'NPM_PUBLISH_TOKEN is required.'
+  echo 'NODE_AUTH_TOKEN is required.'
   exit 1
 fi
 
