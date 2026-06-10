@@ -24,8 +24,6 @@
       "!yarn.lock",
       // Generated files
       "!**/routeTree.gen.ts",
-      // Biome's formatter currently erases comments from yaml files
-      "!**/*.yaml",
       // Each external-test has its own linting config, following the conventions of its framework
       "!external-tests"
     ],
@@ -44,7 +42,7 @@
     }
   },
   "html": {
-    // For processing astro/svelte/etc. As of 2.3.14 / February 2026 this isn't ready.
+    // For processing astro/svelte/etc. As of February 2026 (v2.3.14) this isn't ready.
     // "experimentalFullSupportEnabled": true
   },
   "javascript": {

@@ -12,20 +12,8 @@ allowBuilds:
   "core-js": false
   "esbuild@0.28.0": true
 
-# Fix for fflate: https://github.com/arethetypeswrong/arethetypeswrong.github.io/issues/258
-minimumReleaseAgeExclude:
-  - '@arethetypeswrong/cli@0.18.3'
-  - '@arethetypeswrong/core@0.18.3'
-
-# These overrides are due to npm staged releases:
-# tinyexec: https://github.com/tinylibs/tinyexec/issues/136
-# ast-v8-to-istanbul: https://github.com/AriPerkkio/ast-v8-to-istanbul/issues/166
-trustPolicyExclude:
-  - 'tinyexec@1.2.2'
-  - 'ast-v8-to-istanbul@1.0.2'
-
 configDependencies:
-  '@pnpm/pacquet': 0.11.0
+  '@pnpm/pacquet': 0.11.1
 
 # Workspace
 
