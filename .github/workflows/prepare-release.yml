@@ -66,3 +66,14 @@ jobs:
         run: |
           echo "Pull Request Number - $PULL_REQUEST_NUMBER"
           echo "Pull Request URL - $PULL_REQUEST_URL"
+
+      - name: Fail if pull request was not created or updated
+        if: ${{ !steps.cpr.outputs.pull-request-number }}
+        env:
+          PULL_REQUEST_OPERATION: ${{ steps.cpr.outputs.pull-request-operation }}
+          PULL_REQUEST_BRANCH: ${{ steps.cpr.outputs.pull-request-branch }}
+        run: |
+          echo "create-pull-request did not produce a pull request number."
+          echo "Pull Request Operation - ${PULL_REQUEST_OPERATION:-<empty>}"
+          echo "Pull Request Branch - ${PULL_REQUEST_BRANCH:-<empty>}"
+          exit 1
