@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.3
+
+### Patch Changes
+
+- Small bump to test package publishing ([5acc01e](https://github.com/spautz/package-template/commit/5acc01e8bde655ef15bb40e1279bf4b236235039))
+
 ## 0.4.2
 
 ### Patch Changes
