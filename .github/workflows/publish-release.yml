@@ -12,6 +12,7 @@ jobs:
   publish-npm:
     name: Publish to npm
     runs-on: ubuntu-latest
+    environment: publish-release
     # Only run in non-fork repos, on protected default branches.
     if: |
       (! github.event.repository.fork)
