@@ -1,5 +1,5 @@
 name: Setup repo (reusable)
-description: Standardized workspace setup for package-template
+description: Standardized workspace setup for spautz's package-template
 inputs:
   node-version:
     description: NodeJS version, for actions/setup-node
