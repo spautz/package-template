@@ -21,6 +21,7 @@ const isolatedTestingCatalogs = ['react16', 'react17', 'react18', 'react19', 'ty
 
 const defaultAllowedCatalogs = [
   'shared',
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
   ...(ALLOW_TESTING_CATALOGS ? isolatedTestingCatalogs : []),
 ];
 
