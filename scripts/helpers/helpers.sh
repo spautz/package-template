@@ -20,6 +20,42 @@ emit_warning() {
   echo "###"
 }
 
+read_package_json_field() {
+  local PACKAGE_DIR="$1"
+  local FIELD_NAME="$2"
+
+  # Read a single field from a package.json without repeating inline Node code.
+  node -e '
+    const fs = require("node:fs");
+    const packageJsonPath = process.argv[1];
+    const fieldName = process.argv[2];
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+    const value = packageJson[fieldName];
+
+    if (value === undefined) {
+      process.exit(1);
+    }
+
+    process.stdout.write(String(value));
+  ' "$PACKAGE_DIR/package.json" "$FIELD_NAME"
+}
+
+is_public_package_dir() {
+  [[ "$(read_package_json_field "$1" private)" != "true" ]]
+}
+
+# Iterate over every non-private package directory under packages/.
+for_each_public_package() {
+  local PACKAGE_DIR
+
+  for PACKAGE_DIR in packages/*; do
+    [[ -d "$PACKAGE_DIR" ]] || continue
+    if is_public_package_dir "$PACKAGE_DIR"; then
+      "$@" "$PACKAGE_DIR"
+    fi
+  done
+}
+
 enable_trace() {
   export PS4='+ ${BASH_SOURCE##*/}:${LINENO}: '
   set -x
