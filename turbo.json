@@ -82,12 +82,11 @@
       "outputs": [
         ".astro/**",
         ".next/**",
+        "!.next/cache/**",
         ".nuxt/**",
         ".output/**",
         ".react-router/**",
         ".svelte-kit/**",
-        ".nuxt/**",
-        "!.next/cache/**",
         "_fresh/**",
         "build/**",
         "dist/**",

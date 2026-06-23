@@ -1,7 +1,7 @@
 {
   "extends": [
     "../../tsconfig-base.typecheck-dom.json",
-    "../../tsconfig-base.typecheck-modernonly.json",
+    "../../tsconfig-base.typecheck-modernoptions.json",
     "../../tsconfig-base.build-cjs.json"
   ],
   "compilerOptions": {

@@ -39,13 +39,13 @@
     "size-check": "source-map-explorer dist/**/*.js"
   },
   "dependencies": {
-    "@skip-the-build/vite": "^1.1.1",
     "@spautz/basic-library-template": "workspace:^",
     "@spautz/react-library-template": "workspace:^",
     "react": "catalog:demos",
     "react-dom": "catalog:demos"
   },
   "devDependencies": {
+    "@skip-the-build/vite": "^1.1.1",
     "@testing-library/jest-dom": "catalog:shared",
     "@testing-library/react": "catalog:shared",
     "@types/react": "catalog:demos",

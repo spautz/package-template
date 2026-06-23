@@ -1,5 +1,8 @@
 {
-  "extends": ["../tsconfig-base.typecheck-dom.json", "../tsconfig-base.typecheck-modernonly.json"],
+  "extends": [
+    "../tsconfig-base.typecheck-dom.json",
+    "../tsconfig-base.typecheck-modernoptions.json"
+  ],
 
   "compilerOptions": {
     "module": "esnext",
