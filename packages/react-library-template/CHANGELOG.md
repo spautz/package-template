@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.5.0
+
+### Minor Changes
+
+- Update CJS build output settings and raise to ES2022 ([d5b765b](https://github.com/spautz/package-template/commit/d5b765b526cea5a74fc9247719112123f179d03a))
+
+### Patch Changes
+
+- Updated dependencies ([d5b765b](https://github.com/spautz/package-template/commit/d5b765b526cea5a74fc9247719112123f179d03a))
+  - @spautz/basic-library-template@0.5.0
+
 ## 0.4.3
 
 ### Patch Changes
