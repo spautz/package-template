@@ -92,6 +92,31 @@ run_command_pnpm_dlx() {
   )
 }
 
+read_package_version_with_retry() {
+  local PACKAGE_SPEC="$1"
+  local EXPECTED_VERSION="$2"
+  local DEADLINE_SECONDS=30
+  local DEADLINE
+  local ACTUAL_VERSION
+
+  DEADLINE=$(( $(date +%s) + DEADLINE_SECONDS ))
+
+  while true; do
+    ACTUAL_VERSION="$(pnpm view "${PACKAGE_SPEC}" version)"
+    if [[ "$ACTUAL_VERSION" == "$EXPECTED_VERSION" ]]; then
+      printf '%s\n' "$ACTUAL_VERSION"
+      return 0
+    fi
+
+    if (( $(date +%s) >= DEADLINE )); then
+      printf '%s\n' "$ACTUAL_VERSION"
+      return 1
+    fi
+
+    sleep 2
+  done
+}
+
 ###############################################################################
 
 # Automatically enable global tracing if `TRACE` is enabled

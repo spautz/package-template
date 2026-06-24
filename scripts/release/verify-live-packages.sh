@@ -47,7 +47,7 @@ verify_public_package() {
 
   PACKAGE_NAME="$(read_package_json_field "$PACKAGE_DIR" name)"
   EXPECTED_VERSION="$(read_package_json_field "$PACKAGE_DIR" version)"
-  ACTUAL_VERSION="$(pnpm view "${PACKAGE_NAME}@${NPM_TAG}" version)"
+  ACTUAL_VERSION="$(read_package_version_with_retry "${PACKAGE_NAME}@${NPM_TAG}" "$EXPECTED_VERSION")"
 
   if [[ "$ACTUAL_VERSION" != "$EXPECTED_VERSION" ]]; then
     echo "Expected ${PACKAGE_NAME}@${NPM_TAG} to resolve to ${EXPECTED_VERSION}, but got ${ACTUAL_VERSION}."

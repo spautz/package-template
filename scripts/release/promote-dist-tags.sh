@@ -41,7 +41,7 @@ promote_public_package() {
   PACKAGE_SPEC="${PACKAGE_NAME}@${EXPECTED_VERSION}"
 
   pnpm dist-tag add "$PACKAGE_SPEC" "$PROMOTE_TO_TAG"
-  ACTUAL_VERSION="$(pnpm view "${PACKAGE_NAME}@${PROMOTE_TO_TAG}" version)"
+  ACTUAL_VERSION="$(read_package_version_with_retry "${PACKAGE_NAME}@${PROMOTE_TO_TAG}" "$EXPECTED_VERSION")"
 
   if [[ "$ACTUAL_VERSION" != "$EXPECTED_VERSION" ]]; then
     echo "Expected ${PACKAGE_NAME}@${PROMOTE_TO_TAG} to resolve to ${EXPECTED_VERSION}, but got ${ACTUAL_VERSION}."
