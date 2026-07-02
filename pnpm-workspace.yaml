@@ -12,6 +12,10 @@ allowBuilds:
   "core-js": false
   "esbuild@0.28.0": true
 
+minimumReleaseAgeExclude:
+  - "turbo@2.10.2"
+  - "@turbo/*"
+
 configDependencies:
   '@pnpm/pacquet': 0.11.1
 
