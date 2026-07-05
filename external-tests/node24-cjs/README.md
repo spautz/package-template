@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+# External-Test: Node 24 with npm, resolving CJS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small test project that exercises this repo's packages in a simple script.
+It's primarily used for CI checks, but it's also a full working demo that you can run locally.
 
-Currently, two official plugins are available:
+It runs in its own Docker container:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. The Docker sets up a clean, empty git repo
+2. `external-test-checks.sh` runs `src/import-test.js`, which runs a quick check
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-};
+To run locally:
+```bash
+scripts/run-external-test.sh  node24-cjs
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+or, to get a shell and play around on your own:
+```bash
+scripts/run-external-test-interactive.sh  node24-cjs
+```

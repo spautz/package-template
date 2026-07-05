@@ -1,24 +1,23 @@
 {
-  "name": "node26-pnpm-cjs",
+  "name": "@private/external-test--node26-pnpm-cjs",
   "private": true,
   "description": "External-test for @spautz/basic-library-template using Node v26",
-  "engines": {
-    "node": "^26"
-  },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "11.5.0",
+      "version": "^11",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "^26",
       "onFail": "download"
     }
   },
   "type": "commonjs",
   "scripts": {
     "____ FOR EXTERNAL-TEST ____________________________________________": "",
-    "preinstall": "pnpm dlx only-allow pnpm",
-    "clean": "true",
-    "external-test": "./internal-test-script/internal-test-script.js",
-    "external-test:ci": "./internal-test-script/internal-test-script.js"
+    "preinstall": "pnpm dlx only-allow pnpm"
   },
   "dependencies": {
     "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template"
