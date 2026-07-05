@@ -7,11 +7,12 @@ ARG NODE_VERSION=26
 
 FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
 WORKDIR /app-node26-pnpm-esm
+# This external-test uses native pnpm, not Corepack
 RUN npm install -g pnpm
 
 FROM base-environment AS base-deps
 
-COPY package.json package-lock.jso[n]  ./
+COPY package.json pnpm-lock.yam[l]  ./
 COPY .yalc  .yalc/
 RUN pnpm install
 
@@ -19,8 +20,7 @@ FROM base-deps AS base-app
 
 COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
-COPY --from=base-deps /app-node26-pnpm-esm/package-lock.json ./
-RUN pnpm run clean
+COPY --from=base-deps /app-node26-pnpm-esm/pnpm-lock.yaml ./
 
 
 # A target for each check or test case. These are just for readability.
@@ -28,12 +28,12 @@ RUN pnpm run clean
 #   'run-ci'  = all project checks, but for CI
 
 FROM base-app AS run-all
-CMD ["pnpm", "run", "external-test"]
+CMD ["bash", "./external-test-checks.sh"]
 
 FROM base-app AS run-ci
-CMD ["pnpm", "run", "external-test:ci"]
+CMD ["bash", "./external-test-checks.sh"]
 
 
 FROM run-all AS default
 LABEL external-test-name="node26-pnpm-esm"
-LABEL external-test.artifact.1="/app-node26-pnpm-esm/package-lock.json"
+LABEL external-test.artifact.1="/app-node26-pnpm-esm/pnpm-lock.yaml"
