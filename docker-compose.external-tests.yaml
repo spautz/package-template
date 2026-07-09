@@ -56,6 +56,24 @@ services:
       - ./external-tests/deno-fresh/static:/app-deno-fresh/static:ro
     init: true
 
+  deno1:
+    profiles: ["deno1"]
+    build:
+      context: ./external-tests/deno1
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-deno1
+    init: true
+
+  deno2:
+    profiles: ["deno2"]
+    build:
+      context: ./external-tests/deno2
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-deno2
+    init: true
+
   nextjs13-playwright:
     profiles: ["nextjs13-playwright"]
     build:
@@ -68,34 +86,6 @@ services:
     volumes:
       - ./external-tests/nextjs13-playwright/src:/app-nextjs13-playwright/src:ro
     init: true
-
-  remix-playwright:
-    profiles: ["remix-playwright"]
-    build:
-      context: ./external-tests/remix-playwright
-      dockerfile: Dockerfile.external-test
-      target: ${DOCKER_BUILD_TARGET:-default}
-    working_dir: /app-remix-playwright
-    ports:
-      - "3004:3000"
-    volumes:
-      - ./external-tests/remix-playwright/src:/app-remix-playwright/src:ro
-    init: true
-
-  vite4-react18-swc:
-    profiles: ["vite4-react18-swc"]
-    build:
-      context: ./external-tests/vite4-react18-swc
-      dockerfile: Dockerfile.external-test
-      target: ${DOCKER_BUILD_TARGET:-default}
-    working_dir: /app-vite4-react18-swc
-    ports:
-      - "4174:4173"
-      - "5174:5173"
-    volumes:
-      - ./external-tests/vite4-react18-swc/src:/app-vite4-react18-swc/src:ro
-    init: true
-
 
   node16-cjs:
     profiles: ["node16-cjs"]
@@ -190,7 +180,7 @@ services:
   node26-npm-cjs:
     profiles: ["node26-npm-cjs"]
     build:
-      context: external-tests/node26-npm-cjs
+      context: ./external-tests/node26-npm-cjs
       dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-node26-npm-cjs
@@ -199,7 +189,7 @@ services:
   node26-npm-esm:
     profiles: ["node26-npm-esm"]
     build:
-      context: external-tests/node26-npm-esm
+      context: ./external-tests/node26-npm-esm
       dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-node26-npm-esm
@@ -208,7 +198,7 @@ services:
   node26-pnpm-cjs:
     profiles: ["node26-pnpm-cjs"]
     build:
-      context: external-tests/node26-pnpm-cjs
+      context: ./external-tests/node26-pnpm-cjs
       dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-node26-pnpm-cjs
@@ -217,8 +207,35 @@ services:
   node26-pnpm-esm:
     profiles: ["node26-pnpm-esm"]
     build:
-      context: external-tests/node26-pnpm-esm
+      context: ./external-tests/node26-pnpm-esm
       dockerfile: Dockerfile.external-test
       target: ${DOCKER_BUILD_TARGET:-default}
     working_dir: /app-node26-pnpm-esm
+    init: true
+
+  remix1-playwright:
+    profiles: ["remix1-playwright"]
+    build:
+      context: ./external-tests/remix1-playwright
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-remix1-playwright
+    ports:
+      - "3004:3000"
+    volumes:
+      - ./external-tests/remix1-playwright/src:/app-remix1-playwright/src:ro
+    init: true
+
+  vite4-react18-swc:
+    profiles: ["vite4-react18-swc"]
+    build:
+      context: ./external-tests/vite4-react18-swc
+      dockerfile: Dockerfile.external-test
+      target: ${DOCKER_BUILD_TARGET:-default}
+    working_dir: /app-vite4-react18-swc
+    ports:
+      - "4174:4173"
+      - "5174:5173"
+    volumes:
+      - ./external-tests/vite4-react18-swc/src:/app-vite4-react18-swc/src:ro
     init: true

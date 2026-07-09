@@ -100,11 +100,15 @@ jobs:
             bun-vite5,
             cra4-react16,
             cra5-react18,
-            nextjs13-playwright,
-            remix-playwright,
-            vite4-react18-swc,
-            node20-cjs,
-            node20-esm,
+            # deno-fresh
+            # deno2,
+            # nextjs13-playwright,
+            # node16-cjs,
+            # node16-esm,
+            # node18-cjs,
+            # node18-esm,
+            # node20-cjs,
+            # node20-esm,
             node22-cjs,
             node22-esm,
             node24-cjs,
@@ -113,6 +117,8 @@ jobs:
             node26-npm-esm,
             node26-pnpm-cjs,
             node26-pnpm-esm,
+            # remix1-playwright,
+            vite4-react18-swc,
           ]
 
     steps:

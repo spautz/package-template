@@ -4,7 +4,7 @@
 # (via ../../scripts/update-external-tests.sh)
 
 FROM mcr.microsoft.com/playwright:v1.40.0-jammy AS base-environment
-WORKDIR /app-remix-playwright
+WORKDIR /app-remix1-playwright
 RUN corepack enable
 
 FROM base-environment AS base-deps
@@ -17,7 +17,7 @@ FROM base-deps AS base-app
 
 COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
-COPY --from=base-deps /app-remix-playwright/pnpm-lock.yaml ./
+COPY --from=base-deps /app-remix1-playwright/pnpm-lock.yaml ./
 RUN pnpm run clean
 
 # 3000 = Remix dev and remix-serve
@@ -44,8 +44,8 @@ CMD pnpm run build && pnpm run server:prod
 
 
 FROM run-all AS default
-LABEL external-test-name="remix-playwright"
-LABEL external-test.artifact.1="/app-remix-playwright/pnpm-lock.yaml"
-LABEL external-test.artifact.2="/app-remix-playwright/playwright-report"
-LABEL external-test.artifact.2="/app-remix-playwright/e2e-test-output"
+LABEL external-test-name="remix1-playwright"
+LABEL external-test.artifact.1="/app-remix1-playwright/pnpm-lock.yaml"
+LABEL external-test.artifact.2="/app-remix1-playwright/playwright-report"
+LABEL external-test.artifact.2="/app-remix1-playwright/e2e-test-output"
 

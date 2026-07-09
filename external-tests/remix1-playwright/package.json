@@ -1,14 +1,14 @@
 {
-  "name": "@spautz/external-test--remix-playwright",
+  "name": "@spautz/external-test--remix1-playwright",
   "private": true,
   "description": "Test app for package-template packages in a Remix app with React 18 and Playwright",
   "license": "MIT",
-  "homepage": "https://github.com/spautz/package-template/blob/main/external-tests/remix-playwright",
+  "homepage": "https://github.com/spautz/package-template/blob/main/external-tests/remix1-playwright",
   "bugs": "https://github.com/spautz/package-template/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/spautz/package-template.git",
-    "directory": "packages/remix-playwright"
+    "directory": "packages/remix1-playwright"
   },
   "author": {
     "name": "Steven Pautz",
