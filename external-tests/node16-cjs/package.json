@@ -1,18 +1,27 @@
 {
-  "name": "node16-cjs",
+  "name": "@private/external-test--node16-cjs",
   "private": true,
   "description": "External-test for @spautz/basic-library-template using Node v16",
   "engines": {
-    "node": "^16"
+    "node": "^16",
+    "npm": "^10"
   },
-  "packageManager": "npm@10.2.4",
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": "^10",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "^16",
+      "onFail": "download"
+    }
+  },
   "type": "commonjs",
   "scripts": {
     "____ FOR EXTERNAL-TEST ____________________________________________": "",
-    "preinstall": "npx only-allow npm",
-    "clean": "true",
-    "external-test": "./internal-test-script/internal-test-script.js",
-    "external-test:ci": "./internal-test-script/internal-test-script.js"
+    "preinstall": "npx only-allow npm"
   },
   "dependencies": {
     "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template"

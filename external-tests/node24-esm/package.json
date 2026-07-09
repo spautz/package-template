@@ -2,6 +2,10 @@
   "name": "@private/external-test--node24-esm",
   "private": true,
   "description": "External-test for @spautz/basic-library-template using Node v24",
+  "engines": {
+    "node": "^24",
+    "npm": "^11"
+  },
   "devEngines": {
     "packageManager": {
       "name": "npm",

@@ -2,6 +2,10 @@
   "name": "@private/external-test--node26-npm-cjs",
   "private": true,
   "description": "External-test for @spautz/basic-library-template using Node v26",
+  "engines": {
+    "node": "^26",
+    "npm": "^11"
+  },
   "devEngines": {
     "packageManager": {
       "name": "npm",

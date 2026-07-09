@@ -1,7 +1,4 @@
-docker-compose.external-test.yaml
 Dockerfile.external-test
-external-test.sh
-external-test-interactive.sh
 
 #
 # Everything below this point is copied from the root .gitignore

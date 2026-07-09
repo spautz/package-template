@@ -1,18 +1,27 @@
 {
-  "name": "node22-esm",
+  "name": "@private/external-test--node22-esm",
   "private": true,
   "description": "External-test for @spautz/basic-library-template using Node v22",
   "engines": {
-    "node": "^22"
+    "node": "^22",
+    "npm": "^10"
   },
-  "packageManager": "npm@10.7.0",
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": "^10",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "^22",
+      "onFail": "download"
+    }
+  },
   "type": "module",
   "scripts": {
     "____ FOR EXTERNAL-TEST ____________________________________________": "",
-    "preinstall": "npx only-allow npm",
-    "clean": "true",
-    "external-test": "./internal-test-script/internal-test-script.js",
-    "external-test:ci": "./internal-test-script/internal-test-script.js"
+    "preinstall": "npx only-allow npm"
   },
   "dependencies": {
     "@spautz/basic-library-template": "file:.yalc/@spautz/basic-library-template"

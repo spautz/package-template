@@ -7,7 +7,7 @@ ARG NODE_VERSION=18
 
 FROM node:${NODE_VERSION}-bullseye-slim AS base-environment
 WORKDIR /app-node18-esm
-RUN corepack enable
+# This external-test uses the bundled version of npm
 
 FROM base-environment AS base-deps
 
@@ -20,7 +20,6 @@ FROM base-deps AS base-app
 COPY . ./
 # We need to reapply the lockfile from deps, in case it changed
 COPY --from=base-deps /app-node18-esm/package-lock.json ./
-RUN npm run clean
 
 
 # A target for each check or test case. These are just for readability.
@@ -28,10 +27,10 @@ RUN npm run clean
 #   'run-ci'  = all project checks, but for CI
 
 FROM base-app AS run-all
-CMD ["npm", "run", "external-test"]
+CMD ["bash", "./external-test-checks.sh"]
 
 FROM base-app AS run-ci
-CMD ["npm", "run", "external-test:ci"]
+CMD ["bash", "./external-test-checks.sh"]
 
 
 FROM run-all AS default
