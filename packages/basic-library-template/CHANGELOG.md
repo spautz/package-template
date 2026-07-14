@@ -1,16 +1,4 @@
-# Change Log - @spautz/basic-library-template
-
-<!-- This log was last generated on Tue, 14 Jul 2026 22:55:30 GMT and should not be manually modified. -->
-
-<!-- Start content -->
-
-## 0.5.1
-
-Tue, 14 Jul 2026 22:55:30 GMT
-
-### Patches
-
-- Test Beachball change file (spautz@gmail.com)
+# Changelog
 
 ## 0.5.0
 
