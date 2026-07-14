@@ -1,7 +1,0 @@
-{
-  "type": "patch",
-  "comment": "Test Beachball change file",
-  "packageName": "@spautz/basic-library-template",
-  "email": "spautz@gmail.com",
-  "dependentChangeType": "patch"
-}
