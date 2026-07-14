@@ -123,6 +123,7 @@ function main(): void {
   const changeDir = path.resolve(process.cwd(), process.argv[2] ?? DEFAULT_CHANGE_DIR);
   const releaseType = determineReleaseType(changeDir);
 
+  // biome-ignore lint/suspicious/noUndeclaredEnvVars: For Github actions only
   const githubOutputPath = process.env['GITHUB_OUTPUT'];
   if (githubOutputPath) {
     appendFileSync(githubOutputPath, `release-type=${releaseType}\n`);

@@ -3,7 +3,7 @@
   "ui": "tui",
 
   "globalDependencies": ["*.js", "*.json", "*.ts"],
-  "globalEnv": ["CI", "SKIP_THE_BUILD"],
+  "globalEnv": ["CI", "NODE_ENV", "SKIP_THE_BUILD"],
 
   "tasks": {
     // -----------------------------------------------------------------------
