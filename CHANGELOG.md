@@ -1,7 +1,8 @@
 # Changelog
 
-This repo uses [Changesets](https://github.com/changesets/changesets) to manage the Changelog, using the
-[changesets-format-with-git-links](https://github.com/spautz/changesets-changelog-format) format.
+This repo ~~uses [Changesets](https://github.com/changesets/changesets)~~
+is trialing [Microsoft Beachball](https://microsoft.github.io/beachball/) to manage the Changelog, ~~using the
+[changesets-format-with-git-links](https://github.com/spautz/changesets-changelog-format) format.~~
 
 Commands:
 
