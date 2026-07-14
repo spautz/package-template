@@ -1,0 +1,20 @@
+{
+  "name": "@spautz/basic-library-template",
+  "entries": [
+    {
+      "date": "Tue, 14 Jul 2026 22:55:30 GMT",
+      "version": "0.5.1",
+      "tag": "@spautz/basic-library-template_v0.5.1",
+      "comments": {
+        "patch": [
+          {
+            "author": "spautz@gmail.com",
+            "package": "@spautz/basic-library-template",
+            "commit": "68e08fd653b8d47962a7324350dcae8e514b3e48",
+            "comment": "Test Beachball change file"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,4 +1,16 @@
-# Changelog
+# Change Log - @spautz/react-library-template
+
+<!-- This log was last generated on Tue, 14 Jul 2026 22:55:30 GMT and should not be manually modified. -->
+
+<!-- Start content -->
+
+## 0.5.1
+
+Tue, 14 Jul 2026 22:55:30 GMT
+
+### Patches
+
+- Bump @spautz/basic-library-template to v0.5.1
 
 ## 0.5.0
 
