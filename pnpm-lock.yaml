@@ -218,8 +218,8 @@ catalogs:
       specifier: 19.2.7
       version: 19.2.7
     typescript:
-      specifier: 5.5.4
-      version: 5.5.4
+      specifier: 6.0.3
+      version: 6.0.3
   packages:
 
     '@arethetypeswrong/cli':
@@ -362,7 +362,7 @@ importers:
     devDependencies:
       typescript:
         specifier: catalog:demos
-        version: 5.5.4
+        version: 6.0.3
 
   demos/hello-world-ui:
     dependencies:
@@ -402,7 +402,7 @@ importers:
         version: 4.1.10(vitest@4.1.10)
       typescript:
         specifier: catalog:demos
-        version: 5.5.4
+        version: 6.0.3
 
   docs-website:
     dependencies:
@@ -6875,13 +6875,13 @@ packages:
   typedarray-to-buffer@3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
 
-  typescript@5.5.4:
-    resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==}
+  typescript@5.6.1-rc:
+    resolution: {integrity: sha512-E3b2+1zEFu84jB0YQi9BORDjz9+jGbwwy1Zi3G0LUNw7a7cePUrHMRNy8aPh53nXpkFGVHSxIZo5vKTfYaFiBQ==}
     engines: {node: '>=14.17'}
     hasBin: true
 
-  typescript@5.6.1-rc:
-    resolution: {integrity: sha512-E3b2+1zEFu84jB0YQi9BORDjz9+jGbwwy1Zi3G0LUNw7a7cePUrHMRNy8aPh53nXpkFGVHSxIZo5vKTfYaFiBQ==}
+  typescript@6.0.3:
+    resolution: {integrity: sha512-y2TvuxSZPDyQakkFRPZHKFm+KKVqIisdg9/CZwm9ftvKXLP8NRWj38/ODjNbr43SsoXqNuAisEf1GdCxqWcdBw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -15090,9 +15090,9 @@ snapshots:
     dependencies:
       is-typedarray: 1.0.0
 
-  typescript@5.5.4: {}
-
   typescript@5.6.1-rc: {}
+
+  typescript@6.0.3: {}
 
   typescript@7.0.2:
     optionalDependencies:
