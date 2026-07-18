@@ -48,32 +48,20 @@ jobs:
           git_commit_gpgsign: true
 
       - name: Create pull request
-        id: cpr
-        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
-        with:
-          branch: prepare-release
-          committer: Steven Pautz (Github Actions) <spautz@gmail.com>
-          commit-message: Prepare release (automated)
-          title: Prepare release (automated)
-          delete-branch: true
-          token: ${{ secrets.PAT }}
-
-      - name: Check outputs
-        if: ${{ steps.cpr.outputs.pull-request-number }}
         env:
-          PULL_REQUEST_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
-          PULL_REQUEST_URL: ${{ steps.cpr.outputs.pull-request-url }}
+          GH_TOKEN: ${{ secrets.PAT }}
         run: |
-          echo "Pull Request Number - $PULL_REQUEST_NUMBER"
-          echo "Pull Request URL - $PULL_REQUEST_URL"
+          gh auth setup-git
 
-      - name: Fail if pull request was not created or updated
-        if: ${{ !steps.cpr.outputs.pull-request-number }}
-        env:
-          PULL_REQUEST_OPERATION: ${{ steps.cpr.outputs.pull-request-operation }}
-          PULL_REQUEST_BRANCH: ${{ steps.cpr.outputs.pull-request-branch }}
-        run: |
-          echo "create-pull-request did not produce a pull request number."
-          echo "Pull Request Operation - ${PULL_REQUEST_OPERATION:-<empty>}"
-          echo "Pull Request Branch - ${PULL_REQUEST_BRANCH:-<empty>}"
-          exit 1
+          git checkout -b prepare-release
+          git add --all
+          git commit -m "Prepare release (automated)"
+          git push origin prepare-release
+
+          gh pr create \
+            --head prepare-release \
+            --title "Prepare release (automated)" \
+            --body ""
+
+          gh pr view prepare-release --json number,url \
+            --jq '"Pull Request #\(.number): \(.url)"'
