@@ -1,4 +1,3 @@
-# General settings
 blockExoticSubdeps: true
 confirmModulesPurge: false
 engineStrict: true
@@ -49,7 +48,7 @@ catalogs:
     '@size-limit/esbuild': 12.1.0
     '@size-limit/esbuild-why': 12.1.0
     '@size-limit/file': 12.1.0
-    '@types/node': 24.10.9
+    '@types/node': 24.13.2
     '@types/react': 19.2.17
     '@types/react-dom': 19.2.3
     publint: 0.3.21
@@ -60,13 +59,13 @@ catalogs:
     typescript: 7.0.2
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
-    '@types/node': 24.10.9
+    '@types/node': 24.13.2
     '@types/react': 19.2.17
     '@types/react-dom': 19.2.3
     react: 19.2.7
     react-dom: 19.2.7
     source-map-explorer: 2.5.3
-    typescript: 5.5.4
+    typescript: 5.9.3
     vite: 8.1.4
 
   # Library-specific catalogs help with isolated testing:
@@ -93,4 +92,4 @@ catalogs:
     react-dom: ^19.2.4
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
-    typescript: 5.5.x
+    typescript: 5.9.x
