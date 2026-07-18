@@ -1,0 +1,11 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    # We use Renovate to create the PRs: this config is only for alerts
+    open-pull-requests-limit: 0
+    # External-tests typically test legacy packages, which are noisy
+    exclude-paths:
+      - "external-tests/**"
