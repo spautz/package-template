@@ -10,8 +10,12 @@ verifyDepsBeforeRun: error
 
 allowBuilds:
   "core-js": false
-  "esbuild@0.28.0": true
+  "esbuild@0.28.1": true
 
+overrides:
+  esbuild: 0.28.1
+
+# Pacquet disabled until pnpm 12
 #configDependencies:
 #  '@pnpm/pacquet': 0.11.12
 
