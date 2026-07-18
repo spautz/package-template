@@ -26,6 +26,13 @@ packages:
   - demos/*
   - docs-website
 
+versioning:
+  ignore:
+    - "@spautz/package-template-*"
+  changelog:
+    format: github
+    storage: repository
+
 catalogs:
   # Shared = aligned between packages and demos
   # (There are some dependencies in common between packages/demos which are not aligned)
