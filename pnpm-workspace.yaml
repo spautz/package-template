@@ -12,10 +12,6 @@ allowBuilds:
   "core-js": false
   "esbuild@0.28.0": true
 
-minimumReleaseAgeExclude:
-  - "turbo@2.10.2"
-  - "@turbo/*"
-
 configDependencies:
   '@pnpm/pacquet': 0.11.1
 
@@ -41,11 +37,11 @@ catalogs:
     '@testing-library/react': 16.3.2
     '@vitest/coverage-v8': 4.1.10
     '@vitest/ui': 4.1.10
-    vite: 8.1.3
+    vite: 8.1.4
     vitest: 4.1.10
   # Packages use (mostly) up-to-date dependencies and devDependencies
   packages:
-    '@arethetypeswrong/cli': 0.18.4
+    '@arethetypeswrong/cli': 0.18.5
     '@size-limit/esbuild': 12.1.0
     '@size-limit/esbuild-why': 12.1.0
     '@size-limit/file': 12.1.0
@@ -56,7 +52,7 @@ catalogs:
     react: 19.2.7
     react-dom: 19.2.7
     size-limit: 12.1.0
-    tsdown: 0.22.4
+    tsdown: 0.22.7
     typescript: 7.0.2
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
@@ -67,7 +63,7 @@ catalogs:
     react-dom: 19.2.7
     source-map-explorer: 2.5.3
     typescript: 5.5.4
-    vite: 8.0.16
+    vite: 8.1.4
 
   # Library-specific catalogs help with isolated testing:
   # these are generally not used for normal dev

@@ -26,6 +26,8 @@ if ! command_exists pnpm; then
   exit 1
 fi
 
+run_command pnpm doctor
+
 # Validate against engines set in the workspace package.json
 run_command_pnpm_dlx check-node-version --package --print
 
