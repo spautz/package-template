@@ -48,7 +48,7 @@
     "changelog:status": "beachball check --verbose",
     "changelog:status:ci": "beachball check --since=origin/main --verbose",
     "catalogs:verify": "node --experimental-strip-types ./scripts/verify-catalog-specifiers.ts",
-    "clean": "pnpm run w:all-tests:clean && rimraf --glob ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
+    "clean": "pnpm run \"/^.*:clean$/\" && rimraf --glob ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
     "docs": "pnpm run --filter=./docs-website dev",
     "format": "biome format --write .",
     "format:verify": "biome format .",

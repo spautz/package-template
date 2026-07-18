@@ -26,6 +26,7 @@ run_command ./scripts/check-environment.sh
 
 # Only use the lockfile if it exists: for many demos and external-tests it's better to ignore the
 # lockfile, to catch issues that package consumers might encounter when upgrading.
+run_command ls -la ./pnpm-lock.yaml || echo "lockfile not found"
 if [ -f "./pnpm-lock.yaml" ]; then
   run_command pnpm install --frozen-lockfile --prefer-offline
 else

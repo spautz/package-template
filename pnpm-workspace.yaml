@@ -12,8 +12,8 @@ allowBuilds:
   "core-js": false
   "esbuild@0.28.0": true
 
-configDependencies:
-  '@pnpm/pacquet': 0.11.1
+#configDependencies:
+#  '@pnpm/pacquet': 0.11.12
 
 # Workspace
 
