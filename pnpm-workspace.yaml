@@ -1,4 +1,3 @@
-# General settings
 blockExoticSubdeps: true
 confirmModulesPurge: false
 engineStrict: true
@@ -66,7 +65,7 @@ catalogs:
     react: 19.2.7
     react-dom: 19.2.7
     source-map-explorer: 2.5.3
-    typescript: 5.5.4
+    typescript: 7.0.2
     vite: 8.1.4
 
   # Library-specific catalogs help with isolated testing:
@@ -93,4 +92,4 @@ catalogs:
     react-dom: ^19.2.4
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
-    typescript: 5.5.x
+    typescript: 7.0.x
