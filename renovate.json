@@ -12,9 +12,15 @@
 
   "packageRules": [
     {
-      "description": "Don't auto-upgrade LTS versions",
-      "matchManagers": ["pnpm"],
-      "matchDepTypes": ["pnpm:catalog:typescriptLTS"],
+      "description": "Don't auto-upgrade LTS or legacy versions",
+      "matchManagers": ["npm"],
+      "matchDepTypes": [
+        "pnpm.catalog.react16",
+        "pnpm.catalog.react17",
+        "pnpm.catalog.react18",
+        "pnpm.catalog.react19",
+        "pnpm.catalog.typescriptLTS"
+      ],
       "enabled": false
     },
     {

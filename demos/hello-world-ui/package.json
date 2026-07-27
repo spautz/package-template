@@ -52,6 +52,6 @@
     "@types/react-dom": "catalog:demos",
     "@vitest/coverage-v8": "catalog:shared",
     "@vitest/ui": "catalog:shared",
-    "typescript": "catalog:demos"
+    "typescript": "catalog:typescriptLTS"
   }
 }

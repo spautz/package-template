@@ -217,9 +217,6 @@ catalogs:
     react-dom:
       specifier: 19.2.7
       version: 19.2.7
-    typescript:
-      specifier: 5.5.4
-      version: 5.5.4
   packages:
 
     '@arethetypeswrong/cli':
@@ -288,6 +285,10 @@ catalogs:
     vitest:
       specifier: 4.1.10
       version: 4.1.10
+  typescriptLTS:
+    typescript:
+      specifier: 5.5.x
+      version: 5.5.4
 
 overrides:
   esbuild: 0.28.1
@@ -361,7 +362,7 @@ importers:
         version: link:../../packages/basic-library-template
     devDependencies:
       typescript:
-        specifier: catalog:demos
+        specifier: catalog:typescriptLTS
         version: 5.5.4
 
   demos/hello-world-ui:
@@ -401,7 +402,7 @@ importers:
         specifier: catalog:shared
         version: 4.1.10(vitest@4.1.10)
       typescript:
-        specifier: catalog:demos
+        specifier: catalog:typescriptLTS
         version: 5.5.4
 
   docs-website:

@@ -21,28 +21,25 @@ type Policy = {
 type PolicyWithFiles = Policy & { files: string[] };
 
 // NOTE: The library-specific ("isolated") catalogs help with isolated testing
-const ALLOW_TESTING_CATALOGS = false;
-const defaultAllowedCatalogs = new Set([
-  ...(ALLOW_TESTING_CATALOGS ? ['react16', 'react17', 'react18', 'react19', 'typescriptLTS'] : []),
-  'shared',
-]);
+const globalCatalogs = ['shared'];
+const testingCatalogs = ['react16', 'react17', 'react18', 'react19', 'typescriptLTS'];
 
 const catalogPolicies: Policy[] = [
   {
     pathPattern: '',
-    allowedCatalogs: new Set(['packages', ...defaultAllowedCatalogs]),
+    allowedCatalogs: new Set(['packages', ...globalCatalogs, ...testingCatalogs]),
   },
   {
     pathPattern: 'packages/*',
-    allowedCatalogs: new Set(['packages', ...defaultAllowedCatalogs]),
+    allowedCatalogs: new Set(['packages', ...globalCatalogs]),
   },
   {
     pathPattern: 'demos/*',
-    allowedCatalogs: new Set(['demos', ...defaultAllowedCatalogs]),
+    allowedCatalogs: new Set(['demos', ...globalCatalogs, ...testingCatalogs]),
   },
   {
     pathPattern: 'docs-website',
-    allowedCatalogs: new Set(['packages', ...defaultAllowedCatalogs]),
+    allowedCatalogs: new Set(['packages', ...globalCatalogs]),
   },
 ];
 
