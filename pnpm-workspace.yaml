@@ -9,7 +9,10 @@ verifyDepsBeforeRun: error
 
 allowBuilds:
   "core-js": false
-  "esbuild@0.28.1": true
+  "esbuild@0.28.2": true
+
+trustPolicyExclude:
+  - beachball@2.65.6
 
 overrides:
   esbuild: 0.28.2
