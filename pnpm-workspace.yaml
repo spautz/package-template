@@ -12,7 +12,12 @@ allowBuilds:
   "esbuild@0.28.2": true
 
 trustPolicyExclude:
-  - beachball@2.65.6
+  # https://github.com/microsoft/beachball/issues/1410
+  - "beachball@2.65.6"
+  # https://github.com/vercel/vercel/issues/17408
+  - "@vercel/detect-agent@1.2.5"
+  # https://github.com/webpack/webpack-dev-middleware/issues/2407
+  - "webpack-dev-middleware@7.4.6"
 
 overrides:
   esbuild: 0.28.2
