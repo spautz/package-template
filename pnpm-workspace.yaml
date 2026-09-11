@@ -1,5 +1,5 @@
+# General settings
 blockExoticSubdeps: true
-confirmModulesPurge: false
 engineStrict: true
 minimumReleaseAge: 7200 # 5 days
 strictDepBuilds: true
@@ -21,10 +21,6 @@ trustPolicyExclude:
 
 overrides:
   esbuild: 0.28.2
-
-# Pacquet disabled until pnpm 12
-#configDependencies:
-#  '@pnpm/pacquet': 0.11.12
 
 # Workspace
 
