@@ -1,0 +1,7 @@
+{
+  "type": "none",
+  "comment": "Update all non-major dependencies",
+  "packageName": "@spautz/react-library-template",
+  "email": "spautz@gmail.com",
+  "dependentChangeType": "none"
+}
