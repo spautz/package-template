@@ -41,7 +41,7 @@ catalogs:
   # (There are some dependencies in common between packages/demos which are not aligned)
   shared:
     '@testing-library/jest-dom': 7.0.1
-    '@testing-library/react': 16.3.2
+    '@testing-library/react': 16.3.3
     '@vitest/coverage-v8': 4.1.11
     '@vitest/ui': 4.1.11
     vite: 8.2.2
@@ -54,18 +54,18 @@ catalogs:
     '@size-limit/file': 13.0.3
     '@types/node': 24.13.3
     '@types/react': 19.2.18
-    '@types/react-dom': 19.2.5
+    '@types/react-dom': 19.2.7
     publint: 0.3.24
     react: 19.2.8
     react-dom: 19.2.8
     size-limit: 13.0.3
-    tsdown: 0.22.14
+    tsdown: 0.23.0
     typescript: 7.0.2
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
     '@types/node': 24.13.3
     '@types/react': 19.2.18
-    '@types/react-dom': 19.2.5
+    '@types/react-dom': 19.2.7
     react: 19.2.8
     react-dom: 19.2.8
     source-map-explorer: 2.5.3
