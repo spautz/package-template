@@ -1,13 +1,13 @@
 import { defineConfig, type UserConfig } from 'tsdown';
 
-const entryDefaults: Partial<UserConfig> = {
+const tsdownEntryDefaults: Partial<UserConfig> = {
   entry: ['src/index.ts'],
   dts: true,
 };
 
-const baseConfigValues: Array<UserConfig> = [
+const tsdownBaseConfigValues: Array<UserConfig> = [
   {
-    ...entryDefaults,
+    ...tsdownEntryDefaults,
     format: 'esm',
     outDir: './dist/esm',
     tsconfig: './tsconfig.build-esm.json',
@@ -15,13 +15,14 @@ const baseConfigValues: Array<UserConfig> = [
     fixedExtension: false,
   },
   {
-    ...entryDefaults,
+    ...tsdownEntryDefaults,
     format: 'cjs',
     outDir: './dist/cjs',
     tsconfig: './tsconfig.build-cjs.json',
   },
 ];
 
-const baseConfig: Array<UserConfig> = defineConfig(baseConfigValues);
+const tsdownBaseConfig: Array<UserConfig> = defineConfig(tsdownBaseConfigValues);
 
-export { baseConfig, baseConfigValues, entryDefaults };
+export default tsdownBaseConfig;
+export { tsdownBaseConfig, tsdownBaseConfigValues, tsdownEntryDefaults };

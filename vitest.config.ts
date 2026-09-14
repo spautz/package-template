@@ -13,7 +13,7 @@ const testPathsToExclude = [
   'external-tests/**',
 ];
 
-const vitestConfig: UserConfig = defineConfig({
+const vitestBaseConfig: UserConfig = defineConfig({
   test: {
     environment: 'jsdom',
 
@@ -30,4 +30,4 @@ const vitestConfig: UserConfig = defineConfig({
   },
 });
 
-export default vitestConfig;
+export default vitestBaseConfig;

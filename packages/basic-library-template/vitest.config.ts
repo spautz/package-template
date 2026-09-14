@@ -1,3 +1,3 @@
-import baseConfig from '../../vitest.config.js';
+import vitestBaseConfig from '../../vitest.config.ts';
 
-export default baseConfig;
+export default vitestBaseConfig;
