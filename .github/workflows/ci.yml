@@ -24,7 +24,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - uses: ./.github/reusable-workflows/setup-repo
+      - uses: $/.github/reusable-workflows/setup-repo
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -57,7 +57,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ./.github/reusable-workflows/setup-repo
+      - uses: $/.github/reusable-workflows/setup-repo
         with:
           node-version: nvmrc
 
@@ -79,7 +79,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ./.github/reusable-workflows/setup-repo
+      - uses: $/.github/reusable-workflows/setup-repo
         with:
           node-version: lts/*
           use-lockfile: false
@@ -126,7 +126,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ./.github/reusable-workflows/setup-repo
+      - uses: $/.github/reusable-workflows/setup-repo
         with:
           node-version: nvmrc
           use-lockfile: false

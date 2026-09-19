@@ -26,7 +26,7 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: ./.github/reusable-workflows/setup-repo
+      - uses: $/.github/reusable-workflows/setup-repo
         with:
           node-version: nvmrc
 
