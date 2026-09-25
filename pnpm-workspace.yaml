@@ -12,7 +12,7 @@ allowBuilds:
 
 trustPolicyExclude:
   # https://github.com/microsoft/beachball/issues/1410
-  - "beachball@2.65.6"
+  - "beachball@2.66.0"
   # https://github.com/vercel/vercel/issues/17408
   - "@vercel/detect-agent@1.2.5"
   # https://github.com/webpack/webpack-dev-middleware/issues/2407
