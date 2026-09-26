@@ -1,3 +1,5 @@
+# General settings
+autoDedupe: true
 blockExoticSubdeps: true
 engineStrict: true
 minimumReleaseAge: 7200 # 5 days
@@ -41,23 +43,23 @@ catalogs:
   shared:
     '@testing-library/jest-dom': 7.0.1
     '@testing-library/react': 16.3.3
-    '@vitest/coverage-v8': 5.0.0
-    '@vitest/ui': 5.0.0
+    '@vitest/coverage-v8': 5.0.1
+    '@vitest/ui': 5.0.1
     vite: 8.3.0
-    vitest: 5.0.0
+    vitest: 5.0.1
   # Packages use (mostly) up-to-date dependencies and devDependencies
   packages:
     '@arethetypeswrong/cli': 0.18.5
-    '@size-limit/esbuild': 13.0.3
-    '@size-limit/esbuild-why': 13.0.3
-    '@size-limit/file': 13.0.3
+    '@size-limit/esbuild': 14.0.0
+    '@size-limit/esbuild-why': 14.0.0
+    '@size-limit/file': 14.0.0
     '@types/node': 24.13.4
     '@types/react': 19.3.0
     '@types/react-dom': 19.3.0
     publint: 0.3.24
     react: 19.3.0
     react-dom: 19.3.0
-    size-limit: 13.0.3
+    size-limit: 14.0.0
     tsdown: 0.23.0
     typescript: 7.0.2
   # Demo apps sometimes use older dependencies and devDependencies
@@ -94,4 +96,4 @@ catalogs:
     react-dom: ^19.2.8
   typescriptLTS:
     # https://github.com/DefinitelyTyped/DefinitelyTyped#support-window
-    typescript: 5.6.3
+    typescript: 5.7.3
