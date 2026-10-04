@@ -252,6 +252,8 @@ catalogs:
 overrides:
   esbuild: 0.28.2
 
+pnpmfileChecksum: sha256-65cj4HTQ/LgGH4WUMENp1M/NqhWdyNpUkBGC9yQrDsE=
+
 importers:
 
   .:
