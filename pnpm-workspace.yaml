@@ -52,7 +52,7 @@ catalogs:
     '@size-limit/esbuild': 14.1.0
     '@size-limit/esbuild-why': 14.1.0
     '@size-limit/file': 14.1.0
-    '@types/node': 24.13.6
+    '@types/node': 26.6.5
     '@types/react': 19.3.0
     '@types/react-dom': 19.3.0
     publint: 0.3.24
@@ -63,7 +63,7 @@ catalogs:
     typescript: 7.0.2
   # Demo apps sometimes use older dependencies and devDependencies
   demos:
-    '@types/node': 24.13.6
+    '@types/node': 26.6.5
     '@types/react': 19.3.0
     '@types/react-dom': 19.3.0
     react: 19.3.0
