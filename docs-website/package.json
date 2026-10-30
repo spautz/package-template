@@ -42,7 +42,7 @@
     "prism-react-renderer": "2.4.1",
     "react": "catalog:packages",
     "react-dom": "catalog:packages",
-    "react-live": "5.0.0"
+    "react-live": "5.0.1"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.10.2",
