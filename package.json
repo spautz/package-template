@@ -83,7 +83,7 @@
     "@arethetypeswrong/cli": "catalog:packages",
     "@biomejs/biome": "2.5.14",
     "beachball": "2.66.0",
-    "glob": "13.0.6",
+    "glob": "14.0.3",
     "husky": "9.1.7",
     "jsdom": "30.1.1",
     "lint-staged": "17.6.0",
